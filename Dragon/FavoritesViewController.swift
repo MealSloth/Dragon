@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  FavoritesViewController.swift
 //  Dragon
 //
 //  Created by Michael Fourre on 9/25/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class FavoritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

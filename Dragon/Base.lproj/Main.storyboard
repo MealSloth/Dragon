@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Become A Chef View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Become A Chef View Controller" id="9pv-A4-QxB" customClass="BecomeAChefViewController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -38,16 +38,24 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="BecomeAChef" id="acW-dT-cKf">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.65098039215686276" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="1354" y="-1393"/>
         </scene>
-        <!--Second-->
+        <!--Favorites View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="FavoritesViewController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -78,11 +86,167 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="Favorites" id="cPa-gy-q4n">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.65098039220000004" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="1354" y="-713"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="VlG-cZ-gNn">
+            <objects>
+                <viewController title="Home View Controller" id="tLh-Ay-Nuw" customClass="HomeViewController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="By7-JV-c1T"/>
+                        <viewControllerLayoutGuide type="bottom" id="JeR-lj-Yir"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YUm-n8-P3h" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PkX-c7-Hy5">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sL6-5t-IRH" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="sL6-5t-IRH" firstAttribute="top" secondItem="PkX-c7-Hy5" secondAttribute="top" id="CRU-DG-b9X"/>
+                                    <constraint firstItem="sL6-5t-IRH" firstAttribute="leading" secondItem="PkX-c7-Hy5" secondAttribute="leading" id="h2e-hM-3MK"/>
+                                    <constraint firstAttribute="trailing" secondItem="sL6-5t-IRH" secondAttribute="trailing" id="hKQ-gR-vtF"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sL6-5t-IRH" firstAttribute="width" secondItem="YUm-n8-P3h" secondAttribute="width" id="8ZY-Mp-FKn"/>
+                            <constraint firstItem="PkX-c7-Hy5" firstAttribute="leading" secondItem="YUm-n8-P3h" secondAttribute="leading" id="FQf-fo-8zM"/>
+                            <constraint firstAttribute="trailing" secondItem="PkX-c7-Hy5" secondAttribute="trailing" id="QIq-Pc-crF"/>
+                            <constraint firstItem="PkX-c7-Hy5" firstAttribute="top" secondItem="By7-JV-c1T" secondAttribute="bottom" id="ZbD-7F-1by"/>
+                            <constraint firstItem="JeR-lj-Yir" firstAttribute="top" secondItem="PkX-c7-Hy5" secondAttribute="bottom" id="rms-zl-cf9"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="vT8-5s-X6y">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.65098039220000004" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="contentView" destination="sL6-5t-IRH" id="C3Q-05-FrE"/>
+                        <outlet property="mainView" destination="YUm-n8-P3h" id="eRP-Ok-cUq"/>
+                        <outlet property="scrollView" destination="PkX-c7-Hy5" id="qVB-Ew-vPG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCf-oq-2BF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="-16"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="cUS-bw-1ae">
+            <objects>
+                <viewController title="Profile View Controller" id="cJh-GE-EfW" customClass="ProfileViewController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mGX-Cb-V2K"/>
+                        <viewControllerLayoutGuide type="bottom" id="JfZ-lJ-hZM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UAv-sK-d6h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Fourth View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="d9U-O9-pJP">
+                                <rect key="frame" x="195" y="279" width="210" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by FourthViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndw-6j-F2m">
+                                <rect key="frame" x="192" y="329" width="216" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ndw-6j-F2m" firstAttribute="top" secondItem="d9U-O9-pJP" secondAttribute="bottom" constant="8" id="Ctj-Oi-cNx"/>
+                            <constraint firstItem="ndw-6j-F2m" firstAttribute="centerX" secondItem="UAv-sK-d6h" secondAttribute="centerX" id="Yzk-M1-xOU"/>
+                            <constraint firstItem="d9U-O9-pJP" firstAttribute="centerX" secondItem="UAv-sK-d6h" secondAttribute="centerX" id="lGK-k4-OFU"/>
+                            <constraint firstItem="d9U-O9-pJP" firstAttribute="centerY" secondItem="UAv-sK-d6h" secondAttribute="centerY" id="pxY-rx-LkU"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Profile" id="18Y-dl-YdB">
+                        <inset key="imageInsets" minX="0.0" minY="4" maxX="0.0" maxY="-4"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.65098039220000004" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eH7-4k-hwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="679"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="bd0-g0-6Gq">
+            <objects>
+                <viewController title="Settings View Controller" id="Bea-zN-NZv" customClass="SettingsViewController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="isj-7S-b83"/>
+                        <viewControllerLayoutGuide type="bottom" id="9xJ-E7-Lb3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b0g-jF-XNu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Fifth View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="bON-7u-B64">
+                                <rect key="frame" x="195" y="279" width="210" height="42"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by FifthViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McK-S8-Erk">
+                                <rect key="frame" x="192" y="329" width="216" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bON-7u-B64" firstAttribute="centerY" secondItem="b0g-jF-XNu" secondAttribute="centerY" id="Hv3-X1-1GI"/>
+                            <constraint firstItem="McK-S8-Erk" firstAttribute="top" secondItem="bON-7u-B64" secondAttribute="bottom" constant="8" id="Lv9-yD-Hhz"/>
+                            <constraint firstItem="McK-S8-Erk" firstAttribute="centerX" secondItem="b0g-jF-XNu" secondAttribute="centerX" id="WQ6-8t-NTE"/>
+                            <constraint firstItem="bON-7u-B64" firstAttribute="centerX" secondItem="b0g-jF-XNu" secondAttribute="centerX" id="dzs-aV-N0h"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Settings" id="rwt-F3-ljQ">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.65098039220000004" green="0.047058823530000002" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dl2-cq-GeD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="1367"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -97,6 +261,9 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="tLh-Ay-Nuw" kind="relationship" relationship="viewControllers" id="2o8-b7-Auj"/>
+                        <segue destination="cJh-GE-EfW" kind="relationship" relationship="viewControllers" id="RWm-Oe-hoh"/>
+                        <segue destination="Bea-zN-NZv" kind="relationship" relationship="viewControllers" id="Aw4-Vb-DOa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -105,7 +272,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="BecomeAChef" width="40" height="44"/>
+        <image name="Favorites" width="44" height="44"/>
+        <image name="Home" width="40" height="40"/>
+        <image name="Profile" width="44" height="44"/>
+        <image name="Settings" width="44" height="44"/>
     </resources>
 </document>
