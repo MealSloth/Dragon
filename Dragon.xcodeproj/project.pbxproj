@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C16A7631BBF9E5500920EF6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7621BBF9E5500920EF6 /* HomeViewController.swift */; };
+		4C16A7651BBF9E6300920EF6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */; };
+		4C16A7671BBF9E6E00920EF6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */; };
+		4C6453771BC8CC8200B69018 /* MealConfirmationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */; };
 		4CF23F821BB618EC00086799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F811BB618EC00086799 /* AppDelegate.swift */; };
-		4CF23F841BB618EC00086799 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F831BB618EC00086799 /* FirstViewController.swift */; };
-		4CF23F861BB618EC00086799 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F851BB618EC00086799 /* SecondViewController.swift */; };
+		4CF23F841BB618EC00086799 /* BecomeAChefController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F831BB618EC00086799 /* BecomeAChefController.swift */; };
+		4CF23F861BB618EC00086799 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F851BB618EC00086799 /* FavoritesViewController.swift */; };
 		4CF23F891BB618EC00086799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF23F871BB618EC00086799 /* Main.storyboard */; };
 		4CF23F8B1BB618EC00086799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF23F8A1BB618EC00086799 /* Assets.xcassets */; };
 		4CF23F8E1BB618EC00086799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF23F8C1BB618EC00086799 /* LaunchScreen.storyboard */; };
@@ -35,10 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C16A7621BBF9E5500920EF6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealConfirmationNavigationController.swift; sourceTree = "<group>"; };
 		4CF23F7E1BB618EC00086799 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF23F811BB618EC00086799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4CF23F831BB618EC00086799 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		4CF23F851BB618EC00086799 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		4CF23F831BB618EC00086799 /* BecomeAChefController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeAChefController.swift; sourceTree = "<group>"; };
+		4CF23F851BB618EC00086799 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4CF23F881BB618EC00086799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CF23F8A1BB618EC00086799 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CF23F8D1BB618EC00086799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,8 +108,12 @@
 			isa = PBXGroup;
 			children = (
 				4CF23F811BB618EC00086799 /* AppDelegate.swift */,
-				4CF23F831BB618EC00086799 /* FirstViewController.swift */,
-				4CF23F851BB618EC00086799 /* SecondViewController.swift */,
+				4CF23F831BB618EC00086799 /* BecomeAChefController.swift */,
+				4CF23F851BB618EC00086799 /* FavoritesViewController.swift */,
+				4C16A7621BBF9E5500920EF6 /* HomeViewController.swift */,
+				4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */,
+				4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */,
+				4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */,
 				4CF23F871BB618EC00086799 /* Main.storyboard */,
 				4CF23F8A1BB618EC00086799 /* Assets.xcassets */,
 				4CF23F8C1BB618EC00086799 /* LaunchScreen.storyboard */,
@@ -259,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF23F861BB618EC00086799 /* SecondViewController.swift in Sources */,
+				4C6453771BC8CC8200B69018 /* MealConfirmationNavigationController.swift in Sources */,
+				4C16A7671BBF9E6E00920EF6 /* SettingsViewController.swift in Sources */,
+				4CF23F861BB618EC00086799 /* FavoritesViewController.swift in Sources */,
 				4CF23F821BB618EC00086799 /* AppDelegate.swift in Sources */,
-				4CF23F841BB618EC00086799 /* FirstViewController.swift in Sources */,
+				4C16A7631BBF9E5500920EF6 /* HomeViewController.swift in Sources */,
+				4CF23F841BB618EC00086799 /* BecomeAChefController.swift in Sources */,
+				4C16A7651BBF9E6300920EF6 /* ProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +422,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Dragon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -420,6 +437,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Dragon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -494,6 +512,7 @@
 				4CF23FAA1BB618ED00086799 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CF23FAB1BB618ED00086799 /* Build configuration list for PBXNativeTarget "DragonTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +521,7 @@
 				4CF23FAD1BB618ED00086799 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CF23FAE1BB618ED00086799 /* Build configuration list for PBXNativeTarget "DragonUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +530,7 @@
 				4CF23FB01BB618ED00086799 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,6 +10,8 @@ import UIKit
 
 class BecomeAChefViewController: UIViewController {
 
+    var firstLaunch = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,6 +21,14 @@ class BecomeAChefViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        if (firstLaunch) //If first time opening, default to Home tab
+        {
+            self.tabBarController?.selectedIndex = 2
+            firstLaunch = false
+        }
+    }
 
 }
