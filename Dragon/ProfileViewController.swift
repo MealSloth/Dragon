@@ -7,11 +7,78 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
     
     @IBOutlet var mainView: UIView!
     @IBOutlet var scrollView: UIScrollView!
+    
+    @IBOutlet var username: UITextField!
+    @IBOutlet var password: UITextField!
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        //create an alert, with a "OK" button. When press the button the alert will dismiss.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)    //display the alert
+        
+    }
+    
+    @IBAction func signUp(sender: AnyObject) {
+        
+        if username.text == "" || password.text == "" {
+            
+            displayAlert("Error in form", message: "Please enter a username and a password")
+            
+        } else {
+            
+            //a small marker to indicate that the sign up process is running
+            activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            UIApplication.sharedApplication().beginIgnoringInteractionEvents()    //during the process nothing else can be done
+            
+            let user = PFUser()
+            user.username = username.text
+            user.password = password.text
+            
+            var errorMessage = "Please try again later"
+            
+            user.signUpInBackgroundWithBlock({ (success, error) -> Void in
+                self.activityIndicator.stopAnimating()      //stop the marker
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                
+                if error == nil {
+                    
+                } else {
+                    
+                    if let errorString = error?.userInfo["error"] as? String {
+                        errorMessage = errorString
+                    }
+                    self.displayAlert("Failed SignUp", message: errorMessage)
+                }
+            })
+        }
+        
+        
+        
+    }
+    
+    @IBAction func logIn(sender: AnyObject) {
+        
+        
+    }
 
     var screenHeight: CGFloat {
         get {
@@ -35,7 +102,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createViews()
+        
+        
+        //createViews()
     }
     
     override func didReceiveMemoryWarning() {
