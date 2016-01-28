@@ -11,11 +11,17 @@ import Parse
 
 class ProfileViewController: UIViewController {
     
+    var signupActive = true
+    
     @IBOutlet var mainView: UIView!
     @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
+    
+    @IBOutlet var signupButton: UIButton!
+    @IBOutlet var loginButton: UIButton!
+    @IBOutlet var registeredText: UILabel!
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
@@ -49,26 +55,50 @@ class ProfileViewController: UIViewController {
             activityIndicator.startAnimating()
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()    //during the process nothing else can be done
             
-            let user = PFUser()
-            user.username = username.text
-            user.password = password.text
-            
             var errorMessage = "Please try again later"
             
-            user.signUpInBackgroundWithBlock({ (success, error) -> Void in
-                self.activityIndicator.stopAnimating()      //stop the marker
-                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            if signupActive == true {
                 
-                if error == nil {
+	            let user = PFUser()
+	            user.username = username.text
+	            user.password = password.text
+	            
+	            user.signUpInBackgroundWithBlock({ (success, error) -> Void in
+	                self.activityIndicator.stopAnimating()      //stop the marker
+	                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+	                
+	                if error == nil {
+	                    
+	                } else {
+	                    
+	                    if let errorString = error?.userInfo["error"] as? String {
+	                        errorMessage = errorString
+	                    }
+	                    self.displayAlert("Failed SignUp", message: errorMessage)
+	                }
+	            })
+                
+            } else {
+
+            	PFUser.logInWithUsernameInBackground(username.text!, password: password.text!, block: { (user, error) -> Void in
                     
-                } else {
+                    self.activityIndicator.stopAnimating()      //stop the marker
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     
-                    if let errorString = error?.userInfo["error"] as? String {
-                        errorMessage = errorString
+                    if user != nil{
+                        
+                    } else {
+                        if let errorString = error?.userInfo["error"] as? String {
+                            errorMessage = errorString
+                        }
+                        self.displayAlert("Failed Login", message: errorMessage)
                     }
-                    self.displayAlert("Failed SignUp", message: errorMessage)
-                }
-            })
+                    
+                })
+
+            }
+
+            
         }
         
         
@@ -77,7 +107,19 @@ class ProfileViewController: UIViewController {
     
     @IBAction func logIn(sender: AnyObject) {
         
-        
+        if signupActive == true {
+            signupButton.setTitle("Log In", forState: UIControlState.Normal)
+            registeredText.text = "Not registered?"
+            loginButton.setTitle("Sign Up", forState: UIControlState.Normal)
+            
+            signupActive = false
+        } else {
+            signupButton.setTitle("Sign Up", forState: UIControlState.Normal)
+            registeredText.text = "Already registered?"
+            loginButton.setTitle("Login", forState: UIControlState.Normal)
+            
+            signupActive = true
+        }
     }
 
     var screenHeight: CGFloat {

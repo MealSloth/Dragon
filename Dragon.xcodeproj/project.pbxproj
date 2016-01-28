@@ -19,6 +19,7 @@
 		4CF23F8E1BB618EC00086799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF23F8C1BB618EC00086799 /* LaunchScreen.storyboard */; };
 		4CF23F991BB618ED00086799 /* DragonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F981BB618ED00086799 /* DragonTests.swift */; };
 		4CF23FA41BB618ED00086799 /* DragonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23FA31BB618ED00086799 /* DragonUITests.swift */; };
+		606FADD11C587FF4007F98A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606FADD01C587FF4007F98A7 /* LoginViewController.swift */; };
 		6076333A1C4DAA7100C031DB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607633381C4DAA7100C031DB /* Bolts.framework */; };
 		6076333B1C4DAA7100C031DB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607633391C4DAA7100C031DB /* Parse.framework */; };
 		6076333D1C4DAA9500C031DB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6076333C1C4DAA9500C031DB /* AudioToolbox.framework */; };
@@ -69,6 +70,7 @@
 		4CF23F9F1BB618ED00086799 /* DragonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF23FA31BB618ED00086799 /* DragonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonUITests.swift; sourceTree = "<group>"; };
 		4CF23FA51BB618ED00086799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		606FADD01C587FF4007F98A7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		607633381C4DAA7100C031DB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		607633391C4DAA7100C031DB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		6076333C1C4DAA9500C031DB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				4CF23F811BB618EC00086799 /* AppDelegate.swift */,
+				606FADD01C587FF4007F98A7 /* LoginViewController.swift */,
 				4CF23F831BB618EC00086799 /* BecomeAChefController.swift */,
 				4CF23F851BB618EC00086799 /* FavoritesViewController.swift */,
 				4C16A7621BBF9E5500920EF6 /* HomeViewController.swift */,
@@ -331,6 +334,7 @@
 				4C16A7671BBF9E6E00920EF6 /* SettingsViewController.swift in Sources */,
 				4CF23F861BB618EC00086799 /* FavoritesViewController.swift in Sources */,
 				4CF23F821BB618EC00086799 /* AppDelegate.swift in Sources */,
+				606FADD11C587FF4007F98A7 /* LoginViewController.swift in Sources */,
 				4C16A7631BBF9E5500920EF6 /* HomeViewController.swift in Sources */,
 				4CF23F841BB618EC00086799 /* BecomeAChefController.swift in Sources */,
 				4C16A7651BBF9E6300920EF6 /* ProfileViewController.swift in Sources */,
