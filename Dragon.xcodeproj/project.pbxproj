@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C16A7631BBF9E5500920EF6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7621BBF9E5500920EF6 /* HomeViewController.swift */; };
 		4C16A7651BBF9E6300920EF6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */; };
 		4C16A7671BBF9E6E00920EF6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */; };
 		4C6453771BC8CC8200B69018 /* MealConfirmationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */; };
@@ -32,6 +31,8 @@
 		6076334B1C4DAAD500C031DB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6076334A1C4DAAD500C031DB /* SystemConfiguration.framework */; };
 		6076334D1C4DAADE00C031DB /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6076334C1C4DAADE00C031DB /* libz.tbd */; };
 		6076334F1C4DAAE400C031DB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6076334E1C4DAAE400C031DB /* libsqlite3.tbd */; };
+		60F7F2E41C5C3B3A009ED8C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7F2E31C5C3B3A009ED8C6 /* HomeViewController.swift */; };
+		60F7F2E61C5C3C9C009ED8C6 /* MealButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7F2E51C5C3C9C009ED8C6 /* MealButtonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C16A7621BBF9E5500920EF6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealConfirmationNavigationController.swift; sourceTree = "<group>"; };
@@ -83,6 +83,8 @@
 		6076334A1C4DAAD500C031DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6076334C1C4DAADE00C031DB /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6076334E1C4DAAE400C031DB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		60F7F2E31C5C3B3A009ED8C6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		60F7F2E51C5C3C9C009ED8C6 /* MealButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealButtonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,10 +152,11 @@
 				606FADD01C587FF4007F98A7 /* LoginViewController.swift */,
 				4CF23F831BB618EC00086799 /* BecomeAChefController.swift */,
 				4CF23F851BB618EC00086799 /* FavoritesViewController.swift */,
-				4C16A7621BBF9E5500920EF6 /* HomeViewController.swift */,
 				4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */,
 				4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */,
 				4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */,
+				60F7F2E31C5C3B3A009ED8C6 /* HomeViewController.swift */,
+				60F7F2E51C5C3C9C009ED8C6 /* MealButtonCell.swift */,
 				4CF23F871BB618EC00086799 /* Main.storyboard */,
 				4CF23F8A1BB618EC00086799 /* Assets.xcassets */,
 				4CF23F8C1BB618EC00086799 /* LaunchScreen.storyboard */,
@@ -333,11 +336,12 @@
 				4C6453771BC8CC8200B69018 /* MealConfirmationNavigationController.swift in Sources */,
 				4C16A7671BBF9E6E00920EF6 /* SettingsViewController.swift in Sources */,
 				4CF23F861BB618EC00086799 /* FavoritesViewController.swift in Sources */,
+				60F7F2E41C5C3B3A009ED8C6 /* HomeViewController.swift in Sources */,
 				4CF23F821BB618EC00086799 /* AppDelegate.swift in Sources */,
 				606FADD11C587FF4007F98A7 /* LoginViewController.swift in Sources */,
-				4C16A7631BBF9E5500920EF6 /* HomeViewController.swift in Sources */,
 				4CF23F841BB618EC00086799 /* BecomeAChefController.swift in Sources */,
 				4C16A7651BBF9E6300920EF6 /* ProfileViewController.swift in Sources */,
+				60F7F2E61C5C3C9C009ED8C6 /* MealButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

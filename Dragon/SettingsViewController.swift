@@ -7,56 +7,66 @@
 //
 
 import UIKit
+import Parse
 
 class SettingsViewController: UIViewController {
     
     @IBOutlet var mainView: UIView!
     @IBOutlet var contentView: UIView!
     
-    var screenHeight: CGFloat {
-        get {
-            return UIScreen.mainScreen().bounds.size.height
-        }
-    }
-    var screenWidth: CGFloat {
-        get {
-            return UIScreen.mainScreen().bounds.size.width
-        }
-    }
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    var logoutButton = UIButton()
-    var settingsText = UILabel()
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        //create an alert, with a "OK" button. When press the button the alert will dismiss.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)    //display the alert
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        createViews()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func logoutButtonAction(sender: UIButton!)
-    {
-        print("Pressed")
+    @IBAction func logOut(sender: AnyObject) {
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()    //during the process nothing else can be done
+        
+        PFUser.logOutInBackgroundWithBlock { (error) -> Void in
+            self.activityIndicator.stopAnimating()      //stop the marker
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
+            
+            var errorMessage = "Please try again later"
+            
+            if error == nil {
+                
+                //remember set the segue from the view controller, not the button, unless the segue will be executed twice.
+                self.performSegueWithIdentifier("logout", sender: self)
+                
+            } else {
+                
+                if let errorString = error?.userInfo["error"] as? String {
+                    errorMessage = errorString
+                }
+                self.displayAlert("Failed SignUp", message: errorMessage)
+            }
+        }
     }
     
-    func createViews()
-    {
-        /*Logout Button*/
-        logoutButton.addTarget(self, action: "logoutButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        logoutButton.setTitle("Logout", forState: UIControlState.Normal)
-        logoutButton.titleLabel!.font = UIFont(name: "SegoeUI", size: 20)
-        logoutButton.layer.cornerRadius = 10
-        logoutButton.backgroundColor = UIColor.grayColor();
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(logoutButton)
-        
-        NSLayoutConstraint.activateConstraints([logoutButton.centerXAnchor.constraintEqualToAnchor(contentView.centerXAnchor),
-            logoutButton.centerYAnchor.constraintEqualToAnchor(contentView.centerYAnchor),
-            logoutButton.widthAnchor.constraintEqualToConstant(150.0),
-            logoutButton.heightAnchor.constraintEqualToConstant(60.0)])
-    }
+    
     
 }
