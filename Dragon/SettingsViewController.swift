@@ -8,19 +8,18 @@
 
 import UIKit
 import Parse
+import CoreData
 
 class SettingsViewController: UIViewController {
     
-    @IBOutlet var mainView: UIView!
-    @IBOutlet var contentView: UIView!
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     func displayAlert(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        //create an alert, with a "OK" button. When press the button the alert will dismiss.
+
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
             self.dismissViewControllerAnimated(true, completion: nil)
         }))
@@ -38,6 +37,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func logOut(sender: AnyObject) {
+        /*
         activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -65,8 +65,24 @@ class SettingsViewController: UIViewController {
                 self.displayAlert("Failed SignUp", message: errorMessage)
             }
         }
-    }
-    
-    
+*/
+        let request = NSFetchRequest(entityName: "User")
+        request.returnsObjectsAsFaults = false    //for display
+        
+        do{
+            let result = try context.executeFetchRequest(request)
+            print(result.count)
+            if result.count > 0{
+                for user:AnyObject in result{
+                    context.deleteObject(user as! NSManagedObject)
+                }
+                try context.save()
+            }
+        }catch{
+            print("fetch failed")
+        }
+        
+        self.performSegueWithIdentifier("logout", sender: self)
+    }    
     
 }

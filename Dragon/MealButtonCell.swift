@@ -12,8 +12,5 @@ class MealButtonCell: UITableViewCell {
 
     @IBOutlet var mealButtonImage: UIImageView!
     
-    
-    
-    
 
 }

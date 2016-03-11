@@ -8,11 +8,21 @@
 
 import UIKit
 import Parse
+import CoreData
 
 class ProfileViewController: UIViewController {
     
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
     @IBOutlet var mainView: UIView!
-    @IBOutlet var scrollView: UIScrollView!    
+    @IBOutlet var scrollView: UIScrollView!
+    
+    @IBOutlet var username: UILabel!
+    @IBOutlet var gender: UILabel!
+    @IBOutlet var phoneNumber: UILabel!
+    @IBOutlet var email: UILabel!
+    @IBOutlet var birthday: UILabel!
+
 
     var screenHeight: CGFloat {
         get {
@@ -35,6 +45,79 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+        //dispatch_async(dispatch_get_main_queue()) {
+        
+        let url = NSURL(string: "http://api.mealsloth.com/user-model-from-id/5782cd13-653d-43da-b384-38d06bd14fa2/")!
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
+            
+            if let urlContent = data{
+                
+                do{
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    
+                    if let j1 = jsonResult["first_name"] as? String {
+                        self.username.text = j1
+                    }
+                    if let j2 = jsonResult["gender"] as? String {
+                        if j2 == "0" {
+                            self.gender.text = "Male"
+                        }else{
+                            self.gender.text = "Female"
+                        }
+                    }
+                    if let j3 = jsonResult["phone_number"] as? String {
+                        self.phoneNumber.text = j3
+                    }
+                    if let j4 = jsonResult["email"] as? String {
+                        self.email.text = j4
+                    }
+                    if let j5 = jsonResult["date_of_birth"] as? NSString {
+                        self.birthday.text = j5.substringWithRange(NSRange(location: 0, length: 10))
+                    }
+
+                }catch {
+                    //print("JSON failed")
+                }
+            }
+        }
+        
+        task.resume()
+        */
+            
+        let request = NSFetchRequest(entityName: "User")
+        request.returnsObjectsAsFaults = false    //for display
+        
+        do{
+            let result = try context.executeFetchRequest(request)
+            print(result.count)
+            if result.count > 0{
+                for user in result as! [NSManagedObject]{
+                    
+                    if let j1 = user.valueForKey("first_name") {
+                        self.username.text = j1 as? String
+                    }
+                    
+                    if let j2 = user.valueForKey("phone_number") {
+                        self.phoneNumber.text = j2 as? String
+                    }
+                    
+                    if let j3 = user.valueForKey("gender"){
+                        self.gender.text = j3 as? String
+                    }
+                    
+                    if let j4 = user.valueForKey("email"){
+                        self.email.text = j4 as? String
+                    }
+                    
+                    //print(user.valueForKey("id")!)
+                    //print(user.valueForKey("phone_number")!)
+                }
+            }
+        }catch{
+            print("fetch failed")
+        }
     }
     
     override func didReceiveMemoryWarning() {
