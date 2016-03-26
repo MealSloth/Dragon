@@ -38,51 +38,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(alert, animated: true, completion: nil)    //display the alert
     }
     
-    func postRequest(json : Dictionary<String, String>, url : String) -> NSDictionary {
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        request.HTTPMethod = "POST"
-        request.addValue("application/json",forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json",forHTTPHeaderField: "Accept")
-        do{
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions.PrettyPrinted)
-        }catch{}
-        
-        var result : NSDictionary = NSDictionary()
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            guard data != nil else {
-                print("no data found: \(error)")
-                return
-            }
-            do {
-                if let jsonResult : NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary {
-
-                    result = jsonResult
-                    
-                }
-            } catch let parseError {
-                print(parseError)
-            }
-        }
-        
-        task.resume()
-        
-        while(result.count == 0){}
-        
-        return result
-        
-    }
-    
     func isLogin(email:String, inputPassword:String) -> Bool {
         
         let json1 = ["email":email]
-        let result:NSDictionary = postRequest(json1, url: "http://api.mealsloth.com/user/")
+        let result:NSDictionary = APIOperations.postRequest(json1, url: "http://api.mealsloth.com/user/")
         
         let user_login_id = result["user"]!["user_login_id"] as! String
         
         let json2 = ["user_login_id" : user_login_id]
-        let password = postRequest(json2, url: "http://api.mealsloth.com/user-login/")
+        let password = APIOperations.postRequest(json2, url: "http://api.mealsloth.com/user-login/")
 
         return inputPassword == (password["user_login"]!["password"] as! String)
     }
@@ -92,14 +56,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let newUser = NSEntityDescription.insertNewObjectForEntityForName("User",inManagedObjectContext:self.context) as NSManagedObject
         
         newUser.setValue(result["user"]!["first_name"] as! String, forKey: "first_name")
-        if(result["user"]!["gender"] as! Int == 0){
-            newUser.setValue("Male", forKey: "gender")
-        }else{
-            newUser.setValue("Female", forKey: "gender")
-        }
+        newUser.setValue(result["user"]!["last_name"] as! String, forKey: "last_name")
+        newUser.setValue(result["user"]!["gender"] as! Int, forKey: "gender")
         newUser.setValue(result["user"]!["phone_number"] as! String, forKey: "phone_number")
         newUser.setValue(result["user"]!["id"] as! String, forKey: "id")
         newUser.setValue(result["user"]!["email"] as! String, forKey: "email")
+        newUser.setValue(result["user"]!["date_of_birth"] as! String, forKey: "date_of_birth")
         
         do{
             try self.context.save()
@@ -129,7 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if signupActive == true {    //sign up
                 
                 let createJson = ["email":self.username.text!, "password":self.password.text!]
-                let createResult:NSDictionary = postRequest(createJson, url: "http://api.mealsloth.com/user/create/")
+                let createResult:NSDictionary = APIOperations.postRequest(createJson, url: "http://api.mealsloth.com/user/create/")
                 
                 self.activityIndicator.stopAnimating()    //stop marker
                 UIApplication.sharedApplication().endIgnoringInteractionEvents()
@@ -151,9 +113,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if(loginFlag){
                     
                     let json = ["email":self.username.text!]
-                    let result:NSDictionary = postRequest(json, url: "http://api.mealsloth.com/user/")
+                    let result:NSDictionary = APIOperations.postRequest(json, url: "http://api.mealsloth.com/user/")
                     createUserModel(result)
-                    print("line 164 segue")
+                    
                     self.performSegueWithIdentifier("login", sender: self)
                 }else{
                     self.displayAlert("Failed Login", message: "invalid username or password")
@@ -212,16 +174,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        let request = NSFetchRequest(entityName: "User")
-        request.returnsObjectsAsFaults = false
-        do{
-            let result = try context.executeFetchRequest(request)
-            if result.count > 0{
-//                print("line 228 segue")
-                self.performSegueWithIdentifier("login", sender: self)
-            }
-        }catch{
-            print("fetch failed")
+        
+        if DatabaseOperations.userAlreadyLogin() {
+            self.performSegueWithIdentifier("login", sender: self)
         }
     }
     

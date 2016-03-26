@@ -4,10 +4,10 @@
         <attribute name="billing_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="chef_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="consumer_id" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="date_of_birth" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="date_of_birth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location_id" optional="YES" attributeType="String" syncable="YES"/>

@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet var mealButtonTable: UITableView!
     
+    var mealButtonData : [MealButtonCell] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("mealButtonCell", forIndexPath: indexPath) as! MealButtonCell
         
- //       cell.mealImage.image
+        cell.mealName.text = "Fried rice"
+        cell.price.text = "$ 3.66"
+        cell.reviews.text = "6 Reviews"
+        cell.time.text = "12:00pm - 2:00pm"
+        ImageProcess.makeRoundImage(cell.chefHead)
         
         return cell
     }
@@ -47,6 +52,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.performSegueWithIdentifier("showMealDetails", sender: self)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        navigationItem.title = nil
+        if segue.identifier == "ShoppingCartFromHomeView" {
+            navigationItem.title = ""
+        }
     }
 
     /*
