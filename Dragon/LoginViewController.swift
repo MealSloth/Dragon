@@ -125,7 +125,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logIn(sender: AnyObject) {
-    
+        
         if signupActive == true {
             signupButton.setTitle("Log In", forState: UIControlState.Normal)
             registeredText.text = "Not registered?"

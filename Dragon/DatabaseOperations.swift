@@ -107,4 +107,35 @@ class DatabaseOperations {
         }
     }
     
+    class func deleteCurrentUser() -> Bool {
+        
+        if !userAlreadyLogin() {
+            return false
+        }
+        
+        let request = NSFetchRequest(entityName: "User")
+        request.returnsObjectsAsFaults = false
+        
+        do{
+            let result = try context.executeFetchRequest(request)
+            if result.count > 0{
+                
+                for user:AnyObject in result{
+                    context.deleteObject(user as! NSManagedObject)
+                }
+                
+                do{
+                    try self.context.save()
+                    return true
+                }catch{
+                    print("there is a problem!")
+                }
+            }
+        }catch{
+            print("fetch failed")
+        }
+        
+        return false
+    }
+    
 }

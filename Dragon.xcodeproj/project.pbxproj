@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C16A7651BBF9E6300920EF6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */; };
 		4C16A7671BBF9E6E00920EF6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */; };
-		4C6453771BC8CC8200B69018 /* MealConfirmationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */; };
 		4CF23F821BB618EC00086799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F811BB618EC00086799 /* AppDelegate.swift */; };
-		4CF23F841BB618EC00086799 /* BecomeAChefController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F831BB618EC00086799 /* BecomeAChefController.swift */; };
 		4CF23F861BB618EC00086799 /* FoodieFavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23F851BB618EC00086799 /* FoodieFavoritesController.swift */; };
 		4CF23F891BB618EC00086799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF23F871BB618EC00086799 /* Main.storyboard */; };
 		4CF23F8B1BB618EC00086799 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF23F8A1BB618EC00086799 /* Assets.xcassets */; };
@@ -20,7 +18,7 @@
 		4CF23FA41BB618ED00086799 /* DragonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF23FA31BB618ED00086799 /* DragonUITests.swift */; };
 		60596F371CA4D7A8008A4B17 /* ImageProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60596F361CA4D7A8008A4B17 /* ImageProcess.swift */; };
 		6062AA891C6C18130033C6DF /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6062AA871C6C18130033C6DF /* DataModel.xcdatamodeld */; };
-		6062F9CC1CA6157800D865C7 /* EditConsumerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F9CB1CA6157800D865C7 /* EditConsumerProfile.swift */; };
+		6062F9CC1CA6157800D865C7 /* EditConsumerProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F9CB1CA6157800D865C7 /* EditConsumerProfileController.swift */; };
 		6062F9CE1CA61A3100D865C7 /* DatabaseOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6062F9CD1CA61A3100D865C7 /* DatabaseOperations.swift */; };
 		606FADD11C587FF4007F98A7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606FADD01C587FF4007F98A7 /* LoginViewController.swift */; };
 		607423FA1C9CA1A700A88981 /* FoodieProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607423F91C9CA1A700A88981 /* FoodieProfileController.swift */; };
@@ -39,6 +37,7 @@
 		60D879DD1CA4CEC20023EFC3 /* APIOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D879DC1CA4CEC20023EFC3 /* APIOperations.swift */; };
 		60D8E1A71C6E5BF700AD6EEA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D8E1A51C6E5BF700AD6EEA /* User+CoreDataProperties.swift */; };
 		60D8E1A81C6E5BF700AD6EEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D8E1A61C6E5BF700AD6EEA /* User.swift */; };
+		60DC5FE01CA704490050D5D7 /* DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60DC5FDF1CA704490050D5D7 /* DisplayAlert.swift */; };
 		60F7F2E41C5C3B3A009ED8C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7F2E31C5C3B3A009ED8C6 /* HomeViewController.swift */; };
 		60F7F2E61C5C3C9C009ED8C6 /* MealButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F7F2E51C5C3C9C009ED8C6 /* MealButtonCell.swift */; };
 /* End PBXBuildFile section */
@@ -63,10 +62,8 @@
 /* Begin PBXFileReference section */
 		4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealConfirmationNavigationController.swift; sourceTree = "<group>"; };
 		4CF23F7E1BB618EC00086799 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF23F811BB618EC00086799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4CF23F831BB618EC00086799 /* BecomeAChefController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeAChefController.swift; sourceTree = "<group>"; };
 		4CF23F851BB618EC00086799 /* FoodieFavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieFavoritesController.swift; sourceTree = "<group>"; };
 		4CF23F881BB618EC00086799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CF23F8A1BB618EC00086799 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +77,7 @@
 		4CF23FA51BB618ED00086799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60596F361CA4D7A8008A4B17 /* ImageProcess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProcess.swift; sourceTree = "<group>"; };
 		6062AA881C6C18130033C6DF /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		6062F9CB1CA6157800D865C7 /* EditConsumerProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditConsumerProfile.swift; sourceTree = "<group>"; };
+		6062F9CB1CA6157800D865C7 /* EditConsumerProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditConsumerProfileController.swift; sourceTree = "<group>"; };
 		6062F9CD1CA61A3100D865C7 /* DatabaseOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseOperations.swift; sourceTree = "<group>"; };
 		606FADD01C587FF4007F98A7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		607423F91C9CA1A700A88981 /* FoodieProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodieProfileController.swift; sourceTree = "<group>"; };
@@ -99,6 +96,7 @@
 		60D879DC1CA4CEC20023EFC3 /* APIOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOperations.swift; sourceTree = "<group>"; };
 		60D8E1A51C6E5BF700AD6EEA /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "Models/User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		60D8E1A61C6E5BF700AD6EEA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/User.swift; sourceTree = "<group>"; };
+		60DC5FDF1CA704490050D5D7 /* DisplayAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAlert.swift; sourceTree = "<group>"; };
 		60F7F2E31C5C3B3A009ED8C6 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		60F7F2E51C5C3C9C009ED8C6 /* MealButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealButtonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,8 +141,8 @@
 		4CF23F751BB618EC00086799 = {
 			isa = PBXGroup;
 			children = (
-				607633371C4DAA4A00C031DB /* Frameworks */,
 				4CF23F801BB618EC00086799 /* Dragon */,
+				607633371C4DAA4A00C031DB /* Frameworks */,
 				4CF23F971BB618ED00086799 /* DragonTests */,
 				4CF23FA21BB618ED00086799 /* DragonUITests */,
 				4CF23F7F1BB618EC00086799 /* Products */,
@@ -164,25 +162,17 @@
 		4CF23F801BB618EC00086799 /* Dragon */ = {
 			isa = PBXGroup;
 			children = (
-				6062AA8E1C6C22E50033C6DF /* Models */,
 				4CF23F811BB618EC00086799 /* AppDelegate.swift */,
-				606FADD01C587FF4007F98A7 /* LoginViewController.swift */,
-				6062F9CD1CA61A3100D865C7 /* DatabaseOperations.swift */,
-				4CF23F831BB618EC00086799 /* BecomeAChefController.swift */,
-				4CF23F851BB618EC00086799 /* FoodieFavoritesController.swift */,
-				4C6453761BC8CC8200B69018 /* MealConfirmationNavigationController.swift */,
-				4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */,
-				4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */,
-				60F7F2E31C5C3B3A009ED8C6 /* HomeViewController.swift */,
-				60D879DC1CA4CEC20023EFC3 /* APIOperations.swift */,
-				60F7F2E51C5C3C9C009ED8C6 /* MealButtonCell.swift */,
-				60596F361CA4D7A8008A4B17 /* ImageProcess.swift */,
 				4CF23F871BB618EC00086799 /* Main.storyboard */,
-				6062F9CB1CA6157800D865C7 /* EditConsumerProfile.swift */,
-				607423F91C9CA1A700A88981 /* FoodieProfileController.swift */,
-				4CF23F8A1BB618EC00086799 /* Assets.xcassets */,
+				60DC5FDC1CA6FECF0050D5D7 /* HomeViewControllers */,
+				60DC5FDE1CA6FEEC0050D5D7 /* FoodieProfileViewontrollers */,
+				60DC5FDD1CA6FEDD0050D5D7 /* DiscoverViewControllers */,
+				6062AA8E1C6C22E50033C6DF /* Models */,
+				60DC5FDB1CA6FCF10050D5D7 /* Helper Classes */,
+				606FADD01C587FF4007F98A7 /* LoginViewController.swift */,
 				4CF23F8C1BB618EC00086799 /* LaunchScreen.storyboard */,
 				6062AA871C6C18130033C6DF /* DataModel.xcdatamodeld */,
+				4CF23F8A1BB618EC00086799 /* Assets.xcassets */,
 				4CF23F8F1BB618EC00086799 /* Info.plist */,
 			);
 			path = Dragon;
@@ -232,6 +222,45 @@
 				607633391C4DAA7100C031DB /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60DC5FDB1CA6FCF10050D5D7 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				60D879DC1CA4CEC20023EFC3 /* APIOperations.swift */,
+				60596F361CA4D7A8008A4B17 /* ImageProcess.swift */,
+				6062F9CD1CA61A3100D865C7 /* DatabaseOperations.swift */,
+				60DC5FDF1CA704490050D5D7 /* DisplayAlert.swift */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		60DC5FDC1CA6FECF0050D5D7 /* HomeViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				60F7F2E31C5C3B3A009ED8C6 /* HomeViewController.swift */,
+				60F7F2E51C5C3C9C009ED8C6 /* MealButtonCell.swift */,
+			);
+			name = HomeViewControllers;
+			sourceTree = "<group>";
+		};
+		60DC5FDD1CA6FEDD0050D5D7 /* DiscoverViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4C16A7661BBF9E6E00920EF6 /* SettingsViewController.swift */,
+			);
+			name = DiscoverViewControllers;
+			sourceTree = "<group>";
+		};
+		60DC5FDE1CA6FEEC0050D5D7 /* FoodieProfileViewontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				607423F91C9CA1A700A88981 /* FoodieProfileController.swift */,
+				4CF23F851BB618EC00086799 /* FoodieFavoritesController.swift */,
+				4C16A7641BBF9E6300920EF6 /* ProfileViewController.swift */,
+				6062F9CB1CA6157800D865C7 /* EditConsumerProfileController.swift */,
+			);
+			name = FoodieProfileViewontrollers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,19 +394,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C6453771BC8CC8200B69018 /* MealConfirmationNavigationController.swift in Sources */,
 				4C16A7671BBF9E6E00920EF6 /* SettingsViewController.swift in Sources */,
 				4CF23F861BB618EC00086799 /* FoodieFavoritesController.swift in Sources */,
 				60596F371CA4D7A8008A4B17 /* ImageProcess.swift in Sources */,
 				60F7F2E41C5C3B3A009ED8C6 /* HomeViewController.swift in Sources */,
 				4CF23F821BB618EC00086799 /* AppDelegate.swift in Sources */,
 				606FADD11C587FF4007F98A7 /* LoginViewController.swift in Sources */,
-				6062F9CC1CA6157800D865C7 /* EditConsumerProfile.swift in Sources */,
-				4CF23F841BB618EC00086799 /* BecomeAChefController.swift in Sources */,
+				6062F9CC1CA6157800D865C7 /* EditConsumerProfileController.swift in Sources */,
 				6062F9CE1CA61A3100D865C7 /* DatabaseOperations.swift in Sources */,
 				60D8E1A71C6E5BF700AD6EEA /* User+CoreDataProperties.swift in Sources */,
 				60D8E1A81C6E5BF700AD6EEA /* User.swift in Sources */,
 				4C16A7651BBF9E6300920EF6 /* ProfileViewController.swift in Sources */,
+				60DC5FE01CA704490050D5D7 /* DisplayAlert.swift in Sources */,
 				607423FA1C9CA1A700A88981 /* FoodieProfileController.swift in Sources */,
 				60F7F2E61C5C3C9C009ED8C6 /* MealButtonCell.swift in Sources */,
 				60D879DD1CA4CEC20023EFC3 /* APIOperations.swift in Sources */,

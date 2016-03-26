@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditConsumerProfile: UIViewController {
+class EditConsumerProfileController: UIViewController {
     
     @IBOutlet var firstName: UITextField!
     @IBOutlet var lastName: UITextField!
@@ -25,7 +25,7 @@ class EditConsumerProfile: UIViewController {
             self.dismissViewControllerAnimated(true, completion: nil)
         }))
         
-        self.presentViewController(alert, animated: true, completion: nil)    //display the alert
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func parseDOB() -> String {
@@ -36,7 +36,7 @@ class EditConsumerProfile: UIViewController {
         }
         
         var newDate : String = ""
-        //1900-01-01T00:00:00.000000
+        
         newDate += date.substringWithRange(Range<String.Index>(start: date.startIndex.advancedBy(6), end: date.endIndex))
         newDate += "-"
         newDate += date.substringWithRange(Range<String.Index>(start: date.startIndex, end: date.endIndex.advancedBy(-8)))
@@ -99,7 +99,7 @@ class EditConsumerProfile: UIViewController {
             userProfile.removeValueForKey("gender")
         }
         
-        print(userProfile)
+        //print(userProfile)
         
         /*
             check if the user do change something

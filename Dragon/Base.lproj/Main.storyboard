@@ -355,10 +355,10 @@
             </objects>
             <point key="canvasLocation" x="151" y="2536"/>
         </scene>
-        <!--Edit Consumer Profile-->
+        <!--Edit Consumer Profile Controller-->
         <scene sceneID="bOX-z8-YG4">
             <objects>
-                <viewController id="FNp-Ob-Id7" customClass="EditConsumerProfile" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FNp-Ob-Id7" customClass="EditConsumerProfileController" customModule="Dragon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HZt-G8-tsd"/>
                         <viewControllerLayoutGuide type="bottom" id="pfW-dR-qvN"/>
@@ -503,7 +503,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVN-nb-9Xb">
-                                <rect key="frame" x="0.0" y="422" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="424" width="600" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Oa-Il-V8w"/>
@@ -517,7 +517,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaP-YN-wsC">
-                                <rect key="frame" x="0.0" y="482" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="484" width="600" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="qqg-cH-BUY"/>
@@ -531,7 +531,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyr-SG-z8C">
-                                <rect key="frame" x="0.0" y="362" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="364" width="600" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="a3f-xy-tvy"/>
@@ -542,6 +542,20 @@
                                 </state>
                                 <connections>
                                     <action selector="myProfile:" destination="tNB-3F-yps" eventType="touchUpInside" id="dzo-iD-GLk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-WE-cl1">
+                                <rect key="frame" x="0.0" y="304" width="600" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0mK-X5-e4z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="My Favorite">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="myFavorite:" destination="tNB-3F-yps" eventType="touchUpInside" id="TmY-zm-NmF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YP-8w-Vye">
@@ -556,20 +570,6 @@
                                 </state>
                                 <connections>
                                     <action selector="myOrder:" destination="tNB-3F-yps" eventType="touchUpInside" id="NYl-Qi-umf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjb-WE-cl1">
-                                <rect key="frame" x="0.0" y="302" width="600" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="0mK-X5-e4z"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="My Favorite">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="myFavorite:" destination="tNB-3F-yps" eventType="touchUpInside" id="TmY-zm-NmF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -594,7 +594,7 @@
                             <constraint firstItem="WaP-YN-wsC" firstAttribute="leading" secondItem="3SG-kz-eFu" secondAttribute="leadingMargin" constant="-20" id="jJV-Cp-tgs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WaP-YN-wsC" secondAttribute="trailing" constant="-20" id="lfI-cO-aRT"/>
                             <constraint firstItem="fyr-SG-z8C" firstAttribute="top" secondItem="Cjb-WE-cl1" secondAttribute="bottom" constant="10" id="tvr-Hl-pam"/>
-                            <constraint firstItem="Cjb-WE-cl1" firstAttribute="top" secondItem="0YP-8w-Vye" secondAttribute="bottom" constant="8" id="ztg-LO-afl"/>
+                            <constraint firstItem="Cjb-WE-cl1" firstAttribute="top" secondItem="0YP-8w-Vye" secondAttribute="bottom" constant="10" id="ztg-LO-afl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SUU-m2-w0h">
