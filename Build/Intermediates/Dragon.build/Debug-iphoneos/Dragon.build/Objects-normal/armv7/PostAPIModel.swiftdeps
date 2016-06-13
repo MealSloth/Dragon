@@ -1,0 +1,272 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "PostAPIModel"
+provides-nominal:
+- "C6Dragon12PostAPIModel"
+provides-member:
+- ["C6Dragon12PostAPIModel", ""]
+provides-dynamic-lookup:
+- "chefID"
+- "name"
+- "id"
+- "albumID"
+- "locationID"
+- "postTime"
+- "expireTime"
+- "initialize"
+- "description"
+depends-top-level:
+- "Dictionary"
+- !private "StringLiteralType"
+- "String"
+- "AbstractAPIModel"
+- "PostAPIModel"
+- "AnyObject"
+- "Int"
+depends-member:
+- ["C6Dragon16AbstractAPIModel", "AnyObject"]
+- ["C6Dragon16AbstractAPIModel", "Dictionary"]
+- ["C6Dragon16AbstractAPIModel", "Int"]
+- ["C6Dragon16AbstractAPIModel", "String"]
+- ["C6Dragon16AbstractAPIModel", "albumID"]
+- ["C6Dragon16AbstractAPIModel", "capacity"]
+- ["C6Dragon16AbstractAPIModel", "chefID"]
+- ["C6Dragon16AbstractAPIModel", "description"]
+- ["C6Dragon16AbstractAPIModel", "expireTime"]
+- ["C6Dragon16AbstractAPIModel", "id"]
+- ["C6Dragon16AbstractAPIModel", "init"]
+- ["C6Dragon16AbstractAPIModel", "initialize"]
+- ["C6Dragon16AbstractAPIModel", "locationID"]
+- ["C6Dragon16AbstractAPIModel", "name"]
+- ["C6Dragon16AbstractAPIModel", "orderCount"]
+- ["C6Dragon16AbstractAPIModel", "postDescription"]
+- ["C6Dragon16AbstractAPIModel", "postStatus"]
+- ["C6Dragon16AbstractAPIModel", "postTime"]
+- ["C6Dragon16AbstractAPIModel", ""]
+- ["Ps9AnyObject", "albumID"]
+- ["Ps9AnyObject", "capacity"]
+- ["Ps9AnyObject", "chefID"]
+- ["Ps9AnyObject", "description"]
+- ["Ps9AnyObject", "expireTime"]
+- ["Ps9AnyObject", "id"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "initialize"]
+- ["Ps9AnyObject", "locationID"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "orderCount"]
+- ["Ps9AnyObject", "postDescription"]
+- ["Ps9AnyObject", "postStatus"]
+- ["Ps9AnyObject", "postTime"]
+- ["Ps9AnyObject", ""]
+- ["Ps11CVarArgType", "albumID"]
+- ["Ps11CVarArgType", "capacity"]
+- ["Ps11CVarArgType", "chefID"]
+- ["Ps11CVarArgType", "description"]
+- ["Ps11CVarArgType", "expireTime"]
+- ["Ps11CVarArgType", "id"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "initialize"]
+- ["Ps11CVarArgType", "locationID"]
+- ["Ps11CVarArgType", "name"]
+- ["Ps11CVarArgType", "orderCount"]
+- ["Ps11CVarArgType", "postDescription"]
+- ["Ps11CVarArgType", "postStatus"]
+- ["Ps11CVarArgType", "postTime"]
+- ["Ps11CVarArgType", ""]
+- !private ["Ps14CollectionType", "Generator"]
+- !private ["Ps14CollectionType", "Index"]
+- !private ["Ps14CollectionType", "SubSequence"]
+- !private ["Ps14CollectionType", "_Element"]
+- !private ["Ps14CollectionType", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "Index"]
+- ["Ps28CustomDebugStringConvertible", "albumID"]
+- ["Ps28CustomDebugStringConvertible", "capacity"]
+- ["Ps28CustomDebugStringConvertible", "chefID"]
+- ["Ps28CustomDebugStringConvertible", "description"]
+- ["Ps28CustomDebugStringConvertible", "expireTime"]
+- ["Ps28CustomDebugStringConvertible", "id"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "initialize"]
+- ["Ps28CustomDebugStringConvertible", "locationID"]
+- ["Ps28CustomDebugStringConvertible", "name"]
+- ["Ps28CustomDebugStringConvertible", "orderCount"]
+- ["Ps28CustomDebugStringConvertible", "postDescription"]
+- ["Ps28CustomDebugStringConvertible", "postStatus"]
+- ["Ps28CustomDebugStringConvertible", "postTime"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps23CustomStringConvertible", "Index"]
+- ["Ps23CustomStringConvertible", "albumID"]
+- ["Ps23CustomStringConvertible", "capacity"]
+- ["Ps23CustomStringConvertible", "chefID"]
+- ["Ps23CustomStringConvertible", "description"]
+- ["Ps23CustomStringConvertible", "expireTime"]
+- ["Ps23CustomStringConvertible", "id"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "initialize"]
+- ["Ps23CustomStringConvertible", "locationID"]
+- ["Ps23CustomStringConvertible", "name"]
+- ["Ps23CustomStringConvertible", "orderCount"]
+- ["Ps23CustomStringConvertible", "postDescription"]
+- ["Ps23CustomStringConvertible", "postStatus"]
+- ["Ps23CustomStringConvertible", "postTime"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Vs10Dictionary", "Index"]
+- !private ["Vs10Dictionary", "deinit"]
+- !private ["Vs10Dictionary", "subscript"]
+- !private ["Ps28DictionaryLiteralConvertible", "Index"]
+- !private ["Ps28DictionaryLiteralConvertible", "subscript"]
+- ["Ps9Equatable", "albumID"]
+- ["Ps9Equatable", "capacity"]
+- ["Ps9Equatable", "chefID"]
+- ["Ps9Equatable", "description"]
+- ["Ps9Equatable", "expireTime"]
+- ["Ps9Equatable", "id"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "initialize"]
+- ["Ps9Equatable", "locationID"]
+- ["Ps9Equatable", "name"]
+- ["Ps9Equatable", "orderCount"]
+- ["Ps9Equatable", "postDescription"]
+- ["Ps9Equatable", "postStatus"]
+- ["Ps9Equatable", "postTime"]
+- ["Ps9Equatable", ""]
+- !private ["Ps13GeneratorType", "Element"]
+- ["Ps8Hashable", "albumID"]
+- ["Ps8Hashable", "capacity"]
+- ["Ps8Hashable", "chefID"]
+- ["Ps8Hashable", "description"]
+- ["Ps8Hashable", "expireTime"]
+- ["Ps8Hashable", "id"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "initialize"]
+- ["Ps8Hashable", "locationID"]
+- ["Ps8Hashable", "name"]
+- ["Ps8Hashable", "orderCount"]
+- ["Ps8Hashable", "postDescription"]
+- ["Ps8Hashable", "postStatus"]
+- ["Ps8Hashable", "postTime"]
+- ["Ps8Hashable", ""]
+- !private ["Ps9Indexable", "Generator"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "subscript"]
+- !private ["Vs17IndexingGenerator", "Element"]
+- ["CSo8NSObject", "AnyObject"]
+- ["CSo8NSObject", "Dictionary"]
+- ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "albumID"]
+- ["CSo8NSObject", "capacity"]
+- ["CSo8NSObject", "chefID"]
+- ["CSo8NSObject", "description"]
+- ["CSo8NSObject", "expireTime"]
+- ["CSo8NSObject", "id"]
+- ["CSo8NSObject", "initialize"]
+- ["CSo8NSObject", "locationID"]
+- ["CSo8NSObject", "name"]
+- ["CSo8NSObject", "orderCount"]
+- ["CSo8NSObject", "postDescription"]
+- ["CSo8NSObject", "postStatus"]
+- ["CSo8NSObject", "postTime"]
+- ["PSo16NSObjectProtocol", "albumID"]
+- ["PSo16NSObjectProtocol", "capacity"]
+- ["PSo16NSObjectProtocol", "chefID"]
+- ["PSo16NSObjectProtocol", "description"]
+- ["PSo16NSObjectProtocol", "expireTime"]
+- ["PSo16NSObjectProtocol", "id"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "initialize"]
+- ["PSo16NSObjectProtocol", "locationID"]
+- ["PSo16NSObjectProtocol", "name"]
+- ["PSo16NSObjectProtocol", "orderCount"]
+- ["PSo16NSObjectProtocol", "postDescription"]
+- ["PSo16NSObjectProtocol", "postStatus"]
+- ["PSo16NSObjectProtocol", "postTime"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["Sq", "deinit"]
+- ["C6Dragon12PostAPIModel", "AnyObject"]
+- ["C6Dragon12PostAPIModel", "Dictionary"]
+- ["C6Dragon12PostAPIModel", "Int"]
+- ["C6Dragon12PostAPIModel", "String"]
+- ["C6Dragon12PostAPIModel", "albumID"]
+- ["C6Dragon12PostAPIModel", "capacity"]
+- ["C6Dragon12PostAPIModel", "chefID"]
+- ["C6Dragon12PostAPIModel", "deinit"]
+- ["C6Dragon12PostAPIModel", "description"]
+- ["C6Dragon12PostAPIModel", "expireTime"]
+- ["C6Dragon12PostAPIModel", "id"]
+- ["C6Dragon12PostAPIModel", "init"]
+- ["C6Dragon12PostAPIModel", "initialize"]
+- ["C6Dragon12PostAPIModel", "locationID"]
+- ["C6Dragon12PostAPIModel", "name"]
+- ["C6Dragon12PostAPIModel", "orderCount"]
+- !private ["C6Dragon12PostAPIModel", "postDescription"]
+- ["C6Dragon12PostAPIModel", "postStatus"]
+- ["C6Dragon12PostAPIModel", "postTime"]
+- ["P6Dragon18ReadableProperties", "albumID"]
+- ["P6Dragon18ReadableProperties", "capacity"]
+- ["P6Dragon18ReadableProperties", "chefID"]
+- ["P6Dragon18ReadableProperties", "description"]
+- ["P6Dragon18ReadableProperties", "expireTime"]
+- ["P6Dragon18ReadableProperties", "id"]
+- ["P6Dragon18ReadableProperties", "init"]
+- ["P6Dragon18ReadableProperties", "initialize"]
+- ["P6Dragon18ReadableProperties", "locationID"]
+- ["P6Dragon18ReadableProperties", "name"]
+- ["P6Dragon18ReadableProperties", "orderCount"]
+- ["P6Dragon18ReadableProperties", "postDescription"]
+- ["P6Dragon18ReadableProperties", "postStatus"]
+- ["P6Dragon18ReadableProperties", "postTime"]
+- ["P6Dragon18ReadableProperties", ""]
+- !private ["Ps12SequenceType", "Element"]
+- !private ["Ps12SequenceType", "Generator"]
+- !private ["Ps12SequenceType", "Index"]
+- !private ["Ps12SequenceType", "SubSequence"]
+- !private ["Ps12SequenceType", "_Element"]
+- !private ["Ps12SequenceType", "subscript"]
+- !private ["Vs5Slice", "Generator"]
+- !private ["Vs5Slice", "Index"]
+- !private ["Vs5Slice", "SubSequence"]
+- !private ["Vs5Slice", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "Index"]
+- !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Ps12_Reflectable", "Index"]
+- !private ["Ps12_Reflectable", "subscript"]
+depends-nominal:
+- "C6Dragon16AbstractAPIModel"
+- "Ps9AnyObject"
+- "Ps11CVarArgType"
+- !private "Ps14CollectionType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- !private "Vs10Dictionary"
+- !private "Ps28DictionaryLiteralConvertible"
+- "Ps9Equatable"
+- !private "Ps13GeneratorType"
+- "Ps8Hashable"
+- !private "Ps9Indexable"
+- !private "Vs17IndexingGenerator"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "Sq"
+- "C6Dragon12PostAPIModel"
+- "P6Dragon18ReadableProperties"
+- !private "Ps12SequenceType"
+- !private "Vs5Slice"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
+interface-hash: "463acd0cffa56b260a2b959cc2695a1f"

@@ -1,0 +1,182 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LocationAPIModel"
+provides-nominal:
+- "C6Dragon16LocationAPIModel"
+provides-member:
+- ["C6Dragon16LocationAPIModel", ""]
+provides-dynamic-lookup:
+- "addressLineTwo"
+- "country"
+- "userID"
+- "state"
+- "addressLineOne"
+- "city"
+- "id"
+- "zip"
+depends-top-level:
+- "String"
+- "AbstractAPIModel"
+- "LocationAPIModel"
+- "Int"
+depends-member:
+- ["C6Dragon16AbstractAPIModel", "Int"]
+- ["C6Dragon16AbstractAPIModel", "String"]
+- ["C6Dragon16AbstractAPIModel", "addressLineOne"]
+- ["C6Dragon16AbstractAPIModel", "addressLineTwo"]
+- ["C6Dragon16AbstractAPIModel", "city"]
+- ["C6Dragon16AbstractAPIModel", "country"]
+- ["C6Dragon16AbstractAPIModel", "id"]
+- ["C6Dragon16AbstractAPIModel", "init"]
+- ["C6Dragon16AbstractAPIModel", "purpose"]
+- ["C6Dragon16AbstractAPIModel", "state"]
+- ["C6Dragon16AbstractAPIModel", "type"]
+- ["C6Dragon16AbstractAPIModel", "userID"]
+- ["C6Dragon16AbstractAPIModel", "zip"]
+- ["C6Dragon16AbstractAPIModel", ""]
+- ["Ps9AnyObject", "addressLineOne"]
+- ["Ps9AnyObject", "addressLineTwo"]
+- ["Ps9AnyObject", "city"]
+- ["Ps9AnyObject", "country"]
+- ["Ps9AnyObject", "id"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "purpose"]
+- ["Ps9AnyObject", "state"]
+- ["Ps9AnyObject", "type"]
+- ["Ps9AnyObject", "userID"]
+- ["Ps9AnyObject", "zip"]
+- ["Ps9AnyObject", ""]
+- ["Ps11CVarArgType", "addressLineOne"]
+- ["Ps11CVarArgType", "addressLineTwo"]
+- ["Ps11CVarArgType", "city"]
+- ["Ps11CVarArgType", "country"]
+- ["Ps11CVarArgType", "id"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "purpose"]
+- ["Ps11CVarArgType", "state"]
+- ["Ps11CVarArgType", "type"]
+- ["Ps11CVarArgType", "userID"]
+- ["Ps11CVarArgType", "zip"]
+- ["Ps11CVarArgType", ""]
+- ["Ps28CustomDebugStringConvertible", "addressLineOne"]
+- ["Ps28CustomDebugStringConvertible", "addressLineTwo"]
+- ["Ps28CustomDebugStringConvertible", "city"]
+- ["Ps28CustomDebugStringConvertible", "country"]
+- ["Ps28CustomDebugStringConvertible", "id"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "purpose"]
+- ["Ps28CustomDebugStringConvertible", "state"]
+- ["Ps28CustomDebugStringConvertible", "type"]
+- ["Ps28CustomDebugStringConvertible", "userID"]
+- ["Ps28CustomDebugStringConvertible", "zip"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "addressLineOne"]
+- ["Ps23CustomStringConvertible", "addressLineTwo"]
+- ["Ps23CustomStringConvertible", "city"]
+- ["Ps23CustomStringConvertible", "country"]
+- ["Ps23CustomStringConvertible", "id"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "purpose"]
+- ["Ps23CustomStringConvertible", "state"]
+- ["Ps23CustomStringConvertible", "type"]
+- ["Ps23CustomStringConvertible", "userID"]
+- ["Ps23CustomStringConvertible", "zip"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "addressLineOne"]
+- ["Ps9Equatable", "addressLineTwo"]
+- ["Ps9Equatable", "city"]
+- ["Ps9Equatable", "country"]
+- ["Ps9Equatable", "id"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "purpose"]
+- ["Ps9Equatable", "state"]
+- ["Ps9Equatable", "type"]
+- ["Ps9Equatable", "userID"]
+- ["Ps9Equatable", "zip"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "addressLineOne"]
+- ["Ps8Hashable", "addressLineTwo"]
+- ["Ps8Hashable", "city"]
+- ["Ps8Hashable", "country"]
+- ["Ps8Hashable", "id"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "purpose"]
+- ["Ps8Hashable", "state"]
+- ["Ps8Hashable", "type"]
+- ["Ps8Hashable", "userID"]
+- ["Ps8Hashable", "zip"]
+- ["Ps8Hashable", ""]
+- ["C6Dragon16LocationAPIModel", "Int"]
+- ["C6Dragon16LocationAPIModel", "String"]
+- ["C6Dragon16LocationAPIModel", "addressLineOne"]
+- ["C6Dragon16LocationAPIModel", "addressLineTwo"]
+- ["C6Dragon16LocationAPIModel", "city"]
+- ["C6Dragon16LocationAPIModel", "country"]
+- ["C6Dragon16LocationAPIModel", "deinit"]
+- ["C6Dragon16LocationAPIModel", "id"]
+- ["C6Dragon16LocationAPIModel", "init"]
+- ["C6Dragon16LocationAPIModel", "purpose"]
+- ["C6Dragon16LocationAPIModel", "state"]
+- ["C6Dragon16LocationAPIModel", "type"]
+- ["C6Dragon16LocationAPIModel", "userID"]
+- ["C6Dragon16LocationAPIModel", "zip"]
+- ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "addressLineOne"]
+- ["CSo8NSObject", "addressLineTwo"]
+- ["CSo8NSObject", "city"]
+- ["CSo8NSObject", "country"]
+- ["CSo8NSObject", "id"]
+- ["CSo8NSObject", "purpose"]
+- ["CSo8NSObject", "state"]
+- ["CSo8NSObject", "type"]
+- ["CSo8NSObject", "userID"]
+- ["CSo8NSObject", "zip"]
+- ["PSo16NSObjectProtocol", "addressLineOne"]
+- ["PSo16NSObjectProtocol", "addressLineTwo"]
+- ["PSo16NSObjectProtocol", "city"]
+- ["PSo16NSObjectProtocol", "country"]
+- ["PSo16NSObjectProtocol", "id"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "purpose"]
+- ["PSo16NSObjectProtocol", "state"]
+- ["PSo16NSObjectProtocol", "type"]
+- ["PSo16NSObjectProtocol", "userID"]
+- ["PSo16NSObjectProtocol", "zip"]
+- ["PSo16NSObjectProtocol", ""]
+- ["P6Dragon18ReadableProperties", "addressLineOne"]
+- ["P6Dragon18ReadableProperties", "addressLineTwo"]
+- ["P6Dragon18ReadableProperties", "city"]
+- ["P6Dragon18ReadableProperties", "country"]
+- ["P6Dragon18ReadableProperties", "id"]
+- ["P6Dragon18ReadableProperties", "init"]
+- ["P6Dragon18ReadableProperties", "purpose"]
+- ["P6Dragon18ReadableProperties", "state"]
+- ["P6Dragon18ReadableProperties", "type"]
+- ["P6Dragon18ReadableProperties", "userID"]
+- ["P6Dragon18ReadableProperties", "zip"]
+- ["P6Dragon18ReadableProperties", ""]
+depends-nominal:
+- "C6Dragon16AbstractAPIModel"
+- "Ps9AnyObject"
+- "Ps11CVarArgType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "C6Dragon16LocationAPIModel"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "P6Dragon18ReadableProperties"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+interface-hash: "4b92b017093bbf32762f252a1de6fa3b"

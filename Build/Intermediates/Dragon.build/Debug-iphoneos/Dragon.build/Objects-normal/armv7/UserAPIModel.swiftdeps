@@ -1,0 +1,219 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UserAPIModel"
+provides-nominal:
+- "C6Dragon12UserAPIModel"
+provides-member:
+- ["C6Dragon12UserAPIModel", ""]
+provides-dynamic-lookup:
+- "phoneNumber"
+- "id"
+- "email"
+- "consumerID"
+- "lastName"
+- "profilePhotoID"
+- "locationID"
+- "dateOfBirth"
+- "firstName"
+- "billingID"
+- "userLoginID"
+- "chefID"
+depends-top-level:
+- "AbstractAPIModel"
+- "Int"
+- "UserAPIModel"
+- "String"
+depends-member:
+- ["C6Dragon16AbstractAPIModel", "Int"]
+- ["C6Dragon16AbstractAPIModel", "String"]
+- ["C6Dragon16AbstractAPIModel", "billingID"]
+- ["C6Dragon16AbstractAPIModel", "chefID"]
+- ["C6Dragon16AbstractAPIModel", "consumerID"]
+- ["C6Dragon16AbstractAPIModel", "dateOfBirth"]
+- ["C6Dragon16AbstractAPIModel", "email"]
+- ["C6Dragon16AbstractAPIModel", "firstName"]
+- ["C6Dragon16AbstractAPIModel", "gender"]
+- ["C6Dragon16AbstractAPIModel", "id"]
+- ["C6Dragon16AbstractAPIModel", "init"]
+- ["C6Dragon16AbstractAPIModel", "lastName"]
+- ["C6Dragon16AbstractAPIModel", "locationID"]
+- ["C6Dragon16AbstractAPIModel", "phoneNumber"]
+- ["C6Dragon16AbstractAPIModel", "profilePhotoID"]
+- ["C6Dragon16AbstractAPIModel", "userLoginID"]
+- ["C6Dragon16AbstractAPIModel", ""]
+- ["Ps9AnyObject", "billingID"]
+- ["Ps9AnyObject", "chefID"]
+- ["Ps9AnyObject", "consumerID"]
+- ["Ps9AnyObject", "dateOfBirth"]
+- ["Ps9AnyObject", "email"]
+- ["Ps9AnyObject", "firstName"]
+- ["Ps9AnyObject", "gender"]
+- ["Ps9AnyObject", "id"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "lastName"]
+- ["Ps9AnyObject", "locationID"]
+- ["Ps9AnyObject", "phoneNumber"]
+- ["Ps9AnyObject", "profilePhotoID"]
+- ["Ps9AnyObject", "userLoginID"]
+- ["Ps9AnyObject", ""]
+- ["Ps11CVarArgType", "billingID"]
+- ["Ps11CVarArgType", "chefID"]
+- ["Ps11CVarArgType", "consumerID"]
+- ["Ps11CVarArgType", "dateOfBirth"]
+- ["Ps11CVarArgType", "email"]
+- ["Ps11CVarArgType", "firstName"]
+- ["Ps11CVarArgType", "gender"]
+- ["Ps11CVarArgType", "id"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "lastName"]
+- ["Ps11CVarArgType", "locationID"]
+- ["Ps11CVarArgType", "phoneNumber"]
+- ["Ps11CVarArgType", "profilePhotoID"]
+- ["Ps11CVarArgType", "userLoginID"]
+- ["Ps11CVarArgType", ""]
+- ["Ps28CustomDebugStringConvertible", "billingID"]
+- ["Ps28CustomDebugStringConvertible", "chefID"]
+- ["Ps28CustomDebugStringConvertible", "consumerID"]
+- ["Ps28CustomDebugStringConvertible", "dateOfBirth"]
+- ["Ps28CustomDebugStringConvertible", "email"]
+- ["Ps28CustomDebugStringConvertible", "firstName"]
+- ["Ps28CustomDebugStringConvertible", "gender"]
+- ["Ps28CustomDebugStringConvertible", "id"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "lastName"]
+- ["Ps28CustomDebugStringConvertible", "locationID"]
+- ["Ps28CustomDebugStringConvertible", "phoneNumber"]
+- ["Ps28CustomDebugStringConvertible", "profilePhotoID"]
+- ["Ps28CustomDebugStringConvertible", "userLoginID"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "billingID"]
+- ["Ps23CustomStringConvertible", "chefID"]
+- ["Ps23CustomStringConvertible", "consumerID"]
+- ["Ps23CustomStringConvertible", "dateOfBirth"]
+- ["Ps23CustomStringConvertible", "email"]
+- ["Ps23CustomStringConvertible", "firstName"]
+- ["Ps23CustomStringConvertible", "gender"]
+- ["Ps23CustomStringConvertible", "id"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "lastName"]
+- ["Ps23CustomStringConvertible", "locationID"]
+- ["Ps23CustomStringConvertible", "phoneNumber"]
+- ["Ps23CustomStringConvertible", "profilePhotoID"]
+- ["Ps23CustomStringConvertible", "userLoginID"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "billingID"]
+- ["Ps9Equatable", "chefID"]
+- ["Ps9Equatable", "consumerID"]
+- ["Ps9Equatable", "dateOfBirth"]
+- ["Ps9Equatable", "email"]
+- ["Ps9Equatable", "firstName"]
+- ["Ps9Equatable", "gender"]
+- ["Ps9Equatable", "id"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "lastName"]
+- ["Ps9Equatable", "locationID"]
+- ["Ps9Equatable", "phoneNumber"]
+- ["Ps9Equatable", "profilePhotoID"]
+- ["Ps9Equatable", "userLoginID"]
+- ["Ps9Equatable", ""]
+- ["Ps8Hashable", "billingID"]
+- ["Ps8Hashable", "chefID"]
+- ["Ps8Hashable", "consumerID"]
+- ["Ps8Hashable", "dateOfBirth"]
+- ["Ps8Hashable", "email"]
+- ["Ps8Hashable", "firstName"]
+- ["Ps8Hashable", "gender"]
+- ["Ps8Hashable", "id"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "lastName"]
+- ["Ps8Hashable", "locationID"]
+- ["Ps8Hashable", "phoneNumber"]
+- ["Ps8Hashable", "profilePhotoID"]
+- ["Ps8Hashable", "userLoginID"]
+- ["Ps8Hashable", ""]
+- ["CSo8NSObject", "Int"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "billingID"]
+- ["CSo8NSObject", "chefID"]
+- ["CSo8NSObject", "consumerID"]
+- ["CSo8NSObject", "dateOfBirth"]
+- ["CSo8NSObject", "email"]
+- ["CSo8NSObject", "firstName"]
+- ["CSo8NSObject", "gender"]
+- ["CSo8NSObject", "id"]
+- ["CSo8NSObject", "lastName"]
+- ["CSo8NSObject", "locationID"]
+- ["CSo8NSObject", "phoneNumber"]
+- ["CSo8NSObject", "profilePhotoID"]
+- ["CSo8NSObject", "userLoginID"]
+- ["PSo16NSObjectProtocol", "billingID"]
+- ["PSo16NSObjectProtocol", "chefID"]
+- ["PSo16NSObjectProtocol", "consumerID"]
+- ["PSo16NSObjectProtocol", "dateOfBirth"]
+- ["PSo16NSObjectProtocol", "email"]
+- ["PSo16NSObjectProtocol", "firstName"]
+- ["PSo16NSObjectProtocol", "gender"]
+- ["PSo16NSObjectProtocol", "id"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "lastName"]
+- ["PSo16NSObjectProtocol", "locationID"]
+- ["PSo16NSObjectProtocol", "phoneNumber"]
+- ["PSo16NSObjectProtocol", "profilePhotoID"]
+- ["PSo16NSObjectProtocol", "userLoginID"]
+- ["PSo16NSObjectProtocol", ""]
+- ["P6Dragon18ReadableProperties", "billingID"]
+- ["P6Dragon18ReadableProperties", "chefID"]
+- ["P6Dragon18ReadableProperties", "consumerID"]
+- ["P6Dragon18ReadableProperties", "dateOfBirth"]
+- ["P6Dragon18ReadableProperties", "email"]
+- ["P6Dragon18ReadableProperties", "firstName"]
+- ["P6Dragon18ReadableProperties", "gender"]
+- ["P6Dragon18ReadableProperties", "id"]
+- ["P6Dragon18ReadableProperties", "init"]
+- ["P6Dragon18ReadableProperties", "lastName"]
+- ["P6Dragon18ReadableProperties", "locationID"]
+- ["P6Dragon18ReadableProperties", "phoneNumber"]
+- ["P6Dragon18ReadableProperties", "profilePhotoID"]
+- ["P6Dragon18ReadableProperties", "userLoginID"]
+- ["P6Dragon18ReadableProperties", ""]
+- ["C6Dragon12UserAPIModel", "Int"]
+- ["C6Dragon12UserAPIModel", "String"]
+- ["C6Dragon12UserAPIModel", "billingID"]
+- ["C6Dragon12UserAPIModel", "chefID"]
+- ["C6Dragon12UserAPIModel", "consumerID"]
+- ["C6Dragon12UserAPIModel", "dateOfBirth"]
+- ["C6Dragon12UserAPIModel", "deinit"]
+- ["C6Dragon12UserAPIModel", "email"]
+- ["C6Dragon12UserAPIModel", "firstName"]
+- ["C6Dragon12UserAPIModel", "gender"]
+- ["C6Dragon12UserAPIModel", "id"]
+- ["C6Dragon12UserAPIModel", "init"]
+- ["C6Dragon12UserAPIModel", "lastName"]
+- ["C6Dragon12UserAPIModel", "locationID"]
+- ["C6Dragon12UserAPIModel", "phoneNumber"]
+- ["C6Dragon12UserAPIModel", "profilePhotoID"]
+- ["C6Dragon12UserAPIModel", "userLoginID"]
+depends-nominal:
+- "C6Dragon16AbstractAPIModel"
+- "Ps9AnyObject"
+- "Ps11CVarArgType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps8Hashable"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "P6Dragon18ReadableProperties"
+- "C6Dragon12UserAPIModel"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
+interface-hash: "4dc1f5d617352463befec3a9d9aff106"

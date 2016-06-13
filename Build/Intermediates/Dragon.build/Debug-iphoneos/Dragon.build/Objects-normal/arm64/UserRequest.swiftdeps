@@ -1,0 +1,85 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UserRequest"
+provides-nominal:
+- "C6Dragon11UserRequest"
+provides-member:
+- ["C6Dragon11UserRequest", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "UserRequest"
+- "NSDictionary"
+- !private "APIHost"
+- "Void"
+- !private "StringLiteralType"
+- "UserResult"
+- "APIRequest"
+- "UserAPIModel"
+- "String"
+depends-member:
+- !private ["C6Dragon7APIHost", "APIHostEnum"]
+- !private ["OC6Dragon7APIHost11APIHostEnum", "CHIMERA"]
+- !private ["C6Dragon10APIRequest", "APIHost"]
+- ["C6Dragon10APIRequest", "NSDictionary"]
+- ["C6Dragon10APIRequest", "String"]
+- ["C6Dragon10APIRequest", "UserAPIModel"]
+- ["C6Dragon10APIRequest", "UserResult"]
+- ["C6Dragon10APIRequest", "Void"]
+- !private ["C6Dragon10APIRequest", "appendParameter"]
+- ["C6Dragon10APIRequest", "completion"]
+- ["C6Dragon10APIRequest", "handleResult"]
+- ["C6Dragon10APIRequest", "init"]
+- !private ["C6Dragon10APIRequest", "post"]
+- ["C6Dragon10APIRequest", "request"]
+- ["C6Dragon10APIRequest", ""]
+- !private ["Ps9AnyObject", "APIHost"]
+- !private ["Ps9AnyObject", "APIHostEnum"]
+- !private ["Ps9AnyObject", "UserResult"]
+- !private ["Ps9AnyObject", "appendParameter"]
+- ["Ps9AnyObject", "completion"]
+- ["Ps9AnyObject", "handleResult"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "post"]
+- ["Ps9AnyObject", "request"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps9Equatable", "CHIMERA"]
+- !private ["Ps8Hashable", "CHIMERA"]
+- !private ["Vs12StaticString", "deinit"]
+- !private ["SS", "deinit"]
+- !private ["C6Dragon11UserRequest", "APIHost"]
+- ["C6Dragon11UserRequest", "NSDictionary"]
+- ["C6Dragon11UserRequest", "String"]
+- ["C6Dragon11UserRequest", "UserAPIModel"]
+- ["C6Dragon11UserRequest", "UserResult"]
+- ["C6Dragon11UserRequest", "Void"]
+- !private ["C6Dragon11UserRequest", "appendParameter"]
+- !private ["C6Dragon11UserRequest", "completion"]
+- ["C6Dragon11UserRequest", "deinit"]
+- ["C6Dragon11UserRequest", "handleResult"]
+- ["C6Dragon11UserRequest", "init"]
+- !private ["C6Dragon11UserRequest", "post"]
+- !private ["C6Dragon11UserRequest", "request"]
+- !private ["C6Dragon10UserResult", "init"]
+depends-nominal:
+- !private "C6Dragon7APIHost"
+- !private "OC6Dragon7APIHost11APIHostEnum"
+- "C6Dragon10APIRequest"
+- "Ps9AnyObject"
+- !private "Ps9Equatable"
+- !private "Ps8Hashable"
+- !private "Vs12StaticString"
+- !private "SS"
+- "C6Dragon11UserRequest"
+- !private "C6Dragon10UserResult"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+interface-hash: "e4878b880dd6654813f7dbe137792f74"
