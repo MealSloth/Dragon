@@ -8,33 +8,28 @@
 
 import Foundation
 
-class UserLoginRequest: APIRequest
+class UserLoginRequest: APIRequestChimera
 {
-    private var completion: ((UserLoginAPIModel) -> Void)!
+    private var completion: ((UserLoginResult) -> Void)?
     
-    init(userLoginID: String, completion: (userLogin: UserLoginAPIModel) -> Void)
+    init(withUserLoginID userLoginID: String)
     {
-        super.init(host: APIHost.APIHostEnum.CHIMERA, method: "user-login/")
-        self.appendParameter("user_login_id", value: userLoginID)
-        self.completion = completion
-        self.request()
+        super.init(method: "user-login/")
+        self.json["user_login_id"] = userLoginID
     }
     
-    init(userID: String, completion: (userLogin: UserLoginAPIModel) -> Void)
+    init(withUserID userID: String)
     {
-        super.init(host: APIHost.APIHostEnum.CHIMERA, method: "user-login/")
-        self.appendParameter("user_id", value: userID)
-        self.completion = completion
-        self.request()
+        super.init(method: "user-login/")
+        self.json["user_id"] = userID
     }
     
-    private func request()
+    func request(onCompletion completion: ((result: UserLoginResult) -> Void)? = nil, onError: ((error: ErrorType?) -> Void)? = nil)
     {
-        self.post(self.handleResult)
-    }
-    
-    func handleResult(result: NSDictionary) -> UserResult
-    {
-        return UserLoginResult(result: result)
+        self.resultHandler = { (result) -> Void in
+            completion?(result: UserLoginResult(result: result))
+        }
+        self.errorHandler = onError
+        super.request()
     }
 }

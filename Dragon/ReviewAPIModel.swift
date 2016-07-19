@@ -15,23 +15,13 @@ class ReviewAPIModel: AbstractAPIModel
     var consumerID: String!
     var rating: Int!
     var title: String?
+    var summary: String?
     var time: String!
     
-    private var reviewDescription: String?
-    override var description: String {
-        get
-        {
-            return self.reviewDescription!
-        }
-        set(value)
-        {
-            self.reviewDescription = value
-        }
-    }
-    
-    override func initialize(json: Dictionary<String, AnyObject>)
+    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
     {
-        super.initialize(json)
-        self.reviewDescription = json["description"] as? String
+        let skip: [String] = ["rating", ]
+        self.rating = json["rating"] as! Int
+        super.initialize(json, skip: skip)
     }
 }

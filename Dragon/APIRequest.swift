@@ -8,39 +8,34 @@
 
 import Foundation
 
-class APIRequest
+protocol APIRequest
 {
-    internal var json: Dictionary<String, AnyObject>
-    var host: APIHost.APIHostEnum!
-    var method: String!
+    var json: Dictionary<String, AnyObject> { get set }
+    var host: APIHost.APIHostEnum! { get set }
+    var method: String! { get set }
     
-    init(host: APIHost.APIHostEnum, method: String)
-    {
-        self.host = host
-        self.method = method
-        
-        self.json = [String:AnyObject]()
-    }
-    
-    func appendParameter(key: String, value: AnyObject)
-    {
-        self.json[key] = value
-    }
-    
-    func post(completion: ((result: NSDictionary) -> APIResult)? = nil, onError: (() -> Void)? = nil)
+    var resultHandler: ((result: NSDictionary) -> Void)? { get set }
+    var errorHandler: ((error: ErrorType?) -> Void)? { get set }
+}
+
+extension APIRequest
+{
+    func post(onCompletion completion: ((result: NSDictionary) -> Void)? = nil, onError: ((ErrorType?) -> Void)? = nil)
     {
         let request = NSMutableURLRequest(URL: NSURL(string: "\(APIHost.URL(self.host))\(self.method)")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json",forHTTPHeaderField: "Content-Type")
         request.addValue("application/json",forHTTPHeaderField: "Accept")
         
+        Log.string("Executing POST request at \(APIHost.URL(self.host))\(self.method)")
+        
         do
         {
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions.PrettyPrinted)
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(self.json, options: NSJSONWritingOptions.PrettyPrinted)
         }
         catch let postError
         {
-            print(postError)
+            Log.error(postError as NSError)
         }
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request)
@@ -49,19 +44,21 @@ class APIRequest
             
             guard data != nil else
             {
-                onError?()
+                onError?(error)
                 return
             }
             do
             {
                 if let jsonResult : NSDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
                 {
+                    Log.string("Received response for POST request at \(APIHost.URL(self.host))\(self.method) with JSON object:")
+                    Log.dictionary(jsonResult as? Dictionary<String, AnyObject>)
                     completion?(result: jsonResult)
                 }
             }
             catch
             {
-                onError?()
+                onError?(error)
             }
         }
         

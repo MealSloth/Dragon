@@ -8,25 +8,20 @@
 
 import Foundation
 
-class PostRequest: APIRequest
+class PostRequest: APIRequestChimera
 {
-    private var completion: ((PostAPIModel) -> Void)!
-    
-    init(postID: String, completion: (post: PostAPIModel) -> Void)
+    init(withPostID postID: String)
     {
-        super.init(host: APIHost.APIHostEnum.CHIMERA, method: "post/")
-        self.appendParameter("post_id", value: postID)
-        self.completion = completion
-        self.request()
+        super.init(method: "post/")
+        self.json["post_id"] = postID
     }
     
-    private func request()
+    func request(onCompletion completion: ((post: PostResult) -> Void)? = nil, onError: ((error: ErrorType?) -> Void)? = nil)
     {
-        self.post(self.handleResult)
-    }
-    
-    func handleResult(result: NSDictionary) -> PostResult
-    {
-        return PostResult(result: result)
+        self.resultHandler = { (result) -> Void in
+            completion?(post: PostResult(result: result))
+        }
+        self.errorHandler = onError
+        super.request()
     }
 }

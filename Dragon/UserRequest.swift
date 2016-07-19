@@ -8,33 +8,26 @@
 
 import Foundation
 
-class UserRequest: APIRequest
+class UserRequest: APIRequestChimera
 {
-    private var completion: ((UserAPIModel) -> Void)!
-    
-    init(userID: String, completion: (user: UserAPIModel) -> Void)
+    init(withUserID userID: String)
     {
-        super.init(host: APIHost.APIHostEnum.CHIMERA, method: "user/")
-        self.appendParameter("user_id", value: userID)
-        self.completion = completion
-        self.request()
+        super.init(method: "user/")
+        self.json["user_id"] = userID
     }
     
-    init(email: String, completion: (user: UserAPIModel) -> Void)
+    init(withEmail email: String)
     {
-        super.init(host: APIHost.APIHostEnum.CHIMERA, method: "user/")
-        self.appendParameter("email", value: email)
-        self.completion = completion
-        self.request()
+        super.init(method: "user/")
+        self.json["email"] = email
     }
     
-    private func request()
+    func request(onCompletion completion: ((result: UserResult) -> Void)? = nil, onError: ((error: ErrorType?) -> Void)? = nil)
     {
-        self.post(self.handleResult)
-    }
-    
-    func handleResult(result: NSDictionary) -> UserResult
-    {
-        return UserResult(result: result)
+        self.resultHandler = { (result) -> Void in
+            completion?(result: UserResult(result: result))
+        }
+        self.errorHandler = onError
+        super.request()
     }
 }

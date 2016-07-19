@@ -15,27 +15,19 @@ class PostAPIModel: AbstractAPIModel
     var locationID: String!
     var albumID: String!
     var name: String!
+    var summary: String!
     var orderCount: Int!
     var capacity: Int!
     var postStatus: Int!
     var postTime: String!
     var expireTime: String!
     
-    private var postDescription: String?
-    override var description: String {
-        get
-        {
-            return self.postDescription!
-        }
-        set(value)
-        {
-            self.postDescription = value
-        }
-    }
-    
-    override func initialize(json: Dictionary<String, AnyObject>)
+    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
     {
-        super.initialize(json)
-        self.postDescription = json["description"] as? String
+        let skip: [String] = ["orderCount", "capacity", "postStatus", ]
+        self.orderCount = json["order_count"] as! Int
+        self.capacity = json["capacity"] as! Int
+        self.postStatus = json["post_status"] as! Int
+        super.initialize(json, skip: skip)
     }
 }

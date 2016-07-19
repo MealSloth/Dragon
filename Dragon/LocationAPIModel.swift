@@ -20,4 +20,12 @@ class LocationAPIModel: AbstractAPIModel
     var state: String?
     var country: String?
     var zip: String?
+    
+    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
+    {
+        let skip: [String] = ["purpose", "type", ]
+        self.purpose = json["purpose"] as! Int
+        self.type = json["type"] as! Int
+        super.initialize(json, skip: skip)
+    }
 }

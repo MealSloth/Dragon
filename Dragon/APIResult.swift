@@ -10,5 +10,5 @@ import Foundation
 
 class APIResult
 {
-    
+    var description: String { return "APIResult" }
 }

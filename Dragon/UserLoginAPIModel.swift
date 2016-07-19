@@ -16,12 +16,10 @@ class UserLoginAPIModel : AbstractAPIModel
     var password: String!
     var accessLevel: Int!
     
-//    override func initialize(json: Dictionary<String, AnyObject>)
-//    {
-//        self.id = json["id"] as! String
-//        self.userID = json["user_id"] as! String
-//        self.username = json["username"] as! String
-//        self.password = json["password"] as! String
-//        self.accessLevel = json["access_level"] as! Int
-//    }
+    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
+    {
+        let skip: [String] = ["accessLevel", ]
+        self.accessLevel = json["access_level"] as! Int
+        super.initialize(json, skip: skip)
+    }
 }

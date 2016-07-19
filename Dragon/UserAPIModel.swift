@@ -24,16 +24,13 @@ class UserAPIModel : AbstractAPIModel
     var dateOfBirth: String?
     var gender: Int?
     
-//    override func initialize(json: Dictionary<String, AnyObject>)
-//    {
-//        self.id = json["id"] as! String
-//        self.userLoginID = json["user_login_id"] as! String
-//        self.consumerID = json["consumer_id"] as! String
-//        self.chefID = json["chef_id"] as! String
-//        self.locationID = json["location_id"] as! String
-//        self.billingID = json["billing_id"] as! String
-//        self.profilePhotoID = json["profile_photo_id"] as! String
-//        self.email = json["email"] as! String
-//        self.firstName = json["first_name"] as? String
-//    }
+    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
+    {
+        let skip: [String] = ["gender", ]
+        if let jsonGender = json["gender"] as? Int
+        {
+            self.gender = jsonGender
+        }
+        super.initialize(json, skip: skip)
+    }
 }

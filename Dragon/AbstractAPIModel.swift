@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AbstractAPIModel: NSObject, ReadableProperties
+class AbstractAPIModel: NSObject
 {
     init(json: Dictionary<String, AnyObject>)
     {
@@ -16,23 +16,17 @@ class AbstractAPIModel: NSObject, ReadableProperties
         self.initialize(json)
     }
     
-    func initialize(json: Dictionary<String, AnyObject>)
+    func initialize(json: Dictionary<String, AnyObject>, skip: [String] = [])
     {
         for property in self.getProperties()
         {
-            self.setValue(json[FieldNameHelper.GetServerName(forClientName: property)], forKey: property)
+            if !skip.contains(property)
+            {
+                self.setValue(json[FieldNameHelper.GetServerName(forClientName: property)], forKey: property)
+            }
         }
-//        preconditionFailure("This method must be overriden by the subclass.")
     }
-}
-
-protocol ReadableProperties
-{
-    func getProperties() -> [String]
-}
-
-extension ReadableProperties
-{
+    
     func getProperties() -> [String]
     {
         return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
