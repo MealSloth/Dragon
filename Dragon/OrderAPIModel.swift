@@ -18,16 +18,7 @@ class OrderAPIModel: AbstractAPIModel
     var billingID: String!
     var orderTimeID: String!
     var orderSummaryID: String!
-    var orderStatus: Int!
-    var orderType: Int!
-    var amount: Int!
-    
-    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
-    {
-        let skip: [String] = ["orderStatus", "orderType", "amount", ]
-        self.orderStatus = json["order_status"] as! Int
-        self.orderType = json["order_type"] as! Int
-        self.amount = json["order_type"] as! Int
-        super.initialize(json, skip: skip)
-    }
+    var orderStatus: NSNumber!
+    var orderType: NSNumber!
+    var amount: NSNumber!
 }

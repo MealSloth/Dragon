@@ -16,18 +16,9 @@ class PostAPIModel: AbstractAPIModel
     var albumID: String!
     var name: String!
     var summary: String!
-    var orderCount: Int!
-    var capacity: Int!
-    var postStatus: Int!
+    var orderCount: NSNumber!
+    var capacity: NSNumber!
+    var postStatus: NSNumber!
     var postTime: String!
     var expireTime: String!
-    
-    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
-    {
-        let skip: [String] = ["orderCount", "capacity", "postStatus", ]
-        self.orderCount = json["order_count"] as! Int
-        self.capacity = json["capacity"] as! Int
-        self.postStatus = json["post_status"] as! Int
-        super.initialize(json, skip: skip)
-    }
 }

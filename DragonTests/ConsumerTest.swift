@@ -10,7 +10,7 @@ import XCTest
 
 class ConsumerTest: DragonTest
 {
-    func testWithID()
+    func testWithConsumerID()
     {
         let readyExpectation = expectationWithDescription("ready")
         let method = "ConsumerRequest(withConsumerId:)"
