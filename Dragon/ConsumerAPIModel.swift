@@ -13,8 +13,8 @@ class ConsumerAPIModel: AbstractAPIModel
     var id: String!
     var userID: String!
     var locationID: String!
-    var favoritePosts: [PostAPIModel] = []
-    var favoriteChefs: [ChefAPIModel] = []
+    var favoritePosts: [PostAPIModel]?
+    var favoriteChefs: [ChefAPIModel]?
     
 //    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
 //    {

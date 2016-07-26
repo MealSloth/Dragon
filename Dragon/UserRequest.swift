@@ -22,7 +22,7 @@ class UserRequest: APIRequestChimera
         self.json["email"] = email
     }
     
-    func request(onCompletion completion: ((result: UserResult) -> Void)? = nil, onError: ((error: ErrorType?) -> Void)? = nil)
+    func request(onCompletion completion: ((result: UserResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
     {
         self.resultHandler = { (result) -> Void in
             completion?(result: UserResult(result: result))

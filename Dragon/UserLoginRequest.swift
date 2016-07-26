@@ -24,7 +24,7 @@ class UserLoginRequest: APIRequestChimera
         self.json["user_id"] = userID
     }
     
-    func request(onCompletion completion: ((result: UserLoginResult) -> Void)? = nil, onError: ((error: ErrorType?) -> Void)? = nil)
+    func request(onCompletion completion: ((result: UserLoginResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
     {
         self.resultHandler = { (result) -> Void in
             completion?(result: UserLoginResult(result: result))

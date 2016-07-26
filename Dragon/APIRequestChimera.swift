@@ -14,13 +14,13 @@ class APIRequestChimera: APIRequest
     var host: APIHost.APIHostEnum!
     var method: String!
     
-    var resultHandler: ((result: NSDictionary) -> Void)?
-    var errorHandler: ((error: ErrorType?) -> Void)?
+    var resultHandler: ((result: Dictionary<String, AnyObject>) -> Void)?
+    var errorHandler: ((error: NSError?) -> Void)?
     
     init(method: String)
     {
         self.host = APIHost.APIHostEnum.CHIMERA
-        self.method = method
+        self.method = (method.substringToIndex(method.startIndex.advancedBy(1)) == "/") ? method.substringFromIndex(method.startIndex.advancedBy(1)) : method
     }
     
     func request()

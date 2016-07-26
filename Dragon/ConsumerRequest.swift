@@ -16,7 +16,7 @@ class ConsumerRequest: APIRequestChimera
         self.json["consumer_id"] = consumerID
     }
     
-    func request(onCompletion completion: ((result: ConsumerResult) -> Void)? = nil, onError: ((error: ErrorType?) -> Void)? = nil)
+    func request(onCompletion completion: ((result: ConsumerResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
     {
         self.resultHandler = { (result) -> Void in
             completion?(result: ConsumerResult(result: result))

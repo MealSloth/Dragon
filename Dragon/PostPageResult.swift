@@ -12,7 +12,7 @@ class PostPageResult: APIResult
 {
     var posts: [PostAPIModel] = []
     
-    init(result: NSDictionary)
+    init(result: Dictionary<String, AnyObject>)
     {
         let postsDict = result["posts"] as! [Dictionary<String, AnyObject>]
         for post in postsDict

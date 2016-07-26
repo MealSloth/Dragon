@@ -12,7 +12,7 @@ class PostResult: APIResult
 {
     var post: PostAPIModel!
     
-    init(result: NSDictionary)
+    init(result: Dictionary<String, AnyObject>)
     {
         self.post = PostAPIModel(json: result["post"] as! Dictionary<String, AnyObject>)
     }

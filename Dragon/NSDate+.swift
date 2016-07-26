@@ -13,9 +13,8 @@ extension NSDate
     func toString() -> String
     {
         let formatter = NSDateFormatter.init()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         var string = formatter.stringFromDate(self)
-        string = string.stringByReplacingOccurrencesOfString(" ", withString: "T")
         string += "000"
         return string
     }

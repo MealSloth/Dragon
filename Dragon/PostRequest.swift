@@ -16,7 +16,7 @@ class PostRequest: APIRequestChimera
         self.json["post_id"] = postID
     }
     
-    func request(onCompletion completion: ((post: PostResult) -> Void)? = nil, onError: ((error: ErrorType?) -> Void)? = nil)
+    func request(onCompletion completion: ((post: PostResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
     {
         self.resultHandler = { (result) -> Void in
             completion?(post: PostResult(result: result))
