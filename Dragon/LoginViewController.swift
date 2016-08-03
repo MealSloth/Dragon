@@ -153,7 +153,7 @@ class LoginViewController: UIViewController
     }
     
     // MARK: Misc
-    func segue()
+    private func segue()
     {
         self.performSegueWithIdentifier("Segue_LoginViewController->TabBarController", sender: self)
     }

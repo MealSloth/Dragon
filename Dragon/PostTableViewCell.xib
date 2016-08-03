@@ -19,25 +19,35 @@
                             <rect key="frame" x="0.0" y="257" width="600" height="343"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLW-Qs-hmf" userLabel="Label Post Name">
-                                    <rect key="frame" x="120" y="15" width="98" height="24"/>
+                                    <rect key="frame" x="113" y="8" width="108" height="27"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                            <integer key="value" value="0"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-sk-vBS" userLabel="Label Price">
+                                    <rect key="frame" x="546" y="8" width="46" height="26"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-sk-vBS" userLabel="Label Price">
-                                    <rect key="frame" x="548" y="15" width="42" height="24"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                            <integer key="value" value="0"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="rnR-sk-vBS" firstAttribute="baseline" secondItem="jLW-Qs-hmf" secondAttribute="baseline" id="Ecl-4e-4jA"/>
-                                <constraint firstItem="jLW-Qs-hmf" firstAttribute="top" secondItem="YK9-F7-Iqt" secondAttribute="top" constant="15" id="UFh-sm-Aca"/>
-                                <constraint firstItem="rnR-sk-vBS" firstAttribute="top" secondItem="YK9-F7-Iqt" secondAttribute="top" constant="15" id="Xor-Iq-Lhr"/>
-                                <constraint firstItem="jLW-Qs-hmf" firstAttribute="leading" secondItem="YK9-F7-Iqt" secondAttribute="leading" constant="120" id="n2g-ae-L8g"/>
-                                <constraint firstAttribute="trailing" secondItem="rnR-sk-vBS" secondAttribute="trailing" constant="10" id="p2B-HG-hM9"/>
+                                <constraint firstItem="jLW-Qs-hmf" firstAttribute="top" secondItem="YK9-F7-Iqt" secondAttribute="top" constant="8" id="UFh-sm-Aca"/>
+                                <constraint firstItem="rnR-sk-vBS" firstAttribute="top" secondItem="YK9-F7-Iqt" secondAttribute="top" constant="8" id="Xor-Iq-Lhr"/>
+                                <constraint firstItem="jLW-Qs-hmf" firstAttribute="leading" secondItem="YK9-F7-Iqt" secondAttribute="leading" constant="113" id="n2g-ae-L8g"/>
+                                <constraint firstAttribute="trailing" secondItem="rnR-sk-vBS" secondAttribute="trailing" constant="8" id="p2B-HG-hM9"/>
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal_sample" translatesAutoresizingMaskIntoConstraints="NO" id="HJe-fc-Ezr">
@@ -45,9 +55,14 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="HJe-fc-Ezr" secondAttribute="height" multiplier="21:9" id="Lwt-b3-t5y"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                    <integer key="value" value="0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman_sample" translatesAutoresizingMaskIntoConstraints="NO" id="wbP-yi-gcy">
-                            <rect key="frame" x="25" y="227" width="80" height="80"/>
+                            <rect key="frame" x="25" y="217" width="80" height="80"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="80" id="GhY-O4-dgn"/>
                                 <constraint firstAttribute="width" constant="80" id="NDb-gU-TbJ"/>
@@ -55,6 +70,9 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="40"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                    <integer key="value" value="0"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </imageView>
@@ -69,7 +87,7 @@
                         <constraint firstAttribute="trailing" secondItem="YK9-F7-Iqt" secondAttribute="trailing" id="eJz-AX-WYr"/>
                         <constraint firstItem="HJe-fc-Ezr" firstAttribute="leading" secondItem="pna-Bm-kSf" secondAttribute="leading" id="lNU-1N-HEV"/>
                         <constraint firstItem="YK9-F7-Iqt" firstAttribute="leading" secondItem="pna-Bm-kSf" secondAttribute="leading" id="nEL-Vh-txE"/>
-                        <constraint firstItem="YK9-F7-Iqt" firstAttribute="top" secondItem="wbP-yi-gcy" secondAttribute="bottom" constant="-50" id="pIj-nV-beq"/>
+                        <constraint firstItem="YK9-F7-Iqt" firstAttribute="top" secondItem="wbP-yi-gcy" secondAttribute="bottom" constant="-40" id="pIj-nV-beq"/>
                     </constraints>
                 </view>
             </subviews>
