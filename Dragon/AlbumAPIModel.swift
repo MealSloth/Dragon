@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AlbumAPIModel
+class AlbumAPIModel: AbstractAPIModel
 {
     var id: String!
     var time: String!

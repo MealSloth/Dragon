@@ -23,7 +23,8 @@ class PostTest: DragonTest
             },
             onError: { (error) -> Void in
                 self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
-        })
+            }
+        )
         
         waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)

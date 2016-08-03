@@ -10,6 +10,56 @@ import XCTest
 
 class PostPageTest: DragonTest
 {
+    func testUsingNothing()
+    {
+        let readyExpectation = expectationWithDescription("ready")
+        let method = "PostPageRequest()"
+        
+        PostPageRequest().request(
+            onCompletion: { (result) -> Void in
+                XCTAssertNotNil(result)
+                XCTAssertNotNil(result.posts)
+                if let first = result.posts.first
+                {
+                    XCTAssertNotNil(first.albumID)
+                }
+                readyExpectation.fulfill()
+            },
+            onError: { (error) -> Void in
+                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+            }
+        )
+        
+        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+            self.timeout(duringMethod: method, withError: error)
+        })
+    }
+    
+    func testWithPageSize()
+    {
+        let readyExpectation = expectationWithDescription("ready")
+        let method = "PostPageRequest(withPageSize:)"
+        
+        PostPageRequest(withPageSize: 10).request(
+            onCompletion: { (result) -> Void in
+                XCTAssertNotNil(result)
+                XCTAssertNotNil(result.posts)
+                if let first = result.posts.first
+                {
+                    XCTAssertNotNil(first.albumID)
+                }
+                readyExpectation.fulfill()
+            },
+            onError: { (error) -> Void in
+                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+            }
+        )
+        
+        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+            self.timeout(duringMethod: method, withError: error)
+        })
+    }
+    
     func testUsingPostTimestamp()
     {
         let readyExpectation = expectationWithDescription("ready")
@@ -28,7 +78,8 @@ class PostPageTest: DragonTest
             },
             onError: { (error) -> Void in
                 self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
-        })
+            }
+        )
         
         waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
@@ -53,7 +104,8 @@ class PostPageTest: DragonTest
             },
             onError: { (error) -> Void in
                 self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
-        })
+            }
+        )
         
         waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)

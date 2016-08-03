@@ -1,54 +1,56 @@
 //
-//  UserLoginTest.swift
+//  BlobTest.swift
 //  Dragon
 //
-//  Created by Michael Fourre on 6/26/16.
+//  Created by Michael Fourre on 8/2/16.
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
 import XCTest
 
-class UserLoginTest: DragonTest
+class BlobTest: DragonTest
 {
-    func testWithUserLoginID()
+    func testWithBlobID()
     {
         let readyExpectation = expectationWithDescription("ready")
-        let method = "UserLoginRequest(withUserLoginID:)"
+        let method = "BlobRequest(withBlobID:)"
         
-        UserLoginRequest(withUserLoginID: "63dd798f-50d6-40b2-8827-9788a6591dec").request(
+        BlobRequest(withBlobID: "c1dacec6-9156-4cd7-a670-ef06d9c4a73a").request(
             onCompletion: { (result) -> Void in
                 XCTAssertNotNil(result)
-                XCTAssertNotNil(result.userLogin)
+                XCTAssertNotNil(result.blob)
                 readyExpectation.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                XCTFail("Failed during \(method) with error \(error)")
+                readyExpectation.fulfill()
             }
         )
         
         waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
+            XCTAssertNil(error, "Timeout during \(method) with error \(error)")
         })
     }
     
-    func testWithUserID()
+    func testWithAlbumID()
     {
         let readyExpectation = expectationWithDescription("ready")
-        let method = "UserLoginRequest(withUserID:)"
+        let method = "BlobRequest(withAlbumID:)"
         
-        UserLoginRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
+        BlobRequest(withAlbumID: "9d94bffa-c279-498b-a790-aced6c5aec98").request(
             onCompletion: { (result) -> Void in
                 XCTAssertNotNil(result)
-                XCTAssertNotNil(result.userLogin)
+                XCTAssertNotNil(result.blobs)
                 readyExpectation.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                XCTFail("Failed during \(method) with error \(error)")
+                readyExpectation.fulfill()
             }
         )
         
         waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
+            XCTAssertNil(error, "Timeout during \(method) with error \(error)")
         })
     }
 }

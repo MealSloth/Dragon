@@ -10,16 +10,16 @@ import Foundation
 
 class Log
 {
-    var type: LogType = .n
+    var type: LogType = .normal
     
     enum LogType: String
     {
-        case d = "Debug"
-        case e = "Error"
-        case i = "Info"
-        case n = "Normal"
-        case v = "Verbose"
-        case w = "Warning"
+        case debug = "Debug"
+        case error = "Error"
+        case info = "Info"
+        case normal = "Normal"
+        case verbose = "Verbose"
+        case warning = "Warning"
     }
     
     internal class func log(type type: LogType, string: String, data: Dictionary<String, String> = [:])
@@ -32,7 +32,7 @@ class Log
         print(log)
     }
     
-    class func string(string: String?, type: LogType = .i)
+    class func string(string: String?, type: LogType = .info)
     {
         let str = ":str"
         
@@ -42,7 +42,7 @@ class Log
         self.log(type: type, string: "\(str)", data: data)
     }
     
-    class func error(error: NSError?, type: LogType = .e)
+    class func error(error: NSError?, type: LogType = .error)
     {
         let desc = ":desc"
         
@@ -52,7 +52,7 @@ class Log
         self.log(type: type, string: "\(desc)", data: data)
     }
     
-    class func array(array: [AnyObject]?, type: LogType = .i)
+    class func array(array: [AnyObject]?, type: LogType = .info)
     {
         let arr = ":arr"
         
@@ -62,7 +62,7 @@ class Log
         self.log(type: type, string: "\(arr)", data: data)
     }
     
-    class func dictionary(dictionary: Dictionary<String, AnyObject>?, type: LogType = .i)
+    class func dictionary(dictionary: Dictionary<String, AnyObject>?, type: LogType = .info)
     {
         let dict = ":dict"
 

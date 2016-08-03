@@ -8,11 +8,12 @@
 
 import Foundation
 
-class BlobAPIModel
+class BlobAPIModel: AbstractAPIModel
 {
     var id: String!
     var albumID: String!
     var gcsID: String!
     var contentType: String?
     var time: String!
+    var url: String!
 }
