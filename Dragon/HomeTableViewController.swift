@@ -14,6 +14,7 @@ class HomeTableViewController: UITableViewController
     @IBOutlet weak var scrollView: UIScrollView!
     
     var posts: [PostAPIModel] = []
+    var blobs: Dictionary<String, UIImage> = [:]
     
     // MARK: Delegates
     override func viewDidLoad()
@@ -124,7 +125,12 @@ class HomeTableViewController: UITableViewController
     
     private func populateImageForCell(cell: PostTableViewCell, withPost post: PostAPIModel)
     {
-        //TODO: Get Blob
+        if let blob = self.blobs[post.albumID]
+        {
+            cell.imagePost.image = blob
+            return
+        }
+        
         BlobRequest(withAlbumID: post.albumID).request(
             onCompletion: { (result) -> Void in
                 if let blob = result.blobs?[safe: 0]
@@ -132,7 +138,8 @@ class HomeTableViewController: UITableViewController
                     if let image = UIImage.FromURL(blob.url)
                     {
                         self.runOnMainThread({ () -> Void in
-                            cell.imagePost.image = image
+                            self.blobs[post.albumID] = image
+                            cell.imagePost.image = self.blobs[post.albumID]
                         })
                     }
                 }
