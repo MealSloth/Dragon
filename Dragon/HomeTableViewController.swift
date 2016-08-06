@@ -29,12 +29,11 @@ class HomeTableViewController: UITableViewController
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         PostPageRequest().request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: PostPageResult) -> Void in
                 self.handlePostPageResult(result)
             },
             onError: { (error) -> Void in
-                Log.string("Error occurred during PostPageRequest():", type: .error)
-                Log.error(error)
+                Log.Error("Error occurred during PostPageRequest(): \(error)")
             }
         )
     }
@@ -93,7 +92,7 @@ class HomeTableViewController: UITableViewController
         }
         else
         {
-            Log.string("Failed cast to PostTableViewCell", type: .warning)
+            Log.Warning("Failed cast to PostTableViewCell")
             return self.tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath)
         }
     }
@@ -167,7 +166,7 @@ class HomeTableViewController: UITableViewController
         }
         
         BlobRequest(withAlbumID: post.albumID).request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: BlobResult) -> Void in
                 if let blob = result.blobs?[safe: 0]
                 {
                     if let image = UIImage.FromURL(blob.url)
@@ -180,8 +179,7 @@ class HomeTableViewController: UITableViewController
                 }
             },
             onError: { (error) -> Void in
-                Log.string("Error during BlobRequest(withAlbumID:)", type: .error)
-                Log.error(error)
+                Log.Error("Error during BlobRequest(withAlbumID:): \(error)")
             }
         )
     }

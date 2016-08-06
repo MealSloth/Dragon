@@ -27,7 +27,7 @@ extension APIRequest
         request.addValue("application/json",forHTTPHeaderField: "Content-Type")
         request.addValue("application/json",forHTTPHeaderField: "Accept")
         
-        Log.string("Executing POST request at \(APIHost.URL(self.host))\(self.method)")
+        Log.Info("Executing POST request at \(APIHost.URL(self.host))\(self.method)")
         
         do
         {
@@ -35,7 +35,7 @@ extension APIRequest
         }
         catch let postError as NSError
         {
-            Log.error(postError)
+            Log.Error("\(postError)")
         }
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
@@ -48,8 +48,7 @@ extension APIRequest
             {
                 if let jsonResult: Dictionary<String, AnyObject> = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? Dictionary<String, AnyObject>
                 {
-                    Log.string("Received response for POST request at \(APIHost.URL(self.host))\(self.method) with JSON object:")
-                    Log.dictionary(jsonResult)
+                    Log.Info("Received response for POST request at \(APIHost.URL(self.host))\(self.method) with JSON object: \(jsonResult)")
                     completion?(result: jsonResult)
                 }
             }

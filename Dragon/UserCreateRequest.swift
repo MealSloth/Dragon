@@ -16,13 +16,4 @@ class UserCreateRequest: APIRequestChimera
         self.json["email"] = email
         self.json["password"] = password
     }
-    
-    func request(onCompletion completion: ((result: UserCreateResult) -> Void)?, onError: ((error: NSError?) -> Void)?)
-    {
-        self.resultHandler = { (result) -> Void in
-            completion?(result: UserCreateResult(result: result))
-        }
-        self.errorHandler = onError
-        self.request()
-    }
 }

@@ -8,7 +8,18 @@
 
 import Foundation
 
-class APIResult
+protocol APIResult
 {
-    var description: String { return "APIResult" }
+    var description: String? { get }
+    
+    init(result: Dictionary<String, AnyObject>)
+}
+
+extension APIResult
+{
+    var description: String? {
+        get {
+            return String(self.dynamicType)
+        }
+    }
 }

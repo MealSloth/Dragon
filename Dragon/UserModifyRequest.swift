@@ -20,13 +20,4 @@ class UserModifyRequest: APIRequestChimera
         self.json["date_of_birth"] = dateOfBirth?.toString()
         self.json["phone_number"] = phoneNumber
     }
-    
-    func request(onCompletion completion: ((result: UserModifyResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
-    {
-        self.resultHandler = { (result) -> Void in
-            completion?(result: UserModifyResult(result: result))
-        }
-        self.errorHandler = onError
-        super.request()
-    }
 }

@@ -16,7 +16,7 @@ class ConsumerTest: DragonTest
         let method = "ConsumerRequest(withConsumerId:)"
         
         ConsumerRequest(withConsumerID: "d25a27ba-1e43-49ff-92b5-37285c4af962").request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: ConsumerResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.consumer)
                 readyExpectation.fulfill()

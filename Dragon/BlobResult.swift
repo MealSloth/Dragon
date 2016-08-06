@@ -13,7 +13,7 @@ class BlobResult: APIResult
     var blob: BlobAPIModel?
     var blobs: [BlobAPIModel]?
     
-    init(result: Dictionary<String, AnyObject>)
+    required init(result: Dictionary<String, AnyObject>)
     {
         if let blob = result["blob"] as? Dictionary<String, AnyObject>
         {
@@ -31,7 +31,7 @@ class BlobResult: APIResult
             }
             else
             {
-                Log.string("Could not parse BlobResult")
+                Log.Error("Could not parse BlobResult")
             }
         }
     }

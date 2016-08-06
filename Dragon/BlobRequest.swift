@@ -21,13 +21,4 @@ class BlobRequest: APIRequestChimera
         super.init(method: "blob/")
         self.json["album_id"] = albumID
     }
-    
-    func request(onCompletion completion: ((result: BlobResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
-    {
-        self.resultHandler = { (result) -> Void in
-            completion?(result: BlobResult(result: result))
-        }
-        self.errorHandler = onError
-        super.request()
-    }
 }

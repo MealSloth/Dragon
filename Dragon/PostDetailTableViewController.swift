@@ -40,7 +40,6 @@ class PostDetailTableViewController: UITableViewController
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        Log.string("")
         if (indexPath.row == 0)
         {
             let cell = tableView.dequeueReusableCellWithIdentifier("PostDetailTitleCell", forIndexPath: indexPath)
@@ -70,7 +69,7 @@ class PostDetailTableViewController: UITableViewController
         }
         else
         {
-            Log.string("indexPath.row exceeds expected bounds", type: .error)
+            Log.Error("indexPath.row exceeds expected bounds")
             return tableView.dequeueReusableCellWithIdentifier("PostDetailTitleCell", forIndexPath: indexPath)
         }
     }

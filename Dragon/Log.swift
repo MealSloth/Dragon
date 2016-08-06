@@ -10,8 +10,6 @@ import Foundation
 
 class Log
 {
-    var type: LogType = .normal
-    
     enum LogType: String
     {
         case debug = "Debug"
@@ -22,53 +20,56 @@ class Log
         case warning = "Warning"
     }
     
-    internal class func log(type type: LogType, string: String, data: Dictionary<String, String> = [:])
+    /* Objects which do not implement protocol CustomStringConvertible will need to be handled manually
+       with the data parameter. A commented example is given below showing how this would work. */
+    internal class func log(type type: LogType, string: String, data: Dictionary<String, String?> = [:])
     {
         var log = "Log.\(type.rawValue): \(string)"
         for (key, value) in data
         {
-            log = log.stringByReplacingOccurrencesOfString(key, withString: value)
+            let val = (value == nil) ? "" : value!
+            log = log.stringByReplacingOccurrencesOfString(key, withString: val)
         }
         print(log)
     }
     
-    class func string(string: String?, type: LogType = .info)
+    class func Debug(string: String)
     {
-        let str = ":str"
-        
-        var data: Dictionary<String, String> = [:]
-        data[str] = string
-        
-        self.log(type: type, string: "\(str)", data: data)
+        self.log(type: .debug, string: string)
     }
     
-    class func error(error: NSError?, type: LogType = .error)
+    class func Error(string: String)
     {
-        let desc = ":desc"
-        
-        var data: Dictionary<String, String> = [:]
-        data[desc] = error?.localizedDescription
-        
-        self.log(type: type, string: "\(desc)", data: data)
+        self.log(type: .error, string: string)
     }
     
-    class func array(array: [AnyObject]?, type: LogType = .info)
+    class func Info(string: String)
     {
-        let arr = ":arr"
-        
-        var data: Dictionary<String, String> = [:]
-        data[arr] = array?.description
-        
-        self.log(type: type, string: "\(arr)", data: data)
+        self.log(type: .info, string: string)
     }
     
-    class func dictionary(dictionary: Dictionary<String, AnyObject>?, type: LogType = .info)
+    class func Normal(string: String)
     {
-        let dict = ":dict"
-
-        var data: Dictionary<String, String> = [:]
-        data[dict] = dictionary?.description
-            
-        self.log(type: type, string: "\(dict)", data: data)
+        self.log(type: .normal, string: string)
     }
+    
+    class func Verbose(string: String)
+    {
+        self.log(type: .verbose, string: string)
+    }
+    
+    class func Warning(string: String)
+    {
+        self.log(type: .warning, string: string)
+    }
+    
+//    class func string(string: String, type: LogType = .info)
+//    {
+//        let str = ":str"
+//        
+//        var data: Dictionary<String, String> = [:]
+//        data[str] = string
+//        
+//        self.log(type: type, string: "\(str)", data: data)
+//    }
 }

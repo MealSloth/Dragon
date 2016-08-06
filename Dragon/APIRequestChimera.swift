@@ -23,8 +23,12 @@ class APIRequestChimera: APIRequest
         self.method = (method.substringToIndex(method.startIndex.advancedBy(1)) == "/") ? method.substringFromIndex(method.startIndex.advancedBy(1)) : method
     }
     
-    func request()
+    func request<T: APIResult>(onCompletion completion: ((result: T) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
     {
-        self.post(onCompletion: self.resultHandler, onError: self.errorHandler)
+        let resultHandler = { (result) -> Void in
+            completion?(result: T(result: result))
+        }
+        let errorHandler = onError
+        self.post(onCompletion: resultHandler, onError: errorHandler)
     }
 }

@@ -21,13 +21,4 @@ class UserRequest: APIRequestChimera
         super.init(method: "user/")
         self.json["email"] = email
     }
-    
-    func request(onCompletion completion: ((result: UserResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
-    {
-        self.resultHandler = { (result) -> Void in
-            completion?(result: UserResult(result: result))
-        }
-        self.errorHandler = onError
-        super.request()
-    }
 }

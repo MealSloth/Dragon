@@ -16,7 +16,7 @@ class PostPageTest: DragonTest
         let method = "PostPageRequest()"
         
         PostPageRequest().request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: PostPageResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.posts)
                 if let first = result.posts.first
@@ -41,7 +41,7 @@ class PostPageTest: DragonTest
         let method = "PostPageRequest(withPageSize:)"
         
         PostPageRequest(withPageSize: 10).request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: PostPageResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.posts)
                 if let first = result.posts.first
@@ -67,7 +67,7 @@ class PostPageTest: DragonTest
         let date = NSDate(timeIntervalSince1970: NSTimeInterval())
         
         PostPageRequest(usingPostTimestamp: date).request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: PostPageResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.posts)
                 if let first = result.posts.first
@@ -93,7 +93,7 @@ class PostPageTest: DragonTest
         let date = NSDate(timeIntervalSince1970: NSTimeInterval())
         
         PostPageRequest(withPageSize: 3, usingPostTimestamp: date).request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: PostPageResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.posts)
                 if let first = result.posts.first

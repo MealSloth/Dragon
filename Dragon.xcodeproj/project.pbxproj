@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0354D01D5658AD00E7459D /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */; };
 		4C06E03D1D4ACB8F005933A9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */; };
 		4C06E03E1D4ACEB5005933A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69826B1CD3D7A4005ABCF1 /* Main.storyboard */; };
+		4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */; };
+		4C1DF22A1D52BCCB00C533CB /* ConsumerProfileTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */; };
 		4C27F0941D3D4E6100D64E13 /* APIRequestChimera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */; };
 		4C27F0951D3D50C200D64E13 /* APIRequestChimera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */; };
 		4C27F0971D3D567600D64E13 /* PostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0961D3D567600D64E13 /* PostTest.swift */; };
@@ -86,7 +89,6 @@
 		4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB21D51819200B5D4BE /* UIImage+.swift */; };
 		4CC40DB51D51838000B5D4BE /* CollectionType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB41D51838000B5D4BE /* CollectionType+.swift */; };
 		4CC947451D4AE03F00426AA6 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC947441D4AE03F00426AA6 /* PostTableViewCell.swift */; };
-		4CC947471D4AE50900426AA6 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CC947461D4AE50900426AA6 /* PostTableViewCell.xib */; };
 		4CCD0A561CD8EE080081A28B /* UserLoginAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */; };
 		4CCD0A581CD8EEFE0081A28B /* AbstractAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A571CD8EEFE0081A28B /* AbstractAPIModel.swift */; };
 		4CCD0A5A1CD8F3280081A28B /* PostAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A591CD8F3280081A28B /* PostAPIModel.swift */; };
@@ -141,7 +143,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTableViewController.swift; sourceTree = "<group>"; };
+		4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTitleCell.swift; sourceTree = "<group>"; };
 		4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestChimera.swift; sourceTree = "<group>"; };
 		4C27F0961D3D567600D64E13 /* PostTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
 		4C4851581D20523000223B4F /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
@@ -183,7 +188,6 @@
 		4CC40DB21D51819200B5D4BE /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4CC40DB41D51838000B5D4BE /* CollectionType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+.swift"; sourceTree = "<group>"; };
 		4CC947441D4AE03F00426AA6 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		4CC947461D4AE50900426AA6 /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginAPIModel.swift; sourceTree = "<group>"; };
 		4CCD0A571CD8EEFE0081A28B /* AbstractAPIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractAPIModel.swift; sourceTree = "<group>"; };
 		4CCD0A591CD8F3280081A28B /* PostAPIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAPIModel.swift; sourceTree = "<group>"; };
@@ -239,6 +243,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */ = {
+			isa = PBXGroup;
+			children = (
+				4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */,
+			);
+			name = ConsumerProfileCells;
+			sourceTree = "<group>";
+		};
 		4C4851561D2051FA00223B4F /* APITest */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +331,7 @@
 				4CFF11D41D498CDD0062B33A /* HomeTableViewController.swift */,
 				4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */,
 				4CD48F451D5267900009D6A2 /* PostDetailTableViewController.swift */,
+				4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -511,6 +524,7 @@
 		4CC947431D4AE01D00426AA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */,
 				4CD48F471D526DE00009D6A2 /* PostDetailCells */,
 				4CC947481D4AE66900426AA6 /* PostTableViewCell */,
 			);
@@ -521,7 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				4CC947441D4AE03F00426AA6 /* PostTableViewCell.swift */,
-				4CC947461D4AE50900426AA6 /* PostTableViewCell.xib */,
+				4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */,
 			);
 			name = PostTableViewCell;
 			sourceTree = "<group>";
@@ -671,8 +685,8 @@
 			files = (
 				4C06E03E1D4ACEB5005933A9 /* Main.storyboard in Resources */,
 				4C6982751CD3D7A4005ABCF1 /* LaunchScreen.storyboard in Resources */,
+				4C0354D01D5658AD00E7459D /* PostTableViewCell.xib in Resources */,
 				4C6982721CD3D7A4005ABCF1 /* Assets.xcassets in Resources */,
-				4CC947471D4AE50900426AA6 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +722,7 @@
 				4CCD0A611CD91BC80081A28B /* ReviewAPIModel.swift in Sources */,
 				4CCD0A731CD920090081A28B /* UserLoginAccessLevel.swift in Sources */,
 				4CFF11D01D497E600062B33A /* ViewController+.swift in Sources */,
+				4C1DF22A1D52BCCB00C533CB /* ConsumerProfileTitleCell.swift in Sources */,
 				4C69828D1CD3D847005ABCF1 /* APIRequest.swift in Sources */,
 				4CD48F491D526E030009D6A2 /* PostDetailTitleCell.swift in Sources */,
 				4CDA11101D47FA15002C62FD /* UserModifyResult.swift in Sources */,
@@ -747,6 +762,7 @@
 				4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */,
 				4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */,
 				4C7A82C11D3EAFD800638FBE /* ConsumerRequest.swift in Sources */,
+				4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */,
 				4C6982981CD41282005ABCF1 /* UserAPIModel.swift in Sources */,
 				4C6982A11CD4133F005ABCF1 /* UserGender.swift in Sources */,
 				4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */,

@@ -12,7 +12,7 @@ class ConsumerResult: APIResult
 {
     var consumer: ConsumerAPIModel!
     
-    init(result: Dictionary<String, AnyObject>)
+    required init(result: Dictionary<String, AnyObject>)
     {
         self.consumer = ConsumerAPIModel(json: result["consumer"] as! Dictionary<String, AnyObject>)
     }

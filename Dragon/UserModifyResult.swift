@@ -12,7 +12,7 @@ class UserModifyResult: APIResult
 {
     var user: UserAPIModel!
     
-    init(result: Dictionary<String, AnyObject>)
+    required init(result: Dictionary<String, AnyObject>)
     {
         self.user = UserAPIModel(json: result["user"] as! Dictionary<String, AnyObject>)
     }

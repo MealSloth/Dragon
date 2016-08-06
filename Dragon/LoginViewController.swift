@@ -90,19 +90,19 @@ class LoginViewController: UIViewController
             if self.signUpMode
             {
                 UserCreateRequest(withEmail: email, andPassword: password).request(
-                    onCompletion: { (result) -> Void in
+                    onCompletion: { (result: UserCreateResult) -> Void in
                         self.segue()
                     },
                     onError: { (error) -> Void in
-                        Log.error(error)
+                        Log.Error("\(error)")
                 })
             }
             else
             {
                 UserRequest(withEmail: email).request(
-                    onCompletion: { (userResult) -> Void in
+                    onCompletion: { (userResult: UserResult) -> Void in
                         UserLoginRequest(withUserID: userResult.user.id).request(
-                            onCompletion: { (userLoginResult) -> Void in
+                            onCompletion: { (userLoginResult: UserLoginResult) -> Void in
                                 if let uEmail = userResult.user.email, ulPassword = userLoginResult.userLogin.password
                                 {
                                     if uEmail == email && ulPassword == password
@@ -111,28 +111,28 @@ class LoginViewController: UIViewController
                                     }
                                     else
                                     {
-                                        Log.string("Email or password is incorrect", type: .debug)
+                                        Log.Debug("Email or password is incorrect")
                                     }
                                 }
                                 else
                                 {
-                                    Log.string("Email is nil or password is nil", type: .debug)
+                                    Log.Debug("Email is nil or password is nil")
                                 }
                             },
                             onError: { (error) -> Void in
-                                Log.error(error)
+                                Log.Error("\(error)")
                             }
                         )
                     },
                     onError: { (error) -> Void in
-                        Log.error(error)
+                        Log.Error("\(error)")
                     }
                 )
             }
         }
         else
         {
-            Log.string("Email is nil, password is nil, or password is not >= 8 characters in length", type: .debug)
+            Log.Debug("Email is nil, password is nil, or password is not >= 8 characters in length")
         }
     }
     

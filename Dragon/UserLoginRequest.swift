@@ -23,13 +23,4 @@ class UserLoginRequest: APIRequestChimera
         super.init(method: "user-login/")
         self.json["user_id"] = userID
     }
-    
-    func request(onCompletion completion: ((result: UserLoginResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
-    {
-        self.resultHandler = { (result) -> Void in
-            completion?(result: UserLoginResult(result: result))
-        }
-        self.errorHandler = onError
-        super.request()
-    }
 }

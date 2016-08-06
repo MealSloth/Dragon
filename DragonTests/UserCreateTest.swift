@@ -20,7 +20,7 @@ class UserCreateTest: DragonTest
         let pass = String.Random(allow: [.Numeric, .AlphaLower, .AlphaUpper, .SymbolicUrl, ], length: 32)
         
         UserCreateRequest(withEmail: email, andPassword: pass).request(
-            onCompletion: { (result) -> Void in
+            onCompletion: { (result: UserCreateResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.user)
                 XCTAssertNotNil(result.userLogin)

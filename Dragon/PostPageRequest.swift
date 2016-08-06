@@ -16,13 +16,4 @@ class PostPageRequest: APIRequestChimera
         self.json["page_size"] = size
         self.json["post_time_stamp"] = time?.toString()
     }
-    
-    func request(onCompletion completion: ((post: PostPageResult) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
-    {
-        self.resultHandler = { (result) -> Void in
-            completion?(post: PostPageResult(result: result))
-        }
-        self.errorHandler = onError
-        super.request()
-    }
 }

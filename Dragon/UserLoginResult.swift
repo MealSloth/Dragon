@@ -12,7 +12,7 @@ class UserLoginResult: APIResult
 {
     var userLogin: UserLoginAPIModel!
     
-    init(result: Dictionary<String, AnyObject>)
+    required init(result: Dictionary<String, AnyObject>)
     {
         self.userLogin = UserLoginAPIModel(json: result["user_login"] as! Dictionary<String, AnyObject>)
     }
