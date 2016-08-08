@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ReviewAPIModel: AbstractAPIModel
+class ReviewAPIModel: APIModel
 {
     var id: String!
     var postID: String!

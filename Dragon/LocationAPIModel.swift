@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LocationAPIModel: AbstractAPIModel
+class LocationAPIModel: APIModel
 {
     var id: String!
     var userID: String!

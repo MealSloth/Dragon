@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrderTimeAPIModel: AbstractAPIModel
+class OrderTimeAPIModel: APIModel
 {
     var id: String!
     var orderID: String!

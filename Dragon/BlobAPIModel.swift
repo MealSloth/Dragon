@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BlobAPIModel: AbstractAPIModel
+class BlobAPIModel: APIModel
 {
     var id: String!
     var albumID: String!

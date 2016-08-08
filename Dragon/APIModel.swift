@@ -1,5 +1,5 @@
 //
-//  AbstractAPIModel.swift
+//  APIModel.swift
 //  Dragon
 //
 //  Created by Michael Fourre on 5/3/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AbstractAPIModel: NSObject
+class APIModel: NSObject
 {
     override var description: String {
         let string = self.getPropertiesString(self)
@@ -37,7 +37,7 @@ class AbstractAPIModel: NSObject
         return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
     }
     
-    private func getPropertiesString(context: AbstractAPIModel, depth: Int = 0) -> String
+    private func getPropertiesString(context: APIModel, depth: Int = 0) -> String
     {
         var string: String = (depth == 0) ? "\n" : ""
         string += "\(Mirror(reflecting: self).subjectType): {\n"
@@ -53,7 +53,7 @@ class AbstractAPIModel: NSObject
         return string
     }
     
-    private func getPropertyString(context: AbstractAPIModel, property: String, string s: String = "", depth d: Int = 0) -> String
+    private func getPropertyString(context: APIModel, property: String, string s: String = "", depth d: Int = 0) -> String
     {
         let depth: Int = d
         var string: String = s
@@ -61,11 +61,11 @@ class AbstractAPIModel: NSObject
         {
             string += "    "
         }
-        if let newProp = context.valueForKey(property) as? AbstractAPIModel
+        if let newProp = context.valueForKey(property) as? APIModel
         {
             string += "\(property):\n\(self.getPropertiesString(newProp, depth: depth))"
         }
-        else if let arr = context.valueForKey(property) as? [AbstractAPIModel]
+        else if let arr = context.valueForKey(property) as? [APIModel]
         {
             if arr.count > 0
             {

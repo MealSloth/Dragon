@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ChefAPIModel: AbstractAPIModel
+class ChefAPIModel: APIModel
 {
     var id: String!
     var userID: String!

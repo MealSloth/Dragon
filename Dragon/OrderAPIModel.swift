@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrderAPIModel: AbstractAPIModel
+class OrderAPIModel: APIModel
 {
     var id: String!
     var postID: String!

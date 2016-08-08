@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ConsumerAPIModel: AbstractAPIModel
+class ConsumerAPIModel: APIModel
 {
     var id: String!
     var userID: String!

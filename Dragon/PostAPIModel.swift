@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PostAPIModel: AbstractAPIModel
+class PostAPIModel: APIModel
 {
     var id: String!
     var chefID: String!
