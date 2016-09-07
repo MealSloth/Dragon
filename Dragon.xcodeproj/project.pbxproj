@@ -81,6 +81,8 @@
 		4C9655581D0E109400011EAC /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655571D0E109400011EAC /* PostRequest.swift */; };
 		4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655591D0E11BE00011EAC /* PostResult.swift */; };
 		4C9655621D0E436600011EAC /* AbstractEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655611D0E436600011EAC /* AbstractEnum.swift */; };
+		4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E591D80C16C0015FA43 /* Model.swift */; };
+		4CAA3E5B1D80C18B0015FA43 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E591D80C16C0015FA43 /* Model.swift */; };
 		4CC40DA91D516F8D00B5D4BE /* BlobRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DA81D516F8D00B5D4BE /* BlobRequest.swift */; };
 		4CC40DAC1D51708300B5D4BE /* BlobResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DAB1D51708300B5D4BE /* BlobResult.swift */; };
 		4CC40DAF1D5172D700B5D4BE /* BlobTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DAE1D5172D700B5D4BE /* BlobTest.swift */; };
@@ -182,6 +184,7 @@
 		4C9655571D0E109400011EAC /* PostRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
 		4C9655591D0E11BE00011EAC /* PostResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostResult.swift; sourceTree = "<group>"; };
 		4C9655611D0E436600011EAC /* AbstractEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractEnum.swift; sourceTree = "<group>"; };
+		4CAA3E591D80C16C0015FA43 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4CC40DA81D516F8D00B5D4BE /* BlobRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobRequest.swift; sourceTree = "<group>"; };
 		4CC40DAB1D51708300B5D4BE /* BlobResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobResult.swift; sourceTree = "<group>"; };
 		4CC40DAE1D5172D700B5D4BE /* BlobTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobTest.swift; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				4C6982961CD4125D005ABCF1 /* APIModel */,
+				4CAA3E591D80C16C0015FA43 /* Model.swift */,
 				4C69829B1CD412C9005ABCF1 /* UserModel.swift */,
 			);
 			name = Models;
@@ -646,15 +650,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = MealSloth;
 				TargetAttributes = {
 					4C6982631CD3D7A4005ABCF1 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2FC48TPE62;
+						LastSwiftMigration = 0800;
 					};
 					4C69827A1CD3D7A4005ABCF1 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4C6982631CD3D7A4005ABCF1;
 					};
 				};
@@ -727,6 +733,7 @@
 				4CD48F491D526E030009D6A2 /* PostDetailTitleCell.swift in Sources */,
 				4CDA11101D47FA15002C62FD /* UserModifyResult.swift in Sources */,
 				4C7A82D71D3EC9C200638FBE /* NSDate+.swift in Sources */,
+				4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */,
 				4CCD0A5F1CD8F7120081A28B /* FieldNameHelper.swift in Sources */,
 				4C9655621D0E436600011EAC /* AbstractEnum.swift in Sources */,
 				4C6982701CD3D7A4005ABCF1 /* Dragon.xcdatamodeld in Sources */,
@@ -828,6 +835,7 @@
 				4C48515D1D20539700223B4F /* UserResult.swift in Sources */,
 				4C48516E1D20554400223B4F /* ChefAPIModel.swift in Sources */,
 				4C4851791D20554900223B4F /* FieldNameHelper.swift in Sources */,
+				4CAA3E5B1D80C18B0015FA43 /* Model.swift in Sources */,
 				4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */,
 				4CE468151D3BF310000B95DE /* PostPageRequest.swift in Sources */,
 			);
@@ -877,8 +885,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -923,8 +933,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -943,6 +955,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -954,11 +967,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2FC48TPE62;
 				INFOPLIST_FILE = Dragon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -968,11 +983,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2FC48TPE62;
 				INFOPLIST_FILE = Dragon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -984,6 +1001,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.DragonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dragon.app/Dragon";
 			};
 			name = Debug;
@@ -996,6 +1014,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.DragonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dragon.app/Dragon";
 			};
 			name = Release;

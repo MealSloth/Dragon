@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,19 +13,16 @@
             <rect key="frame" x="0.0" y="0.0" width="735" height="498"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMF-Gw-XLB" id="EHx-NG-krp">
-                <rect key="frame" x="0.0" y="0.0" width="735" height="497"/>
+                <frame key="frameInset" width="735" height="497"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-zi-4Eb" userLabel="Post">
-                        <rect key="frame" x="0.0" y="0.0" width="735" height="497"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-e4-iCY" userLabel="Information View">
-                                <rect key="frame" x="0.0" y="315" width="735" height="182"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33b-O2-nXr" userLabel="Label Post Name">
-                                        <rect key="frame" x="113" y="8" width="108" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="alpha">
@@ -33,9 +31,8 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRJ-T4-Ubh" userLabel="Label Price">
-                                        <rect key="frame" x="681" y="8" width="46" height="26"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="alpha">
@@ -44,7 +41,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tRJ-T4-Ubh" secondAttribute="trailing" constant="8" id="IG3-rV-zmQ"/>
                                     <constraint firstItem="33b-O2-nXr" firstAttribute="top" secondItem="G4f-e4-iCY" secondAttribute="top" constant="8" id="JkI-Az-Dcy"/>
@@ -54,7 +51,6 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal_sample" translatesAutoresizingMaskIntoConstraints="NO" id="34U-CX-QFz">
-                                <rect key="frame" x="0.0" y="0.0" width="735" height="315"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="34U-CX-QFz" secondAttribute="height" multiplier="21:9" id="re7-oD-LBv"/>
                                 </constraints>
@@ -65,7 +61,6 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman_sample" translatesAutoresizingMaskIntoConstraints="NO" id="087-My-3qN">
-                                <rect key="frame" x="25" y="275" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="YQ5-Vk-Vl4"/>
                                     <constraint firstAttribute="height" constant="80" id="sAr-Lg-0Cw"/>
@@ -77,10 +72,11 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="alpha">
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="34U-CX-QFz" secondAttribute="trailing" id="5a8-KH-qSw"/>
                             <constraint firstItem="087-My-3qN" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" constant="25" id="98O-ag-Swu"/>
