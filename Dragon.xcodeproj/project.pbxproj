@@ -46,7 +46,6 @@
 		4C4851751D20554400223B4F /* ReviewAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A601CD91BC80081A28B /* ReviewAPIModel.swift */; };
 		4C4851761D20554400223B4F /* UserAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982971CD41282005ABCF1 /* UserAPIModel.swift */; };
 		4C4851771D20554400223B4F /* UserLoginAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */; };
-		4C4851781D20554700223B4F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69829B1CD412C9005ABCF1 /* UserModel.swift */; };
 		4C4851791D20554900223B4F /* FieldNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A5E1CD8F7120081A28B /* FieldNameHelper.swift */; };
 		4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48517A1D2080CE00223B4F /* UserLoginTest.swift */; };
 		4C657EAB1D4AA5E100F2A575 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */; };
@@ -61,7 +60,6 @@
 		4C6982911CD3DC07005ABCF1 /* APIHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982901CD3DC07005ABCF1 /* APIHost.swift */; };
 		4C6982951CD40D26005ABCF1 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982941CD40D26005ABCF1 /* UserRequest.swift */; };
 		4C6982981CD41282005ABCF1 /* UserAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982971CD41282005ABCF1 /* UserAPIModel.swift */; };
-		4C69829C1CD412C9005ABCF1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C69829B1CD412C9005ABCF1 /* UserModel.swift */; };
 		4C6982A11CD4133F005ABCF1 /* UserGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982A01CD4133F005ABCF1 /* UserGender.swift */; };
 		4C7A82BF1D3EAF8200638FBE /* ConsumerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82BE1D3EAF8200638FBE /* ConsumerTest.swift */; };
 		4C7A82C11D3EAFD800638FBE /* ConsumerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82C01D3EAFD800638FBE /* ConsumerRequest.swift */; };
@@ -93,6 +91,18 @@
 		4CC40DB11D51737200B5D4BE /* BlobResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DAB1D51708300B5D4BE /* BlobResult.swift */; };
 		4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB21D51819200B5D4BE /* UIImage+.swift */; };
 		4CC40DB51D51838000B5D4BE /* CollectionType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB41D51838000B5D4BE /* CollectionType+.swift */; };
+		4CC674751D80E82C001BCA67 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674741D80E82C001BCA67 /* UserLogin.swift */; };
+		4CC674771D80E855001BCA67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674761D80E855001BCA67 /* User.swift */; };
+		4CC674791D80E8A5001BCA67 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674781D80E8A5001BCA67 /* Album.swift */; };
+		4CC6747B1D80E8AD001BCA67 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6747A1D80E8AD001BCA67 /* Blob.swift */; };
+		4CC6747D1D80E8B2001BCA67 /* Chef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6747C1D80E8B2001BCA67 /* Chef.swift */; };
+		4CC6747F1D80E8B8001BCA67 /* Consumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6747E1D80E8B8001BCA67 /* Consumer.swift */; };
+		4CC674811D80E8C5001BCA67 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674801D80E8C5001BCA67 /* Location.swift */; };
+		4CC674831D80E8D3001BCA67 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674821D80E8D3001BCA67 /* Order.swift */; };
+		4CC674851D80E8D9001BCA67 /* OrderSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674841D80E8D9001BCA67 /* OrderSummary.swift */; };
+		4CC674871D80E8DF001BCA67 /* OrderTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674861D80E8DF001BCA67 /* OrderTime.swift */; };
+		4CC674891D80E8E5001BCA67 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674881D80E8E5001BCA67 /* Post.swift */; };
+		4CC6748B1D80E8EF001BCA67 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6748A1D80E8EF001BCA67 /* Review.swift */; };
 		4CC947451D4AE03F00426AA6 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC947441D4AE03F00426AA6 /* PostTableViewCell.swift */; };
 		4CCD0A561CD8EE080081A28B /* UserLoginAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */; };
 		4CCD0A581CD8EEFE0081A28B /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A571CD8EEFE0081A28B /* APIModel.swift */; };
@@ -173,7 +183,6 @@
 		4C6982901CD3DC07005ABCF1 /* APIHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHost.swift; sourceTree = "<group>"; };
 		4C6982941CD40D26005ABCF1 /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		4C6982971CD41282005ABCF1 /* UserAPIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAPIModel.swift; sourceTree = "<group>"; };
-		4C69829B1CD412C9005ABCF1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4C6982A01CD4133F005ABCF1 /* UserGender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserGender.swift; sourceTree = "<group>"; };
 		4C7A82BE1D3EAF8200638FBE /* ConsumerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerTest.swift; sourceTree = "<group>"; };
 		4C7A82C01D3EAFD800638FBE /* ConsumerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerRequest.swift; sourceTree = "<group>"; };
@@ -194,6 +203,18 @@
 		4CC40DAE1D5172D700B5D4BE /* BlobTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobTest.swift; sourceTree = "<group>"; };
 		4CC40DB21D51819200B5D4BE /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4CC40DB41D51838000B5D4BE /* CollectionType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+.swift"; sourceTree = "<group>"; };
+		4CC674741D80E82C001BCA67 /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		4CC674761D80E855001BCA67 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4CC674781D80E8A5001BCA67 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		4CC6747A1D80E8AD001BCA67 /* Blob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blob.swift; sourceTree = "<group>"; };
+		4CC6747C1D80E8B2001BCA67 /* Chef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chef.swift; sourceTree = "<group>"; };
+		4CC6747E1D80E8B8001BCA67 /* Consumer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consumer.swift; sourceTree = "<group>"; };
+		4CC674801D80E8C5001BCA67 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4CC674821D80E8D3001BCA67 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		4CC674841D80E8D9001BCA67 /* OrderSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderSummary.swift; sourceTree = "<group>"; };
+		4CC674861D80E8DF001BCA67 /* OrderTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTime.swift; sourceTree = "<group>"; };
+		4CC674881D80E8E5001BCA67 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		4CC6748A1D80E8EF001BCA67 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		4CC947441D4AE03F00426AA6 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginAPIModel.swift; sourceTree = "<group>"; };
 		4CCD0A571CD8EEFE0081A28B /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
@@ -392,7 +413,18 @@
 			children = (
 				4C6982961CD4125D005ABCF1 /* APIModel */,
 				4CAA3E591D80C16C0015FA43 /* Model.swift */,
-				4C69829B1CD412C9005ABCF1 /* UserModel.swift */,
+				4CC674781D80E8A5001BCA67 /* Album.swift */,
+				4CC6747A1D80E8AD001BCA67 /* Blob.swift */,
+				4CC6747C1D80E8B2001BCA67 /* Chef.swift */,
+				4CC6747E1D80E8B8001BCA67 /* Consumer.swift */,
+				4CC674801D80E8C5001BCA67 /* Location.swift */,
+				4CC674821D80E8D3001BCA67 /* Order.swift */,
+				4CC674841D80E8D9001BCA67 /* OrderSummary.swift */,
+				4CC674861D80E8DF001BCA67 /* OrderTime.swift */,
+				4CC674881D80E8E5001BCA67 /* Post.swift */,
+				4CC6748A1D80E8EF001BCA67 /* Review.swift */,
+				4CC674761D80E855001BCA67 /* User.swift */,
+				4CC674741D80E82C001BCA67 /* UserLogin.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -719,14 +751,17 @@
 				4CCD0A691CD91E4F0081A28B /* LocationAPIModel.swift in Sources */,
 				4C9655581D0E109400011EAC /* PostRequest.swift in Sources */,
 				4CE166E21D398DFC003589D0 /* Log.swift in Sources */,
+				4CC6747B1D80E8AD001BCA67 /* Blob.swift in Sources */,
 				4C6982911CD3DC07005ABCF1 /* APIHost.swift in Sources */,
 				4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */,
 				4C69828F1CD3D865005ABCF1 /* APIResult.swift in Sources */,
 				4CDA110A1D47F3A5002C62FD /* UserModifyRequest.swift in Sources */,
+				4CC674891D80E8E5001BCA67 /* Post.swift in Sources */,
 				4CCD0A7E1CD939AF0081A28B /* OrderType.swift in Sources */,
 				4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */,
 				4CCD0A651CD91DE70081A28B /* OrderSummaryAPIModel.swift in Sources */,
 				4C9655561D0E102F00011EAC /* UserLoginResult.swift in Sources */,
+				4CC674851D80E8D9001BCA67 /* OrderSummary.swift in Sources */,
 				4C7A82CB1D3EC2B700638FBE /* PostPageResult.swift in Sources */,
 				4C657EAB1D4AA5E100F2A575 /* FeedItemViewController.swift in Sources */,
 				4CAA3E5E1D80DCA80015FA43 /* NSFetchRequest+.swift in Sources */,
@@ -745,8 +780,10 @@
 				4C6982701CD3D7A4005ABCF1 /* Dragon.xcdatamodeld in Sources */,
 				4CCD0A801CD93A2C0081A28B /* OrderStatus.swift in Sources */,
 				4CCD0A671CD91E170081A28B /* OrderAPIModel.swift in Sources */,
+				4CC6748B1D80E8EF001BCA67 /* Review.swift in Sources */,
 				4C7A82C31D3EB03200638FBE /* ConsumerResult.swift in Sources */,
 				4CCD0A631CD91DAA0081A28B /* OrderTimeAPIModel.swift in Sources */,
+				4CC674771D80E855001BCA67 /* User.swift in Sources */,
 				4CFF11D51D498CDD0062B33A /* HomeTableViewController.swift in Sources */,
 				4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */,
 				4CD48F4B1D527D650009D6A2 /* PostDetailSummaryCell.swift in Sources */,
@@ -758,10 +795,12 @@
 				4CDA11181D4806A2002C62FD /* UserCreateResult.swift in Sources */,
 				4C6982951CD40D26005ABCF1 /* UserRequest.swift in Sources */,
 				4CCD0A6D1CD91F580081A28B /* ChefAPIModel.swift in Sources */,
+				4CC6747F1D80E8B8001BCA67 /* Consumer.swift in Sources */,
 				4CC40DA91D516F8D00B5D4BE /* BlobRequest.swift in Sources */,
 				4CCD0A581CD8EEFE0081A28B /* APIModel.swift in Sources */,
+				4CC674791D80E8A5001BCA67 /* Album.swift in Sources */,
 				4CCD0A841CD93B4F0081A28B /* LocationPurpose.swift in Sources */,
-				4C69829C1CD412C9005ABCF1 /* UserModel.swift in Sources */,
+				4CC674751D80E82C001BCA67 /* UserLogin.swift in Sources */,
 				4CE632421CDAA2F60085F54C /* UserResult.swift in Sources */,
 				4CDA11161D4805C1002C62FD /* UserCreateRequest.swift in Sources */,
 				4CC947451D4AE03F00426AA6 /* PostTableViewCell.swift in Sources */,
@@ -771,11 +810,15 @@
 				4CCD0A711CD91FD50081A28B /* AlbumAPIModel.swift in Sources */,
 				4CD48F441D5251C30009D6A2 /* ScreenHelpers.swift in Sources */,
 				4CC40DB51D51838000B5D4BE /* CollectionType+.swift in Sources */,
+				4CC674811D80E8C5001BCA67 /* Location.swift in Sources */,
 				4CD48F461D5267900009D6A2 /* PostDetailTableViewController.swift in Sources */,
+				4CC674871D80E8DF001BCA67 /* OrderTime.swift in Sources */,
 				4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */,
 				4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */,
 				4C7A82C11D3EAFD800638FBE /* ConsumerRequest.swift in Sources */,
 				4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */,
+				4CC674831D80E8D3001BCA67 /* Order.swift in Sources */,
+				4CC6747D1D80E8B2001BCA67 /* Chef.swift in Sources */,
 				4C6982981CD41282005ABCF1 /* UserAPIModel.swift in Sources */,
 				4C6982A11CD4133F005ABCF1 /* UserGender.swift in Sources */,
 				4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */,
@@ -808,7 +851,6 @@
 				4CDA111A1D48079A002C62FD /* UserCreateResult.swift in Sources */,
 				4C4851761D20554400223B4F /* UserAPIModel.swift in Sources */,
 				4C4851611D20553D00223B4F /* APIResult.swift in Sources */,
-				4C4851781D20554700223B4F /* UserModel.swift in Sources */,
 				4C4851681D20554100223B4F /* PostStatus.swift in Sources */,
 				4C7A82D41D3EC41D00638FBE /* PostPageTest.swift in Sources */,
 				4C4851701D20554400223B4F /* LocationAPIModel.swift in Sources */,

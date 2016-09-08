@@ -23,7 +23,7 @@ class Model: NSManagedObject
         return type.substringToIndex(index)
     }
     
-    init()
+    required init()
     {
         if let context = Model.context
         {
