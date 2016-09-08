@@ -83,6 +83,9 @@
 		4C9655621D0E436600011EAC /* AbstractEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655611D0E436600011EAC /* AbstractEnum.swift */; };
 		4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E591D80C16C0015FA43 /* Model.swift */; };
 		4CAA3E5B1D80C18B0015FA43 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E591D80C16C0015FA43 /* Model.swift */; };
+		4CAA3E5C1D80CF140015FA43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */; };
+		4CAA3E5E1D80DCA80015FA43 /* NSFetchRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E5D1D80DCA80015FA43 /* NSFetchRequest+.swift */; };
+		4CAA3E5F1D80DD2C0015FA43 /* NSFetchRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E5D1D80DCA80015FA43 /* NSFetchRequest+.swift */; };
 		4CC40DA91D516F8D00B5D4BE /* BlobRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DA81D516F8D00B5D4BE /* BlobRequest.swift */; };
 		4CC40DAC1D51708300B5D4BE /* BlobResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DAB1D51708300B5D4BE /* BlobResult.swift */; };
 		4CC40DAF1D5172D700B5D4BE /* BlobTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DAE1D5172D700B5D4BE /* BlobTest.swift */; };
@@ -185,6 +188,7 @@
 		4C9655591D0E11BE00011EAC /* PostResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostResult.swift; sourceTree = "<group>"; };
 		4C9655611D0E436600011EAC /* AbstractEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractEnum.swift; sourceTree = "<group>"; };
 		4CAA3E591D80C16C0015FA43 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4CAA3E5D1D80DCA80015FA43 /* NSFetchRequest+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFetchRequest+.swift"; sourceTree = "<group>"; };
 		4CC40DA81D516F8D00B5D4BE /* BlobRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobRequest.swift; sourceTree = "<group>"; };
 		4CC40DAB1D51708300B5D4BE /* BlobResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobResult.swift; sourceTree = "<group>"; };
 		4CC40DAE1D5172D700B5D4BE /* BlobTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobTest.swift; sourceTree = "<group>"; };
@@ -488,6 +492,7 @@
 				4CC40DB21D51819200B5D4BE /* UIImage+.swift */,
 				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
 				4CFF11CF1D497E600062B33A /* ViewController+.swift */,
+				4CAA3E5D1D80DCA80015FA43 /* NSFetchRequest+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				4C9655561D0E102F00011EAC /* UserLoginResult.swift in Sources */,
 				4C7A82CB1D3EC2B700638FBE /* PostPageResult.swift in Sources */,
 				4C657EAB1D4AA5E100F2A575 /* FeedItemViewController.swift in Sources */,
+				4CAA3E5E1D80DCA80015FA43 /* NSFetchRequest+.swift in Sources */,
 				4CC40DAC1D51708300B5D4BE /* BlobResult.swift in Sources */,
 				4CCD0A611CD91BC80081A28B /* ReviewAPIModel.swift in Sources */,
 				4CCD0A731CD920090081A28B /* UserLoginAccessLevel.swift in Sources */,
@@ -785,11 +791,13 @@
 				4C48516B1D20554400223B4F /* APIModel.swift in Sources */,
 				4CE166E31D398DFC003589D0 /* Log.swift in Sources */,
 				4C4851641D20554100223B4F /* LocationPurpose.swift in Sources */,
+				4CAA3E5C1D80CF140015FA43 /* AppDelegate.swift in Sources */,
 				4C48515F1D20539700223B4F /* PostResult.swift in Sources */,
 				4C4851751D20554400223B4F /* ReviewAPIModel.swift in Sources */,
 				4C7A82C41D3EB0DA00638FBE /* ConsumerRequest.swift in Sources */,
 				4C4851651D20554100223B4F /* LocationType.swift in Sources */,
 				4CC40DB01D51737200B5D4BE /* BlobRequest.swift in Sources */,
+				4CAA3E5F1D80DD2C0015FA43 /* NSFetchRequest+.swift in Sources */,
 				4C4851731D20554400223B4F /* OrderTimeAPIModel.swift in Sources */,
 				4CDA11191D48079A002C62FD /* UserCreateRequest.swift in Sources */,
 				4C7A82CC1D3EC37A00638FBE /* PostPageResult.swift in Sources */,

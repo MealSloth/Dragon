@@ -49,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     }
 
     // MARK: - Core Data stack
-
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "mealsloth.Dragon" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
@@ -94,9 +93,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
+    
+    // MISC
+    class func GetInstance() -> AppDelegate?
+    {
+        if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        {
+            return delegate
+        }
+        return nil
+    }
 
     // MARK: - Core Data Saving support
-
     func saveContext ()
     {
         if managedObjectContext.hasChanges

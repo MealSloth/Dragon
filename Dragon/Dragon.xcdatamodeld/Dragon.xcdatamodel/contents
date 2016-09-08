@@ -3,7 +3,7 @@
     <entity name="Album" representedClassName="AlbumModel" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="blob" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Blob" inverseName="album" inverseEntity="Blob" syncable="YES"/>
+        <relationship name="blobs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Blob" inverseName="album" inverseEntity="Blob" syncable="YES"/>
         <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="album" inverseEntity="Post" syncable="YES"/>
     </entity>
     <entity name="Blob" representedClassName="BlobModel" syncable="YES">
@@ -13,15 +13,15 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="blob" inverseEntity="Album" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="blobs" inverseEntity="Album" syncable="YES"/>
     </entity>
     <entity name="Chef" representedClassName="ChefModel" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="chef" inverseEntity="Order" syncable="YES"/>
-        <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="chef" inverseEntity="Post" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="chef" inverseEntity="User" syncable="YES"/>
+        <relationship name="order" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="chef" inverseEntity="Order" syncable="YES"/>
+        <relationship name="post" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Post" inverseName="chef" inverseEntity="Post" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="chef" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Consumer" representedClassName="ConsumerModel" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +31,7 @@
         <relationship name="review" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="consumer" inverseEntity="Review" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="consumer" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Location" representedClassName="LocationModel" syncable="YES">
+    <entity name="Location" representedClassName="LocationModel" syncable="YES">
         <attribute name="addressLineOne" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="addressLineTwo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -139,17 +139,17 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userLogin" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserLogin" positionX="-425" positionY="-462" width="128" height="120"/>
-        <element name="User" positionX="-254" positionY="-459" width="128" height="300"/>
-        <element name="Review" positionX="9" positionY="270" width="128" height="180"/>
-        <element name="Post" positionX="162" positionY="267" width="128" height="300"/>
-        <element name="OrderTime" positionX="592" positionY="-495" width="128" height="120"/>
-        <element name="OrderSummary" positionX="754" positionY="-495" width="128" height="165"/>
-        <element name="Order" positionX="657" positionY="-234" width="128" height="300"/>
-        <element name="Location" positionX="-353" positionY="57" width="128" height="240"/>
-        <element name="Album" positionX="313" positionY="261" width="128" height="105"/>
-        <element name="Chef" positionX="171" positionY="-459" width="128" height="135"/>
-        <element name="Consumer" positionX="7" positionY="-459" width="128" height="135"/>
+        <element name="Album" positionX="313" positionY="261" width="128" height="103"/>
         <element name="Blob" positionX="313" positionY="369" width="128" height="150"/>
+        <element name="Chef" positionX="171" positionY="-459" width="128" height="133"/>
+        <element name="Consumer" positionX="7" positionY="-459" width="128" height="135"/>
+        <element name="Location" positionX="-353" positionY="57" width="128" height="240"/>
+        <element name="Order" positionX="657" positionY="-234" width="128" height="300"/>
+        <element name="OrderSummary" positionX="754" positionY="-495" width="128" height="165"/>
+        <element name="OrderTime" positionX="592" positionY="-495" width="128" height="120"/>
+        <element name="Post" positionX="162" positionY="267" width="128" height="300"/>
+        <element name="Review" positionX="9" positionY="270" width="128" height="180"/>
+        <element name="User" positionX="-254" positionY="-459" width="128" height="300"/>
+        <element name="UserLogin" positionX="-425" positionY="-462" width="128" height="120"/>
     </elements>
 </model>
