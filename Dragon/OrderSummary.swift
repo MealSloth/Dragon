@@ -15,5 +15,5 @@ class OrderSummary: Model
     @NSManaged var postID: String!
     @NSManaged var orderStatus: NSNumber!
     @NSManaged var orderType: NSNumber!
-    @NSManaged var latestTime: String!
+    @NSManaged var latestTime: NSDate!
 }

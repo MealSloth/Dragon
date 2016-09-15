@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11224.2" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Album" representedClassName="AlbumModel" syncable="YES">
+    <entity name="Album" representedClassName=".Album" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="blobs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Blob" inverseName="album" inverseEntity="Blob" syncable="YES"/>
         <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="album" inverseEntity="Post" syncable="YES"/>
     </entity>
-    <entity name="Blob" representedClassName="BlobModel" syncable="YES">
+    <entity name="Blob" representedClassName=".Blob" syncable="YES">
         <attribute name="albumID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contentType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gcsID" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,7 +15,7 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="blobs" inverseEntity="Album" syncable="YES"/>
     </entity>
-    <entity name="Chef" representedClassName="ChefModel" syncable="YES">
+    <entity name="Chef" representedClassName=".Chef" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,7 +23,7 @@
         <relationship name="post" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Post" inverseName="chef" inverseEntity="Post" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="chef" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Consumer" representedClassName="ConsumerModel" syncable="YES">
+    <entity name="Consumer" representedClassName=".Consumer" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,7 +31,7 @@
         <relationship name="review" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="consumer" inverseEntity="Review" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="consumer" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Location" representedClassName="LocationModel" syncable="YES">
+    <entity name="Location" representedClassName=".LocationModel" syncable="YES">
         <attribute name="addressLineOne" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="addressLineTwo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,7 +46,7 @@
         <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="location" inverseEntity="Post" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="location" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Order" representedClassName="OrderModel" syncable="YES">
+    <entity name="Order" representedClassName=".Order" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="billingID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="chefID" optional="YES" attributeType="String" syncable="YES"/>
@@ -65,7 +65,7 @@
         <relationship name="orderTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OrderTime" inverseName="order" inverseEntity="OrderTime" syncable="YES"/>
         <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="order" inverseEntity="Post" syncable="YES"/>
     </entity>
-    <entity name="OrderSummary" representedClassName="OrderSummaryModel" syncable="YES">
+    <entity name="OrderSummary" representedClassName=".OrderSummary" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latestTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="orderID" optional="YES" attributeType="String" syncable="YES"/>
@@ -75,14 +75,14 @@
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="orderSummary" inverseEntity="Order" syncable="YES"/>
         <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="orderSummary" inverseEntity="Post" syncable="YES"/>
     </entity>
-    <entity name="OrderTime" representedClassName="OrderTimeModel" syncable="YES">
+    <entity name="OrderTime" representedClassName=".OrderTime" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="orderTime" inverseEntity="Order" syncable="YES"/>
     </entity>
-    <entity name="Post" representedClassName="PostModel" syncable="YES">
+    <entity name="Post" representedClassName=".Post" syncable="YES">
         <attribute name="albumID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="capacity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="chefID" optional="YES" attributeType="String" syncable="YES"/>
@@ -101,7 +101,7 @@
         <relationship name="orderSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OrderSummary" inverseName="post" inverseEntity="OrderSummary" syncable="YES"/>
         <relationship name="review" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="post" inverseEntity="Review" syncable="YES"/>
     </entity>
-    <entity name="Review" representedClassName="ReviewModel" syncable="YES">
+    <entity name="Review" representedClassName=".Review" syncable="YES">
         <attribute name="consumerID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postID" optional="YES" attributeType="String" syncable="YES"/>
@@ -112,7 +112,7 @@
         <relationship name="consumer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Consumer" inverseName="review" inverseEntity="Consumer" syncable="YES"/>
         <relationship name="post" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="review" inverseEntity="Post" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName="UserModel" syncable="YES">
+    <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="billingID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="chefID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="consumerID" optional="YES" attributeType="String" syncable="YES"/>
@@ -131,7 +131,7 @@
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="user" inverseEntity="Location" syncable="YES"/>
         <relationship name="userLogin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserLogin" inverseName="user" inverseEntity="UserLogin" syncable="YES"/>
     </entity>
-    <entity name="UserLogin" representedClassName="UserLoginModel" syncable="YES">
+    <entity name="UserLogin" representedClassName=".UserLogin" syncable="YES">
         <attribute name="accessLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
@@ -139,9 +139,9 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userLogin" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Album" positionX="313" positionY="261" width="128" height="103"/>
+        <element name="Album" positionX="313" positionY="261" width="128" height="105"/>
         <element name="Blob" positionX="313" positionY="369" width="128" height="150"/>
-        <element name="Chef" positionX="171" positionY="-459" width="128" height="133"/>
+        <element name="Chef" positionX="171" positionY="-459" width="128" height="135"/>
         <element name="Consumer" positionX="7" positionY="-459" width="128" height="135"/>
         <element name="Location" positionX="-353" positionY="57" width="128" height="240"/>
         <element name="Order" positionX="657" positionY="-234" width="128" height="300"/>

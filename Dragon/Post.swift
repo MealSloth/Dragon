@@ -19,6 +19,6 @@ class Post: Model
     @NSManaged var orderCount: NSNumber!
     @NSManaged var capacity: NSNumber!
     @NSManaged var postStatus: NSNumber!
-    @NSManaged var postTime: String!
-    @NSManaged var expireTime: String!
+    @NSManaged var postTime: NSDate!
+    @NSManaged var expireTime: NSDate!
 }

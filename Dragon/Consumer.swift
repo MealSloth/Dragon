@@ -13,6 +13,4 @@ class Consumer: Model
     @NSManaged var id: String!
     @NSManaged var userID: String!
     @NSManaged var locationID: String!
-    @NSManaged var favoritePosts: [PostAPIModel]?
-    @NSManaged var favoriteChefs: [ChefAPIModel]?
 }

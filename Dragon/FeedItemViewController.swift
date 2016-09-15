@@ -14,7 +14,7 @@ class FeedItemViewController: UIViewController
     @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var imageChefProfile: UIImageView!
     
-    var post: PostAPIModel!
+    var post: Post!
     
     // MARK: Delegates
     override func viewDidLoad()

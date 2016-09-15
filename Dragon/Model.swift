@@ -17,18 +17,15 @@ class Model: NSManagedObject
     }
     
     static var entityName: String? {
-        let type = String(self.dynamicType)
-        let distance = 0 - "Model".characters.count
-        let index = type.endIndex.advancedBy(distance)
-        return type.substringToIndex(index)
+        return String(self.dynamicType)
     }
     
+    //MARK: Initializers
     required init()
     {
         if let context = Model.context
         {
-            let type = String(self.dynamicType)
-            let name = type.substringToIndex(type.endIndex.advancedBy(0 - "Model".characters.count))
+            let name = String(self.dynamicType)
             if let currentEntity = NSEntityDescription.entityForName(name, inManagedObjectContext: context)
             {
                 super.init(entity: currentEntity, insertIntoManagedObjectContext: context)
@@ -44,6 +41,37 @@ class Model: NSManagedObject
             Log.Error("Could not retrieve managedObjectContext from AppDelegate")
             super.init()
         }
+    }
+    
+    convenience init(_ model: APIModel)
+    {
+        self.init()
+        self.initialize(model)
+    }
+    
+    //MARK: Initialization helpers
+    func initialize(model: APIModel, skip: [String] = [])
+    {
+        for property in model.getProperties()
+        {
+            if !skip.contains(property)
+            {
+                let value = model.valueForKey(property)
+                if let dateString = value as? String, let date = dateString.toDate()
+                {
+                    self.setValue(date, forKey: property)
+                }
+                else
+                {
+                    self.setValue(model.valueForKey(property), forKey: property)
+                }
+            }
+        }
+    }
+    
+    func getProperties() -> [String]
+    {
+        return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
     }
     
     //MARK: Fetch
@@ -67,6 +95,7 @@ class Model: NSManagedObject
         return nil
     }
     
+    //MARK: Fetch where
     class func FromID(id: String) -> Model?
     {
         if let result = self.Fetch(NSPredicate.init(format: "id == %@", id)) where result.count > 0

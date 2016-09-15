@@ -13,7 +13,7 @@ class HomeTableViewController: UITableViewController
 {
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var posts: [PostAPIModel] = []
+    var posts: [Post] = []
     var blobs: Dictionary<String, UIImage> = [:]
     
     var ratio: CGFloat = 9.0/21.0
@@ -23,10 +23,7 @@ class HomeTableViewController: UITableViewController
     {
         super.viewDidLoad()
         
-        self.tableView.registerNib(UINib.init(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        self.tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
         
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
@@ -54,7 +51,7 @@ class HomeTableViewController: UITableViewController
         {
             if let vc = segue.destinationViewController as? PostDetailTableViewController
             {
-                if let post = sender as? PostAPIModel
+                if let post = sender as? Post
                 {
                     if let blob = self.blobs[post.albumID]
                     {
@@ -102,35 +99,6 @@ class HomeTableViewController: UITableViewController
         self.segue(withPost: self.posts[indexPath.row])
     }
     
-    // MARK: Observers
-    func keyboardDidShow(notification: NSNotification)
-    {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
-        {
-            if (self.scrollView.contentOffset.y == 0)
-            {
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-                    self.scrollView.contentInset = insets
-                    self.scrollView.scrollIndicatorInsets = insets
-                    self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y + keyboardSize.height)
-                })
-            }
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification)
-    {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
-        {
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
-                let insets: UIEdgeInsets = UIEdgeInsetsMake(self.scrollView.contentInset.top, 0, keyboardSize.height, 0)
-                self.scrollView.contentInset = insets
-                self.scrollView.scrollIndicatorInsets = insets
-            })
-        }
-    }
-    
     // MARK: Misc
     private func handlePostPageResult(result: PostPageResult?)
     {
@@ -141,12 +109,12 @@ class HomeTableViewController: UITableViewController
         }
     }
     
-    private func segue(withPost post: PostAPIModel)
+    private func segue(withPost post: Post)
     {
         self.performSegueWithIdentifier("Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
     }
     
-    private func populateCell(cell: PostTableViewCell, withPost post: PostAPIModel) -> PostTableViewCell
+    private func populateCell(cell: PostTableViewCell, withPost post: Post) -> PostTableViewCell
     {
         //TODO: Get Blob
         self.populateImageForCell(cell, withPost: post)
@@ -157,7 +125,7 @@ class HomeTableViewController: UITableViewController
         return cell
     }
     
-    private func populateImageForCell(cell: PostTableViewCell, withPost post: PostAPIModel)
+    private func populateImageForCell(cell: PostTableViewCell, withPost post: Post)
     {
         if let blob = self.blobs[post.albumID]
         {

@@ -42,7 +42,7 @@ extension String
         let formatter = NSDateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         var string = self
-        string = string.substringFromIndex(self.endIndex.advancedBy(-3))
+        string = string.substringToIndex(self.endIndex.advancedBy(-3))
         return formatter.dateFromString(string)
     }
 }

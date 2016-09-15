@@ -10,14 +10,14 @@ import Foundation
 
 class PostPageResult: APIResult
 {
-    var posts: [PostAPIModel] = []
+    var posts: [Post] = []
     
     required init(result: Dictionary<String, AnyObject>)
     {
         let postsDict = result["posts"] as! [Dictionary<String, AnyObject>]
         for post in postsDict
         {
-            self.posts.append(PostAPIModel(json: post))
+            self.posts.append(Post(PostAPIModel(json: post)))
         }
     }
 }

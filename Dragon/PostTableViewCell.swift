@@ -16,5 +16,5 @@ class PostTableViewCell: UITableViewCell
     @IBOutlet weak var labelPostName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     
-    var post: PostAPIModel?
+    var post: Post?
 }

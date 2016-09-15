@@ -11,7 +11,7 @@ import UIKit
 
 class PostDetailTableViewController: UITableViewController
 {
-    var post: PostAPIModel!
+    var post: Post!
     var blob: UIImage!
     
     // MARK: Delegates
@@ -52,7 +52,6 @@ class PostDetailTableViewController: UITableViewController
             {
                 return cell
             }
-            
         }
         else if (indexPath.row == 1)
         {
