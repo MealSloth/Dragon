@@ -37,6 +37,16 @@ extension String
         return randomString as String
     }
     
+    func capitalizeFirst() -> String
+    {
+        var s = self
+        if s.characters.count > 0
+        {
+            s.replaceRange(self.startIndex...self.startIndex, with: String(self[self.startIndex]).capitalizedString)
+        }
+        return s
+    }
+    
     func toDate() -> NSDate?
     {
         let formatter = NSDateFormatter.init()

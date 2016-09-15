@@ -21,8 +21,7 @@ extension AbstractEnum
         let stringArr = String(self).componentsSeparatedByString("_")
         for segment in stringArr
         {
-            let newSegment = segment.substringWithRange(segment.characters.startIndex..<(segment.characters.startIndex.advancedBy(1))).capitalizedString + segment.substringWithRange(segment.characters.startIndex.advancedBy(1)..<segment.characters.endIndex).lowercaseString
-            newString += (segment == stringArr.last) ? newSegment : newSegment + " "
+            newString += (segment == stringArr.last) ? segment.lowercaseString.capitalizeFirst() : segment.lowercaseString.capitalizeFirst() + " "
         }
         return newString
     }
