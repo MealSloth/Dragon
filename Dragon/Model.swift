@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class Model: NSManagedObject
+class Model: NSManagedObject, PrettyPrintable
 {
     static var context: NSManagedObjectContext? {
         return AppDelegate.GetInstance()?.managedObjectContext
@@ -49,6 +49,12 @@ class Model: NSManagedObject
         self.initialize(model)
     }
     
+    //MARK: Overrides
+    override func valueForKey(key: String) -> AnyObject?
+    {
+        return super.valueForKey(key)
+    }
+    
     //MARK: Initialization helpers
     func initialize(model: APIModel, skip: [String] = [])
     {
@@ -69,13 +75,8 @@ class Model: NSManagedObject
         }
     }
     
-    func getProperties() -> [String]
-    {
-        return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
-    }
-    
     //MARK: Fetch
-    internal class func Fetch(predicate: NSPredicate) -> [Model?]?
+    internal class func Fetch(predicate: NSPredicate) -> [Model]?
     {
         do
         {

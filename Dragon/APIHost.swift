@@ -8,22 +8,17 @@
 
 import Foundation
 
-class APIHost
+enum APIHost: AbstractEnum
 {
-    enum APIHostEnum
-    {
-        case CHIMERA
-        case HYDRA
-    }
+    case CHIMERA
+    case HYDRA
     
-    class func URL(service: APIHostEnum) -> String
+    func url() -> String
     {
-        switch (service)
+        switch (self)
         {
-            case APIHostEnum.CHIMERA:
-                return "http://api.mealsloth.com/"
-            case APIHostEnum.HYDRA:
-                return "http://blob.mealsloth.com/"
+            case .CHIMERA: return "http://api.mealsloth.com/"
+            case .HYDRA: return "http://blob.mealsloth.com/"
         }
     }
 }

@@ -11,8 +11,8 @@ import Foundation
 protocol APIRequest
 {
     var json: Dictionary<String, AnyObject> { get set }
-    var host: APIHost.APIHostEnum! { get set }
     var method: String! { get set }
+    var host: APIHost! { get set }
     
     var resultHandler: ((result: Dictionary<String, AnyObject>) -> Void)? { get set }
     var errorHandler: ((error: NSError?) -> Void)? { get set }
@@ -22,12 +22,13 @@ extension APIRequest
 {
     func post(onCompletion completion: ((result: Dictionary<String, AnyObject>) -> Void)? = nil, onError: ((NSError?) -> Void)? = nil)
     {
-        let request = NSMutableURLRequest(URL: NSURL(string: "\(APIHost.URL(self.host))\(self.method)")!)
+        let url = "\(self.host.url())\(self.method)"
+        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
         request.HTTPMethod = "POST"
         request.addValue("application/json",forHTTPHeaderField: "Content-Type")
         request.addValue("application/json",forHTTPHeaderField: "Accept")
         
-        Log.Info("Executing POST request at \(APIHost.URL(self.host))\(self.method)")
+        Log.Info("Executing POST request at \(url)")
         
         do
         {
@@ -48,7 +49,7 @@ extension APIRequest
             {
                 if let jsonResult: Dictionary<String, AnyObject> = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? Dictionary<String, AnyObject>
                 {
-                    Log.Info("Received response for POST request at \(APIHost.URL(self.host))\(self.method)")
+                    Log.Info("Received response for POST request at \(url)")
                     completion?(result: jsonResult)
                 }
             }

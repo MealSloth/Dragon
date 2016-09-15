@@ -10,10 +10,6 @@ import Foundation
 
 class Log
 {
-    static var file: String = #file
-    static var function: String = #function
-    static var line: Int = #line
-    
     enum LogType: String
     {
         case debug = "Debug"
@@ -35,9 +31,32 @@ class Log
         return ""
     }
     
+    internal class func logFirst(type: LogType, file: String, function: String, line: Int, strArr: [String]?)
+    {
+        if let first = strArr?[safe: 0]
+        {
+            print("Log.\(type.rawValue) \(position(file: file, function: function, line: line)): \(first)")
+        }
+        else
+        {
+            print("Log.\(type.rawValue) \(position(file: file, function: function, line: line)): Could not parse string")
+        }
+    }
+    
     internal class func log(type type: LogType, string: String?, file: String, function: String, line: Int)
     {
-        print("Log.\(type.rawValue) \(position(file: file, function: function, line: line)): \(string)")
+        let strArr = string?.componentsSeparatedByString("\n")
+        self.logFirst(type, file: file, function: function, line: line, strArr: strArr)
+        if let count = strArr?.count where count > 1
+        {
+            for newLine in 1..<count
+            {
+                if let line = strArr?[safe: newLine]
+                {
+                    print(line)
+                }
+            }
+        }
     }
     
     class func Debug(string: String?, file: String = #file, function: String = #function, line: Int = #line)
