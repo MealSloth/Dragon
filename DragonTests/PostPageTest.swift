@@ -6,6 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
+@testable import Dragon
 import XCTest
 
 class PostPageTest: DragonTest
