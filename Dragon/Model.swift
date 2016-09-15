@@ -101,16 +101,16 @@ class Model: NSManagedObject, PrettyPrintable
     }
     
     //MARK: Fetch where
-    class func FromID(id: String) -> Model?
+    class func FromID<T: Model>(id: String) -> T?
     {
         if let result = self.Fetch(NSPredicate.init(format: "id == %@", id)) where result.count > 0
         {
-            return result[0]
+            if let first = result[0] as? T
+            {
+                return first
+            }
         }
-        else
-        {
-            Log.Warning("No \(self.entityName) found with ID \(id)")
-        }
+        Log.Warning("No \(self.entityName) found with ID \(id)")
         return nil
     }
 }

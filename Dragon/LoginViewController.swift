@@ -95,7 +95,8 @@ class LoginViewController: UIViewController
                     },
                     onError: { (error) -> Void in
                         Log.Error("\(error)")
-                })
+                    }
+                )
             }
             else
             {
@@ -111,11 +112,13 @@ class LoginViewController: UIViewController
                                     }
                                     else
                                     {
+                                        //TODO: Handle incorrect email or password
                                         Log.Debug("Email or password is incorrect")
                                     }
                                 }
                                 else
                                 {
+                                    //TODO: Handle empty email or password
                                     Log.Debug("Email is nil or password is nil")
                                 }
                             },
@@ -132,6 +135,7 @@ class LoginViewController: UIViewController
         }
         else
         {
+            //TODO: Handle invalid login
             Log.Debug("Email is nil, password is nil, or password is not >= 8 characters in length")
         }
     }

@@ -21,4 +21,16 @@ class Post: Model
     @NSManaged var postStatus: NSNumber!
     @NSManaged var postTime: NSDate!
     @NSManaged var expireTime: NSDate!
+    
+    var chef: Chef? {
+        return Chef.FromID(self.chefID)
+    }
+    
+    var location: Location? {
+        return Location.FromID(self.locationID)
+    }
+    
+    var album: Album? {
+        return Album.FromID(self.albumID)
+    }
 }
