@@ -23,8 +23,7 @@ class LoginViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        self.registerObservers()
     }
 
     override func didReceiveMemoryWarning()
@@ -160,5 +159,11 @@ class LoginViewController: UIViewController
     private func segue()
     {
         self.performSegueWithIdentifier("Segue_LoginViewController->TabBarController", sender: self)
+    }
+    
+    private func registerObservers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 }
