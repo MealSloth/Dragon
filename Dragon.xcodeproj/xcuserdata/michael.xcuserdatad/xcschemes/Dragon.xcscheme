@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Dragon.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4C586D641D8A2E0D008A1A7B"
+               BuildableName = "DragonUITests.xctest"
+               BlueprintName = "DragonUITests"
+               ReferencedContainer = "container:Dragon.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -16,6 +16,7 @@
 		4C27F0971D3D567600D64E13 /* PostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0961D3D567600D64E13 /* PostTest.swift */; };
 		4C4851591D20523000223B4F /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4851581D20523000223B4F /* UserTest.swift */; };
 		4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48517A1D2080CE00223B4F /* UserLoginTest.swift */; };
+		4C586D681D8A2E0D008A1A7B /* DragonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */; };
 		4C657EAB1D4AA5E100F2A575 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */; };
 		4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */; };
 		4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */; };
@@ -100,6 +101,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4C586D6A1D8A2E0D008A1A7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C69825C1CD3D7A4005ABCF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C6982631CD3D7A4005ABCF1;
+			remoteInfo = Dragon;
+		};
 		4C69827C1CD3D7A4005ABCF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4C69825C1CD3D7A4005ABCF1 /* Project object */;
@@ -118,6 +126,9 @@
 		4C27F0961D3D567600D64E13 /* PostTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
 		4C4851581D20523000223B4F /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		4C48517A1D2080CE00223B4F /* UserLoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginTest.swift; sourceTree = "<group>"; };
+		4C586D651D8A2E0D008A1A7B /* DragonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonUITests.swift; sourceTree = "<group>"; };
+		4C586D691D8A2E0D008A1A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemViewController.swift; sourceTree = "<group>"; };
 		4C6982641CD3D7A4005ABCF1 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +217,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4C586D621D8A2E0D008A1A7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4C6982611CD3D7A4005ABCF1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,11 +261,21 @@
 			name = APITest;
 			sourceTree = "<group>";
 		};
+		4C586D661D8A2E0D008A1A7B /* DragonUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */,
+				4C586D691D8A2E0D008A1A7B /* Info.plist */,
+			);
+			path = DragonUITests;
+			sourceTree = "<group>";
+		};
 		4C69825B1CD3D7A4005ABCF1 = {
 			isa = PBXGroup;
 			children = (
 				4C6982661CD3D7A4005ABCF1 /* Dragon */,
 				4C69827E1CD3D7A4005ABCF1 /* DragonTests */,
+				4C586D661D8A2E0D008A1A7B /* DragonUITests */,
 				4C6982651CD3D7A4005ABCF1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -257,6 +285,7 @@
 			children = (
 				4C6982641CD3D7A4005ABCF1 /* Dragon.app */,
 				4C69827B1CD3D7A4005ABCF1 /* DragonTests.xctest */,
+				4C586D651D8A2E0D008A1A7B /* DragonUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -597,6 +626,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4C586D641D8A2E0D008A1A7B /* DragonUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C586D6C1D8A2E0D008A1A7B /* Build configuration list for PBXNativeTarget "DragonUITests" */;
+			buildPhases = (
+				4C586D611D8A2E0D008A1A7B /* Sources */,
+				4C586D621D8A2E0D008A1A7B /* Frameworks */,
+				4C586D631D8A2E0D008A1A7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C586D6B1D8A2E0D008A1A7B /* PBXTargetDependency */,
+			);
+			name = DragonUITests;
+			productName = DragonUITests;
+			productReference = 4C586D651D8A2E0D008A1A7B /* DragonUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		4C6982631CD3D7A4005ABCF1 /* Dragon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C6982841CD3D7A4005ABCF1 /* Build configuration list for PBXNativeTarget "Dragon" */;
@@ -638,10 +685,15 @@
 		4C69825C1CD3D7A4005ABCF1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = MealSloth;
 				TargetAttributes = {
+					4C586D641D8A2E0D008A1A7B = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4C6982631CD3D7A4005ABCF1;
+					};
 					4C6982631CD3D7A4005ABCF1 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 2FC48TPE62;
@@ -669,11 +721,19 @@
 			targets = (
 				4C6982631CD3D7A4005ABCF1 /* Dragon */,
 				4C69827A1CD3D7A4005ABCF1 /* DragonTests */,
+				4C586D641D8A2E0D008A1A7B /* DragonUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4C586D631D8A2E0D008A1A7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4C6982621CD3D7A4005ABCF1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -695,6 +755,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4C586D611D8A2E0D008A1A7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C586D681D8A2E0D008A1A7B /* DragonUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4C6982601CD3D7A4005ABCF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -798,6 +866,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4C586D6B1D8A2E0D008A1A7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C6982631CD3D7A4005ABCF1 /* Dragon */;
+			targetProxy = 4C586D6A1D8A2E0D008A1A7B /* PBXContainerItemProxy */;
+		};
 		4C69827D1CD3D7A4005ABCF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4C6982631CD3D7A4005ABCF1 /* Dragon */;
@@ -825,6 +898,37 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4C586D6D1D8A2E0D008A1A7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = DragonUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.DragonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Dragon;
+			};
+			name = Debug;
+		};
+		4C586D6E1D8A2E0D008A1A7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = DragonUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.DragonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Dragon;
+			};
+			name = Release;
+		};
 		4C6982821CD3D7A4005ABCF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -924,7 +1028,7 @@
 				DEVELOPMENT_TEAM = 2FC48TPE62;
 				INFOPLIST_FILE = Dragon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.Dragon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 2.3;
@@ -940,7 +1044,7 @@
 				DEVELOPMENT_TEAM = 2FC48TPE62;
 				INFOPLIST_FILE = Dragon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mealsloth.Dragon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 2.3;
@@ -976,6 +1080,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4C586D6C1D8A2E0D008A1A7B /* Build configuration list for PBXNativeTarget "DragonUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C586D6D1D8A2E0D008A1A7B /* Debug */,
+				4C586D6E1D8A2E0D008A1A7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4C69825F1CD3D7A4005ABCF1 /* Build configuration list for PBXProject "Dragon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
