@@ -25,7 +25,6 @@ class Log
         let path = file.componentsSeparatedByString("/")
         if let file = path[safe: path.count - 1]?.stringByReplacingOccurrencesOfString(".swift", withString: "")
         {
-            //return "<\(file).\(function):\(line)?"
             return "<\(file):\(line)>"
         }
         return ""
@@ -35,18 +34,16 @@ class Log
     {
         if let first = strArr?[safe: 0]
         {
-            print("Log.\(type.rawValue) \(position(file: file, function: function, line: line)): \(first)")
+            print("Log.\(type.rawValue)\(position(file: file, function: function, line: line)): \(first)")
         }
         else
         {
-            print("Log.\(type.rawValue) \(position(file: file, function: function, line: line)): Could not parse string")
+            print("Log.\(type.rawValue)\(position(file: file, function: function, line: line)): Could not parse string")
         }
     }
     
-    internal class func log(type type: LogType, string: String?, file: String, function: String, line: Int)
+    internal class func logRemaining(strArr: [String]?)
     {
-        let strArr = string?.componentsSeparatedByString("\n")
-        self.logFirst(type, file: file, function: function, line: line, strArr: strArr)
         if let count = strArr?.count where count > 1
         {
             for newLine in 1..<count
@@ -57,6 +54,13 @@ class Log
                 }
             }
         }
+    }
+    
+    internal class func log(type type: LogType, string: String?, file: String, function: String, line: Int)
+    {
+        let strArr = string?.componentsSeparatedByString("\n")
+        self.logFirst(type, file: file, function: function, line: line, strArr: strArr)
+        self.logRemaining(strArr)
     }
     
     class func Debug(string: String?, file: String = #file, function: String = #function, line: Int = #line)
