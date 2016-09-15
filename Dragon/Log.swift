@@ -30,7 +30,7 @@ class Log
         if let file = path[safe: path.count - 1]?.stringByReplacingOccurrencesOfString(".swift", withString: "")
         {
             //return "<\(file).\(function):\(line)?"
-            return "<\(file):\(line)?"
+            return "<\(file):\(line)>"
         }
         return ""
     }

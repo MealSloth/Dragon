@@ -48,7 +48,7 @@ extension APIRequest
             {
                 if let jsonResult: Dictionary<String, AnyObject> = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? Dictionary<String, AnyObject>
                 {
-                    Log.Info("Received response for POST request at \(APIHost.URL(self.host))\(self.method) with JSON object: \(jsonResult)")
+                    Log.Info("Received response for POST request at \(APIHost.URL(self.host))\(self.method)")
                     completion?(result: jsonResult)
                 }
             }

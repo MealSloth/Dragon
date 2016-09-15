@@ -48,7 +48,6 @@
 		4C4851771D20554400223B4F /* UserLoginAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */; };
 		4C4851791D20554900223B4F /* FieldNameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD0A5E1CD8F7120081A28B /* FieldNameHelper.swift */; };
 		4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48517A1D2080CE00223B4F /* UserLoginTest.swift */; };
-		4C586D551D8A21BC008A1A7B /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C586D541D8A21BC008A1A7B /* Dictionary+.swift */; };
 		4C657EAB1D4AA5E100F2A575 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */; };
 		4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */; };
 		4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */; };
@@ -194,7 +193,6 @@
 		4C27F0961D3D567600D64E13 /* PostTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
 		4C4851581D20523000223B4F /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		4C48517A1D2080CE00223B4F /* UserLoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginTest.swift; sourceTree = "<group>"; };
-		4C586D541D8A21BC008A1A7B /* Dictionary+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemViewController.swift; sourceTree = "<group>"; };
 		4C6982641CD3D7A4005ABCF1 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -554,7 +552,6 @@
 				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
 				4CFF11CF1D497E600062B33A /* ViewController+.swift */,
 				4CAA3E5D1D80DCA80015FA43 /* NSFetchRequest+.swift */,
-				4C586D541D8A21BC008A1A7B /* Dictionary+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -781,7 +778,6 @@
 				4CCD0A691CD91E4F0081A28B /* LocationAPIModel.swift in Sources */,
 				4C9655581D0E109400011EAC /* PostRequest.swift in Sources */,
 				4CE166E21D398DFC003589D0 /* Log.swift in Sources */,
-				4C586D551D8A21BC008A1A7B /* Dictionary+.swift in Sources */,
 				4CC6747B1D80E8AD001BCA67 /* Blob.swift in Sources */,
 				4C6982911CD3DC07005ABCF1 /* APIHost.swift in Sources */,
 				4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */,
