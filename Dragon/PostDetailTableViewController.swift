@@ -48,10 +48,7 @@ class PostDetailTableViewController: UITableViewController
                 titleCell.imagePost.image = self.blob
                 return titleCell
             }
-            else
-            {
-                return cell
-            }
+            return cell
         }
         else if (indexPath.row == 1)
         {
@@ -61,15 +58,12 @@ class PostDetailTableViewController: UITableViewController
                 summaryCell.labelName.text = self.post.name
                 return summaryCell
             }
-            else
-            {
-                return cell
-            }
+            return cell
         }
         else
         {
             Log.Error("indexPath.row exceeds expected bounds")
-            return tableView.dequeueReusableCellWithIdentifier("PostDetailTitleCell", forIndexPath: indexPath)
+            return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
         }
     }
 }
