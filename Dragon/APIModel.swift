@@ -11,8 +11,7 @@ import Foundation
 class APIModel: NSObject, PrettyPrintable
 {
     override var description: String {
-        let string = self.getPropertiesString(self)
-        return string
+        return self.getPropertiesString(self)
     }
     
     init(json: Dictionary<String, AnyObject>)

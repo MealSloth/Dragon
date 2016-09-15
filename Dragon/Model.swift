@@ -20,6 +20,10 @@ class Model: NSManagedObject, PrettyPrintable
         return String(self.dynamicType)
     }
     
+    override var description: String {
+        return self.getPropertiesString(self)
+    }
+    
     //MARK: Initializers
     required init()
     {
