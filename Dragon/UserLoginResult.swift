@@ -10,10 +10,13 @@ import Foundation
 
 class UserLoginResult: APIResult
 {
-    var userLogin: UserLoginAPIModel!
+    var userLogin: UserLogin!
+    var password: String!
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        self.userLogin = UserLoginAPIModel(json: result["user_login"] as! Dictionary<String, AnyObject>)
+        let apiModel = UserLoginAPIModel(json: result["user_login"] as! Dictionary<String, AnyObject>)
+        self.password = apiModel.password
+        self.userLogin = UserLogin(apiModel)
     }
 }
