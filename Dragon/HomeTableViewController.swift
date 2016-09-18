@@ -25,14 +25,21 @@ class HomeTableViewController: UITableViewController
         
         self.tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
         
-        PostPageRequest().request(
-            onCompletion: { (result: PostPageResult) -> Void in
-                self.handlePostPageResult(result)
-            },
-            onError: { (error) -> Void in
-                Log.Error("Error occurred during PostPageRequest(): \(error)")
-            }
-        )
+        if let posts: [Post] = Post.FetchAll()
+        {
+            self.posts = posts
+        }
+        else
+        {
+            PostPageRequest().request(
+                onCompletion: { (result: PostPageResult) -> Void in
+                    self.handlePostPageResult(result)
+                },
+                onError: { (error) -> Void in
+                    Log.Error("Error occurred during PostPageRequest(): \(error)")
+                }
+            )
+        }
     }
     
     override func didReceiveMemoryWarning()
@@ -49,16 +56,12 @@ class HomeTableViewController: UITableViewController
     {
         if (segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController")
         {
-            if let vc = segue.destinationViewController as? PostDetailTableViewController
+            if let vc = segue.destinationViewController as? PostDetailTableViewController,
+                   post = sender as? Post,
+                   blob = self.blobs[post.albumID]
             {
-                if let post = sender as? Post
-                {
-                    if let blob = self.blobs[post.albumID]
-                    {
-                        vc.post = post
-                        vc.blob = blob
-                    }
-                }
+                vc.post = post
+                vc.blob = blob
             }
         }
     }

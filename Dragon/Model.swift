@@ -80,7 +80,7 @@ class Model: NSManagedObject, PrettyPrintable
     }
     
     //MARK: Fetch
-    internal class func Fetch(predicate: NSPredicate) -> [Model]?
+    internal class func Fetch(predicate: NSPredicate? = nil) -> [Model]?
     {
         do
         {
@@ -97,6 +97,17 @@ class Model: NSManagedObject, PrettyPrintable
         {
             Log.Error("\(error)")
         }
+        return nil
+    }
+    
+    //MARK: Fetch general
+    class func FetchAll<T: Model>() -> [T]?
+    {
+        if let result = self.Fetch() as? [T]
+        {
+            return result
+        }
+        Log.Warning("No \(self.entityName) found")
         return nil
     }
     
