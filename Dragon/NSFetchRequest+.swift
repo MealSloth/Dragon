@@ -11,7 +11,7 @@ import CoreData
 
 extension NSFetchRequest
 {
-    class func FromEntityName(entityName: String?) -> NSFetchRequest?
+    class func fromEntityName(entityName: String?) -> NSFetchRequest?
     {
         if let name = entityName
         {

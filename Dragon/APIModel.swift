@@ -31,9 +31,9 @@ class APIModel: NSObject, PrettyPrintable
         {
             if !skip.contains(property)
             {
-                self.setValue(json[FieldNameHelper.GetServerName(forClientName: property)], forKey: property)
+                self.setValue(json[FieldNameHelper.getServerName(forClientName: property)], forKey: property)
             }
         }
-        Log.Info("Finished initializing model with values:\n\(self.description)")
+        Log.info("Finished initializing model with values:\n\(self.description)")
     }
 }

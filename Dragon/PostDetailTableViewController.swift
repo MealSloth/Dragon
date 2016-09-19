@@ -62,7 +62,7 @@ class PostDetailTableViewController: UITableViewController
         }
         else
         {
-            Log.Error("indexPath.row exceeds expected bounds")
+            Log.error("indexPath.row exceeds expected bounds")
             return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
         }
     }

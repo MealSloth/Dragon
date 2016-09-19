@@ -93,7 +93,7 @@ class LoginViewController: UIViewController
                         self.segue()
                     },
                     onError: { (error) -> Void in
-                        Log.Error("\(error)")
+                        Log.error("\(error)")
                     }
                 )
             }
@@ -112,22 +112,22 @@ class LoginViewController: UIViewController
                                     else
                                     {
                                         //TODO: Handle incorrect email or password
-                                        Log.Debug("Email or password is incorrect")
+                                        Log.debug("Email or password is incorrect")
                                     }
                                 }
                                 else
                                 {
                                     //TODO: Handle empty email or password
-                                    Log.Debug("Email is nil or password is nil")
+                                    Log.debug("Email is nil or password is nil")
                                 }
                             },
                             onError: { (error) -> Void in
-                                Log.Error("\(error)")
+                                Log.error("\(error)")
                             }
                         )
                     },
                     onError: { (error) -> Void in
-                        Log.Error("\(error)")
+                        Log.error("\(error)")
                     }
                 )
             }
@@ -135,7 +135,7 @@ class LoginViewController: UIViewController
         else
         {
             //TODO: Handle invalid login
-            Log.Debug("Email is nil, password is nil, or password is not >= 8 characters in length")
+            Log.debug("Email is nil, password is nil, or password is not >= 8 characters in length")
         }
     }
     

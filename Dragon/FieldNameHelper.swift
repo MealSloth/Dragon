@@ -10,7 +10,7 @@ import Foundation
 
 class FieldNameHelper
 {
-    class func GetClientName(forServerName serverName: String) -> String
+    class func getClientName(forServerName serverName: String) -> String
     {
         var clientName: String = ""
         
@@ -20,18 +20,18 @@ class FieldNameHelper
         }
         else if (serverName.containsString("_id"))
         {
-            clientName += self.GetClientName(forSubstring: serverName.substringWithRange(serverName.startIndex...serverName.endIndex.advancedBy(-3)))
+            clientName += self.getClientName(forSubstring: serverName.substringWithRange(serverName.startIndex...serverName.endIndex.advancedBy(-3)))
             clientName += "ID"
         }
         else
         {
-            clientName = self.GetClientName(forSubstring: serverName)
+            clientName = self.getClientName(forSubstring: serverName)
         }
         
         return clientName
     }
     
-    class func GetServerName(forClientName clientName: String) -> String
+    class func getServerName(forClientName clientName: String) -> String
     {
         var serverName: String = ""
         
@@ -41,18 +41,18 @@ class FieldNameHelper
         }
         else if (clientName.containsString("ID"))
         {
-            serverName += self.GetServerName(forSubstring: clientName.substringWithRange(clientName.startIndex...clientName.endIndex.advancedBy(-3)))
+            serverName += self.getServerName(forSubstring: clientName.substringWithRange(clientName.startIndex...clientName.endIndex.advancedBy(-3)))
             serverName += "_id"
         }
         else
         {
-            serverName = self.GetServerName(forSubstring: clientName)
+            serverName = self.getServerName(forSubstring: clientName)
         }
         
         return serverName
     }
     
-    private class func GetClientName(forSubstring substring: String) -> String
+    private class func getClientName(forSubstring substring: String) -> String
     {
         var clientName: String  = ""
         var wasUnderscore: Bool = false
@@ -81,7 +81,7 @@ class FieldNameHelper
         return clientName
     }
     
-    private class func GetServerName(forSubstring substring: String) -> String
+    private class func getServerName(forSubstring substring: String) -> String
     {
         var serverName: String = ""
         

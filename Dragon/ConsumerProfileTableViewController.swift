@@ -61,7 +61,7 @@ class ConsumerProfileTableViewController: UITableViewController
         }
         else
         {
-            Log.Error("indexPath.row exceeds expected bounds")
+            Log.error("indexPath.row exceeds expected bounds")
             return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileTitleCell", forIndexPath: indexPath)
         }
     }

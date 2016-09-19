@@ -22,15 +22,15 @@ class Post: Model
     @NSManaged var postTime: NSDate!
     @NSManaged var expireTime: NSDate!
     
-    var chef: Chef? {
-        return Chef.FromID(self.chefID)
-    }
+    lazy var chef: Chef? = {
+        return Chef.fromID(self.chefID)
+    }()
     
-    var location: Location? {
-        return Location.FromID(self.locationID)
-    }
+    lazy var location: Location? = {
+        return Location.fromID(self.locationID)
+    }()
     
-    var album: Album? {
-        return Album.FromID(self.albumID)
-    }
+    lazy var album: Album? = {
+        return Album.fromID(self.albumID)
+    }()
 }

@@ -19,7 +19,7 @@ extension UIViewController
         }
         else
         {
-            Log.Warning("UIViewController.runOnMainThread(runnable:) received nil runnable")
+            Log.warning("UIViewController.runOnMainThread(runnable:) received nil runnable")
         }
     }
     

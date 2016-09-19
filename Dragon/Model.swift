@@ -10,13 +10,13 @@ import Foundation
 import CoreData
 import UIKit
 
-class Model: NSManagedObject, PrettyPrintable
+class Model: NSManagedObject, Fetchable, PrettyPrintable
 {
     static var context: NSManagedObjectContext? {
-        return AppDelegate.GetInstance()?.managedObjectContext
+        return AppDelegate.getInstance()?.managedObjectContext
     }
     
-    static var entityName: String? {
+    static var entityName: String {
         return String(self.dynamicType)
     }
     
@@ -36,13 +36,13 @@ class Model: NSManagedObject, PrettyPrintable
             }
             else
             {
-                Log.Error("No entity found with name: \(name)")
+                Log.error("No entity found with name: \(name)")
                 super.init()
             }
         }
         else
         {
-            Log.Error("Could not retrieve managedObjectContext from AppDelegate")
+            Log.error("Could not retrieve managedObjectContext from AppDelegate")
             super.init()
         }
     }
@@ -77,51 +77,5 @@ class Model: NSManagedObject, PrettyPrintable
                 }
             }
         }
-    }
-    
-    //MARK: Fetch
-    internal class func Fetch(predicate: NSPredicate? = nil) -> [Model]?
-    {
-        do
-        {
-            if let request = NSFetchRequest.FromEntityName(self.entityName)
-            {
-                request.predicate = predicate
-                if let result = try self.context?.executeFetchRequest(request) as? [Model]
-                {
-                    return result
-                }
-            }
-        }
-        catch let error as NSError
-        {
-            Log.Error("\(error)")
-        }
-        return nil
-    }
-    
-    //MARK: Fetch general
-    class func FetchAll<T: Model>() -> [T]?
-    {
-        if let result = self.Fetch() as? [T]
-        {
-            return result
-        }
-        Log.Warning("No \(self.entityName) found")
-        return nil
-    }
-    
-    //MARK: Fetch where
-    class func FromID<T: Model>(id: String) -> T?
-    {
-        if let result = self.Fetch(NSPredicate.init(format: "id == %@", id)) where result.count > 0
-        {
-            if let first = result[0] as? T
-            {
-                return first
-            }
-        }
-        Log.Warning("No \(self.entityName) found with ID \(id)")
-        return nil
     }
 }

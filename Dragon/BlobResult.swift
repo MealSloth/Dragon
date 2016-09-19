@@ -31,7 +31,7 @@ class BlobResult: APIResult
             }
             else
             {
-                Log.Error("Could not parse BlobResult")
+                Log.error("Could not parse BlobResult")
             }
         }
     }

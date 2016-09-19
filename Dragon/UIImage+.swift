@@ -11,7 +11,7 @@ import UIKit
 
 extension UIImage
 {
-    class func FromURL(url: String) -> UIImage?
+    class func fromURL(url: String) -> UIImage?
     {
         if let nsurl = NSURL(string: url)
         {

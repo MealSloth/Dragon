@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     }()
     
     // MISC
-    class func GetInstance() -> AppDelegate?
+    class func getInstance() -> AppDelegate?
     {
         if let delegate = UIApplication.sharedApplication().delegate as? AppDelegate
         {

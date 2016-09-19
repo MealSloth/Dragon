@@ -63,32 +63,32 @@ class Log
         self.logRemaining(strArr)
     }
     
-    class func Debug(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func debug(string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .debug, string: string, file: file, function: function, line: line)
     }
     
-    class func Error(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func error(string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .error, string: string, file: file, function: function, line: line)
     }
     
-    class func Info(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func info(string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .info, string: string, file: file, function: function, line: line)
     }
     
-    class func Normal(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func normal(string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .normal, string: string, file: file, function: function, line: line)
     }
     
-    class func Verbose(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func verbose(string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .verbose, string: string, file: file, function: function, line: line)
     }
     
-    class func Warning(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func warning(string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .warning, string: string, file: file, function: function, line: line)
     }

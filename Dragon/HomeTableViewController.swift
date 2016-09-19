@@ -25,7 +25,7 @@ class HomeTableViewController: UITableViewController
         
         self.tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
         
-        if let posts: [Post] = Post.FetchAll()
+        if let posts = Post.all()
         {
             self.posts = posts
         }
@@ -36,7 +36,7 @@ class HomeTableViewController: UITableViewController
                     self.handlePostPageResult(result)
                 },
                 onError: { (error) -> Void in
-                    Log.Error("Error occurred during PostPageRequest(): \(error)")
+                    Log.error("Error occurred during PostPageRequest(): \(error)")
                 }
             )
         }
@@ -92,7 +92,7 @@ class HomeTableViewController: UITableViewController
         }
         else
         {
-            Log.Warning("Failed cast to PostTableViewCell")
+            Log.warning("Failed cast to PostTableViewCell")
             return self.tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath)
         }
     }
@@ -140,7 +140,7 @@ class HomeTableViewController: UITableViewController
             onCompletion: { (result: BlobResult) -> Void in
                 if let blob = result.blobs?[safe: 0]
                 {
-                    if let image = UIImage.FromURL(blob.url)
+                    if let image = UIImage.fromURL(blob.url)
                     {
                         self.blobs[post.albumID] = image
                         self.runOnMainThread({ () -> Void in
@@ -150,7 +150,7 @@ class HomeTableViewController: UITableViewController
                 }
             },
             onError: { (error) -> Void in
-                Log.Error("Error during BlobRequest(withAlbumID:): \(error)")
+                Log.error("Error during BlobRequest(withAlbumID:): \(error)")
             }
         )
     }

@@ -10,7 +10,7 @@ import Foundation
 
 extension String
 {
-    static func Random(allow format: [RandomStringAllow] = [.Numeric, .AlphaLower, .AlphaUpper, ], length capacity: Int = 64) -> String
+    static func random(allow format: [RandomStringAllow] = [.Numeric, .AlphaLower, .AlphaUpper, ], length capacity: Int = 64) -> String
     {
         guard format.count > 0 else
         {
