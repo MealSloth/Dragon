@@ -10,17 +10,17 @@ import Foundation
 
 class UserLoginRequest: APIRequestChimera
 {
-    private var completion: ((UserLoginResult) -> Void)?
+    fileprivate var completion: ((UserLoginResult) -> Void)?
     
     init(withUserLoginID userLoginID: String)
     {
         super.init(method: "user-login/")
-        self.json["user_login_id"] = userLoginID
+        self.json["user_login_id"] = userLoginID as AnyObject?
     }
     
     init(withUserID userID: String)
     {
         super.init(method: "user-login/")
-        self.json["user_id"] = userID
+        self.json["user_id"] = userID as AnyObject?
     }
 }

@@ -11,11 +11,11 @@ import UIKit
 
 extension UIImage
 {
-    class func fromURL(url: String) -> UIImage?
+    class func fromURL(_ url: String) -> UIImage?
     {
-        if let nsurl = NSURL(string: url)
+        if let nsurl = URL(string: url)
         {
-            if let data = NSData(contentsOfURL: nsurl)
+            if let data = try? Data(contentsOf: nsurl)
             {
                 return UIImage(data: data)
             }

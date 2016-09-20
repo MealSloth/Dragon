@@ -10,7 +10,7 @@ import Foundation
 
 enum LocationPurpose: Int, AbstractEnum
 {
-    case BILLING = 0
-    case POST = 1
-    case DISPLAY = 2
+    case billing = 0
+    case post = 1
+    case display = 2
 }

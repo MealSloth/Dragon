@@ -14,6 +14,6 @@ class Blob: Model
     @NSManaged var albumID: String!
     @NSManaged var gcsID: String!
     @NSManaged var contentType: String?
-    @NSManaged var time: NSDate!
+    @NSManaged var time: Date!
     @NSManaged var url: String!
 }

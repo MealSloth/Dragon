@@ -23,46 +23,46 @@ class ConsumerProfileTableViewController: UITableViewController
     }
     
     // MARK: TableView Delegates
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    override func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return 6
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if indexPath.row == 0
+        if (indexPath as NSIndexPath).row == 0
         {
-            return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileTitleCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileTitleCell", for: indexPath)
         }
-        else if indexPath.row == 1
+        else if (indexPath as NSIndexPath).row == 1
         {
-            return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileOrderCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileOrderCell", for: indexPath)
         }
-        else if indexPath.row == 2
+        else if (indexPath as NSIndexPath).row == 2
         {
-            return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileFavoriteCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileFavoriteCell", for: indexPath)
         }
-        else if indexPath.row == 3
+        else if (indexPath as NSIndexPath).row == 3
         {
-            return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileProfileCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileProfileCell", for: indexPath)
         }
-        else if indexPath.row == 4
+        else if (indexPath as NSIndexPath).row == 4
         {
-            return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileBecomeAChefCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileBecomeAChefCell", for: indexPath)
         }
-        else if indexPath.row == 5
+        else if (indexPath as NSIndexPath).row == 5
         {
-            return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileFeedbackCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileFeedbackCell", for: indexPath)
         }
         else
         {
             Log.error("indexPath.row exceeds expected bounds")
-            return tableView.dequeueReusableCellWithIdentifier("ConsumerProfileTitleCell", forIndexPath: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileTitleCell", for: indexPath)
         }
     }
 }

@@ -13,6 +13,6 @@ class ConsumerRequest: APIRequestChimera
     init(withConsumerID consumerID: String)
     {
         super.init(method: "consumer/")
-        self.json["consumer_id"] = consumerID
+        self.json["consumer_id"] = consumerID as AnyObject?
     }
 }

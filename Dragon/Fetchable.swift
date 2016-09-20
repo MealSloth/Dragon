@@ -17,24 +17,21 @@ protocol Fetchable
 
 extension Fetchable where Self: NSManagedObject
 {
-    internal static func fetch(predicate: NSPredicate? = nil) -> [Self]?
+    internal static func fetch(_ predicate: NSPredicate? = nil) -> [Self]?
     {
-        do
-        {
-            if let request = NSFetchRequest.fromEntityName(self.entityName)
+        self.context?.performAndWait({
+            let request = Self.fetchRequest()
+            request.predicate = predicate
+            do
             {
-                request.predicate = predicate
-                if let result = try self.context?.executeFetchRequest(request) as? [Self]
-                {
-                    return result
-                }
+                try request.execute()
             }
-        }
-        catch let error as NSError
-        {
-            Log.error("\(error)")
-        }
-        return nil
+            catch let error
+            {
+                Log.error("\(error)")
+            }
+        })
+        return nil //TODO: Use FetchRequestResult instead
     }
     
     static func all() -> [Self]?
@@ -57,9 +54,9 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    static func first(count: Int = 1) -> [Self]?
+    static func first(_ count: Int = 1) -> [Self]?
     {
-        if count > 0, let result = self.fetch() where result.count > 0
+        if count > 0, let result = self.fetch() , result.count > 0
         {
             return result
         }
@@ -67,7 +64,7 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    static func fromID(id: String?) -> Self?
+    static func fromID(_ id: String?) -> Self?
     {
         if let val = id
         {

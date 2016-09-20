@@ -10,10 +10,10 @@ import Foundation
 
 class PostPageRequest: APIRequestChimera
 {
-    init(withPageSize size: Int? = 10, usingPostTimestamp time: NSDate? = nil)
+    init(withPageSize size: Int? = 10, usingPostTimestamp time: Date? = nil)
     {
         super.init(method: "post/page/")
-        self.json["page_size"] = size
-        self.json["post_time_stamp"] = time?.toString()
+        self.json["page_size"] = size as AnyObject?
+        self.json["post_time_stamp"] = time?.toString() as AnyObject?
     }
 }

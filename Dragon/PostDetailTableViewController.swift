@@ -23,26 +23,26 @@ class PostDetailTableViewController: UITableViewController
     }
     
     // MARK: TableView Delegates
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    override func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return 2
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         //TODO: Handle row clicks
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if (indexPath.row == 0)
+        if ((indexPath as NSIndexPath).row == 0)
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PostDetailTitleCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
             if let titleCell = cell as? PostDetailTitleCell
             {
                 titleCell.imagePost.image = self.blob
@@ -50,9 +50,9 @@ class PostDetailTableViewController: UITableViewController
             }
             return cell
         }
-        else if (indexPath.row == 1)
+        else if ((indexPath as NSIndexPath).row == 1)
         {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PostDetailSummaryCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailSummaryCell", for: indexPath)
             if let summaryCell = cell as? PostDetailSummaryCell
             {
                 summaryCell.labelName.text = self.post.name
@@ -63,7 +63,7 @@ class PostDetailTableViewController: UITableViewController
         else
         {
             Log.error("indexPath.row exceeds expected bounds")
-            return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+            return super.tableView(tableView, cellForRowAt: indexPath)
         }
     }
 }

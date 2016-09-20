@@ -13,7 +13,7 @@ class PostPageTest: DragonTest
 {
     func testUsingNothing()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "PostPageRequest()"
         
         PostPageRequest().request(
@@ -31,14 +31,14 @@ class PostPageTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
         })
     }
     
     func testWithPageSize()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "PostPageRequest(withPageSize:)"
         
         PostPageRequest(withPageSize: 10).request(
@@ -56,16 +56,16 @@ class PostPageTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
         })
     }
     
     func testUsingPostTimestamp()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "PostPageRequest(usingPostTimestamp:)"
-        let date = NSDate(timeIntervalSince1970: NSTimeInterval())
+        let date = Date(timeIntervalSince1970: TimeInterval())
         
         PostPageRequest(usingPostTimestamp: date).request(
             onCompletion: { (result: PostPageResult) -> Void in
@@ -82,16 +82,16 @@ class PostPageTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
         })
     }
     
     func testUsingPostTimestampWithPageSize()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "PostPageRequest()"
-        let date = NSDate(timeIntervalSince1970: NSTimeInterval())
+        let date = Date(timeIntervalSince1970: TimeInterval())
         
         PostPageRequest(withPageSize: 3, usingPostTimestamp: date).request(
             onCompletion: { (result: PostPageResult) -> Void in
@@ -108,7 +108,7 @@ class PostPageTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
         })
     }

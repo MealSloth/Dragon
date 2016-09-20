@@ -19,8 +19,8 @@ class Post: Model
     @NSManaged var orderCount: NSNumber!
     @NSManaged var capacity: NSNumber!
     @NSManaged var postStatus: NSNumber!
-    @NSManaged var postTime: NSDate!
-    @NSManaged var expireTime: NSDate!
+    @NSManaged var postTime: Date!
+    @NSManaged var expireTime: Date!
     
     lazy var chef: Chef? = {
         return Chef.fromID(self.chefID)

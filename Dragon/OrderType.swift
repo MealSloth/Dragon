@@ -10,7 +10,7 @@ import Foundation
 
 enum OrderType: Int, AbstractEnum
 {
-    case PICKUP = 0
-    case DELIVERY = 1
-    case DINE_IN = 2
+    case pickup = 0
+    case delivery = 1
+    case dine_IN = 2
 }

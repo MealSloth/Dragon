@@ -10,15 +10,15 @@ import Foundation
 
 enum APIHost: AbstractEnum
 {
-    case CHIMERA
-    case HYDRA
+    case chimera
+    case hydra
     
     func url() -> String
     {
         switch (self)
         {
-            case .CHIMERA: return "http://api.mealsloth.com/"
-            case .HYDRA: return "http://blob.mealsloth.com/"
+            case .chimera: return "http://api.mealsloth.com/"
+            case .hydra: return "http://blob.mealsloth.com/"
         }
     }
 }

@@ -31,7 +31,7 @@ extension String
         {
             let length = UInt32 (characters.length)
             let rand = arc4random_uniform(length)
-            randomString.appendFormat("%C", characters.characterAtIndex(Int(rand)))
+            randomString.appendFormat("%C", characters.character(at: Int(rand)))
         }
         
         return randomString as String
@@ -42,17 +42,17 @@ extension String
         var s = self
         if s.characters.count > 0
         {
-            s.replaceRange(self.startIndex...self.startIndex, with: String(self[self.startIndex]).capitalizedString)
+            s.replaceSubrange(self.startIndex...self.startIndex, with: String(self[self.startIndex]).capitalized)
         }
         return s
     }
     
-    func toDate() -> NSDate?
+    func toDate() -> Date?
     {
-        let formatter = NSDateFormatter.init()
+        let formatter = DateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         var string = self
-        string = string.substringToIndex(self.endIndex.advancedBy(-3))
-        return formatter.dateFromString(string)
+        string = string.substring(to: self.characters.index(self.endIndex, offsetBy: -3))
+        return formatter.date(from: string)
     }
 }

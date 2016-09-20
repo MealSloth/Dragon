@@ -18,9 +18,9 @@ class FieldNameHelper
         {
             return serverName
         }
-        else if (serverName.containsString("_id"))
+        else if (serverName.contains("_id"))
         {
-            clientName += self.getClientName(forSubstring: serverName.substringWithRange(serverName.startIndex...serverName.endIndex.advancedBy(-3)))
+            clientName += self.getClientName(forSubstring: serverName.substring(to: serverName.index(serverName.endIndex, offsetBy: -3)))
             clientName += "ID"
         }
         else
@@ -39,9 +39,9 @@ class FieldNameHelper
         {
             return "id"
         }
-        else if (clientName.containsString("ID"))
+        else if (clientName.contains("ID"))
         {
-            serverName += self.getServerName(forSubstring: clientName.substringWithRange(clientName.startIndex...clientName.endIndex.advancedBy(-3)))
+            serverName += self.getServerName(forSubstring: clientName.substring(to: clientName.index(clientName.endIndex, offsetBy: -3)))
             serverName += "_id"
         }
         else
@@ -52,7 +52,7 @@ class FieldNameHelper
         return serverName
     }
     
-    private class func getClientName(forSubstring substring: String) -> String
+    fileprivate class func getClientName(forSubstring substring: String) -> String
     {
         var clientName: String  = ""
         var wasUnderscore: Bool = false
@@ -69,7 +69,7 @@ class FieldNameHelper
                 else
                 {
                     wasUnderscore = false
-                    clientName += cs.uppercaseString
+                    clientName += cs.uppercased()
                 }
             }
             else
@@ -81,21 +81,21 @@ class FieldNameHelper
         return clientName
     }
     
-    private class func getServerName(forSubstring substring: String) -> String
+    fileprivate class func getServerName(forSubstring substring: String) -> String
     {
         var serverName: String = ""
         
         for character in substring.characters
         {
             let cs: String = String(character)
-            if (cs.uppercaseString != cs)
+            if (cs.uppercased() != cs)
             {
                 serverName += cs
             }
             else
             {
                 serverName += "_"
-                serverName += cs.lowercaseString
+                serverName += cs.lowercased()
             }
         }
         

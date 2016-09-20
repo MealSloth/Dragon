@@ -10,12 +10,12 @@ import Foundation
 
 enum OrderStatus: Int, AbstractEnum
 {
-    case PENDING = 0
-    case RECEIVED = 1
-    case PROGRESS = 2
-    case COMPLETED = 3
-    case SHIPPED = 4
-    case DELIVERED = 5
-    case DISPUTED = 6
-    case CANCELLED = 7
+    case pending = 0
+    case received = 1
+    case progress = 2
+    case completed = 3
+    case shipped = 4
+    case delivered = 5
+    case disputed = 6
+    case cancelled = 7
 }

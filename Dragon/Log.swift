@@ -20,17 +20,17 @@ class Log
         case warning = "Warning"
     }
     
-    internal class func position(file file: String, function: String, line: Int) -> String
+    internal class func position(file: String, function: String, line: Int) -> String
     {
-        let path = file.componentsSeparatedByString("/")
-        if let file = path[safe: path.count - 1]?.stringByReplacingOccurrencesOfString(".swift", withString: "")
+        let path = file.components(separatedBy: "/")
+        if let file = path[safe: path.count - 1]?.replacingOccurrences(of: ".swift", with: "")
         {
             return "<\(file):\(line)>"
         }
         return ""
     }
     
-    internal class func logFirst(type: LogType, file: String, function: String, line: Int, strArr: [String]?)
+    internal class func logFirst(_ type: LogType, file: String, function: String, line: Int, strArr: [String]?)
     {
         if let first = strArr?[safe: 0]
         {
@@ -42,9 +42,9 @@ class Log
         }
     }
     
-    internal class func logRemaining(strArr: [String]?)
+    internal class func logRemaining(_ strArr: [String]?)
     {
-        if let count = strArr?.count where count > 1
+        if let count = strArr?.count , count > 1
         {
             for newLine in 1..<count
             {
@@ -56,39 +56,39 @@ class Log
         }
     }
     
-    internal class func log(type type: LogType, string: String?, file: String, function: String, line: Int)
+    internal class func log(type: LogType, string: String?, file: String, function: String, line: Int)
     {
-        let strArr = string?.componentsSeparatedByString("\n")
+        let strArr = string?.components(separatedBy: "\n")
         self.logFirst(type, file: file, function: function, line: line, strArr: strArr)
         self.logRemaining(strArr)
     }
     
-    class func debug(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func debug(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .debug, string: string, file: file, function: function, line: line)
     }
     
-    class func error(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func error(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .error, string: string, file: file, function: function, line: line)
     }
     
-    class func info(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func info(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .info, string: string, file: file, function: function, line: line)
     }
     
-    class func normal(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func normal(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .normal, string: string, file: file, function: function, line: line)
     }
     
-    class func verbose(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func verbose(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .verbose, string: string, file: file, function: function, line: line)
     }
     
-    class func warning(string: String?, file: String = #file, function: String = #function, line: Int = #line)
+    class func warning(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
     {
         self.log(type: .warning, string: string, file: file, function: function, line: line)
     }

@@ -9,34 +9,34 @@
 import Foundation
 import UIKit
 
-public class ScreenHelpers
+open class ScreenHelpers
 {
-    public static var screenWidth: CGFloat
+    open static var screenWidth: CGFloat
     {
         if UIInterfaceOrientationIsPortrait(screenOrientation)
         {
-            return UIScreen.mainScreen().bounds.size.width
+            return UIScreen.main.bounds.size.width
         }
         else
         {
-            return UIScreen.mainScreen().bounds.size.height
+            return UIScreen.main.bounds.size.height
         }
     }
     
-    public static var screenHeight: CGFloat
+    open static var screenHeight: CGFloat
     {
         if UIInterfaceOrientationIsPortrait(screenOrientation)
         {
-            return UIScreen.mainScreen().bounds.size.height
+            return UIScreen.main.bounds.size.height
         }
         else
         {
-            return UIScreen.mainScreen().bounds.size.width
+            return UIScreen.main.bounds.size.width
         }
     }
     
-    public static var screenOrientation: UIInterfaceOrientation
+    open static var screenOrientation: UIInterfaceOrientation
     {
-        return UIApplication.sharedApplication().statusBarOrientation
+        return UIApplication.shared.statusBarOrientation
     }
 }

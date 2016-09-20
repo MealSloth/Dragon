@@ -11,11 +11,11 @@ import UIKit
 
 extension UIViewController
 {
-    func runOnMainThread(runnable: (() -> Void)?)
+    func runOnMainThread(_ runnable: (() -> Void)?)
     {
         if let block = runnable
         {
-            NSOperationQueue.mainQueue().addOperationWithBlock(block)
+            OperationQueue.main.addOperation(block)
         }
         else
         {
@@ -23,10 +23,10 @@ extension UIViewController
         }
     }
     
-    func presentViewControllerOnMainThread(viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?)
+    func presentViewControllerOnMainThread(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?)
     {
         self.runOnMainThread({ () -> Void in
-            self.presentViewController(viewControllerToPresent, animated: animated, completion: completion)
+            self.present(viewControllerToPresent, animated: animated, completion: completion)
         })
     }
 }

@@ -23,7 +23,7 @@ class HomeTableViewController: UITableViewController
     {
         super.viewDidLoad()
         
-        self.tableView.registerNib(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
+        self.tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
         
         if let posts = Post.all()
         {
@@ -47,18 +47,18 @@ class HomeTableViewController: UITableViewController
         super.didReceiveMemoryWarning()
     }
     
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation)
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation)
     {
         self.tableView.reloadData()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if (segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController")
         {
-            if let vc = segue.destinationViewController as? PostDetailTableViewController,
-                   post = sender as? Post,
-                   blob = self.blobs[post.albumID]
+            if let vc = segue.destination as? PostDetailTableViewController,
+                   let post = sender as? Post,
+                   let blob = self.blobs[post.albumID]
             {
                 vc.post = post
                 vc.blob = blob
@@ -67,57 +67,57 @@ class HomeTableViewController: UITableViewController
     }
     
     // MARK: TableView Delegates
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    override func numberOfSections(in tableView: UITableView) -> Int
     {
         return (self.posts.count == 0) ? 0 : 1
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         let result = (self.posts.count == 0) ? 0.0 : ScreenHelpers.screenWidth * self.ratio + 60.0
         return result
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return self.posts.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath) as? PostTableViewCell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
         {
-            let post = self.posts[indexPath.row]
+            let post = self.posts[(indexPath as NSIndexPath).row]
             return self.populateCell(cell, withPost: post)
         }
         else
         {
             Log.warning("Failed cast to PostTableViewCell")
-            return self.tableView.dequeueReusableCellWithIdentifier("PostTableViewCell", forIndexPath: indexPath)
+            return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.segue(withPost: self.posts[indexPath.row])
+        self.segue(withPost: self.posts[(indexPath as NSIndexPath).row])
     }
     
     // MARK: Misc
-    private func handlePostPageResult(result: PostPageResult?)
+    fileprivate func handlePostPageResult(_ result: PostPageResult?)
     {
         if let posts = result?.posts
         {
             self.posts = posts
-            self.tableView.performSelectorOnMainThread(#selector(self.tableView.reloadData), withObject: nil, waitUntilDone: false)
+            self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
         }
     }
     
-    private func segue(withPost post: Post)
+    fileprivate func segue(withPost post: Post)
     {
-        self.performSegueWithIdentifier("Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
+        self.performSegue(withIdentifier: "Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
     }
     
-    private func populateCell(cell: PostTableViewCell, withPost post: Post) -> PostTableViewCell
+    fileprivate func populateCell(_ cell: PostTableViewCell, withPost post: Post) -> PostTableViewCell
     {
         //TODO: Get Blob
         self.populateImageForCell(cell, withPost: post)
@@ -128,7 +128,7 @@ class HomeTableViewController: UITableViewController
         return cell
     }
     
-    private func populateImageForCell(cell: PostTableViewCell, withPost post: Post)
+    fileprivate func populateImageForCell(_ cell: PostTableViewCell, withPost post: Post)
     {
         if let blob = self.blobs[post.albumID]
         {
@@ -155,9 +155,9 @@ class HomeTableViewController: UITableViewController
         )
     }
     
-    private func displayCell(cell: PostTableViewCell, withAlbumID albumID: String)
+    fileprivate func displayCell(_ cell: PostTableViewCell, withAlbumID albumID: String)
     {
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
+        UIView.animate(withDuration: 0.4, animations: { () -> Void in
             cell.labelPostName.alpha = 1.0
             cell.labelPrice.alpha = 1.0
             cell.imageChef.alpha = 1.0

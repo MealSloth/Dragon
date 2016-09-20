@@ -14,19 +14,19 @@ class APIRequestChimera: APIRequest
     var method: String!
     var host: APIHost!
     
-    var resultHandler: ((result: Dictionary<String, AnyObject>) -> Void)?
-    var errorHandler: ((error: NSError?) -> Void)?
+    var resultHandler: ((_ result: Dictionary<String, AnyObject>) -> Void)?
+    var errorHandler: ((_ error: NSError?) -> Void)?
     
     init(method: String)
     {
-        self.host = .CHIMERA
-        self.method = (method.substringToIndex(method.startIndex.advancedBy(1)) == "/") ? method.substringFromIndex(method.startIndex.advancedBy(1)) : method
+        self.host = .chimera
+        self.method = (method.substring(to: method.characters.index(method.startIndex, offsetBy: 1)) == "/") ? method.substring(from: method.characters.index(method.startIndex, offsetBy: 1)) : method
     }
     
-    func request<T: APIResult>(onCompletion completion: ((result: T) -> Void)? = nil, onError: ((error: NSError?) -> Void)? = nil)
+    func request<T: APIResult>(onCompletion completion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil)
     {
         let resultHandler = { (result) -> Void in
-            completion?(result: T(result: result))
+            completion?(T(result: result))
         }
         let errorHandler = onError
         self.post(onCompletion: resultHandler, onError: errorHandler)

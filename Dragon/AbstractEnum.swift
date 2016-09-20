@@ -18,10 +18,10 @@ extension AbstractEnum
     func toString() -> String
     {
         var newString = ""
-        let stringArr = String(self).componentsSeparatedByString("_")
+        let stringArr = String(describing: self).components(separatedBy: "_")
         for segment in stringArr
         {
-            newString += (segment == stringArr.last) ? segment.lowercaseString.capitalizeFirst() : segment.lowercaseString.capitalizeFirst() + " "
+            newString += (segment == stringArr.last) ? segment.lowercased().capitalizeFirst() : segment.lowercased().capitalizeFirst() + " "
         }
         return newString
     }

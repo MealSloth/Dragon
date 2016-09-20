@@ -8,13 +8,13 @@
 
 import Foundation
 
-extension NSDate
+extension Date
 {
     func toString() -> String
     {
-        let formatter = NSDateFormatter.init()
+        let formatter = DateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        var string = formatter.stringFromDate(self)
+        var string = formatter.string(from: self)
         string += "000"
         return string
     }

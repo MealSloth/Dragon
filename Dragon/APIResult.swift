@@ -19,7 +19,7 @@ extension APIResult
 {
     var description: String? {
         get {
-            return String(self.dynamicType)
+            return String(describing: type(of: self))
         }
     }
 }

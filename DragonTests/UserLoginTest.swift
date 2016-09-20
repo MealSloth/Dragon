@@ -13,7 +13,7 @@ class UserLoginTest: DragonTest
 {
     func testWithUserLoginID()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "UserLoginRequest(withUserLoginID:)"
         
         UserLoginRequest(withUserLoginID: "63dd798f-50d6-40b2-8827-9788a6591dec").request(
@@ -27,14 +27,14 @@ class UserLoginTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
         })
     }
     
     func testWithUserID()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "UserLoginRequest(withUserID:)"
         
         UserLoginRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
@@ -48,7 +48,7 @@ class UserLoginTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
         })
     }

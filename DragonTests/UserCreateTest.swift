@@ -14,11 +14,11 @@ class UserCreateTest: DragonTest
 {
     func testWithEmailAndPassword()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "UserCreateRequest(withEmail:andPassword:)"
         
-        let email = "\(String.Random(allow: [.Numeric, .AlphaLower, .AlphaUpper, ], length: 20))@mail.com"
-        let pass = String.Random(allow: [.Numeric, .AlphaLower, .AlphaUpper, .SymbolicUrl, ], length: 32)
+        let email = "\(String.random(allow: [.Numeric, .AlphaLower, .AlphaUpper, ], length: 20))@mail.com"
+        let pass = String.random(allow: [.Numeric, .AlphaLower, .AlphaUpper, .SymbolicUrl, ], length: 32)
         
         UserCreateRequest(withEmail: email, andPassword: pass).request(
             onCompletion: { (result: UserCreateResult) -> Void in
@@ -35,7 +35,7 @@ class UserCreateTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             XCTAssertNil(error, "Timed out during \(method) with error \(error)")
         })
     }

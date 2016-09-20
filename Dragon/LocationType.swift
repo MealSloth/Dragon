@@ -10,6 +10,6 @@ import Foundation
 
 enum LocationType: Int, AbstractEnum
 {
-    case RESIDENTIAL = 0
-    case COMMERCIAL = 1
+    case residential = 0
+    case commercial = 1
 }

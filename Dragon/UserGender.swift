@@ -10,7 +10,7 @@ import Foundation
 
 enum UserGender: Int, AbstractEnum
 {
-    case MALE = 0
-    case FEMALE = 1
-    case OTHER = 2
+    case male = 0
+    case female = 1
+    case other = 2
 }

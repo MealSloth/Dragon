@@ -14,17 +14,17 @@ protocol APIRequest
     var method: String! { get set }
     var host: APIHost! { get set }
     
-    var resultHandler: ((result: Dictionary<String, AnyObject>) -> Void)? { get set }
-    var errorHandler: ((error: NSError?) -> Void)? { get set }
+    var resultHandler: ((_ result: Dictionary<String, AnyObject>) -> Void)? { get set }
+    var errorHandler: ((_ error: NSError?) -> Void)? { get set }
 }
 
 extension APIRequest
 {
-    func post(onCompletion completion: ((result: Dictionary<String, AnyObject>) -> Void)? = nil, onError: ((NSError?) -> Void)? = nil)
+    func post(onCompletion completion: ((_ result: Dictionary<String, AnyObject>) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
     {
         let url = "\(self.host.url())\(self.method)"
-        let request = NSMutableURLRequest(URL: NSURL(string: url)!)
-        request.HTTPMethod = "POST"
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "POST"
         request.addValue("application/json",forHTTPHeaderField: "Content-Type")
         request.addValue("application/json",forHTTPHeaderField: "Accept")
         
@@ -32,14 +32,14 @@ extension APIRequest
         
         do
         {
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(self.json, options: NSJSONWritingOptions.PrettyPrinted)
+            request.httpBody = try JSONSerialization.data(withJSONObject: self.json, options: JSONSerialization.WritingOptions.prettyPrinted)
         }
         catch let postError as NSError
         {
             Log.error("\(postError)")
         }
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             guard data != nil else
             {
                 onError?(error)
@@ -47,17 +47,17 @@ extension APIRequest
             }
             do
             {
-                if let jsonResult: Dictionary<String, AnyObject> = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? Dictionary<String, AnyObject>
+                if let jsonResult: Dictionary<String, AnyObject> = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? Dictionary<String, AnyObject>
                 {
                     Log.info("Received response for POST request at \(url)")
-                    completion?(result: jsonResult)
+                    completion?(jsonResult)
                 }
             }
-            catch let error as NSError
+            catch let error
             {
                 onError?(error)
             }
-        }
+        }) 
         
         task.resume()
     }

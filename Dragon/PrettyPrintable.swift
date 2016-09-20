@@ -10,7 +10,7 @@ import Foundation
 
 protocol PrettyPrintable
 {
-    func valueForKey(key: String) -> AnyObject?
+    func value(forKey key: String) -> Any?
 }
 
 extension PrettyPrintable
@@ -20,7 +20,7 @@ extension PrettyPrintable
         return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
     }
     
-    func getPropertiesString(context: PrettyPrintable, depth: Int = 0) -> String
+    func getPropertiesString(_ context: PrettyPrintable, depth: Int = 0) -> String
     {
         var string: String = (depth == 0) ? "\n" : ""
         string += "\(Mirror(reflecting: self).subjectType): {\n"
@@ -36,7 +36,7 @@ extension PrettyPrintable
         return string
     }
     
-    private func getPropertyString(context: PrettyPrintable, property: String, string s: String = "", depth d: Int = 0) -> String
+    fileprivate func getPropertyString(_ context: PrettyPrintable, property: String, string s: String = "", depth d: Int = 0) -> String
     {
         let depth: Int = d
         var string: String = s
@@ -44,11 +44,11 @@ extension PrettyPrintable
         {
             string += "    "
         }
-        if let newProp = context.valueForKey(property) as? PrettyPrintable
+        if let newProp = context.value(forKey: property) as? PrettyPrintable
         {
             string += "\(property):\n\(self.getPropertiesString(newProp, depth: depth))"
         }
-        else if let arr = context.valueForKey(property) as? [PrettyPrintable]
+        else if let arr = context.value(forKey: property) as? [PrettyPrintable]
         {
             if arr.count > 0
             {
@@ -64,7 +64,7 @@ extension PrettyPrintable
         }
         else
         {
-            string += "\(property): \(self.valueForKey(property))\n"
+            string += "\(property): \(self.value(forKey: property))\n"
         }
         return string
     }

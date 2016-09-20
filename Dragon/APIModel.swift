@@ -20,12 +20,12 @@ class APIModel: NSObject, PrettyPrintable
         self.initialize(json)
     }
     
-    override func valueForKey(key: String) -> AnyObject?
+    override func value(forKey key: String) -> Any?
     {
-        return super.valueForKey(key)
+        return super.value(forKey: key)
     }
     
-    func initialize(json: Dictionary<String, AnyObject>, skip: [String] = [])
+    func initialize(_ json: Dictionary<String, AnyObject>, skip: [String] = [])
     {
         for property in self.getProperties()
         {

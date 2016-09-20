@@ -10,7 +10,7 @@ import Foundation
 
 enum PostStatus: Int, AbstractEnum
 {
-    case ACTIVE = 0
-    case SATURATED = 1
-    case INACTIVE = 2
+    case active = 0
+    case saturated = 1
+    case inactive = 2
 }

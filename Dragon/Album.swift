@@ -11,5 +11,5 @@ import Foundation
 class Album: Model
 {
     @NSManaged var id: String!
-    @NSManaged var time: NSDate!
+    @NSManaged var time: Date!
 }

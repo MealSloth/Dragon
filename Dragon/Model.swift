@@ -17,7 +17,7 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
     }
     
     static var entityName: String {
-        return String(self.dynamicType)
+        return String(describing: type(of: self))
     }
     
     override var description: String {
@@ -29,10 +29,10 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
     {
         if let context = Model.context
         {
-            let name = String(self.dynamicType)
-            if let currentEntity = NSEntityDescription.entityForName(name, inManagedObjectContext: context)
+            let name = String(describing: type(of: self))
+            if let currentEntity = NSEntityDescription.entity(forEntityName: name, in: context)
             {
-                super.init(entity: currentEntity, insertIntoManagedObjectContext: context)
+                super.init(entity: currentEntity, insertInto: context)
             }
             else
             {
@@ -54,27 +54,24 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
     }
     
     //MARK: Overrides
-    override func valueForKey(key: String) -> AnyObject?
+    override func value(forKey key: String) -> Any?
     {
-        return super.valueForKey(key)
+        return super.value(forKey: key)
     }
     
     //MARK: Initialization helpers
-    func initialize(model: APIModel, skip: [String] = [])
+    func initialize(_ model: APIModel, skip: [String] = [])
     {
-        for property in model.getProperties()
+        for property in model.getProperties() where !skip.contains(property)
         {
-            if !skip.contains(property)
+            let value = model.value(forKey: property)
+            if let dateString = value as? String, let date = dateString.toDate()
             {
-                let value = model.valueForKey(property)
-                if let dateString = value as? String, let date = dateString.toDate()
-                {
-                    self.setValue(date, forKey: property)
-                }
-                else
-                {
-                    self.setValue(model.valueForKey(property), forKey: property)
-                }
+                self.setValue(date, forKey: property)
+            }
+            else
+            {
+                self.setValue(model.value(forKey: property), forKey: property)
             }
         }
     }

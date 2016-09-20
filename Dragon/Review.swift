@@ -16,5 +16,5 @@ class Review: Model
     @NSManaged var rating: NSNumber!
     @NSManaged var title: String?
     @NSManaged var summary: String?
-    @NSManaged var time: NSDate!
+    @NSManaged var time: Date!
 }

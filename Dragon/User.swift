@@ -21,6 +21,6 @@ class User: Model
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
     @NSManaged var phoneNumber: String?
-    @NSManaged var dateOfBirth: NSDate?
+    @NSManaged var dateOfBirth: Date?
     @NSManaged var gender: NSNumber?
 }

@@ -13,7 +13,7 @@ class ConsumerTest: DragonTest
 {
     func testWithConsumerID()
     {
-        let readyExpectation = expectationWithDescription("ready")
+        let readyExpectation = expectation(description: "ready")
         let method = "ConsumerRequest(withConsumerId:)"
         
         ConsumerRequest(withConsumerID: "d25a27ba-1e43-49ff-92b5-37285c4af962").request(
@@ -27,7 +27,7 @@ class ConsumerTest: DragonTest
             }
         )
         
-        waitForExpectationsWithTimeout(10, handler: { (error) -> Void in
+        waitForExpectations(timeout: 10, handler: { (error) -> Void in
             self.timeout(duringMethod: method, withError: error)
         })
     }

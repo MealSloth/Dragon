@@ -13,7 +13,7 @@ class UserCreateRequest: APIRequestChimera
     init(withEmail email: String, andPassword password: String)
     {
         super.init(method: "user/create/")
-        self.json["email"] = email
-        self.json["password"] = password
+        self.json["email"] = email as AnyObject?
+        self.json["password"] = password as AnyObject?
     }
 }

@@ -31,36 +31,36 @@ class LoginViewController: UIViewController
         super.didReceiveMemoryWarning()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if (segue.identifier == "Segue_LoginViewController->TabBarController")
         {
-            (segue.destinationViewController as? UITabBarController)?.selectedIndex = 1
+            (segue.destination as? UITabBarController)?.selectedIndex = 1
         }
     }
     
     // MARK: Observers
-    func keyboardDidShow(notification: NSNotification)
+    func keyboardDidShow(_ notification: Notification)
     {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
         {
             if (self.scrollView.contentOffset.y == 0)
             {
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                UIView.animate(withDuration: 0.25, animations: { () -> Void in
                     let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
                     self.scrollView.contentInset = insets
                     self.scrollView.scrollIndicatorInsets = insets
-                    self.scrollView.contentOffset = CGPointMake(self.scrollView.contentOffset.x, self.scrollView.contentOffset.y + keyboardSize.height)
+                    self.scrollView.contentOffset = CGPoint(x: self.scrollView.contentOffset.x, y: self.scrollView.contentOffset.y + keyboardSize.height)
                 })
             }
         }
     }
     
-    func keyboardWillHide(notification: NSNotification)
+    func keyboardWillHide(_ notification: Notification)
     {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+        if let keyboardSize = ((notification as NSNotification).userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
         {
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
+            UIView.animate(withDuration: 0.25, animations: { () -> Void in
                 let insets: UIEdgeInsets = UIEdgeInsetsMake(self.scrollView.contentInset.top, 0, keyboardSize.height, 0)
                 self.scrollView.contentInset = insets
                 self.scrollView.scrollIndicatorInsets = insets
@@ -68,7 +68,7 @@ class LoginViewController: UIViewController
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         if (textField == self.fieldEmail)
         {
@@ -84,7 +84,10 @@ class LoginViewController: UIViewController
     // MARK: Buttons
     @IBAction func login()
     {
-        if let email: String = self.fieldEmail.text, password: String = self.fieldPassword.text where self.fieldPassword.text?.characters.count >= 8
+        if let email: String = self.fieldEmail.text,
+           let password: String = self.fieldPassword.text,
+           let count = self.fieldPassword.text?.characters.count,
+           count >= 8
         {
             if self.signUpMode
             {
@@ -103,7 +106,7 @@ class LoginViewController: UIViewController
                     onCompletion: { (userResult: UserResult) -> Void in
                         UserLoginRequest(withUserID: userResult.user.id).request(
                             onCompletion: { (userLoginResult: UserLoginResult) -> Void in
-                                if let uEmail = userResult.user.email, ulPassword = userLoginResult.password
+                                if let uEmail = userResult.user.email, let ulPassword = userLoginResult.password
                                 {
                                     if uEmail == email && ulPassword == password
                                     {
@@ -141,12 +144,12 @@ class LoginViewController: UIViewController
     
     @IBAction func signUp()
     {
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
+        UIView.animate(withDuration: 0.4, animations: { () -> Void in
             self.signUpMode = !self.signUpMode
             self.buttonContinueBrowsing.alpha = (self.signUpMode) ? 0.0 : 1.0
-            self.buttonContinueBrowsing.hidden = self.signUpMode
-            self.buttonLogin.setTitle((self.signUpMode) ? "SIGN UP" : "LOGIN", forState: UIControlState.Normal)
-            self.buttonSignUp.setTitle((self.signUpMode) ? "< BACK" : "SIGN UP", forState: UIControlState.Normal)
+            self.buttonContinueBrowsing.isHidden = self.signUpMode
+            self.buttonLogin.setTitle((self.signUpMode) ? "SIGN UP" : "LOGIN", for: UIControlState())
+            self.buttonSignUp.setTitle((self.signUpMode) ? "< BACK" : "SIGN UP", for: UIControlState())
         })
     }
     
@@ -156,14 +159,14 @@ class LoginViewController: UIViewController
     }
     
     // MARK: Misc
-    private func segue()
+    fileprivate func segue()
     {
-        self.performSegueWithIdentifier("Segue_LoginViewController->TabBarController", sender: self)
+        self.performSegue(withIdentifier: "Segue_LoginViewController->TabBarController", sender: self)
     }
     
-    private func registerObservers()
+    fileprivate func registerObservers()
     {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 }

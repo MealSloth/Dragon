@@ -27,7 +27,7 @@ class DragonTest: XCTestCase
         expectation.fulfill()
     }
     
-    func timeout(duringMethod method: String, withError error: ErrorType?)
+    func timeout(duringMethod method: String, withError error: Error?)
     {
         XCTAssertNil(error, "Timed out during \(method) with error \(error)")
     }

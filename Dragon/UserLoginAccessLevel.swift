@@ -10,11 +10,11 @@ import Foundation
 
 enum UserLoginAccessLevel: Int, AbstractEnum
 {
-    case SUPER_ADMIN = 0
-    case CHEF_ADMIN = 1
-    case CONSUMER_ADMIN = 2
-    case CONSUMER_CHEF = 3
-    case CHEF = 4
-    case CONSUMER = 5
-    case TRIAL = 6
+    case super_ADMIN = 0
+    case chef_ADMIN = 1
+    case consumer_ADMIN = 2
+    case consumer_CHEF = 3
+    case chef = 4
+    case consumer = 5
+    case trial = 6
 }
