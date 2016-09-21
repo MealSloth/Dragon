@@ -18,7 +18,6 @@
 		4C4851591D20523000223B4F /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4851581D20523000223B4F /* UserTest.swift */; };
 		4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48517A1D2080CE00223B4F /* UserLoginTest.swift */; };
 		4C586D681D8A2E0D008A1A7B /* DragonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */; };
-		4C657EAB1D4AA5E100F2A575 /* FeedItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */; };
 		4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */; };
 		4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */; };
 		4C6982701CD3D7A4005ABCF1 /* Dragon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C69826E1CD3D7A4005ABCF1 /* Dragon.xcdatamodeld */; };
@@ -131,7 +130,6 @@
 		4C586D651D8A2E0D008A1A7B /* DragonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonUITests.swift; sourceTree = "<group>"; };
 		4C586D691D8A2E0D008A1A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemViewController.swift; sourceTree = "<group>"; };
 		4C6982641CD3D7A4005ABCF1 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -338,11 +336,10 @@
 		4C69828B1CD3D802005ABCF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4C657EAA1D4AA5E100F2A575 /* FeedItemViewController.swift */,
+				4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */,
 				4CFF11D41D498CDD0062B33A /* HomeTableViewController.swift */,
 				4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */,
 				4CD48F451D5267900009D6A2 /* PostDetailTableViewController.swift */,
-				4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -795,7 +792,6 @@
 				4C9655561D0E102F00011EAC /* UserLoginResult.swift in Sources */,
 				4CC674851D80E8D9001BCA67 /* OrderSummary.swift in Sources */,
 				4C7A82CB1D3EC2B700638FBE /* PostPageResult.swift in Sources */,
-				4C657EAB1D4AA5E100F2A575 /* FeedItemViewController.swift in Sources */,
 				4CC40DAC1D51708300B5D4BE /* BlobResult.swift in Sources */,
 				4CCD0A611CD91BC80081A28B /* ReviewAPIModel.swift in Sources */,
 				4CCD0A731CD920090081A28B /* UserLoginAccessLevel.swift in Sources */,

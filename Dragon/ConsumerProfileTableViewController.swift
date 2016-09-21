@@ -11,6 +11,7 @@ import UIKit
 
 class ConsumerProfileTableViewController: UITableViewController
 {
+    let cells = ["Title", "Order", "Favorite", "Profile", "BecomeAChef", "Feedback"]
     var consumer: ConsumerAPIModel!
     var user: UserAPIModel!
     
@@ -30,34 +31,15 @@ class ConsumerProfileTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 6
+        return self.cells.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if (indexPath as NSIndexPath).row == 0
+        if case 0..<self.cells.count = indexPath.row
         {
-            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileTitleCell", for: indexPath)
-        }
-        else if (indexPath as NSIndexPath).row == 1
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileOrderCell", for: indexPath)
-        }
-        else if (indexPath as NSIndexPath).row == 2
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileFavoriteCell", for: indexPath)
-        }
-        else if (indexPath as NSIndexPath).row == 3
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileProfileCell", for: indexPath)
-        }
-        else if (indexPath as NSIndexPath).row == 4
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileBecomeAChefCell", for: indexPath)
-        }
-        else if (indexPath as NSIndexPath).row == 5
-        {
-            return tableView.dequeueReusableCell(withIdentifier: "ConsumerProfileFeedbackCell", for: indexPath)
+            let identifier = "Consumer\(self.cells[indexPath.row])Cell"
+            return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         }
         else
         {
