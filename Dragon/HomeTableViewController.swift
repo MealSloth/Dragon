@@ -25,7 +25,7 @@ class HomeTableViewController: UITableViewController
         
         self.tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
         
-        if let posts = Post.all()
+        if let posts = Post.all() //TODO: Maybe use NSFetchRequestResult
         {
             self.posts = posts
         }
