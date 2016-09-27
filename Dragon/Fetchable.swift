@@ -31,7 +31,7 @@ extension Fetchable where Self: NSManagedObject
                 Log.error("\(error)")
             }
         })
-        return nil
+        return nil //TODO: Figure out NSFetchRequestResult
     }
     
     static func all() -> [Self]?
