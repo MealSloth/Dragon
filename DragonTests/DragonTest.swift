@@ -21,7 +21,7 @@ class DragonTest: XCTestCase
         super.tearDown()
     }
     
-    func fail(duringMethod method: String, withExpectation expectation: XCTestExpectation, withError error: NSError?)
+    func fail(duringMethod method: String, withExpectation expectation: XCTestExpectation, withError error: Error?)
     {
         XCTFail("Failed during \(method) with error \(error)")
         expectation.fulfill()

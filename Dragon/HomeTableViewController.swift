@@ -87,14 +87,13 @@ class HomeTableViewController: UITableViewController
     {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
         {
-            let post = self.posts[(indexPath as NSIndexPath).row]
-            return self.populateCell(cell, withPost: post)
+            if let post = self.posts[safe: indexPath.row]
+            {
+                return self.populateCell(cell, withPost: post)
+            }
         }
-        else
-        {
-            Log.warning("Failed cast to PostTableViewCell")
-            return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
-        }
+        Log.warning("Failed cast to PostTableViewCell")
+        return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

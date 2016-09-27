@@ -11,8 +11,8 @@ import CoreData
 
 protocol Fetchable
 {
-    static var entityName: String { get }
     static var context: NSManagedObjectContext? { get }
+    static var entityName: String { get }
 }
 
 extension Fetchable where Self: NSManagedObject

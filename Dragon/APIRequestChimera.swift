@@ -11,11 +11,11 @@ import Foundation
 class APIRequestChimera: APIRequest
 {
     var json: Dictionary<String, AnyObject> = [:]
-    var method: String!
-    var host: APIHost!
+    var method: String = ""
+    var host: APIHost = .chimera
     
     var resultHandler: ((_ result: Dictionary<String, AnyObject>) -> Void)?
-    var errorHandler: ((_ error: NSError?) -> Void)?
+    var errorHandler: ((_ error: Error?) -> Void)?
     
     init(method: String)
     {

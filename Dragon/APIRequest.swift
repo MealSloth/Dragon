@@ -11,11 +11,11 @@ import Foundation
 protocol APIRequest
 {
     var json: Dictionary<String, AnyObject> { get set }
-    var method: String! { get set }
-    var host: APIHost! { get set }
+    var method: String { get set }
+    var host: APIHost { get set }
     
     var resultHandler: ((_ result: Dictionary<String, AnyObject>) -> Void)? { get set }
-    var errorHandler: ((_ error: NSError?) -> Void)? { get set }
+    var errorHandler: ((_ error: Error?) -> Void)? { get set }
 }
 
 extension APIRequest
@@ -34,7 +34,7 @@ extension APIRequest
         {
             request.httpBody = try JSONSerialization.data(withJSONObject: self.json, options: JSONSerialization.WritingOptions.prettyPrinted)
         }
-        catch let postError as NSError
+        catch let postError
         {
             Log.error("\(postError)")
         }

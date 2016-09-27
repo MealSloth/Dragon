@@ -41,7 +41,7 @@ class FieldNameHelper
         }
         else if (clientName.contains("ID"))
         {
-            serverName += self.getServerName(forSubstring: clientName.substring(to: clientName.index(clientName.endIndex, offsetBy: -3)))
+            serverName += self.getServerName(forSubstring: clientName.substring(to: clientName.index(clientName.endIndex, offsetBy: -2)))
             serverName += "_id"
         }
         else

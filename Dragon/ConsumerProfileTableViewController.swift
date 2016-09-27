@@ -21,6 +21,7 @@ class ConsumerProfileTableViewController: UITableViewController
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
+        self.tableView.register(UINib(nibName: "ConsumerProfileTitleCell", bundle: nil), forCellReuseIdentifier: "ConsumerTitleCell")
     }
     
     // MARK: TableView Delegates
@@ -38,7 +39,7 @@ class ConsumerProfileTableViewController: UITableViewController
     {
         if case 0..<self.cells.count = indexPath.row
         {
-            let identifier = "Consumer\(self.cells[indexPath.row])Cell"
+            let identifier = "ConsumerProfile\(self.cells[indexPath.row])Cell"
             return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         }
         else

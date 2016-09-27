@@ -12,6 +12,10 @@ import UIKit
 
 class Model: NSManagedObject, Fetchable, PrettyPrintable
 {
+    override var description: String {
+        return self.getPropertiesString(self)
+    }
+    
     static var context: NSManagedObjectContext? {
         return AppDelegate.getInstance()?.managedObjectContext
     }
@@ -20,16 +24,18 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
         return String(describing: type(of: self))
     }
     
-    override var description: String {
-        return self.getPropertiesString(self)
+    //MARK: Initializers
+    override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?)
+    {
+        super.init(entity: entity, insertInto: context)
     }
     
-    //MARK: Initializers
     required init()
     {
         if let context = Model.context
         {
-            let name = String(describing: type(of: self))
+            let type = type(of: self)
+            let name = String(describing: type)
             if let currentEntity = NSEntityDescription.entity(forEntityName: name, in: context)
             {
                 super.init(entity: currentEntity, insertInto: context)

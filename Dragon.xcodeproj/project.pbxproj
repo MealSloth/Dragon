@@ -35,7 +35,7 @@
 		4C7A82C31D3EB03200638FBE /* ConsumerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82C21D3EB03200638FBE /* ConsumerResult.swift */; };
 		4C7A82CB1D3EC2B700638FBE /* PostPageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82CA1D3EC2B700638FBE /* PostPageResult.swift */; };
 		4C7A82D41D3EC41D00638FBE /* PostPageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D31D3EC41D00638FBE /* PostPageTest.swift */; };
-		4C7A82D71D3EC9C200638FBE /* NSDate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D61D3EC9C200638FBE /* NSDate+.swift */; };
+		4C7A82D71D3EC9C200638FBE /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D61D3EC9C200638FBE /* Date+.swift */; };
 		4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D81D3EC9F400638FBE /* String+.swift */; };
 		4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655531D0E0F0200011EAC /* UserLoginRequest.swift */; };
 		4C9655561D0E102F00011EAC /* UserLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655551D0E102F00011EAC /* UserLoginResult.swift */; };
@@ -152,7 +152,7 @@
 		4C7A82C21D3EB03200638FBE /* ConsumerResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerResult.swift; sourceTree = "<group>"; };
 		4C7A82CA1D3EC2B700638FBE /* PostPageResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPageResult.swift; sourceTree = "<group>"; };
 		4C7A82D31D3EC41D00638FBE /* PostPageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPageTest.swift; sourceTree = "<group>"; };
-		4C7A82D61D3EC9C200638FBE /* NSDate+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+.swift"; sourceTree = "<group>"; };
+		4C7A82D61D3EC9C200638FBE /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		4C7A82D81D3EC9F400638FBE /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String\U0010+.swift"; sourceTree = "<group>"; };
 		4C9655531D0E0F0200011EAC /* UserLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginRequest.swift; sourceTree = "<group>"; };
 		4C9655551D0E102F00011EAC /* UserLoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginResult.swift; sourceTree = "<group>"; };
@@ -500,7 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				4CC40DB41D51838000B5D4BE /* CollectionType+.swift */,
-				4C7A82D61D3EC9C200638FBE /* NSDate+.swift */,
+				4C7A82D61D3EC9C200638FBE /* Date+.swift */,
 				4C7A82D81D3EC9F400638FBE /* String+.swift */,
 				4CC40DB21D51819200B5D4BE /* UIImage+.swift */,
 				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
@@ -705,7 +705,7 @@
 					};
 					4C6982631CD3D7A4005ABCF1 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 2FC48TPE62;
+						DevelopmentTeam = 757B2QE4SH;
 						LastSwiftMigration = 0800;
 					};
 					4C69827A1CD3D7A4005ABCF1 = {
@@ -800,7 +800,7 @@
 				4C69828D1CD3D847005ABCF1 /* APIRequest.swift in Sources */,
 				4CD48F491D526E030009D6A2 /* PostDetailTitleCell.swift in Sources */,
 				4CDA11101D47FA15002C62FD /* UserModifyResult.swift in Sources */,
-				4C7A82D71D3EC9C200638FBE /* NSDate+.swift in Sources */,
+				4C7A82D71D3EC9C200638FBE /* Date+.swift in Sources */,
 				4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */,
 				4CCD0A5F1CD8F7120081A28B /* FieldNameHelper.swift in Sources */,
 				4C9655621D0E436600011EAC /* AbstractEnum.swift in Sources */,
@@ -1034,10 +1034,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2FC48TPE62;
+				DEVELOPMENT_TEAM = 757B2QE4SH;
 				INFOPLIST_FILE = Dragon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.Dragon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.application.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -1050,10 +1050,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2FC48TPE62;
+				DEVELOPMENT_TEAM = 757B2QE4SH;
 				INFOPLIST_FILE = Dragon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.Dragon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mealsloth.application.Dragon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
