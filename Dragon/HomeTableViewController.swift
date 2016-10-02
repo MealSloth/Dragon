@@ -16,7 +16,7 @@ class HomeTableViewController: UITableViewController
     var posts: [Post] = []
     var blobs: Dictionary<String, UIImage> = [:]
     
-    var ratio: CGFloat = 9.0/21.0
+    var ratio: CGFloat = 9.0/16.0
     
     // MARK: Delegates
     override func viewDidLoad()
