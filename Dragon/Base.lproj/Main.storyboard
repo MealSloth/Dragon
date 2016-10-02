@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -610,8 +610,8 @@ EENvbnRpbnVlIEJyb3dzaW5nA
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman_sample" translatesAutoresizingMaskIntoConstraints="NO" id="Ov8-6K-NH7">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="Et9-CZ-3Qs"/>
-                                                        <constraint firstAttribute="height" constant="80" id="yp8-Un-K44"/>
+                                                        <constraint firstAttribute="width" constant="60" id="Et9-CZ-3Qs"/>
+                                                        <constraint firstAttribute="height" constant="60" id="yp8-Un-K44"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -632,7 +632,7 @@ EENvbnRpbnVlIEJyb3dzaW5nA
                                                 <constraint firstAttribute="trailing" secondItem="XU8-Wa-Jql" secondAttribute="trailing" id="isZ-Ck-bOX"/>
                                                 <constraint firstItem="XU8-Wa-Jql" firstAttribute="top" secondItem="K5J-Vb-IhB" secondAttribute="top" id="psk-OH-xpF"/>
                                                 <constraint firstItem="gdH-Fd-i4Z" firstAttribute="leading" secondItem="K5J-Vb-IhB" secondAttribute="leading" id="szK-PM-yYm"/>
-                                                <constraint firstAttribute="bottom" secondItem="Ov8-6K-NH7" secondAttribute="bottom" id="ulN-sy-U4S"/>
+                                                <constraint firstAttribute="bottom" secondItem="Ov8-6K-NH7" secondAttribute="bottom" constant="10" id="ulN-sy-U4S"/>
                                             </constraints>
                                         </view>
                                     </subviews>
