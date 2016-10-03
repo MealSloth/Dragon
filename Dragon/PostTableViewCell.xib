@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -52,7 +52,7 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal_sample" translatesAutoresizingMaskIntoConstraints="NO" id="34U-CX-QFz">
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="34U-CX-QFz" secondAttribute="height" multiplier="21:9" id="re7-oD-LBv"/>
+                                    <constraint firstAttribute="width" secondItem="34U-CX-QFz" secondAttribute="height" multiplier="16:9" id="re7-oD-LBv"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="alpha">
@@ -62,8 +62,8 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman_sample" translatesAutoresizingMaskIntoConstraints="NO" id="087-My-3qN">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="YQ5-Vk-Vl4"/>
-                                    <constraint firstAttribute="height" constant="80" id="sAr-Lg-0Cw"/>
+                                    <constraint firstAttribute="width" constant="60" id="YQ5-Vk-Vl4"/>
+                                    <constraint firstAttribute="height" constant="60" id="sAr-Lg-0Cw"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -86,7 +86,7 @@
                             <constraint firstAttribute="trailing" secondItem="G4f-e4-iCY" secondAttribute="trailing" id="Zau-D4-fer"/>
                             <constraint firstAttribute="bottom" secondItem="G4f-e4-iCY" secondAttribute="bottom" id="rCp-NX-WID"/>
                             <constraint firstItem="34U-CX-QFz" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" id="vyb-7U-doT"/>
-                            <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="087-My-3qN" secondAttribute="bottom" constant="-40" id="yAM-o4-ncb"/>
+                            <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="087-My-3qN" secondAttribute="bottom" constant="-30" id="yAM-o4-ncb"/>
                         </constraints>
                     </view>
                 </subviews>
