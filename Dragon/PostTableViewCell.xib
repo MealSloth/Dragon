@@ -79,7 +79,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="34U-CX-QFz" secondAttribute="trailing" id="5a8-KH-qSw"/>
-                            <constraint firstItem="087-My-3qN" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" constant="25" id="98O-ag-Swu"/>
+                            <constraint firstItem="087-My-3qN" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" constant="20" id="98O-ag-Swu"/>
                             <constraint firstItem="34U-CX-QFz" firstAttribute="top" secondItem="6zo-zi-4Eb" secondAttribute="top" id="BB2-jB-trq"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="34U-CX-QFz" secondAttribute="bottom" id="KdU-Re-4li"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" id="RC8-rF-NEZ"/>
