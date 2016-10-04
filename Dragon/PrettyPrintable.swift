@@ -44,6 +44,13 @@ extension PrettyPrintable
         {
             string += "    "
         }
+        
+        Log.debug("Property: \(property)")
+        if property == "chef.storage" || property == "location.storage" || property == "consumer.storage"
+        {
+            return string
+        }
+        
         if let newProp = context.value(forKey: property) as? PrettyPrintable
         {
             string += "\(property):\n\(self.getPropertiesString(newProp, depth: depth))"
@@ -54,7 +61,7 @@ extension PrettyPrintable
             {
                 for model in arr
                 {
-                    string += model.getPropertiesString(model)
+                    string += model.getPropertiesString(model, depth: depth)
                 }
             }
             else

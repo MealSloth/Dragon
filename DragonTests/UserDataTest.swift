@@ -9,7 +9,7 @@
 @testable import Dragon
 import Foundation
 
-class UserDataTest
+class UserDataTest: DragonTest
 {
     
 }

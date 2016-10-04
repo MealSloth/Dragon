@@ -19,19 +19,19 @@ extension Fetchable where Self: NSManagedObject
 {
     internal static func fetch(_ predicate: NSPredicate? = nil) -> [Self]?
     {
-        self.context?.performAndWait({
-            let request = Self.fetchRequest()
+        if let request: NSFetchRequest<Self> = Self.fetchRequest() as? NSFetchRequest<Self>
+        {
             request.predicate = predicate
             do
             {
-                try request.execute()
+                return try self.context?.fetch(request)
             }
             catch let error
             {
                 Log.error("\(error)")
             }
-        })
-        return nil //TODO: Figure out NSFetchRequestResult
+        }
+        return nil
     }
     
     static func all() -> [Self]?
@@ -40,7 +40,7 @@ extension Fetchable where Self: NSManagedObject
         {
             return result
         }
-        Log.warning("No \(self.entityName) found")
+        Log.error("No \(self.entityName) found")
         return nil
     }
     
@@ -50,17 +50,17 @@ extension Fetchable where Self: NSManagedObject
         {
             return result
         }
-        Log.warning("No \(self.entityName) found")
+        Log.error("No \(self.entityName) found")
         return nil
     }
     
-    static func first(_ count: Int = 1) -> [Self]?
+    static func top(_ count: Int = 1) -> [Self]?
     {
-        if count > 0, let result = self.fetch() , result.count > 0
+        if count > 0, let result = self.fetch(), result.count > 0
         {
             return result
         }
-        Log.warning("No \(self.entityName) found")
+        Log.error("No \(self.entityName) found")
         return nil
     }
     
@@ -70,7 +70,7 @@ extension Fetchable where Self: NSManagedObject
         {
             return self.fetch(NSPredicate(format: "id == %@", val))?[safe: 0]
         }
-        Log.warning("No \(self.entityName) found with ID \(id)")
+        Log.error("No \(self.entityName) found with ID \(id)")
         return nil
     }
 }
