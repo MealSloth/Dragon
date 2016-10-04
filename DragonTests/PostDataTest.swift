@@ -46,4 +46,34 @@ class PostDataTest: DragonTest
         let posts = Post.all()
         XCTAssertNotNil(posts?[safe: 0]?.id)
     }
+    
+    func testDeleteAllPosts()
+    {
+        if let context = Model.context
+        {
+            if let posts = Post.all()
+            {
+                for post in posts
+                {
+                    context.delete(post)
+                }
+                do
+                {
+                    try context.save()
+                }
+                catch let error
+                {
+                    Log.error("Couldn't save: \(error)")
+                }
+            }
+            else
+            {
+                Log.error("Didn't get any posts")
+            }
+        }
+        else
+        {
+            Log.error("Couldn't get context")
+        }
+    }
 }
