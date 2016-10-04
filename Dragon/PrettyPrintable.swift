@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol PrettyPrintable
 {
@@ -17,12 +18,19 @@ extension PrettyPrintable
 {
     func getProperties() -> [String]
     {
-        return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
+        if let context = self as? NSManagedObject
+        {
+            return context.entity.attributesByName.map { $0.key }
+        }
+        else
+        {
+            return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
+        }
     }
     
     func getPropertiesString(_ context: PrettyPrintable, depth: Int = 0) -> String
     {
-        var string: String = (depth == 0) ? "\n" : ""
+        var string: String = (depth == 0) ? "\n\n" : ""
         string += "\(Mirror(reflecting: self).subjectType): {\n"
         for property in context.getProperties()
         {
@@ -43,12 +51,6 @@ extension PrettyPrintable
         for _ in 0..<depth
         {
             string += "    "
-        }
-        
-        Log.debug("Property: \(property)")
-        if property == "chef.storage" || property == "location.storage" || property == "consumer.storage"
-        {
-            return string
         }
         
         if let newProp = context.value(forKey: property) as? PrettyPrintable

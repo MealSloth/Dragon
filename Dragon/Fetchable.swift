@@ -12,11 +12,14 @@ import CoreData
 protocol Fetchable
 {
     static var context: NSManagedObjectContext? { get }
-    static var entityName: String { get }
 }
 
 extension Fetchable where Self: NSManagedObject
 {
+    static var entityName: String {
+        return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
+    }
+    
     internal static func fetch(_ predicate: NSPredicate? = nil) -> [Self]?
     {
         if let request: NSFetchRequest<Self> = Self.fetchRequest() as? NSFetchRequest<Self>

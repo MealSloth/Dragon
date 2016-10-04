@@ -34,6 +34,6 @@ class APIModel: NSObject, PrettyPrintable
                 self.setValue(json[FieldNameHelper.getServerName(forClientName: property)], forKey: property)
             }
         }
-        Log.info("Finished initializing model with values:\n\(self.description)")
+        Log.info("Finished initializing model with values: \(self.description)")
     }
 }

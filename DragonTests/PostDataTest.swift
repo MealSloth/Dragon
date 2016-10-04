@@ -21,6 +21,7 @@ class PostDataTest: DragonTest
                 if let post = result.posts[safe: 0]
                 {
                     XCTAssertNotNil(post.id)
+                    Log.debug(post.description)
                     ready.fulfill()
                 }
                 else
@@ -42,6 +43,7 @@ class PostDataTest: DragonTest
     
     func testPostFetch()
     {
-        let _ = Post.all()
+        let posts = Post.all()
+        XCTAssertNotNil(posts?[safe: 0]?.id)
     }
 }

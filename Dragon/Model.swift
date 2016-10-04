@@ -20,10 +20,6 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
         return AppDelegate.getInstance()?.managedObjectContext
     }
     
-    static var entityName: String {
-        return String(describing: type(of: self))
-    }
-    
     //MARK: Initializers
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?)
     {
@@ -34,8 +30,7 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
     {
         if let context = Model.context
         {
-            let type = type(of: self)
-            let name = String(describing: type)
+            let name = String(describing: type(of: self))
             if let currentEntity = NSEntityDescription.entity(forEntityName: name, in: context)
             {
                 super.init(entity: currentEntity, insertInto: context)
@@ -57,6 +52,14 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
     {
         self.init()
         self.initialize(model)
+        do
+        {
+            try self.managedObjectContext?.save()
+        }
+        catch let error
+        {
+            Log.error("Error initializing Model with APIModel: \(error)")
+        }
     }
     
     //MARK: Overrides
