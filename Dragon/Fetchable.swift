@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-protocol Fetchable
+protocol Fetchable: NSFetchRequestResult
 {
     static var context: NSManagedObjectContext? { get }
 }
@@ -22,17 +22,15 @@ extension Fetchable where Self: NSManagedObject
     
     internal static func fetch(_ predicate: NSPredicate? = nil) -> [Self]?
     {
-        if let request: NSFetchRequest<Self> = Self.fetchRequest() as? NSFetchRequest<Self>
+        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
+        request.predicate = predicate
+        do
         {
-            request.predicate = predicate
-            do
-            {
-                return try self.context?.fetch(request)
-            }
-            catch let error
-            {
-                Log.error("\(error)")
-            }
+            return try self.context?.fetch(request)
+        }
+        catch let error
+        {
+            Log.error("\(error)")
         }
         return nil
     }
@@ -43,7 +41,7 @@ extension Fetchable where Self: NSManagedObject
         {
             return result
         }
-        Log.error("No \(self.entityName) found")
+        Log.error("No \(self.entityName) entities found")
         return nil
     }
     
@@ -53,7 +51,7 @@ extension Fetchable where Self: NSManagedObject
         {
             return result
         }
-        Log.error("No \(self.entityName) found")
+        Log.error("No \(self.entityName) entities found")
         return nil
     }
     
@@ -63,7 +61,7 @@ extension Fetchable where Self: NSManagedObject
         {
             return result
         }
-        Log.error("No \(self.entityName) found")
+        Log.error("No \(self.entityName) entities found")
         return nil
     }
     
@@ -73,7 +71,7 @@ extension Fetchable where Self: NSManagedObject
         {
             return self.fetch(NSPredicate(format: "id == %@", val))?[safe: 0]
         }
-        Log.error("No \(self.entityName) found with ID \(id)")
+        Log.error("No \(self.entityName) entities found with ID \(id)")
         return nil
     }
 }
