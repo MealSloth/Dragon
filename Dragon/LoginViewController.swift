@@ -35,7 +35,7 @@ class LoginViewController: UIViewController
     {
         if (segue.identifier == "Segue_LoginViewController->TabBarController")
         {
-            (segue.destination as? UITabBarController)?.selectedIndex = 1
+            (segue.destination as? UITabBarController)?.selectedIndex = 0
         }
     }
     

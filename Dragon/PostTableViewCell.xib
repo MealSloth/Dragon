@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="735" height="498"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMF-Gw-XLB" id="EHx-NG-krp">
-                <frame key="frameInset" width="735" height="497"/>
+                <frame key="frameInset" width="735" height="497.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-zi-4Eb" userLabel="Post">
@@ -67,7 +67,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="40"/>
+                                        <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="alpha">
                                         <integer key="value" value="0"/>
