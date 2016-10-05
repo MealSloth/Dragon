@@ -49,31 +49,24 @@ class PostDataTest: DragonTest
     
     func testDeleteAllPosts()
     {
-        if let context = Model.context
+        if let context = Model.context, let posts = Post.all()
         {
-            if let posts = Post.all()
+            for post in posts
             {
-                for post in posts
-                {
-                    context.delete(post)
-                }
-                do
-                {
-                    try context.save()
-                }
-                catch let error
-                {
-                    Log.error("Couldn't save: \(error)")
-                }
+                context.delete(post)
             }
-            else
+            do
             {
-                Log.error("Didn't get any posts")
+                try context.save()
+            }
+            catch let error
+            {
+                Log.error("Failed during testDeleteAllPosts with error: \(error)")
             }
         }
         else
         {
-            Log.error("Couldn't get context")
+            XCTFail("Failed during testDeleteAllPosts")
         }
     }
 }
