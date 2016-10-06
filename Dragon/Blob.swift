@@ -16,4 +16,9 @@ class Blob: Model
     @NSManaged var contentType: String?
     @NSManaged var time: Date!
     @NSManaged var url: String!
+    
+    static func fromAlbumID(_ id: String?) -> [Blob]?
+    {
+        return self.from("albumID", withValue: id)
+    }
 }

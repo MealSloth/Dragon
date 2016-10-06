@@ -35,6 +35,16 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
+    internal static func from(_ key: String, withValue value: String?) -> [Self]?
+    {
+        if let val = value
+        {
+            return self.fetch(NSPredicate(format: "\(key) == %@", val))
+        }
+        Log.error("No \(self.entityName) entities found with matching value \(value)")
+        return nil
+    }
+    
     static func all() -> [Self]?
     {
         if let result = self.fetch()
@@ -67,11 +77,6 @@ extension Fetchable where Self: NSManagedObject
     
     static func fromID(_ id: String?) -> Self?
     {
-        if let val = id
-        {
-            return self.fetch(NSPredicate(format: "id == %@", val))?[safe: 0]
-        }
-        Log.error("No \(self.entityName) entities found with ID \(id)")
-        return nil
+        return self.from("id", withValue: id)?[safe: 0]
     }
 }

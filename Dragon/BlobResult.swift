@@ -10,14 +10,14 @@ import Foundation
 
 class BlobResult: APIResult
 {
-    var blob: BlobAPIModel?
-    var blobs: [BlobAPIModel]?
+    var blob: Blob?
+    var blobs: [Blob]?
     
     required init(result: Dictionary<String, AnyObject>)
     {
         if let blob = result["blob"] as? Dictionary<String, AnyObject>
         {
-            self.blob = BlobAPIModel(json: blob)
+            self.blob = Blob(BlobAPIModel(json: blob))
         }
         else
         {
@@ -26,7 +26,7 @@ class BlobResult: APIResult
             {
                 for blob in blobs
                 {
-                    self.blobs?.append(BlobAPIModel(json: blob))
+                    self.blobs?.append(Blob(BlobAPIModel(json: blob)))
                 }
             }
             else

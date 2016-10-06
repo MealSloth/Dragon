@@ -73,7 +73,14 @@ extension PrettyPrintable
         }
         else
         {
-            string += "\(property): \(self.value(forKey: property))\n"
+            if let value = self.value(forKey: property)
+            {
+                string += "\(property): \(value)\n"
+            }
+            else
+            {
+                string += "\(property): nil\n"
+            }
         }
         return string
     }
