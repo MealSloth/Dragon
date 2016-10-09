@@ -23,6 +23,18 @@ extension UIViewController
         }
     }
     
+    func runOnBackgroundThread(_ runnable: (() -> Void)?)
+    {
+        if let block = runnable
+        {
+            AppDelegate.backgroundQueue.async(execute: block)
+        }
+        else
+        {
+            Log.warning("UIViewController.runOnBackgroundThread(runnable:) received nil runnable")
+        }
+    }
+    
     func presentViewControllerOnMainThread(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?)
     {
         self.runOnMainThread({ () -> Void in

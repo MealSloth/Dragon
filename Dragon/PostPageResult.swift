@@ -19,7 +19,6 @@ class PostPageResult: APIResult
         {
             if let post = Post.insertOrUpdate(PostAPIModel(json: post))
             {
-                Log.debug(post.description)
                 self.posts.append(post)
             }
         }

@@ -29,17 +29,15 @@ class HomeTableViewController: UITableViewController
         {
             self.posts = posts
         }
-        else
-        {
-            PostPageRequest().request(
-                onCompletion: { (result: PostPageResult) -> Void in
-                    self.handlePostPageResult(result)
-                },
-                onError: { (error) -> Void in
-                    Log.error("Error occurred during PostPageRequest(): \(error)")
-                }
-            )
-        }
+        
+        PostPageRequest().request(
+            onCompletion: { (result: PostPageResult) -> Void in
+                self.handlePostPageResult(result)
+            },
+            onError: { (error) -> Void in
+                Log.error("Error occurred during PostPageRequest(): \(error)")
+            }
+        )
     }
     
     override func didReceiveMemoryWarning()
@@ -85,6 +83,7 @@ class HomeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        Log.debug("tableView(tableView:cellForRowAt:) -- \(NSDate().timeIntervalSince1970.description)")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
         {
             if let post = self.posts[safe: indexPath.row]
@@ -124,41 +123,45 @@ class HomeTableViewController: UITableViewController
         cell.labelPostName.text = post.name
         cell.labelPrice.text = "$8"
         
+        Log.debug("populateCell(cell:withPost:) -- \(NSDate().timeIntervalSince1970.description)")
+        
         return cell
     }
     
     fileprivate func populateImageForCell(_ cell: PostTableViewCell, withPost post: Post)
     {
-        if let _ = self.blobs[post.albumID]
-        {
-            self.runOnMainThread({ () -> Void in
-                self.displayCell(cell, withAlbumID: post.albumID)
-            })
-        }
-        else if let blob = Blob.fromAlbumID(post.albumID)?[safe: 0]
-        {
-            self.blobs[post.albumID] = UIImage.fromURL(blob.url)
-            self.runOnMainThread({ () -> Void in
-                self.displayCell(cell, withAlbumID: post.albumID)
-            })
-        }
-        else
-        {
-            BlobRequest(withAlbumID: post.albumID).request(
-                onCompletion: { (result: BlobResult) -> Void in
-                    if let blob = result.blobs?[safe: 0], let image = UIImage.fromURL(blob.url)
-                    {
-                        self.blobs[post.albumID] = image
-                        self.runOnMainThread({ () -> Void in
-                            self.displayCell(cell, withAlbumID: post.albumID)
-                        })
+        self.runOnBackgroundThread({ () -> Void in
+            if let _ = self.blobs[post.albumID]
+            {
+                self.runOnMainThread({ () -> Void in
+                    self.displayCell(cell, withAlbumID: post.albumID)
+                })
+            }
+            else if let blob = Blob.fromAlbumID(post.albumID)?[safe: 0]
+            {
+                self.blobs[post.albumID] = UIImage.fromURL(blob.url)
+                self.runOnMainThread({ () -> Void in
+                    self.displayCell(cell, withAlbumID: post.albumID)
+                })
+            }
+            else
+            {
+                BlobRequest(withAlbumID: post.albumID).request(
+                    onCompletion: { (result: BlobResult) -> Void in
+                        if let blob = result.blobs?[safe: 0], let image = UIImage.fromURL(blob.url)
+                        {
+                            self.blobs[post.albumID] = image
+                            self.runOnMainThread({ () -> Void in
+                                self.displayCell(cell, withAlbumID: post.albumID)
+                            })
+                        }
+                    },
+                    onError: { (error) -> Void in
+                        Log.error("Error during BlobRequest(withAlbumID:): \(error)")
                     }
-                },
-                onError: { (error) -> Void in
-                    Log.error("Error during BlobRequest(withAlbumID:): \(error)")
-                }
-            )
-        }
+                )
+            }
+        })
     }
     
     fileprivate func displayCell(_ cell: PostTableViewCell, withAlbumID albumID: String)
