@@ -52,14 +52,16 @@ class HomeTableViewController: UITableViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController")
+        if (segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController"),
+            let vc = segue.destination as? PostDetailTableViewController
         {
-            if let vc = segue.destination as? PostDetailTableViewController,
-                   let post = sender as? Post,
-                   let blob = self.blobs[post.albumID]
+            if let post = sender as? Post
             {
                 vc.post = post
-                vc.blob = blob
+                if let blob = self.blobs[post.albumID]
+                {
+                    vc.blob = blob
+                }
             }
         }
     }
@@ -96,7 +98,10 @@ class HomeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.segue(withPost: self.posts[indexPath.row])
+        if let post = self.posts[safe: indexPath.row]
+        {
+            self.segue(withPost: post)
+        }
     }
     
     // MARK: Misc
@@ -116,7 +121,6 @@ class HomeTableViewController: UITableViewController
     
     fileprivate func populateCell(_ cell: PostTableViewCell, withPost post: Post) -> PostTableViewCell
     {
-        //TODO: Get Blob
         self.populateImageForCell(cell, withPost: post)
         
         cell.labelPostName.text = post.name

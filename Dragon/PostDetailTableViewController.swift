@@ -12,7 +12,7 @@ import UIKit
 class PostDetailTableViewController: UITableViewController
 {
     var post: Post!
-    var blob: UIImage!
+    var blob: UIImage?
     
     // MARK: Delegates
     override func viewDidLoad()
@@ -20,6 +20,33 @@ class PostDetailTableViewController: UITableViewController
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
+        
+        if self.blob == nil
+        {
+            if let results = Blob.fromAlbumID(self.post.albumID),
+                let first = results[safe: 0]
+            {
+                self.blob = UIImage.fromURL(first.url)
+            }
+            else
+            {
+                BlobRequest(withAlbumID: self.post.albumID).request(
+                    onCompletion: { (result: BlobResult) -> Void in
+                        if let first = result.blobs?[safe: 0]
+                        {
+                            self.blob = UIImage.fromURL(first.url)
+                        }
+                        else
+                        {
+                            Log.warning("BlobRequest returned nil blob(s)")
+                        }
+                    },
+                    onError: { (error) -> Void in
+                        Log.error("Error during BlobRequest: \(error)")
+                    }
+                )
+            }
+        }
     }
     
     // MARK: TableView Delegates
