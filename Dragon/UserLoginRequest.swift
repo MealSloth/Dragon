@@ -12,13 +12,13 @@ class UserLoginRequest: APIRequestChimera
 {
     fileprivate var completion: ((UserLoginResult) -> Void)?
     
-    init(withUserLoginID userLoginID: String)
+    init(withUserLoginID userLoginID: String?)
     {
         super.init(method: "user-login/")
         self.json["user_login_id"] = userLoginID as AnyObject?
     }
     
-    init(withUserID userID: String)
+    init(withUserID userID: String?)
     {
         super.init(method: "user-login/")
         self.json["user_id"] = userID as AnyObject?

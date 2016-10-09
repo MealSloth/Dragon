@@ -21,7 +21,6 @@ class UserDataTest: DragonTest
                 if let user = result.user
                 {
                     XCTAssertNotNil(user.id)
-                    Log.debug(user.description)
                     ready.fulfill()
                 }
                 else
@@ -41,6 +40,12 @@ class UserDataTest: DragonTest
         })
     }
     
+    func testFromID()
+    {
+        let user = User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f")
+        XCTAssertNotNil(user)
+    }
+    
     func testUserFetch()
     {
         let users = User.all()
@@ -49,24 +54,11 @@ class UserDataTest: DragonTest
     
     func testDeleteAllUsers()
     {
-        if let context = Model.context, let users = User.all()
-        {
-            for user in users
-            {
-                context.delete(user)
-            }
-            do
-            {
-                try context.save()
-            }
-            catch let error
-            {
-                XCTAssertNil(error, "Failed during testDeleteAllUsers with error: \(error)")
-            }
-        }
-        else
-        {
-            XCTFail("Failed during testDeleteAllUsers")
-        }
+        User.deleteAll()
+    }
+    
+    func testDeleteID()
+    {
+        User.delete(withID: "8bbfec5e-c29b-40d6-9918-45911e97134f")
     }
 }

@@ -10,10 +10,10 @@ import Foundation
 
 class PostResult: APIResult
 {
-    var post: PostAPIModel!
+    var post: Post?
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        self.post = PostAPIModel(json: result["post"] as! Dictionary<String, AnyObject>)
+        self.post = Post.insertOrUpdate(PostAPIModel(json: result["post"] as! Dictionary<String, AnyObject>))
     }
 }

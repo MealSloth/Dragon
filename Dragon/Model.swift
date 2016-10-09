@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class Model: NSManagedObject, Fetchable, Insertable, PrettyPrintable
+class Model: NSManagedObject, Deletable, Fetchable, Insertable, PrettyPrintable
 {
     override var description: String {
         return self.getPropertiesString(self)

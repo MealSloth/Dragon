@@ -35,14 +35,22 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    internal static func from(_ key: String, withValue value: String?) -> [Self]?
+    internal static func from(_ key: String, withValues values: [Any]?) -> [Self]?
     {
-        if let val = value
+        return self.fetch(NSPredicate(format: "\(key) == %@", argumentArray: values))
+    }
+    
+    internal static func from(_ key: String, withValue value: CVarArg?) -> [Self]?
+    {
+        if let arg = value
         {
-            return self.fetch(NSPredicate(format: "\(key) == %@", val))
+            return self.fetch(NSPredicate(format: "\(key) == %@", arg))
         }
-        Log.error("No \(self.entityName) entities found with matching value \(value)")
-        return nil
+        else
+        {
+            Log.error("Received nil value parameter")
+            return nil
+        }
     }
     
     static func all() -> [Self]?

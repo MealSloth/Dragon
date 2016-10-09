@@ -13,6 +13,7 @@
 		4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */; };
 		4C1DF22A1D52BCCB00C533CB /* ConsumerProfileTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */; };
 		4C2510B91DAA5BD3001112E5 /* Insertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2510B81DAA5BD2001112E5 /* Insertable.swift */; };
+		4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2510BA1DAA6A98001112E5 /* Deletable.swift */; };
 		4C27F0941D3D4E6100D64E13 /* APIRequestChimera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */; };
 		4C27F0971D3D567600D64E13 /* PostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0961D3D567600D64E13 /* PostTest.swift */; };
 		4C42CC961D90A422008B2FCA /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C42CC951D90A422008B2FCA /* Fetchable.swift */; };
@@ -126,6 +127,7 @@
 		4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTableViewController.swift; sourceTree = "<group>"; };
 		4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTitleCell.swift; sourceTree = "<group>"; };
 		4C2510B81DAA5BD2001112E5 /* Insertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insertable.swift; sourceTree = "<group>"; };
+		4C2510BA1DAA6A98001112E5 /* Deletable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deletable.swift; sourceTree = "<group>"; };
 		4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestChimera.swift; sourceTree = "<group>"; };
 		4C27F0961D3D567600D64E13 /* PostTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
 		4C42CC951D90A422008B2FCA /* Fetchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 		4CB67D221D8B428E00196579 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4C2510BA1DAA6A98001112E5 /* Deletable.swift */,
 				4C42CC951D90A422008B2FCA /* Fetchable.swift */,
 				4C2510B81DAA5BD2001112E5 /* Insertable.swift */,
 				4CB67D231D8B42A400196579 /* PrettyPrintable.swift */,
@@ -801,6 +804,7 @@
 				4C6982911CD3DC07005ABCF1 /* APIHost.swift in Sources */,
 				4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */,
 				4C69828F1CD3D865005ABCF1 /* APIResult.swift in Sources */,
+				4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */,
 				4CDA110A1D47F3A5002C62FD /* UserModifyRequest.swift in Sources */,
 				4CC674891D80E8E5001BCA67 /* Post.swift in Sources */,
 				4CCD0A7E1CD939AF0081A28B /* OrderType.swift in Sources */,

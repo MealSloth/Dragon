@@ -104,9 +104,9 @@ class LoginViewController: UIViewController
             {
                 UserRequest(withEmail: email).request(
                     onCompletion: { (userResult: UserResult) -> Void in
-                        UserLoginRequest(withUserID: userResult.user.id).request(
+                        UserLoginRequest(withUserID: userResult.user?.id).request(
                             onCompletion: { (userLoginResult: UserLoginResult) -> Void in
-                                if let uEmail = userResult.user.email, let ulPassword = userLoginResult.password
+                                if let uEmail = userResult.user?.email, let ulPassword = userLoginResult.password
                                 {
                                     if uEmail == email && ulPassword == password
                                     {

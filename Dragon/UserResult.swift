@@ -10,10 +10,10 @@ import Foundation
 
 class UserResult: APIResult
 {
-    var user: User!
+    var user: User?
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        self.user = User(UserAPIModel(json: result["user"] as! Dictionary<String, AnyObject>))
+        self.user = User.insertOrUpdate(UserAPIModel(json: result["user"] as! Dictionary<String, AnyObject>))
     }
 }

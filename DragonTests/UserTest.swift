@@ -20,7 +20,7 @@ class UserTest: DragonTest
             onCompletion: { (result: UserResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.user)
-                XCTAssertEqual(result.user.firstName, "Testing")
+                XCTAssertEqual(result.user?.firstName, "Testing")
                 readyExpectation.fulfill()
             },
             onError: { (error) -> Void in
@@ -42,7 +42,7 @@ class UserTest: DragonTest
             onCompletion: { (result: UserResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.user)
-                XCTAssertEqual(result.user.firstName, "Testing")
+                XCTAssertEqual(result.user?.firstName, "Testing")
                 readyExpectation.fulfill()
             },
             onError: { (error) -> Void in
