@@ -83,7 +83,6 @@ class HomeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        Log.debug("tableView(tableView:cellForRowAt:) -- \(NSDate().timeIntervalSince1970.description)")
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
         {
             if let post = self.posts[safe: indexPath.row]
@@ -122,8 +121,6 @@ class HomeTableViewController: UITableViewController
         
         cell.labelPostName.text = post.name
         cell.labelPrice.text = "$8"
-        
-        Log.debug("populateCell(cell:withPost:) -- \(NSDate().timeIntervalSince1970.description)")
         
         return cell
     }
