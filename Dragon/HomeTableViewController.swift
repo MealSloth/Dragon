@@ -98,7 +98,7 @@ class HomeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        self.segue(withPost: self.posts[(indexPath as NSIndexPath).row])
+        self.segue(withPost: self.posts[indexPath.row])
     }
     
     // MARK: Misc

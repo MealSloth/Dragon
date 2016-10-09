@@ -40,7 +40,7 @@ class PostDetailTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if ((indexPath as NSIndexPath).row == 0)
+        if indexPath.row == 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
             if let titleCell = cell as? PostDetailTitleCell
@@ -50,7 +50,7 @@ class PostDetailTableViewController: UITableViewController
             }
             return cell
         }
-        else if ((indexPath as NSIndexPath).row == 1)
+        else if indexPath.row == 1
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailSummaryCell", for: indexPath)
             if let summaryCell = cell as? PostDetailSummaryCell

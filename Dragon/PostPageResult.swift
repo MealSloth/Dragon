@@ -14,10 +14,14 @@ class PostPageResult: APIResult
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        let postsDict = result["posts"] as! [Dictionary<String, AnyObject>]
-        for post in postsDict
+        let postsArray = result["posts"] as! [Dictionary<String, AnyObject>]
+        for post in postsArray
         {
-            self.posts.append(Post(PostAPIModel(json: post)))
+            if let post = Post.insertOrUpdate(PostAPIModel(json: post))
+            {
+                Log.debug(post.description)
+                self.posts.append(post)
+            }
         }
     }
 }

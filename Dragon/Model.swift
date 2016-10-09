@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class Model: NSManagedObject, Fetchable, PrettyPrintable
+class Model: NSManagedObject, Fetchable, Insertable, PrettyPrintable
 {
     override var description: String {
         return self.getPropertiesString(self)
@@ -51,7 +51,7 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
     convenience init(_ model: APIModel)
     {
         self.init()
-        self.initialize(model)
+        self.populate(using: model)
         do
         {
             try self.managedObjectContext?.save()
@@ -69,7 +69,7 @@ class Model: NSManagedObject, Fetchable, PrettyPrintable
     }
     
     //MARK: Initialization helpers
-    func initialize(_ model: APIModel, skip: [String] = [])
+    func populate(using model: APIModel, skip: [String] = [])
     {
         for property in model.getProperties() where !skip.contains(property)
         {

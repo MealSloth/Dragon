@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
+        //When writing to CoreData, existing entries should be merged with priority given to the external model
+        self.managedObjectContext.performAndWait({ () -> Void in
+            self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        })
         return true
     }
 

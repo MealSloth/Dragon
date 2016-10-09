@@ -55,9 +55,9 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    static func first() -> Self?
+    static func top(_ count: Int = 1) -> [Self]?
     {
-        if let result = self.fetch()?[safe: 0]
+        if count > 0, let result = self.fetch(), result.count > 0
         {
             return result
         }
@@ -65,9 +65,9 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    static func top(_ count: Int = 1) -> [Self]?
+    static func first() -> Self?
     {
-        if count > 0, let result = self.fetch(), result.count > 0
+        if let result = self.fetch()?[safe: 0]
         {
             return result
         }

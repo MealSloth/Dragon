@@ -43,10 +43,8 @@ class UserDataTest: DragonTest
     
     func testUserFetch()
     {
-//        let user = User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f")
-//        XCTAssertNotNil(user?.id)
         let users = User.all()
-        XCTAssertNotNil(users?[safe: 0]?.id)
+        XCTAssertNotNil(users?[safe: 0])
     }
     
     func testDeleteAllUsers()
@@ -63,7 +61,7 @@ class UserDataTest: DragonTest
             }
             catch let error
             {
-                Log.error("Failed during testDeleteAllUsers with error: \(error)")
+                XCTAssertNil(error, "Failed during testDeleteAllUsers with error: \(error)")
             }
         }
         else

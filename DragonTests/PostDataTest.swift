@@ -20,8 +20,8 @@ class PostDataTest: DragonTest
             onCompletion: { (result: PostPageResult) -> Void in
                 if let post = result.posts[safe: 0]
                 {
-                    XCTAssertNotNil(post.id)
                     Log.debug(post.description)
+                    XCTAssertNotNil(post.id)
                     ready.fulfill()
                 }
                 else
@@ -44,7 +44,11 @@ class PostDataTest: DragonTest
     func testPostFetch()
     {
         let posts = Post.all()
-        XCTAssertNotNil(posts?[safe: 0]?.id)
+        for post in posts!
+        {
+            Log.debug(post.description)
+        }
+        XCTAssertNotNil(posts?[safe: 0])
     }
     
     func testDeleteAllPosts()
@@ -61,12 +65,21 @@ class PostDataTest: DragonTest
             }
             catch let error
             {
-                Log.error("Failed during testDeleteAllPosts with error: \(error)")
+                XCTAssertNil(error, "Failed during testDeleteAllPosts with error: \(error)")
             }
         }
         else
         {
             XCTFail("Failed during testDeleteAllPosts")
+        }
+    }
+    
+    func testRandom()
+    {
+        let posts = Post.all()
+        for post in posts!
+        {
+            Log.debug(post.description)
         }
     }
 }
