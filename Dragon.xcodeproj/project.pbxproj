@@ -100,6 +100,8 @@
 		4CE468141D3BEC53000B95DE /* PostPageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE468131D3BEC53000B95DE /* PostPageRequest.swift */; };
 		4CE632421CDAA2F60085F54C /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE632411CDAA2F60085F54C /* UserResult.swift */; };
 		4CF12FDE1D80F82800E284CF /* Dragon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C69826E1CD3D7A4005ABCF1 /* Dragon.xcdatamodeld */; };
+		4CF75D521DAC50C700E9EB39 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF75D511DAC50C700E9EB39 /* Updatable.swift */; };
+		4CF75D551DAC515C00E9EB39 /* Manageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF75D541DAC515C00E9EB39 /* Manageable.swift */; };
 		4CFF11D01D497E600062B33A /* ViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF11CF1D497E600062B33A /* ViewController+.swift */; };
 		4CFF11D51D498CDD0062B33A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF11D41D498CDD0062B33A /* HomeTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -220,6 +222,8 @@
 		4CE166DF1D3959DC003589D0 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		4CE468131D3BEC53000B95DE /* PostPageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPageRequest.swift; sourceTree = "<group>"; };
 		4CE632411CDAA2F60085F54C /* UserResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
+		4CF75D511DAC50C700E9EB39 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
+		4CF75D541DAC515C00E9EB39 /* Manageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manageable.swift; sourceTree = "<group>"; };
 		4CFF11CF1D497E600062B33A /* ViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+.swift"; sourceTree = "<group>"; };
 		4CFF11D41D498CDD0062B33A /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -530,9 +534,7 @@
 		4CB67D221D8B428E00196579 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				4C2510BA1DAA6A98001112E5 /* Deletable.swift */,
-				4C42CC951D90A422008B2FCA /* Fetchable.swift */,
-				4C2510B81DAA5BD2001112E5 /* Insertable.swift */,
+				4CF75D531DAC50E900E9EB39 /* DB */,
 				4CB67D231D8B42A400196579 /* PrettyPrintable.swift */,
 			);
 			name = Protocols;
@@ -649,6 +651,18 @@
 				4CE166DF1D3959DC003589D0 /* Log.swift */,
 			);
 			name = Modules;
+			sourceTree = "<group>";
+		};
+		4CF75D531DAC50E900E9EB39 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				4CF75D541DAC515C00E9EB39 /* Manageable.swift */,
+				4C2510BA1DAA6A98001112E5 /* Deletable.swift */,
+				4C42CC951D90A422008B2FCA /* Fetchable.swift */,
+				4C2510B81DAA5BD2001112E5 /* Insertable.swift */,
+				4CF75D511DAC50C700E9EB39 /* Updatable.swift */,
+			);
+			name = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -797,6 +811,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C06E03D1D4ACB8F005933A9 /* UIImageView+.swift in Sources */,
+				4CF75D521DAC50C700E9EB39 /* Updatable.swift in Sources */,
 				4CCD0A691CD91E4F0081A28B /* LocationAPIModel.swift in Sources */,
 				4C9655581D0E109400011EAC /* PostRequest.swift in Sources */,
 				4CE166E21D398DFC003589D0 /* Log.swift in Sources */,
@@ -835,6 +850,7 @@
 				4CFF11D51D498CDD0062B33A /* HomeTableViewController.swift in Sources */,
 				4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */,
 				4CD48F4B1D527D650009D6A2 /* PostDetailSummaryCell.swift in Sources */,
+				4CF75D551DAC515C00E9EB39 /* Manageable.swift in Sources */,
 				4CCD0A561CD8EE080081A28B /* UserLoginAPIModel.swift in Sources */,
 				4CDA111C1D4807EF002C62FD /* RandomStringAllow.swift in Sources */,
 				4C27F0941D3D4E6100D64E13 /* APIRequestChimera.swift in Sources */,
