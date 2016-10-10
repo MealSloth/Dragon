@@ -20,7 +20,7 @@ extension Fetchable where Self: NSManagedObject
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
     
-    internal static func fetch(_ predicate: NSPredicate? = nil) -> [Self]?
+    static internal func fetch(_ predicate: NSPredicate? = nil) -> [Self]?
     {
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         request.predicate = predicate
@@ -35,12 +35,12 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    internal static func from(_ key: String, withValues values: [Any]?) -> [Self]?
+    static internal func from(_ key: String, withValues values: [Any]?) -> [Self]?
     {
         return self.fetch(NSPredicate(format: "\(key) == %@", argumentArray: values))
     }
     
-    internal static func from(_ key: String, withValue value: CVarArg?) -> [Self]?
+    static internal func from(_ key: String, withValue value: CVarArg?) -> [Self]?
     {
         if let arg = value
         {

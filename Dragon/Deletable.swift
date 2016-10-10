@@ -53,6 +53,23 @@ extension Deletable where Self: NSManagedObject
         }
     }
     
+    static internal func deleteFrom(_ key: String, withValues values: [Any]?)
+    {
+        return self.delete(NSPredicate(format: "\(key) == %@", argumentArray: values))
+    }
+    
+    static internal func deleteFrom(_ key: String, withValue value: CVarArg?)
+    {
+        if let val = value
+        {
+            self.delete(NSPredicate(format: "\(key) == %@", val))
+        }
+        else
+        {
+            Log.error("Received nil value parameter")
+        }
+    }
+    
     static func deleteAll()
     {
         self.delete()
@@ -60,13 +77,6 @@ extension Deletable where Self: NSManagedObject
     
     static func delete(withID id: String?)
     {
-        if let id = id
-        {
-            self.delete(NSPredicate(format: "id == %@", id))
-        }
-        else
-        {
-            Log.error("Supplied ID is nil")
-        }
+        self.deleteFrom("id", withValue: id)
     }
 }

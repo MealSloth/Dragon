@@ -14,14 +14,14 @@ extension String
     {
         guard format.count > 0 else
         {
-            preconditionFailure("Random function requires at least one value in array parameter. If no specific value is required, leave the parameter as nil")
+            preconditionFailure("Random function requires at least one value in array parameter. If no specific value is required, leave the parameter as nil.")
         }
         
         var set: String = ""
         
-        for i in 0 ..< format.count
+        for allow in format
         {
-            set += format[i].rawValue
+            set += allow.rawValue
         }
         
         let characters: NSMutableString = NSMutableString(string: set)

@@ -21,7 +21,7 @@ extension Insertable where Self: NSManagedObject
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
     
-    static func insertOrUpdate(_ id: String?) -> Self?
+    static internal func insertOrUpdate(_ id: String?) -> Self?
     {
         if let context = self.context, let id = id
         {
