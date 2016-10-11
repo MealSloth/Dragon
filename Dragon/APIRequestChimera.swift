@@ -11,8 +11,8 @@ import Foundation
 class APIRequestChimera: APIRequest
 {
     var json: Dictionary<String, AnyObject> = [:]
-    var method: String = ""
-    var host: APIHost = .chimera
+    var method: String
+    var host: APIHost
     
     var resultHandler: ((_ result: Dictionary<String, AnyObject>) -> Void)?
     var errorHandler: ((_ error: Error?) -> Void)?
@@ -20,6 +20,7 @@ class APIRequestChimera: APIRequest
     init(method: String)
     {
         self.host = .chimera
+        //Remove prepending slashes if applicable
         self.method = (method.substring(to: method.characters.index(method.startIndex, offsetBy: 1)) == "/") ? method.substring(from: method.characters.index(method.startIndex, offsetBy: 1)) : method
     }
     
