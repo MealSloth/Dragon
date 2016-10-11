@@ -10,10 +10,13 @@ import Foundation
 
 class ConsumerResult: APIResult
 {
-    var consumer: ConsumerAPIModel!
+    var consumer: Consumer?
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        self.consumer = ConsumerAPIModel(json: result["consumer"] as! Dictionary<String, AnyObject>)
+        if let json = result["consumer"] as? Dictionary<String, AnyObject>
+        {
+            self.consumer = Consumer.insertOrUpdate(ConsumerAPIModel(json: json))
+        }
     }
 }

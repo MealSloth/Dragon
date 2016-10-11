@@ -17,7 +17,7 @@ class BlobResult: APIResult
     {
         if let blob = result["blob"] as? Dictionary<String, AnyObject>
         {
-            self.blob = Blob(BlobAPIModel(json: blob))
+            self.blob = Blob.insertOrUpdate(BlobAPIModel(json: blob))
         }
         else
         {
@@ -26,7 +26,10 @@ class BlobResult: APIResult
             {
                 for blob in blobs
                 {
-                    self.blobs?.append(Blob(BlobAPIModel(json: blob)))
+                    if let managedBlob = Blob.insertOrUpdate(BlobAPIModel(json: blob))
+                    {
+                        self.blobs?.append(managedBlob)
+                    }
                 }
             }
             else

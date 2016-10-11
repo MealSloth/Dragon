@@ -10,13 +10,16 @@ import Foundation
 
 class UserLoginResult: APIResult
 {
-    var userLogin: UserLogin!
-    var password: String!
+    var userLogin: UserLogin?
+    var password: String?
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        let apiModel = UserLoginAPIModel(json: result["user_login"] as! Dictionary<String, AnyObject>)
-        self.password = apiModel.password
-        self.userLogin = UserLogin(apiModel)
+        if let json = result["user_login"] as? Dictionary<String, AnyObject>
+        {
+            let model = UserLoginAPIModel(json: json)
+            self.password = model.password
+            self.userLogin = UserLogin.insertOrUpdate(model)
+        }
     }
 }

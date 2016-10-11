@@ -14,6 +14,9 @@ class PostResult: APIResult
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        self.post = Post.insertOrUpdate(PostAPIModel(json: result["post"] as! Dictionary<String, AnyObject>))
+        if let json = result["post"] as? Dictionary<String, AnyObject>
+        {
+            self.post = Post.insertOrUpdate(PostAPIModel(json: json))
+        }
     }
 }

@@ -14,6 +14,9 @@ class UserResult: APIResult
     
     required init(result: Dictionary<String, AnyObject>)
     {
-        self.user = User.insertOrUpdate(UserAPIModel(json: result["user"] as! Dictionary<String, AnyObject>))
+        if let json = result["user"] as? Dictionary<String, AnyObject>
+        {
+            self.user = User.insertOrUpdate(UserAPIModel(json: json))
+        }
     }
 }
