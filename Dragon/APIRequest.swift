@@ -34,9 +34,9 @@ extension APIRequest
         {
             request.httpBody = try JSONSerialization.data(withJSONObject: self.json, options: JSONSerialization.WritingOptions.prettyPrinted)
         }
-        catch let postError
+        catch let error
         {
-            Log.error("\(postError)")
+            Log.error("Error during JSON Serialization: \(error)")
         }
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
