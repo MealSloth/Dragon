@@ -12,6 +12,7 @@ class UserCreateResult: APIResult
 {
     var user: User?
     var userLogin: UserLogin?
+    var password: String?
     
     required init(result: Dictionary<String, AnyObject>)
     {
@@ -21,7 +22,9 @@ class UserCreateResult: APIResult
         }
         if let json = result["user_login"] as? Dictionary<String, AnyObject>
         {
-            self.userLogin = UserLogin.insertOrUpdate(UserLoginAPIModel(json: json))
+            let model = UserLoginAPIModel(json: json)
+            self.userLogin = UserLogin.insertOrUpdate(model)
+            self.password = model.password
         }
     }
 }

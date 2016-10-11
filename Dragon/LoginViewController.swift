@@ -106,9 +106,17 @@ class LoginViewController: UIViewController
                     onCompletion: { (userResult: UserResult) -> Void in
                         UserLoginRequest(withUserID: userResult.user?.id).request(
                             onCompletion: { (userLoginResult: UserLoginResult) -> Void in
-                                if let uEmail = userResult.user?.email, let ulPassword = userLoginResult.password
+                                if let ulPassword = userLoginResult.password
                                 {
-                                    if uEmail == email && ulPassword == password
+                                    if let uEmail = userResult.user?.email,
+                                           uEmail == email,
+                                           ulPassword == password
+                                    {
+                                        self.segue()
+                                    }
+                                    else if let ulUsername = userLoginResult.userLogin?.username,
+                                                ulUsername == email,
+                                                ulPassword == password
                                     {
                                         self.segue()
                                     }
@@ -161,7 +169,9 @@ class LoginViewController: UIViewController
     // MARK: Misc
     fileprivate func segue()
     {
-        self.performSegue(withIdentifier: "Segue_LoginViewController->TabBarController", sender: self)
+        self.runOnMainThread({ () -> Void in
+            self.performSegue(withIdentifier: "Segue_LoginViewController->TabBarController", sender: self)
+        })
     }
     
     fileprivate func registerObservers()

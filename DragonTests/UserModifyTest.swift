@@ -25,14 +25,14 @@ class UserModifyTest: DragonTest
             onCompletion: { (result: UserModifyResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.user)
-                XCTAssertNotEqual(result.user.firstName, first)
-                XCTAssertNotEqual(result.user.lastName, last)
+                XCTAssertNotEqual(result.user?.firstName, first)
+                XCTAssertNotEqual(result.user?.lastName, last)
                 UserModifyRequest(withUserID: id, firstName: first, lastName: last, gender: .male, dateOfBirth: dob, phoneNumber: "+001_1234567890").request(
                     onCompletion: { (result: UserModifyResult) -> Void in
                         XCTAssertNotNil(result)
                         XCTAssertNotNil(result.user)
-                        XCTAssertEqual(result.user.firstName, first)
-                        XCTAssertEqual(result.user.lastName, last)
+                        XCTAssertEqual(result.user?.firstName, first)
+                        XCTAssertEqual(result.user?.lastName, last)
                         readyExpectation.fulfill()
                     },
                     onError: { (error) -> Void in

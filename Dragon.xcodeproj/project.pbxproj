@@ -10,6 +10,7 @@
 		4C0354D01D5658AD00E7459D /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */; };
 		4C06E03D1D4ACB8F005933A9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */; };
 		4C06E03E1D4ACEB5005933A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69826B1CD3D7A4005ABCF1 /* Main.storyboard */; };
+		4C147A6B1DADA759002CA992 /* UserLoginDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */; };
 		4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */; };
 		4C1DF22A1D52BCCB00C533CB /* ConsumerProfileTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */; };
 		4C2510B91DAA5BD3001112E5 /* Insertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2510B81DAA5BD2001112E5 /* Insertable.swift */; };
@@ -126,6 +127,7 @@
 /* Begin PBXFileReference section */
 		4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginDataTest.swift; sourceTree = "<group>"; };
 		4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTableViewController.swift; sourceTree = "<group>"; };
 		4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTitleCell.swift; sourceTree = "<group>"; };
 		4C2510B81DAA5BD2001112E5 /* Insertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insertable.swift; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 			children = (
 				4C94FAFB1DA033F400CFFBFC /* PostDataTest.swift */,
 				4CB7799A1DA183C300966D40 /* UserDataTest.swift */,
+				4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */,
 			);
 			name = CoreDataTest;
 			sourceTree = "<group>";
@@ -909,6 +912,7 @@
 				4CDA11141D4805A3002C62FD /* UserCreateTest.swift in Sources */,
 				4CDA11081D47F37B002C62FD /* UserModifyTest.swift in Sources */,
 				4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */,
+				4C147A6B1DADA759002CA992 /* UserLoginDataTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

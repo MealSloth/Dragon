@@ -71,7 +71,8 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
     //MARK: Initialization helpers
     func populate(using model: APIModel, skip: [String] = [])
     {
-        for property in model.getProperties() where !skip.contains(property)
+        for property in model.getProperties()
+            where self.getProperties().contains(property) && !skip.contains(property)
         {
             let value = model.value(forKey: property)
             if let dateString = value as? String, let date = dateString.toDate()

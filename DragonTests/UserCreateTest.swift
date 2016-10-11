@@ -25,8 +25,8 @@ class UserCreateTest: DragonTest
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.user)
                 XCTAssertNotNil(result.userLogin)
-                XCTAssertEqual(result.user.email, email)
-                XCTAssertEqual(result.userLogin.password, pass)
+                XCTAssertEqual(result.user?.email, email)
+                XCTAssertEqual(result.password, pass)
                 readyExpectation.fulfill()
             },
             onError: { (error) -> Void in
