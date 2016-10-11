@@ -48,6 +48,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
         }
     }
     
+    @available(iOS, deprecated: 0.0.5, message: "Use Insertable static func insertOrUpdate instead")
     convenience init(_ model: APIModel)
     {
         self.init()

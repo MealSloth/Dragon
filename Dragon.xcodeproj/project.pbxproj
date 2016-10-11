@@ -269,8 +269,8 @@
 				4CC40DAD1D5172D000B5D4BE /* Blob */,
 				4C7A82CD1D3EC3AC00638FBE /* Consumer */,
 				4C7A82CE1D3EC3B000638FBE /* Post */,
-				4C7A82D01D3EC3B900638FBE /* User */,
 				4C7A82CF1D3EC3B400638FBE /* UserLogin */,
+				4C7A82D01D3EC3B900638FBE /* User */,
 			);
 			name = APITest;
 			sourceTree = "<group>";
