@@ -13,7 +13,7 @@ class PostPageTest: DragonTest
 {
     func testUsingNothing()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "PostPageRequest()"
         
         PostPageRequest().request(
@@ -24,21 +24,19 @@ class PostPageTest: DragonTest
                 {
                     XCTAssertNotNil(first.albumID)
                 }
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testWithPageSize()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "PostPageRequest(withPageSize:)"
         
         PostPageRequest(withPageSize: 10).request(
@@ -49,21 +47,19 @@ class PostPageTest: DragonTest
                 {
                     XCTAssertNotNil(first.albumID)
                 }
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testUsingPostTimestamp()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "PostPageRequest(usingPostTimestamp:)"
         let date = Date(timeIntervalSince1970: TimeInterval())
         
@@ -75,21 +71,19 @@ class PostPageTest: DragonTest
                 {
                     XCTAssertNotNil(first.albumID)
                 }
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testUsingPostTimestampWithPageSize()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "PostPageRequest()"
         let date = Date(timeIntervalSince1970: TimeInterval())
         
@@ -101,15 +95,13 @@ class PostPageTest: DragonTest
                 {
                     XCTAssertNotNil(first.albumID)
                 }
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

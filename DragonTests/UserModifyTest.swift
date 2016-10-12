@@ -13,7 +13,7 @@ class UserModifyTest: DragonTest
 {
     func testWithUserIDFirstNameLastNameGenderDateOfBirthPhoneNumber()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "UserModifyRequest(withUserID:firstName:lastName:gender:dateOfBirth:phoneNumber:)"
         let dob = Date(timeIntervalSince1970: TimeInterval())
         
@@ -33,22 +33,18 @@ class UserModifyTest: DragonTest
                         XCTAssertNotNil(result.user)
                         XCTAssertEqual(result.user?.firstName, first)
                         XCTAssertEqual(result.user?.lastName, last)
-                        readyExpectation.fulfill()
+                        ready.fulfill()
                     },
                     onError: { (error) -> Void in
-                        XCTFail("Failed during \(method) with error \(error)")
-                        readyExpectation.fulfill()
+                        self.fail(duringMethod: method, withExpectation: ready, withError: error)
                     }
                 )
             },
             onError: { (error) -> Void in
-                XCTFail("Failed during \(method) with error \(error)")
-                readyExpectation.fulfill()
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            XCTAssertNil(error, "Timed out during \(method) with error \(error)")
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

@@ -13,22 +13,20 @@ class ConsumerTest: DragonTest
 {
     func testWithConsumerID()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "ConsumerRequest(withConsumerId:)"
         
         ConsumerRequest(withConsumerID: "d25a27ba-1e43-49ff-92b5-37285c4af962").request(
             onCompletion: { (result: ConsumerResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.consumer)
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

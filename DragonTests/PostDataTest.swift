@@ -15,6 +15,7 @@ class PostDataTest: DragonTest
     func testPostStore()
     {
         let ready = expectation(description: "ready")
+        let method = "PostPageRequest()"
         
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
@@ -35,9 +36,7 @@ class PostDataTest: DragonTest
             }
         )
         
-        waitForExpectations(timeout: 5, handler: { (error) -> Void in
-            XCTAssertNil(error, "Error during testPostStore: \(error)")
-        })
+        waitForExpectations(timeout: 5, duringMethod: method)
     }
     
     func testPostFetch()

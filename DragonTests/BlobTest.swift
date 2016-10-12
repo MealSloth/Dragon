@@ -13,45 +13,39 @@ class BlobTest: DragonTest
 {
     func testWithBlobID()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "BlobRequest(withBlobID:)"
         
         BlobRequest(withBlobID: "c1dacec6-9156-4cd7-a670-ef06d9c4a73a").request(
             onCompletion: { (result: BlobResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.blob)
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                XCTFail("Failed during \(method) with error \(error)")
-                readyExpectation.fulfill()
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            XCTAssertNil(error, "Timeout during \(method) with error \(error)")
-        })
+        self.waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testWithAlbumID()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "BlobRequest(withAlbumID:)"
         
         BlobRequest(withAlbumID: "9d94bffa-c279-498b-a790-aced6c5aec98").request(
             onCompletion: { (result: BlobResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.blobs)
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                XCTFail("Failed during \(method) with error \(error)")
-                readyExpectation.fulfill()
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            XCTAssertNil(error, "Timeout during \(method) with error \(error)")
-        })
+        self.waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

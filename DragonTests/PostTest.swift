@@ -13,22 +13,20 @@ class PostTest: DragonTest
 {
     func testWithPostID()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "PostRequest(withPostID:)"
         
         PostRequest(withPostID: "de93088f-8fd4-4e35-8de1-d71292fdb047").request(
             onCompletion: { (result: PostResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.post)
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

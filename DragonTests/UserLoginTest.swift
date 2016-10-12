@@ -13,43 +13,39 @@ class UserLoginTest: DragonTest
 {
     func testWithUserLoginID()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "UserLoginRequest(withUserLoginID:)"
         
         UserLoginRequest(withUserLoginID: "63dd798f-50d6-40b2-8827-9788a6591dec").request(
             onCompletion: { (result: UserLoginResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.userLogin)
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testWithUserID()
     {
-        let readyExpectation = expectation(description: "ready")
+        let ready = expectation(description: "ready")
         let method = "UserLoginRequest(withUserID:)"
         
         UserLoginRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
             onCompletion: { (result: UserLoginResult) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.userLogin)
-                readyExpectation.fulfill()
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                self.fail(duringMethod: method, withExpectation: readyExpectation, withError: error)
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
-            self.timeout(duringMethod: method, withError: error)
-        })
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

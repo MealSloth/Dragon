@@ -15,6 +15,7 @@ class UserDataTest: DragonTest
     func testUserStore()
     {
         let ready = expectation(description: "ready")
+        let method = "UserRequest(withUserID:)"
         
         UserRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
             onCompletion: { (result: UserResult) -> Void in
@@ -30,14 +31,11 @@ class UserDataTest: DragonTest
                 }
             },
             onError: { (error) -> Void in
-                XCTFail("Error during UserRequest")
-                ready.fulfill()
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
-        waitForExpectations(timeout: 5, handler: { (error) -> Void in
-            XCTAssertNil(error, "Error during testUserStore: \(error)")
-        })
+        waitForExpectations(timeout: 5, duringMethod: method)
     }
     
     func testFromID()

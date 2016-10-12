@@ -21,6 +21,13 @@ class DragonTest: XCTestCase
         super.tearDown()
     }
     
+    func waitForExpectations(timeout: TimeInterval, duringMethod method: String)
+    {
+        super.waitForExpectations(timeout: timeout, handler: { (error) -> Void in
+            XCTAssertNil(error, "Timeout during \(method) with error \(error)")
+        })
+    }
+    
     func fail(duringMethod method: String, withExpectation expectation: XCTestExpectation, withError error: Error?)
     {
         XCTFail("Failed during \(method) with error \(error)")
