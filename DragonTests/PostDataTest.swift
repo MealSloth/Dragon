@@ -12,61 +12,67 @@ import XCTest
 
 class PostDataTest: DragonTest
 {
-    func testPostStore()
+    private func postRequest(completion: ((PostPageResult, XCTestExpectation) -> Void)?)
     {
         let ready = expectation(description: "ready")
         let method = "PostPageRequest()"
         
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
-                if let post = result.posts[safe: 0]
-                {
-                    XCTAssertNotNil(post.id)
-                    ready.fulfill()
-                }
-                else
-                {
-                    XCTFail("Post at index 0 is nil")
-                    ready.fulfill()
-                }
+                completion?(result, ready)
+                ready.fulfill()
             },
             onError: { (error) -> Void in
-                XCTFail("Error during PostPageRequest")
-                ready.fulfill()
+                self.fail(duringMethod: method, withExpectation: ready, withError: error)
             }
         )
         
         waitForExpectations(timeout: 5, duringMethod: method)
     }
     
+    func testPostStore()
+    {
+        self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
+            XCTAssertNotNil(result.posts[safe: 0])
+            XCTAssertNotNil(result.posts[safe: 0]?.id)
+        })
+    }
+    
     func testPostFetch()
     {
-        let posts = Post.all()
-        XCTAssertNotNil(posts?[safe: 0])
+        self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
+            let posts = Post.all()
+            XCTAssertNotNil(posts?[safe: 0])
+        })
     }
     
     func testPostUpdate()
     {
-        /** 
-         ** For anyone who has to look at this: I'm sorry.
-         ** Apple is slow and can't figure out how to use
-         ** native Swift types with CoreData and reflection.
-         **/
-        if let post = Post.first()
-        {
-            let capacity: Int = post.capacity as Int
-            post.capacity = capacity + 1 as NSNumber
-            post.save()
-            XCTAssert(post.capacity == (capacity + 1 as NSNumber))
-            if let samePost = Post.first()
+        self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
+            /**
+             ** For anyone who has to look at this: I'm sorry.
+             ** Apple is slow and can't figure out how to use
+             ** native Swift types with CoreData and reflection.
+             **/
+            if let post = Post.first()
             {
-                XCTAssert(samePost.capacity == (capacity + 1 as NSNumber))
+                let capacity: Int = post.capacity as Int
+                post.capacity = capacity + 1 as NSNumber
+                post.save()
+                XCTAssert(post.capacity == (capacity + 1 as NSNumber))
+                if let samePost = Post.first()
+                {
+                    XCTAssert(samePost.capacity == (capacity + 1 as NSNumber))
+                }
             }
-        }
+        })
     }
     
     func testDeleteAllPosts()
     {
-        Post.deleteAll()
+        self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
+            Post.deleteAll()
+            XCTAssertNil(Post.first())
+        })
     }
 }

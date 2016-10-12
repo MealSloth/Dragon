@@ -12,23 +12,17 @@ import XCTest
 
 class UserDataTest: DragonTest
 {
-    func testUserStore()
+    let id = "8bbfec5e-c29b-40d6-9918-45911e97134f"
+    
+    private func userRequest(completion: ((UserResult, XCTestExpectation) -> Void)?)
     {
         let ready = expectation(description: "ready")
         let method = "UserRequest(withUserID:)"
         
         UserRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
             onCompletion: { (result: UserResult) -> Void in
-                if let user = result.user
-                {
-                    XCTAssertNotNil(user.id)
-                    ready.fulfill()
-                }
-                else
-                {
-                    XCTFail("User is nil")
-                    ready.fulfill()
-                }
+                completion?(result, ready)
+                ready.fulfill()
             },
             onError: { (error) -> Void in
                 self.fail(duringMethod: method, withExpectation: ready, withError: error)
@@ -38,25 +32,45 @@ class UserDataTest: DragonTest
         waitForExpectations(timeout: 5, duringMethod: method)
     }
     
+    func testUserStore()
+    {
+        self.userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
+            XCTAssertNotNil(result.user)
+            XCTAssertNotNil(result.user?.id)
+        })
+    }
+    
     func testFromID()
     {
-        let user = User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f")
-        XCTAssertNotNil(user)
+        userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
+            let user = User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f")
+            XCTAssertNotNil(user)
+        })
     }
     
     func testUserFetch()
     {
-        let users = User.all()
-        XCTAssertNotNil(users?[safe: 0])
+        userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
+            let users = User.all()
+            XCTAssertNotNil(users?[safe: 0])
+        })
     }
     
     func testDeleteAllUsers()
     {
-        User.deleteAll()
+        userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
+            let user = User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f")
+            XCTAssertNotNil(user)
+            User.deleteAll()
+            XCTAssertNil(User.first())
+        })
     }
     
     func testDeleteID()
     {
-        User.delete(withID: "8bbfec5e-c29b-40d6-9918-45911e97134f")
+        userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
+            User.delete(withID: "8bbfec5e-c29b-40d6-9918-45911e97134f")
+            XCTAssertNil(User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f"))
+        })
     }
 }
