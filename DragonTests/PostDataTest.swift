@@ -56,7 +56,7 @@ class PostDataTest: DragonTest
              **/
             if let post = Post.first()
             {
-                let capacity: Int = post.capacity as Int
+                let capacity = post.capacity as Int
                 post.capacity = capacity + 1 as NSNumber
                 post.save()
                 XCTAssert(post.capacity == (capacity + 1 as NSNumber))
