@@ -82,7 +82,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
             }
             else
             {
-                self.setValue(model.value(forKey: property), forKey: property)
+                self.setValue(value, forKey: property)
             }
         }
     }
