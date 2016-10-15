@@ -24,20 +24,18 @@ class HomeTableViewController: UITableViewController
         
         self.tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
+        
         if let posts = Post.all()
         {
             self.posts = posts
             self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
         }
-        
-        PostPageRequest().request(
-            onCompletion: { (result: PostPageResult) -> Void in
-                self.handlePostPageResult(result)
-            },
-            onError: { (error) -> Void in
-                Log.error("Error occurred during PostPageRequest(): \(error)")
-            }
-        )
+        else
+        {
+            self.refresh()
+        }
     }
     
     override func didReceiveMemoryWarning()
@@ -110,34 +108,30 @@ class HomeTableViewController: UITableViewController
     }
     
     // MARK: Misc
+    func refresh()
+    {
+        PostPageRequest().request(
+            onCompletion: { (result: PostPageResult) -> Void in
+                self.handlePostPageResult(result)
+                self.endRefresh()
+            },
+            onError: { (error) -> Void in
+                Log.error("Error occurred during PostPageRequest(): \(error)")
+                self.endRefresh()
+            }
+        )
+    }
+    
+    func endRefresh()
+    {
+        if let refreshing = self.refreshControl?.isRefreshing, refreshing == true
+        {
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
     fileprivate func handlePostPageResult(_ result: PostPageResult?)
     {
-//        var changed = false
-//        for remotePost in result?.posts
-//        {
-//            var has = false
-//            for localPost in self.posts
-//            {
-//                has = localPost.id == remotePost.id ?? true
-//                if has
-//                {
-//                    break
-//                }
-//            }
-//            changed = !has ?? true
-//            if changed
-//            {
-//                break
-//            }
-//        }
-//        if let posts = result?.posts
-//        {
-//            if changed
-//            {
-//                self.posts = posts
-//                self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
-//            }
-//        }
         if let posts = result?.posts
         {
             self.posts = posts
