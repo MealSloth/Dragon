@@ -55,6 +55,7 @@
 		4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB21D51819200B5D4BE /* UIImage+.swift */; };
 		4CC40DB51D51838000B5D4BE /* CollectionType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB41D51838000B5D4BE /* CollectionType+.swift */; };
 		4CC60D951DB2C103002A5EE0 /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */; };
+		4CC60D981DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */; };
 		4CC674751D80E82C001BCA67 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674741D80E82C001BCA67 /* UserLogin.swift */; };
 		4CC674771D80E855001BCA67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674761D80E855001BCA67 /* User.swift */; };
 		4CC674791D80E8A5001BCA67 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674781D80E8A5001BCA67 /* Album.swift */; };
@@ -180,6 +181,7 @@
 		4CC40DB21D51819200B5D4BE /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4CC40DB41D51838000B5D4BE /* CollectionType+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CollectionType+.swift"; sourceTree = "<group>"; };
 		4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
+		4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+.swift"; sourceTree = "<group>"; };
 		4CC674741D80E82C001BCA67 /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		4CC674761D80E855001BCA67 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4CC674781D80E8A5001BCA67 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -523,6 +525,7 @@
 				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
 				4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */,
 				4CFF11CF1D497E600062B33A /* UIViewController+.swift */,
+				4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -865,6 +868,7 @@
 				4CCD0A6F1CD91F7B0081A28B /* BlobAPIModel.swift in Sources */,
 				4CDA11181D4806A2002C62FD /* UserCreateResult.swift in Sources */,
 				4C6982951CD40D26005ABCF1 /* UserRequest.swift in Sources */,
+				4CC60D981DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift in Sources */,
 				4C2510B91DAA5BD3001112E5 /* Insertable.swift in Sources */,
 				4CCD0A6D1CD91F580081A28B /* ChefAPIModel.swift in Sources */,
 				4C42CC961D90A422008B2FCA /* Fetchable.swift in Sources */,

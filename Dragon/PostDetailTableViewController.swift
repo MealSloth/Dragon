@@ -11,8 +11,7 @@ import UIKit
 
 class PostDetailTableViewController: UITableViewController
 {
-    var post: Post!
-    var blob: UIImage?
+    var post: Post?
     
     // MARK: Delegates
     override func viewDidLoad()
@@ -20,33 +19,6 @@ class PostDetailTableViewController: UITableViewController
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
-        
-        if self.blob == nil
-        {
-            if let results = Blob.fromAlbumID(self.post.albumID),
-                let first = results[safe: 0]
-            {
-                self.blob = UIImage.fromURL(first.url)
-            }
-            else
-            {
-                BlobRequest(withAlbumID: self.post.albumID).request(
-                    onCompletion: { (result: BlobResult) -> Void in
-                        if let first = result.blobs?[safe: 0]
-                        {
-                            self.blob = UIImage.fromURL(first.url)
-                        }
-                        else
-                        {
-                            Log.warning("BlobRequest returned nil blob(s)")
-                        }
-                    },
-                    onError: { (error) -> Void in
-                        Log.error("Error during BlobRequest: \(error)")
-                    }
-                )
-            }
-        }
     }
     
     // MARK: TableView Delegates
@@ -72,7 +44,7 @@ class PostDetailTableViewController: UITableViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
             if let titleCell = cell as? PostDetailTitleCell
             {
-                titleCell.imagePost.image = self.blob
+                titleCell.populate(withPost: self.post)
                 return titleCell
             }
             return cell
@@ -82,7 +54,7 @@ class PostDetailTableViewController: UITableViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailSummaryCell", for: indexPath)
             if let summaryCell = cell as? PostDetailSummaryCell
             {
-                summaryCell.labelName.text = self.post.name
+                summaryCell.labelName.text = self.post?.name
                 return summaryCell
             }
             return cell

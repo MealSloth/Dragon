@@ -27,6 +27,7 @@ class HomeTableViewController: UITableViewController
         if let posts = Post.all()
         {
             self.posts = posts
+            self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
         }
         
         PostPageRequest().request(
@@ -111,6 +112,32 @@ class HomeTableViewController: UITableViewController
     // MARK: Misc
     fileprivate func handlePostPageResult(_ result: PostPageResult?)
     {
+//        var changed = false
+//        for remotePost in result?.posts
+//        {
+//            var has = false
+//            for localPost in self.posts
+//            {
+//                has = localPost.id == remotePost.id ?? true
+//                if has
+//                {
+//                    break
+//                }
+//            }
+//            changed = !has ?? true
+//            if changed
+//            {
+//                break
+//            }
+//        }
+//        if let posts = result?.posts
+//        {
+//            if changed
+//            {
+//                self.posts = posts
+//                self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
+//            }
+//        }
         if let posts = result?.posts
         {
             self.posts = posts

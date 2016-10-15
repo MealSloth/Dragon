@@ -23,7 +23,7 @@ class PostTableViewCell: UITableViewCell
     
     func populate(withPost post: Post)
     {
-        self.activityIndicator.isHidden = false
+        self.activityIndicator.enable()
         self.populateImage(withPost: post)
         self.labelPostName.text = post.name
         self.labelPrice.text = "$8"
@@ -75,7 +75,7 @@ class PostTableViewCell: UITableViewCell
                 self.imageChef.alpha = 1.0
                 self.imagePost.alpha = 1.0
                 self.imagePost.image = self.blobImage
-                self.activityIndicator.isHidden = true
+                self.activityIndicator.disable()
             })
         })
     }

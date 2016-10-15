@@ -22,4 +22,19 @@ extension UIImage
         }
         return nil
     }
+    
+    class func fromURL(_ url: String, completion: ((UIImage?) -> Void)?)
+    {
+        AppDelegate.backgroundQueue.async {
+            if let nsurl = URL(string: url)
+            {
+                if let data = try? Data(contentsOf: nsurl)
+                {
+                    completion?(UIImage(data: data))
+                    return
+                }
+            }
+            completion?(nil)
+        }
+    }
 }

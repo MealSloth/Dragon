@@ -620,6 +620,7 @@ EENvbnRpbnVlIEJyb3dzaW5nA
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Wgq-2a-5HY"/>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -630,7 +631,9 @@ EENvbnRpbnVlIEJyb3dzaW5nA
                                                 <constraint firstAttribute="bottom" secondItem="gdH-Fd-i4Z" secondAttribute="bottom" id="Gl4-WI-mqE"/>
                                                 <constraint firstItem="Ov8-6K-NH7" firstAttribute="leading" secondItem="K5J-Vb-IhB" secondAttribute="leading" constant="20" id="hIs-qZ-KXy"/>
                                                 <constraint firstAttribute="trailing" secondItem="XU8-Wa-Jql" secondAttribute="trailing" id="isZ-Ck-bOX"/>
+                                                <constraint firstItem="Wgq-2a-5HY" firstAttribute="centerX" secondItem="K5J-Vb-IhB" secondAttribute="centerX" id="oLZ-6w-9dc"/>
                                                 <constraint firstItem="XU8-Wa-Jql" firstAttribute="top" secondItem="K5J-Vb-IhB" secondAttribute="top" id="psk-OH-xpF"/>
+                                                <constraint firstItem="Wgq-2a-5HY" firstAttribute="centerY" secondItem="K5J-Vb-IhB" secondAttribute="centerY" id="qOo-d4-X3P"/>
                                                 <constraint firstItem="gdH-Fd-i4Z" firstAttribute="leading" secondItem="K5J-Vb-IhB" secondAttribute="leading" id="szK-PM-yYm"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ov8-6K-NH7" secondAttribute="bottom" constant="10" id="ulN-sy-U4S"/>
                                             </constraints>
@@ -647,6 +650,7 @@ EENvbnRpbnVlIEJyb3dzaW5nA
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="Wgq-2a-5HY" id="IEH-oa-H48"/>
                                     <outlet property="imageChef" destination="Ov8-6K-NH7" id="BKc-Vg-dRv"/>
                                     <outlet property="imagePost" destination="XU8-Wa-Jql" id="UdB-bV-QYr"/>
                                 </connections>
