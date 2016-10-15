@@ -32,7 +32,8 @@ class HomeTableViewController: UITableViewController
             self.posts = posts
             self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
         }
-        else
+        
+        if Post.first() == nil
         {
             self.refresh()
         }

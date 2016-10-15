@@ -58,8 +58,11 @@ class PostDetailTitleCell: UITableViewCell
     {
         self.runOnMainThread({ () -> Void in
             self.blob = blob
-            self.imagePost.image = self.blob
             self.activityIndicator.disable()
+            UIView.animate(withDuration: 0.4, animations: { () -> Void in
+                self.imagePost.image = self.blob
+                self.imagePost.alpha = 1.0
+            })
         })
     }
 }

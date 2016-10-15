@@ -69,7 +69,7 @@ class PostTableViewCell: UITableViewCell
     fileprivate func display()
     {
         self.runOnMainThread({ () -> Void in
-            UIView.animate(withDuration: 0.4, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.labelPostName.alpha = 1.0
                 self.labelPrice.alpha = 1.0
                 self.imageChef.alpha = 1.0
