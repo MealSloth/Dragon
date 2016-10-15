@@ -15,6 +15,68 @@ class PostTableViewCell: UITableViewCell
     @IBOutlet weak var imageChef: UIImageView!
     @IBOutlet weak var labelPostName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var post: Post?
+    var blob: Blob?
+    var blobImage: UIImage?
+    
+    func populate(withPost post: Post)
+    {
+        self.activityIndicator.isHidden = false
+        self.populateImage(withPost: post)
+        self.labelPostName.text = post.name
+        self.labelPrice.text = "$8"
+    }
+    
+    fileprivate func populateImage(withPost post: Post)
+    {
+        self.runOnBackgroundThread({ () -> Void in
+            if let _ = self.blobImage
+            {
+                self.display()
+            }
+            else if let blob = Blob.fromAlbumID(post.albumID)?[safe: 0]
+            {
+                self.blobImage = UIImage.fromURL(blob.url)
+                self.display()
+            }
+            else
+            {
+                if let post = self.post
+                {
+                    BlobRequest(withAlbumID: post.albumID).request(
+                        onCompletion: { (result: BlobResult) -> Void in
+                            if let blob = result.blobs?[safe: 0], let image = UIImage.fromURL(blob.url)
+                            {
+                                self.blobImage = image
+                                self.display()
+                            }
+                        },
+                        onError: { (error) -> Void in
+                            Log.error("Error during BlobRequest(withAlbumID:): \(error)")
+                        }
+                    )
+                }
+                else
+                {
+                    Log.error("PostTableViewCell was populated with a nil Post")
+                }
+            }
+        })
+    }
+    
+    fileprivate func display()
+    {
+        self.runOnMainThread({ () -> Void in
+            UIView.animate(withDuration: 0.4, animations: { () -> Void in
+                self.labelPostName.alpha = 1.0
+                self.labelPrice.alpha = 1.0
+                self.imageChef.alpha = 1.0
+                self.imagePost.alpha = 1.0
+                self.imagePost.image = self.blobImage
+                self.activityIndicator.isHidden = true
+            })
+        })
+    }
 }

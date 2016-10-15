@@ -14,7 +14,6 @@ class HomeTableViewController: UITableViewController
     @IBOutlet weak var scrollView: UIScrollView!
     
     var posts: [Post] = []
-    var blobs: Dictionary<String, UIImage> = [:]
     
     var ratio: CGFloat = 9.0/16.0
     
@@ -58,10 +57,6 @@ class HomeTableViewController: UITableViewController
             if let post = sender as? Post
             {
                 vc.post = post
-                if let blob = self.blobs[post.albumID]
-                {
-                    vc.blob = blob
-                }
             }
         }
     }
@@ -89,11 +84,20 @@ class HomeTableViewController: UITableViewController
         {
             if let post = self.posts[safe: indexPath.row]
             {
-                return self.populateCell(cell, withPost: post)
+                cell.populate(withPost: post)
+                return cell
+            }
+            else
+            {
+                Log.error("Missing post for PostTableViewCell at row \(indexPath.row) in section \(indexPath.section)")
+                return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
             }
         }
-        Log.warning("Failed cast to PostTableViewCell")
-        return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
+        else
+        {
+            Log.warning("Failed cast to PostTableViewCell")
+            return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -117,62 +121,5 @@ class HomeTableViewController: UITableViewController
     fileprivate func segue(withPost post: Post)
     {
         self.performSegue(withIdentifier: "Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
-    }
-    
-    fileprivate func populateCell(_ cell: PostTableViewCell, withPost post: Post) -> PostTableViewCell
-    {
-        self.populateImageForCell(cell, withPost: post)
-        
-        cell.labelPostName.text = post.name
-        cell.labelPrice.text = "$8"
-        
-        return cell
-    }
-    
-    fileprivate func populateImageForCell(_ cell: PostTableViewCell, withPost post: Post)
-    {
-        self.runOnBackgroundThread({ () -> Void in
-            if let _ = self.blobs[post.albumID]
-            {
-                self.runOnMainThread({ () -> Void in
-                    self.displayCell(cell, withAlbumID: post.albumID)
-                })
-            }
-            else if let blob = Blob.fromAlbumID(post.albumID)?[safe: 0]
-            {
-                self.blobs[post.albumID] = UIImage.fromURL(blob.url)
-                self.runOnMainThread({ () -> Void in
-                    self.displayCell(cell, withAlbumID: post.albumID)
-                })
-            }
-            else
-            {
-                BlobRequest(withAlbumID: post.albumID).request(
-                    onCompletion: { (result: BlobResult) -> Void in
-                        if let blob = result.blobs?[safe: 0], let image = UIImage.fromURL(blob.url)
-                        {
-                            self.blobs[post.albumID] = image
-                            self.runOnMainThread({ () -> Void in
-                                self.displayCell(cell, withAlbumID: post.albumID)
-                            })
-                        }
-                    },
-                    onError: { (error) -> Void in
-                        Log.error("Error during BlobRequest(withAlbumID:): \(error)")
-                    }
-                )
-            }
-        })
-    }
-    
-    fileprivate func displayCell(_ cell: PostTableViewCell, withAlbumID albumID: String)
-    {
-        UIView.animate(withDuration: 0.4, animations: { () -> Void in
-            cell.labelPostName.alpha = 1.0
-            cell.labelPrice.alpha = 1.0
-            cell.imageChef.alpha = 1.0
-            cell.imagePost.alpha = 1.0
-            cell.imagePost.image = self.blobs[albumID]
-        })
     }
 }

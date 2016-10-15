@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="735" height="498"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMF-Gw-XLB" id="EHx-NG-krp">
-                <frame key="frameInset" width="735" height="497.5"/>
+                <frame key="frameInset" width="735" height="497"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-zi-4Eb" userLabel="Post">
@@ -75,6 +75,12 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-71-UGy">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Kb6-dp-mnL"/>
+                                    <constraint firstAttribute="width" constant="60" id="SZg-Qi-F5B"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -83,9 +89,11 @@
                             <constraint firstItem="34U-CX-QFz" firstAttribute="top" secondItem="6zo-zi-4Eb" secondAttribute="top" id="BB2-jB-trq"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="34U-CX-QFz" secondAttribute="bottom" id="KdU-Re-4li"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" id="RC8-rF-NEZ"/>
+                            <constraint firstItem="DAe-71-UGy" firstAttribute="centerX" secondItem="6zo-zi-4Eb" secondAttribute="centerX" id="SYt-f4-L4g"/>
                             <constraint firstAttribute="trailing" secondItem="G4f-e4-iCY" secondAttribute="trailing" id="Zau-D4-fer"/>
                             <constraint firstAttribute="bottom" secondItem="G4f-e4-iCY" secondAttribute="bottom" id="rCp-NX-WID"/>
                             <constraint firstItem="34U-CX-QFz" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" id="vyb-7U-doT"/>
+                            <constraint firstItem="DAe-71-UGy" firstAttribute="centerY" secondItem="6zo-zi-4Eb" secondAttribute="centerY" id="x1a-0X-EY1"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="087-My-3qN" secondAttribute="bottom" constant="-30" id="yAM-o4-ncb"/>
                         </constraints>
                     </view>
@@ -98,6 +106,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="activityIndicator" destination="DAe-71-UGy" id="5ep-7k-Inz"/>
                 <outlet property="imageChef" destination="087-My-3qN" id="HQe-2m-YhR"/>
                 <outlet property="imagePost" destination="34U-CX-QFz" id="NOH-Kk-TTG"/>
                 <outlet property="labelPostName" destination="33b-O2-nXr" id="Gcm-Uv-xN9"/>
