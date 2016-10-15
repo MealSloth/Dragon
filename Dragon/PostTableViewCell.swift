@@ -24,19 +24,17 @@ class PostTableViewCell: UITableViewCell
     func populate(withPost post: Post)
     {
         self.activityIndicator.enable()
-        self.populateImage(withPost: post)
-        self.labelPostName.text = post.name
+        self.imagePost.image = nil
+        self.post = post
+        self.labelPostName.text = self.post?.name
         self.labelPrice.text = "$8"
+        self.populateImage()
     }
     
-    fileprivate func populateImage(withPost post: Post)
+    fileprivate func populateImage()
     {
         self.runOnBackgroundThread({ () -> Void in
-            if let _ = self.blobImage
-            {
-                self.display()
-            }
-            else if let blob = Blob.fromAlbumID(post.albumID)?[safe: 0]
+            if let blob = Blob.fromAlbumID(self.post?.albumID)?[safe: 0]
             {
                 self.blobImage = UIImage.fromURL(blob.url)
                 self.display()
