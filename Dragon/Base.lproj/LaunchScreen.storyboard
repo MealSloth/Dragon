@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,9 +16,29 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mealsloth" translatesAutoresizingMaskIntoConstraints="NO" id="fhz-8K-cqv">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fhz-8K-cqv" secondAttribute="height" multiplier="1:1" id="8Yz-Ex-Ouv"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eucalyptus" translatesAutoresizingMaskIntoConstraints="NO" id="auy-yd-a8O">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="auy-yd-a8O" secondAttribute="height" multiplier="600:233" id="TZ5-Aq-O3z"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="auy-yd-a8O" secondAttribute="trailing" constant="20" id="AK2-vD-IjW"/>
+                            <constraint firstItem="auy-yd-a8O" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="KfC-dK-1cS"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="fhz-8K-cqv" secondAttribute="bottom" id="OLd-fO-ssm"/>
+                            <constraint firstItem="fhz-8K-cqv" firstAttribute="top" secondItem="auy-yd-a8O" secondAttribute="bottom" constant="20" id="OVL-mw-ePK"/>
+                            <constraint firstItem="fhz-8K-cqv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="60" id="sVr-EF-pPK"/>
+                            <constraint firstAttribute="trailing" secondItem="fhz-8K-cqv" secondAttribute="trailing" constant="60" id="yXE-Ka-DIZ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +46,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eucalyptus" width="600" height="233"/>
+        <image name="mealsloth" width="500" height="500"/>
+    </resources>
 </document>
