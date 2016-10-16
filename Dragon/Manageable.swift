@@ -8,6 +8,9 @@
 
 import Foundation
 
+//
+//  Manageable is a protocol which implements all available DB protocols
+//
 protocol Manageable: Deletable, Fetchable, Insertable, Updatable
 {
     
