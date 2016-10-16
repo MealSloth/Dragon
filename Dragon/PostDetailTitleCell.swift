@@ -15,7 +15,7 @@ class PostDetailTitleCell: UITableViewCell
     @IBOutlet weak var imageChef: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var blob: UIImage?
+    var blob: Blob?
     
     func populate(withPost post: Post?)
     {
@@ -25,22 +25,17 @@ class PostDetailTitleCell: UITableViewCell
             if let results = Blob.fromAlbumID(post.albumID),
                 let first = results[safe: 0]
             {
-                UIImage.fromURL(first.url, completion: { (image) -> Void in
-                    self.populateImage(withBlob: image)
-                })
+                self.blob = first
+                let _ = self.blob?.image
+                self.populateImage()
             }
             else
             {
                 BlobRequest(withAlbumID: post.albumID).request(
                     onCompletion: { (result: BlobResult) -> Void in
-                        if let first = result.blobs?[safe: 0]
-                        {
-                            self.populateImage(withBlob: UIImage.fromURL(first.url))
-                        }
-                        else
-                        {
-                            Log.warning("BlobRequest returned nil blob(s)")
-                        }
+                        self.blob = result.blobs?[safe: 0]
+                        let _ = self.blob?.image
+                        self.populateImage()
                     },
                     onError: { (error) -> Void in
                         Log.error("Error during BlobRequest: \(error)")
@@ -54,13 +49,12 @@ class PostDetailTitleCell: UITableViewCell
         }
     }
     
-    func populateImage(withBlob blob: UIImage?)
+    func populateImage()
     {
         self.runOnMainThread({ () -> Void in
-            self.blob = blob
             self.activityIndicator.disable()
             UIView.animate(withDuration: 0.4, animations: { () -> Void in
-                self.imagePost.image = self.blob
+                self.imagePost.image = self.blob?.image
                 self.imagePost.alpha = 1.0
             })
         })
