@@ -46,6 +46,11 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="CB5-gI-RbS" userLabel="Image Stars">
                                                 <constraints>
@@ -53,6 +58,11 @@
                                                     <constraint firstAttribute="width" constant="100" id="Iry-XH-Ild"/>
                                                     <constraint firstAttribute="height" constant="20" id="uga-BH-hKm"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,6 +140,7 @@
                 <outlet property="activityIndicator" destination="DAe-71-UGy" id="5ep-7k-Inz"/>
                 <outlet property="imageChef" destination="087-My-3qN" id="HQe-2m-YhR"/>
                 <outlet property="imagePost" destination="34U-CX-QFz" id="NOH-Kk-TTG"/>
+                <outlet property="imageStars" destination="CB5-gI-RbS" id="VoI-M9-zHe"/>
                 <outlet property="labelPostName" destination="33b-O2-nXr" id="Gcm-Uv-xN9"/>
                 <outlet property="labelPrice" destination="tRJ-T4-Ubh" id="8eh-Fg-T4m"/>
                 <outlet property="labelTime" destination="iOu-0T-WCf" id="7K2-QV-pgL"/>

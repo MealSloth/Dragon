@@ -13,6 +13,7 @@ class PostTableViewCell: UITableViewCell
 {
     @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var imageChef: UIImageView!
+    @IBOutlet weak var imageStars: UIImageView!
     @IBOutlet weak var labelPostName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelTime: UILabel!
@@ -37,18 +38,9 @@ class PostTableViewCell: UITableViewCell
         self.runOnBackgroundThread({ () -> Void in
             if let blob = Blob.fromAlbumID(self.post?.albumID)?[safe: 0]
             {
-                if blob.id == self.blob?.id && blob.url == self.blob?.url
-                {
-                    //Is the reused blob already correct? Okay, just display with no animation
-                    self.display(animated: false)
-                }
-                else
-                {
-                    //Otherwise, set the proper blob, load, and then display with an animation
-                    self.blob = blob
-                    let _ = self.blob?.image //Load lazy image in background thread
-                    self.display(animated: true)
-                }
+                self.blob = blob
+                let _ = self.blob?.image //Load lazy image in background thread
+                self.display(animated: true)
             }
             else
             {
@@ -78,8 +70,10 @@ class PostTableViewCell: UITableViewCell
         let changes = { () -> Void in
             self.labelPostName.alpha = 1.0
             self.labelPrice.alpha = 1.0
+            self.labelTime.alpha = 1.0
             self.imageChef.alpha = 1.0
             self.imagePost.alpha = 1.0
+            self.imageStars.alpha = 1.0
             self.imagePost.image = self.blob?.image
             self.activityIndicator.disable()
         }
