@@ -29,7 +29,16 @@ class PostDetailTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 2
+        return 4
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        if indexPath.row == 2
+        {
+            return 80.0
+        }
+        return super.tableView(tableView, heightForRowAt: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -57,6 +66,16 @@ class PostDetailTableViewController: UITableViewController
                 summaryCell.labelName.text = self.post?.name
                 return summaryCell
             }
+            return cell
+        }
+        else if indexPath.row == 2
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)
+            return cell
+        }
+        else if indexPath.row == 3
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailDescriptionCell", for: indexPath)
             return cell
         }
         else
