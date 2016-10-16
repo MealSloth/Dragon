@@ -84,7 +84,6 @@ class HomeTableViewController: UITableViewController
         {
             if let post = self.posts[safe: indexPath.row]
             {
-                Log.debug(post.id)
                 cell.populate(withPost: post)
                 return cell
             }

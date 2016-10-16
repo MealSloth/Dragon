@@ -19,7 +19,6 @@ class PostTableViewCell: UITableViewCell
     
     var post: Post?
     var blob: Blob?
-    var blobImage: UIImage?
     
     func populate(withPost post: Post)
     {
@@ -36,8 +35,18 @@ class PostTableViewCell: UITableViewCell
         self.runOnBackgroundThread({ () -> Void in
             if let blob = Blob.fromAlbumID(self.post?.albumID)?[safe: 0]
             {
-                self.blobImage = UIImage.fromURL(blob.url)
-                self.display()
+                if blob.id == self.blob?.id && blob.url == self.blob?.url
+                {
+                    //Is the reused blob already correct? Okay, just display with no animation
+                    self.display(animated: false)
+                }
+                else
+                {
+                    //Otherwise, set the proper blob, load, and then display with an animation
+                    self.blob = blob
+                    let _ = self.blob?.image //Load lazy image in background thread
+                    self.display(animated: true)
+                }
             }
             else
             {
@@ -45,11 +54,9 @@ class PostTableViewCell: UITableViewCell
                 {
                     BlobRequest(withAlbumID: post.albumID).request(
                         onCompletion: { (result: BlobResult) -> Void in
-                            if let blob = result.blobs?[safe: 0], let image = UIImage.fromURL(blob.url)
-                            {
-                                self.blobImage = image
-                                self.display()
-                            }
+                            self.blob = result.blobs?[safe: 0]
+                            let _ = self.blob?.image //Load lazy image in background thread
+                            self.display(animated: true)
                         },
                         onError: { (error) -> Void in
                             Log.error("Error during BlobRequest(withAlbumID:): \(error)")
@@ -64,17 +71,19 @@ class PostTableViewCell: UITableViewCell
         })
     }
     
-    fileprivate func display()
+    fileprivate func display(animated: Bool = true)
     {
+        let changes = { () -> Void in
+            self.labelPostName.alpha = 1.0
+            self.labelPrice.alpha = 1.0
+            self.imageChef.alpha = 1.0
+            self.imagePost.alpha = 1.0
+            self.imagePost.image = self.blob?.image
+            self.activityIndicator.disable()
+        }
+        
         self.runOnMainThread({ () -> Void in
-            UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                self.labelPostName.alpha = 1.0
-                self.labelPrice.alpha = 1.0
-                self.imageChef.alpha = 1.0
-                self.imagePost.alpha = 1.0
-                self.imagePost.image = self.blobImage
-                self.activityIndicator.disable()
-            })
+            animated ? UIView.animate(withDuration: 0.3, animations: changes) : changes()
         })
     }
 }

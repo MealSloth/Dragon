@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Blob: Model
 {
@@ -16,6 +17,10 @@ class Blob: Model
     @NSManaged var contentType: String?
     @NSManaged var time: Date!
     @NSManaged var url: String!
+    
+    lazy var image: UIImage? = {
+        return UIImage.fromURL(self.url)
+    }()
     
     static func fromAlbumID(_ id: String?) -> [Blob]?
     {

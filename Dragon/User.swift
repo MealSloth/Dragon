@@ -23,4 +23,9 @@ class User: Model
     @NSManaged var phoneNumber: String?
     @NSManaged var dateOfBirth: Date?
     @NSManaged var gender: NSNumber?
+    
+    static func fromEmail(email: String?) -> User?
+    {
+        return self.from("email", withValue: email)?[safe: 0]
+    }
 }
