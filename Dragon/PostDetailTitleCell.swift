@@ -49,7 +49,7 @@ class PostDetailTitleCell: UITableViewCell
         }
     }
     
-    func populateImage()
+    fileprivate func populateImage()
     {
         self.runOnMainThread({ () -> Void in
             self.activityIndicator.disable()
