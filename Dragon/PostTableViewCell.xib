@@ -9,45 +9,71 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="498" id="CMF-Gw-XLB" customClass="PostTableViewCell" customModule="Dragon" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="735" height="498"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostTableViewCell" rowHeight="480" id="CMF-Gw-XLB" customClass="PostTableViewCell" customModule="Dragon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="735" height="480"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMF-Gw-XLB" id="EHx-NG-krp">
-                <frame key="frameInset" width="735" height="497"/>
+                <frame key="frameInset" width="735" height="479"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-zi-4Eb" userLabel="Post">
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-e4-iCY" userLabel="Information View">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33b-O2-nXr" userLabel="Label Post Name">
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRJ-T4-Ubh" userLabel="Label Price">
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                                <integer key="value" value="0"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-fK-PNJ">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33b-O2-nXr" userLabel="Label Post Name">
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRJ-T4-Ubh" userLabel="Label Price">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOu-0T-WCf" userLabel="Label Time">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="CB5-gI-RbS" userLabel="Image Stars">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="CB5-gI-RbS" secondAttribute="height" multiplier="5:1" id="BLL-1J-XUq"/>
+                                                    <constraint firstAttribute="width" constant="100" id="Iry-XH-Ild"/>
+                                                    <constraint firstAttribute="height" constant="20" id="uga-BH-hKm"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="iOu-0T-WCf" firstAttribute="top" secondItem="tRJ-T4-Ubh" secondAttribute="bottom" constant="2" id="81H-AH-W1s"/>
+                                            <constraint firstAttribute="trailing" secondItem="iOu-0T-WCf" secondAttribute="trailing" constant="10" id="C1X-6t-LnN"/>
+                                            <constraint firstItem="33b-O2-nXr" firstAttribute="leading" secondItem="LVy-fK-PNJ" secondAttribute="leading" constant="2" id="Mib-NR-Z6U"/>
+                                            <constraint firstItem="CB5-gI-RbS" firstAttribute="leading" secondItem="LVy-fK-PNJ" secondAttribute="leading" id="Qe4-DN-Nkh"/>
+                                            <constraint firstItem="33b-O2-nXr" firstAttribute="top" secondItem="LVy-fK-PNJ" secondAttribute="top" constant="2" id="dId-lg-GFd"/>
+                                            <constraint firstAttribute="trailing" secondItem="tRJ-T4-Ubh" secondAttribute="trailing" constant="10" id="duE-VL-LcZ"/>
+                                            <constraint firstItem="tRJ-T4-Ubh" firstAttribute="top" secondItem="LVy-fK-PNJ" secondAttribute="top" constant="3" id="gTM-Tf-Czi"/>
+                                            <constraint firstItem="CB5-gI-RbS" firstAttribute="top" secondItem="33b-O2-nXr" secondAttribute="bottom" id="rYA-Yy-TCR"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="tRJ-T4-Ubh" secondAttribute="trailing" constant="8" id="IG3-rV-zmQ"/>
-                                    <constraint firstItem="33b-O2-nXr" firstAttribute="top" secondItem="G4f-e4-iCY" secondAttribute="top" constant="8" id="JkI-Az-Dcy"/>
-                                    <constraint firstItem="tRJ-T4-Ubh" firstAttribute="baseline" secondItem="33b-O2-nXr" secondAttribute="baseline" id="P9B-jX-zbj"/>
-                                    <constraint firstItem="tRJ-T4-Ubh" firstAttribute="top" secondItem="G4f-e4-iCY" secondAttribute="top" constant="8" id="qjg-oI-pEo"/>
-                                    <constraint firstItem="33b-O2-nXr" firstAttribute="leading" secondItem="G4f-e4-iCY" secondAttribute="leading" constant="113" id="uyO-71-ZlM"/>
+                                    <constraint firstItem="LVy-fK-PNJ" firstAttribute="top" secondItem="G4f-e4-iCY" secondAttribute="top" id="6at-eK-xJx"/>
+                                    <constraint firstItem="LVy-fK-PNJ" firstAttribute="leading" secondItem="G4f-e4-iCY" secondAttribute="leading" constant="90" id="HwP-Dx-cFn"/>
+                                    <constraint firstAttribute="bottom" secondItem="LVy-fK-PNJ" secondAttribute="bottom" id="PRR-7W-Anu"/>
+                                    <constraint firstAttribute="trailing" secondItem="LVy-fK-PNJ" secondAttribute="trailing" id="XZ6-Pc-Rk0"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal_sample" translatesAutoresizingMaskIntoConstraints="NO" id="34U-CX-QFz">
@@ -106,12 +132,14 @@
                 <outlet property="imagePost" destination="34U-CX-QFz" id="NOH-Kk-TTG"/>
                 <outlet property="labelPostName" destination="33b-O2-nXr" id="Gcm-Uv-xN9"/>
                 <outlet property="labelPrice" destination="tRJ-T4-Ubh" id="8eh-Fg-T4m"/>
+                <outlet property="labelTime" destination="iOu-0T-WCf" id="7K2-QV-pgL"/>
             </connections>
-            <point key="canvasLocation" x="620.5" y="289"/>
+            <point key="canvasLocation" x="618.5" y="269"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="meal_sample" width="1280" height="662"/>
+        <image name="stars" width="150" height="30"/>
         <image name="woman_sample" width="250" height="250"/>
     </resources>
 </document>

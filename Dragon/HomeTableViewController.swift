@@ -69,7 +69,7 @@ class HomeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        let result = (self.posts.count == 0) ? 0.0 : ScreenHelper.screenWidth * self.ratio + 60.0
+        let result = (self.posts.count == 0) ? 0.0 : ScreenHelper.screenWidth * self.ratio + 50.0
         return result
     }
     

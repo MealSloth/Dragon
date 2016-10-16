@@ -15,6 +15,7 @@ class PostTableViewCell: UITableViewCell
     @IBOutlet weak var imageChef: UIImageView!
     @IBOutlet weak var labelPostName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var post: Post?
@@ -26,7 +27,8 @@ class PostTableViewCell: UITableViewCell
         self.imagePost.image = nil
         self.post = post
         self.labelPostName.text = self.post?.name
-        self.labelPrice.text = "$8"
+        self.labelPrice.text = "$8.00"
+        self.labelTime.text = "1:00pm - 3:00pm"
         self.populateImage()
     }
     
