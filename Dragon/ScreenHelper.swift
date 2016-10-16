@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-open class ScreenHelpers
+open class ScreenHelper
 {
     open static var screenWidth: CGFloat
     {
