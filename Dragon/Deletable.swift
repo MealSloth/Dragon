@@ -9,15 +9,15 @@
 import Foundation
 import CoreData
 
+//
+//  Supports basic CoreData removal functions for objects which subclass NSManagedObject and
+//  share their class name with the corresponding CoreData entity's name
+//
 protocol Deletable
 {
     static var context: NSManagedObjectContext? { get }
 }
 
-//
-//  Supports basic CoreData removal functions for objects which subclass NSManagedObject and
-//  share their class name with the corresponding CoreData entity's name
-//
 extension Deletable where Self: NSManagedObject
 {
     static var entityName: String {
