@@ -9,7 +9,7 @@
 import Foundation
 
 //
-//  Manageable is a protocol which implements all available DB protocols
+//  Manageable is simply a collective protocol which implements all available DB protocols
 //
 protocol Manageable: Deletable, Fetchable, Insertable, Updatable
 {
