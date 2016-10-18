@@ -15,6 +15,10 @@ protocol Insertable
     func populate(using model: APIModel, skip: [String])
 }
 
+//
+//  Supports basic CoreData insert functions for objects which subclass NSManagedObject and
+//  share their class name with the corresponding CoreData entity's name
+//
 extension Insertable where Self: NSManagedObject
 {
     static var entityName: String {

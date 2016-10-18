@@ -14,6 +14,10 @@ protocol Fetchable: NSFetchRequestResult
     static var context: NSManagedObjectContext? { get }
 }
 
+//
+//  Supports basic CoreData fetch functions for objects which subclass NSManagedObject and
+//  share their class name with the corresponding CoreData entity's name
+//
 extension Fetchable where Self: NSManagedObject
 {
     static var entityName: String {

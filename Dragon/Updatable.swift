@@ -14,6 +14,10 @@ protocol Updatable
     static var context: NSManagedObjectContext? { get }
 }
 
+//
+//  Supports basic CoreData update functions for objects which subclass NSManagedObject and
+//  share their class name with the corresponding CoreData entity's name
+//
 extension Updatable where Self: NSManagedObject
 {
     func save()
