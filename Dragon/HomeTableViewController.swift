@@ -135,7 +135,22 @@ class HomeTableViewController: UITableViewController
     {
         if let posts = result?.posts
         {
-            self.posts = posts
+            for remotePost in posts
+            {
+                for (index, localPost) in self.posts.enumerated()
+                {
+                    if remotePost == localPost
+                    {
+                        break
+                    }
+                    if index >= self.posts.count - 1
+                    {
+                        //If the remote post didn't match any of the local posts, it must be new, so add it to the list
+                        //TODO: Add in chronological order
+                        self.posts.append(remotePost)
+                    }
+                }
+            }
             self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
         }
     }
