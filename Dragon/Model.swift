@@ -48,21 +48,6 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
         }
     }
     
-    @available(iOS, deprecated: 0.0.5, message: "Use Insertable static func insertOrUpdate instead")
-    convenience init(_ model: APIModel)
-    {
-        self.init()
-        self.populate(using: model)
-        do
-        {
-            try self.managedObjectContext?.save()
-        }
-        catch let error
-        {
-            Log.error("Error initializing Model with APIModel: \(error)")
-        }
-    }
-    
     //MARK: Overrides
     override func value(forKey key: String) -> Any?
     {
@@ -85,5 +70,54 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
                 self.setValue(value, forKey: property)
             }
         }
+    }
+    
+    //MARK: Comparison operations
+    static func ==(left: Model, right: Model) -> Bool
+    {
+        for these in left.getProperties()
+        {
+            let properties = right.getProperties()
+            for (index, those) in properties.enumerated()
+            {
+                if these == those
+                {
+                    //TODO: Use Equatable protocol instead of individual type casts for expected members
+                    if let this = left.value(forKey: these) as? String, let that = right.value(forKey: those) as? String, this == that
+                    {
+                        break
+                    }
+                    else if let this = left.value(forKey: these) as? Date, let that = right.value(forKey: those) as? Date, this == that
+                    {
+                        break
+                    }
+                    else if let this = left.value(forKey: these) as? NSNumber, let that = right.value(forKey: those) as? NSNumber, this == that
+                    {
+                        break
+                    }
+                    else if let this = left.value(forKey: these) as? Model, let that = right.value(forKey: those) as? Model, this == that
+                    {
+                        break
+                    }
+                    else
+                    {
+                        return false
+                    }
+                }
+                else
+                {
+                    if index >= properties.count - 1
+                    {
+                        return false
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
+    static func !=(left: Model, right: Model) -> Bool
+    {
+        return !(left == right) //lol
     }
 }

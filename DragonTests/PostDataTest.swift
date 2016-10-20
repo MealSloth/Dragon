@@ -75,4 +75,17 @@ class PostDataTest: DragonTest
             XCTAssertNil(Post.first())
         })
     }
+    
+    func testPostCompare()
+    {
+        self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
+            if let first = Post.first(), let second = Post.all()?[safe: 1]
+            {
+                XCTAssertTrue(first == first)
+                XCTAssertFalse(first == second)
+                XCTAssertTrue(first != second)
+                XCTAssertFalse(second != second)
+            }
+        })
+    }
 }
