@@ -87,6 +87,7 @@ class LoginViewController: UIViewController
            let count = self.fieldPassword.text?.characters.count,
            count >= 8
         {
+            self.toggleLogin(on: false)
             UserRequest(withEmail: email).request(
                 onCompletion: { (userResult: UserResult) -> Void in
                     UserLoginRequest(withUserID: userResult.user?.id).request(
@@ -97,39 +98,46 @@ class LoginViewController: UIViewController
                                        uEmail == email,
                                        ulPassword == password
                                 {
+                                    self.displayError(on: false)
                                     self.segue()
                                 }
                                 else if let ulUsername = userLoginResult.userLogin?.username,
                                             ulUsername == email,
                                             ulPassword == password
                                 {
+                                    self.displayError(on: false)
                                     self.segue()
                                 }
                                 else
                                 {
-                                    self.displayError()
+                                    self.displayError(on: true)
                                     Log.debug("Email or password is incorrect")
                                 }
                             }
                             else
                             {
-                                self.displayError()
+                                self.displayError(on: true)
                                 Log.debug("Email is nil or password is nil")
                             }
+                            self.toggleLogin(on: true)
                         },
                         onError: { (error) -> Void in
+                            self.toggleLogin(on: true)
+                            self.displayError(on: true)
                             Log.error("\(error)")
                         }
                     )
                 },
                 onError: { (error) -> Void in
+                    self.toggleLogin(on: true)
+                    self.displayError(on: true)
                     Log.error("\(error)")
                 }
             )
         }
         else
         {
-            self.displayError()
+            self.displayError(on: true)
             Log.debug("Email is nil, password is nil, or password is not >= 8 characters in length")
         }
     }
@@ -140,11 +148,16 @@ class LoginViewController: UIViewController
     }
     
     // MARK: Misc
-    fileprivate func displayError()
+    fileprivate func toggleLogin(on: Bool)
+    {
+        self.buttonLogin.isEnabled = on
+    }
+    
+    fileprivate func displayError(on: Bool)
     {
         self.runOnMainThread({() -> Void in
             UIView.animate(withDuration: 0.5, animations: { () -> Void in
-                self.labelError.alpha = 1.0
+                self.labelError.alpha = on ? 1.0 : 0.0
             })
         })
     }
