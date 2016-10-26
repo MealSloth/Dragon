@@ -11,13 +11,11 @@ import UIKit
 class LoginViewController: UIViewController
 {
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var buttonSignUp: UIButton!
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var buttonContinueBrowsing: UIButton!
     @IBOutlet weak var fieldEmail: UITextField!
     @IBOutlet weak var fieldPassword: UITextField!
-    
-    var signUpMode: Bool = false
+    @IBOutlet weak var labelError: UILabel!
     
     // MARK: Delegates
     override func viewDidLoad()
@@ -89,76 +87,51 @@ class LoginViewController: UIViewController
            let count = self.fieldPassword.text?.characters.count,
            count >= 8
         {
-            if self.signUpMode
-            {
-                UserCreateRequest(withEmail: email, andPassword: password).request(
-                    onCompletion: { (result: UserCreateResult) -> Void in
-                        self.segue()
-                    },
-                    onError: { (error) -> Void in
-                        Log.error("\(error)")
-                    }
-                )
-            }
-            else
-            {
-                UserRequest(withEmail: email).request(
-                    onCompletion: { (userResult: UserResult) -> Void in
-                        UserLoginRequest(withUserID: userResult.user?.id).request(
-                            onCompletion: { (userLoginResult: UserLoginResult) -> Void in
-                                if let ulPassword = userLoginResult.password
+            UserRequest(withEmail: email).request(
+                onCompletion: { (userResult: UserResult) -> Void in
+                    UserLoginRequest(withUserID: userResult.user?.id).request(
+                        onCompletion: { (userLoginResult: UserLoginResult) -> Void in
+                            if let ulPassword = userLoginResult.password
+                            {
+                                if let uEmail = userResult.user?.email,
+                                       uEmail == email,
+                                       ulPassword == password
                                 {
-                                    if let uEmail = userResult.user?.email,
-                                           uEmail == email,
-                                           ulPassword == password
-                                    {
-                                        self.segue()
-                                    }
-                                    else if let ulUsername = userLoginResult.userLogin?.username,
-                                                ulUsername == email,
-                                                ulPassword == password
-                                    {
-                                        self.segue()
-                                    }
-                                    else
-                                    {
-                                        //TODO: Handle incorrect email or password
-                                        Log.debug("Email or password is incorrect")
-                                    }
+                                    self.segue()
+                                }
+                                else if let ulUsername = userLoginResult.userLogin?.username,
+                                            ulUsername == email,
+                                            ulPassword == password
+                                {
+                                    self.segue()
                                 }
                                 else
                                 {
-                                    //TODO: Handle empty email or password
-                                    Log.debug("Email is nil or password is nil")
+                                    self.displayError()
+                                    Log.debug("Email or password is incorrect")
                                 }
-                            },
-                            onError: { (error) -> Void in
-                                Log.error("\(error)")
                             }
-                        )
-                    },
-                    onError: { (error) -> Void in
-                        Log.error("\(error)")
-                    }
-                )
-            }
+                            else
+                            {
+                                self.displayError()
+                                Log.debug("Email is nil or password is nil")
+                            }
+                        },
+                        onError: { (error) -> Void in
+                            Log.error("\(error)")
+                        }
+                    )
+                },
+                onError: { (error) -> Void in
+                    Log.error("\(error)")
+                }
+            )
         }
         else
         {
-            //TODO: Handle invalid login
+            self.displayError()
             Log.debug("Email is nil, password is nil, or password is not >= 8 characters in length")
         }
-    }
-    
-    @IBAction func signUp()
-    {
-        UIView.animate(withDuration: 0.4, animations: { () -> Void in
-            self.signUpMode = !self.signUpMode
-            self.buttonContinueBrowsing.alpha = (self.signUpMode) ? 0.0 : 1.0
-            self.buttonContinueBrowsing.isHidden = self.signUpMode
-            self.buttonLogin.setTitle((self.signUpMode) ? "SIGN UP" : "LOGIN", for: UIControlState())
-            self.buttonSignUp.setTitle((self.signUpMode) ? "< BACK" : "SIGN UP", for: UIControlState())
-        })
     }
     
     @IBAction func continueBrowsing()
@@ -167,6 +140,15 @@ class LoginViewController: UIViewController
     }
     
     // MARK: Misc
+    fileprivate func displayError()
+    {
+        self.runOnMainThread({() -> Void in
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
+                self.labelError.alpha = 1.0
+            })
+        })
+    }
+    
     fileprivate func segue()
     {
         self.runOnMainThread({ () -> Void in
