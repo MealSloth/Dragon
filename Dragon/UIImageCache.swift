@@ -17,17 +17,13 @@ class UIImageCache
         return uiImageCache
     }()
     
-    static func get<T>(_ key: String?) -> T?
+    static func get(_ key: String?) -> UIImage?
     {
         if let string = key
         {
-            return cache.object(forKey: NSString(string: string)) as? T
+            return cache.object(forKey: NSString(string: string))
         }
-        else
-        {
-            Log.error("Attempted to get from UIImageCache with nil key value")
-            return nil
-        }
+        return nil
     }
     
     static func put(image: UIImage?, at key: String?)

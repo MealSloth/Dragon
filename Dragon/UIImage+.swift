@@ -43,7 +43,7 @@ extension UIImage
         if let blob = blob
         {
             let cacheID = "blob_\(blob.id)"
-            if let cached: UIImage = UIImageCache.get(cacheID)
+            if let cached = UIImageCache.get(cacheID)
             {
                 return cached
             }
