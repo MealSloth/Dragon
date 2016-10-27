@@ -26,7 +26,7 @@ class PostDetailTitleCell: UITableViewCell
                 let first = results[safe: 0]
             {
                 self.blob = first
-                let _ = self.blob?.image
+                let _ = self.blob?.image //Preload lazily loaded image
                 self.populateImage()
             }
             else
@@ -34,7 +34,7 @@ class PostDetailTitleCell: UITableViewCell
                 BlobRequest(withAlbumID: post.albumID).request(
                     onCompletion: { (result: BlobResult) -> Void in
                         self.blob = result.blobs?[safe: 0]
-                        let _ = self.blob?.image
+                        let _ = self.blob?.image //Preload lazily loaded image
                         self.populateImage()
                     },
                     onError: { (error) -> Void in
