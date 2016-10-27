@@ -11,7 +11,7 @@ import UIKit
 
 extension UIImage
 {
-    class func fromURL(_ url: String) -> UIImage?
+    class func from(url: String) -> UIImage?
     {
         if let url = URL(string: url)
         {
@@ -23,7 +23,7 @@ extension UIImage
         return nil
     }
     
-    class func fromURL(_ url: String, completion: ((UIImage?) -> Void)?)
+    class func from(url: String, completion: ((UIImage?) -> Void)?)
     {
         AppDelegate.backgroundQueue.async(execute: { () -> Void in
             if let url = URL(string: url)
@@ -36,5 +36,28 @@ extension UIImage
             }
             completion?(nil)
         })
+    }
+    
+    class func from(blob: Blob?) -> UIImage?
+    {
+        if let blob = blob
+        {
+            let cacheID = "blob_\(blob.id)"
+            if let cached: UIImage = UIImageCache.get(cacheID)
+            {
+                return cached
+            }
+            else
+            {
+                let img = UIImage.from(url: blob.url)
+                UIImageCache.put(image: img, at: cacheID)
+                return img
+            }
+        }
+        else
+        {
+            Log.error("UIImage.from(blob:) received nil Blob")
+            return nil
+        }
     }
 }

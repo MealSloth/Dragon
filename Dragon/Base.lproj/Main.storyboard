@@ -297,7 +297,7 @@
         <scene sceneID="fIZ-dT-Skc">
             <objects>
                 <navigationController title="Discover Navigation Controller" id="XlH-ox-Hbx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_compass_black" selectedImage="icon_compass_black" id="4EX-9A-If3"/>
+                    <tabBarItem key="tabBarItem" title="" image="globe" selectedImage="globe" id="4EX-9A-If3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JD7-3b-7W8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -605,7 +605,7 @@
         <scene sceneID="gPK-7M-p60">
             <objects>
                 <navigationController title="Profile Navigation Controller" id="I7W-tv-nnx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_person_black" selectedImage="icon_person_black" id="Pr5-6T-Tx3" userLabel="Profile"/>
+                    <tabBarItem key="tabBarItem" title="" image="person_outline" selectedImage="person_outline" id="Pr5-6T-Tx3" userLabel="Profile"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="anh-fb-Ead">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -984,7 +984,7 @@
         <scene sceneID="eYI-v4-G9b">
             <objects>
                 <navigationController title="Home Navigation Controller" id="PD6-vy-sxM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="icon_home_black" selectedImage="icon_home_black" id="lkL-me-86J"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="lkL-me-86J"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Th6-88-Zq0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1020,15 +1020,15 @@
     <resources>
         <image name="cartoon_smartphone_hands" width="1600" height="1200"/>
         <image name="clock" width="24" height="24"/>
+        <image name="globe" width="24" height="24"/>
+        <image name="home" width="24" height="24"/>
         <image name="ic_account_circle" width="24" height="24"/>
         <image name="ic_border_color" width="24" height="24"/>
         <image name="ic_menu" width="24" height="24"/>
         <image name="ic_speaker_notes" width="24" height="24"/>
         <image name="ic_star_border" width="24" height="24"/>
-        <image name="icon_compass_black" width="48" height="48"/>
-        <image name="icon_home_black" width="48" height="48"/>
-        <image name="icon_person_black" width="48" height="48"/>
         <image name="label" width="24" height="24"/>
+        <image name="person_outline" width="24" height="24"/>
         <image name="stars" width="150" height="30"/>
         <image name="woman_sample" width="250" height="250"/>
     </resources>

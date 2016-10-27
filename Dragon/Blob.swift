@@ -19,7 +19,7 @@ class Blob: Model
     @NSManaged var url: String!
     
     lazy var image: UIImage? = {
-        return UIImage.fromURL(self.url)
+        return UIImage.from(blob: self)
     }()
     
     static func fromAlbumID(_ id: String?) -> [Blob]?

@@ -103,6 +103,8 @@
 		4CE468141D3BEC53000B95DE /* PostPageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE468131D3BEC53000B95DE /* PostPageRequest.swift */; };
 		4CE632421CDAA2F60085F54C /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE632411CDAA2F60085F54C /* UserResult.swift */; };
 		4CF12FDE1D80F82800E284CF /* Dragon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C69826E1CD3D7A4005ABCF1 /* Dragon.xcdatamodeld */; };
+		4CF29B611DC1695A0076F14F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF29B601DC1695A0076F14F /* Cache.swift */; };
+		4CF29B651DC17B920076F14F /* UIImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF29B641DC17B920076F14F /* UIImageCache.swift */; };
 		4CF75D521DAC50C700E9EB39 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF75D511DAC50C700E9EB39 /* Updatable.swift */; };
 		4CF75D551DAC515C00E9EB39 /* Manageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF75D541DAC515C00E9EB39 /* Manageable.swift */; };
 		4CFF11D01D497E600062B33A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF11CF1D497E600062B33A /* UIViewController+.swift */; };
@@ -228,6 +230,8 @@
 		4CE166DF1D3959DC003589D0 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		4CE468131D3BEC53000B95DE /* PostPageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPageRequest.swift; sourceTree = "<group>"; };
 		4CE632411CDAA2F60085F54C /* UserResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResult.swift; sourceTree = "<group>"; };
+		4CF29B601DC1695A0076F14F /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		4CF29B641DC17B920076F14F /* UIImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageCache.swift; sourceTree = "<group>"; };
 		4CF75D511DAC50C700E9EB39 /* Updatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		4CF75D541DAC515C00E9EB39 /* Manageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manageable.swift; sourceTree = "<group>"; };
 		4CFF11CF1D497E600062B33A /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -657,7 +661,9 @@
 		4CE166DE1D3959CC003589D0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4CF29B601DC1695A0076F14F /* Cache.swift */,
 				4CE166DF1D3959DC003589D0 /* Log.swift */,
+				4CF29B641DC17B920076F14F /* UIImageCache.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 				4C69828D1CD3D847005ABCF1 /* APIRequest.swift in Sources */,
 				4CD48F491D526E030009D6A2 /* PostDetailTitleCell.swift in Sources */,
 				4CDA11101D47FA15002C62FD /* UserModifyResult.swift in Sources */,
+				4CF29B651DC17B920076F14F /* UIImageCache.swift in Sources */,
 				4C7A82D71D3EC9C200638FBE /* Date+.swift in Sources */,
 				4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */,
 				4CCD0A5F1CD8F7120081A28B /* FieldNameHelper.swift in Sources */,
@@ -889,6 +896,7 @@
 				4CC40DB51D51838000B5D4BE /* CollectionType+.swift in Sources */,
 				4CC674811D80E8C5001BCA67 /* Location.swift in Sources */,
 				4CD48F461D5267900009D6A2 /* PostDetailTableViewController.swift in Sources */,
+				4CF29B611DC1695A0076F14F /* Cache.swift in Sources */,
 				4CC674871D80E8DF001BCA67 /* OrderTime.swift in Sources */,
 				4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */,
 				4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */,
