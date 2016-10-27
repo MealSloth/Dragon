@@ -110,7 +110,7 @@
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="yp5-N2-oi3" secondAttribute="height" multiplier="8:1" priority="750" id="8od-Hc-nh3"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="m76-YR-jfB"/>
+                                                                    <constraint firstAttribute="height" constant="32" id="m76-YR-jfB"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
@@ -123,7 +123,7 @@
                                                                     <constraint firstAttribute="height" constant="25" id="2Bd-uh-FEX"/>
                                                                     <constraint firstAttribute="width" secondItem="AIt-Md-tGI" secondAttribute="height" multiplier="4:1" id="EJt-IW-LVI"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="LOGIN">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
@@ -134,7 +134,7 @@
                                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nsn-hr-41p">
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="1mU-Jc-RRd"/>
+                                                                    <constraint firstAttribute="height" constant="32" id="1mU-Jc-RRd"/>
                                                                     <constraint firstAttribute="width" secondItem="nsn-hr-41p" secondAttribute="height" multiplier="8:1" priority="750" id="ubg-by-1e5"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -144,22 +144,22 @@
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYb-EO-gcr">
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in or Sign up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3x-v1-jzK">
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p09-bC-i0z" userLabel="Button sign in with Facebook">
                                                                 <color key="backgroundColor" red="0.24882763624191284" green="0.34817463159561157" blue="0.59288698434829712" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="p09-bC-i0z" secondAttribute="height" multiplier="8:1" id="LEu-mT-wIy"/>
-                                                                    <constraint firstAttribute="height" constant="36" id="xvZ-0c-XUT"/>
+                                                                    <constraint firstAttribute="width" secondItem="p09-bC-i0z" secondAttribute="height" multiplier="7:1" id="LEu-mT-wIy"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="xvZ-0c-XUT"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <state key="normal" title="Sign in with Facebook">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
@@ -167,9 +167,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wV8-Cu-EFJ" userLabel="Button sign in with Google">
                                                                 <color key="backgroundColor" red="0.86045157909393311" green="0.27968233823776245" blue="0.22390523552894592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="36" id="x5d-IN-fuz"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="x5d-IN-fuz"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <state key="normal" title="Sign in with Google">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
@@ -197,7 +197,7 @@
                                                             <constraint firstItem="yp5-N2-oi3" firstAttribute="centerX" secondItem="h72-vQ-qCg" secondAttribute="centerX" id="RIR-tl-XpK"/>
                                                             <constraint firstItem="nsn-hr-41p" firstAttribute="centerX" secondItem="h72-vQ-qCg" secondAttribute="centerX" id="ZGe-LZ-TYz"/>
                                                             <constraint firstItem="nsn-hr-41p" firstAttribute="top" secondItem="RYb-EO-gcr" secondAttribute="bottom" constant="8" id="ci3-0j-0oz"/>
-                                                            <constraint firstItem="wV8-Cu-EFJ" firstAttribute="width" secondItem="wV8-Cu-EFJ" secondAttribute="height" multiplier="8:1" id="hvZ-UF-Tfh"/>
+                                                            <constraint firstItem="wV8-Cu-EFJ" firstAttribute="width" secondItem="wV8-Cu-EFJ" secondAttribute="height" multiplier="7:1" id="hvZ-UF-Tfh"/>
                                                             <constraint firstItem="tJ2-A8-lWE" firstAttribute="centerX" secondItem="h72-vQ-qCg" secondAttribute="centerX" id="iFJ-pJ-ndC"/>
                                                             <constraint firstItem="Y3x-v1-jzK" firstAttribute="centerX" secondItem="h72-vQ-qCg" secondAttribute="centerX" id="j98-6C-jzo"/>
                                                             <constraint firstItem="RYb-EO-gcr" firstAttribute="top" secondItem="wV8-Cu-EFJ" secondAttribute="bottom" constant="16" id="xYi-qO-EdV"/>
