@@ -13,12 +13,9 @@ extension UIImage
 {
     class func from(url: String) -> UIImage?
     {
-        if let url = URL(string: url)
+        if let url = URL(string: url), let data = try? Data(contentsOf: url)
         {
-            if let data = try? Data(contentsOf: url)
-            {
-                return UIImage(data: data)
-            }
+            return UIImage(data: data)
         }
         return nil
     }
@@ -26,13 +23,10 @@ extension UIImage
     class func from(url: String, completion: ((UIImage?) -> Void)?)
     {
         AppDelegate.backgroundQueue.async(execute: { () -> Void in
-            if let url = URL(string: url)
+            if let url = URL(string: url), let data = try? Data(contentsOf: url)
             {
-                if let data = try? Data(contentsOf: url)
-                {
-                    completion?(UIImage(data: data))
-                    return
-                }
+                completion?(UIImage(data: data))
+                return
             }
             completion?(nil)
         })
