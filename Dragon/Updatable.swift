@@ -10,8 +10,7 @@ import Foundation
 import CoreData
 
 //
-//  Supports basic CoreData update functions for objects which subclass NSManagedObject and
-//  share their class name with the corresponding CoreData entity's name
+//  Supports basic CoreData update functions for objects which subclass NSManagedObject
 //
 protocol Updatable
 {
