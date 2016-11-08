@@ -25,13 +25,21 @@ class APIModel: NSObject, PrettyPrintable
         return super.value(forKey: key)
     }
     
+    //This should be overridden by a subclass if one wishes to use a converter other than FieldNameHelper
+    //Optionally, each individual model can manually initialize itself if the server's naming conventions
+    //are not consistent enough to use a generic converter
     func initialize(_ json: Dictionary<String, AnyObject>, skip: [String] = [])
+    {
+        self.initialize(json, skip: skip, using: FieldNameHelper.self)
+    }
+    
+    func initialize<T: FieldNameConverter>(_ json: Dictionary<String, AnyObject>, skip: [String] = [], using: T.Type)
     {
         for property in self.getProperties()
         {
             if !skip.contains(property)
             {
-                self.setValue(json[FieldNameHelper.getServerName(forClientName: property)], forKey: property)
+                self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
             }
         }
         Log.info("Finished initializing model with values: \(self.description)")

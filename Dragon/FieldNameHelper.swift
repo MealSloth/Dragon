@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FieldNameHelper
+class FieldNameHelper: FieldNameConverter
 {
     class func getClientName(forServerName serverName: String) -> String
     {
