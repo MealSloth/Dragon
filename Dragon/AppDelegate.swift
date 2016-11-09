@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate
+class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
 {
     var window: UIWindow?
     
@@ -81,16 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
-    
-    // MISC
-    class func getInstance() -> AppDelegate?
-    {
-        if let delegate = UIApplication.shared.delegate as? AppDelegate
-        {
-            return delegate
-        }
-        return nil
-    }
 
     // MARK: - Core Data Saving support
     func saveContext()
