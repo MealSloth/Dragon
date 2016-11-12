@@ -322,7 +322,7 @@
         <scene sceneID="fIZ-dT-Skc">
             <objects>
                 <navigationController title="Discover Navigation Controller" id="XlH-ox-Hbx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="compass_large" selectedImage="compass_large" id="4EX-9A-If3">
+                    <tabBarItem key="tabBarItem" title="" image="compass_medium" selectedImage="compass_medium" id="4EX-9A-If3">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JD7-3b-7W8">
@@ -650,7 +650,7 @@
         <scene sceneID="gPK-7M-p60">
             <objects>
                 <navigationController title="Profile Navigation Controller" id="I7W-tv-nnx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person_filled_large" selectedImage="person_filled_large" id="Pr5-6T-Tx3" userLabel="Profile">
+                    <tabBarItem key="tabBarItem" title="" image="person_filled_medium" selectedImage="person_filled_medium" id="Pr5-6T-Tx3" userLabel="Profile">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="anh-fb-Ead">
@@ -1059,7 +1059,7 @@
         <scene sceneID="eYI-v4-G9b">
             <objects>
                 <navigationController title="Home Navigation Controller" id="PD6-vy-sxM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home_large" selectedImage="home_large" id="lkL-me-86J">
+                    <tabBarItem key="tabBarItem" title="" image="home_medium" selectedImage="home_medium" id="lkL-me-86J">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Th6-88-Zq0">
@@ -1097,15 +1097,15 @@
     <resources>
         <image name="cartoon_smartphone_hands" width="1600" height="1200"/>
         <image name="clock" width="24" height="24"/>
-        <image name="compass_large" width="48" height="48"/>
-        <image name="home_large" width="48" height="48"/>
+        <image name="compass_medium" width="36" height="36"/>
+        <image name="home_medium" width="36" height="36"/>
         <image name="ic_account_circle" width="24" height="24"/>
         <image name="ic_border_color" width="24" height="24"/>
         <image name="ic_menu" width="24" height="24"/>
         <image name="ic_speaker_notes" width="24" height="24"/>
         <image name="ic_star_border" width="24" height="24"/>
         <image name="label" width="24" height="24"/>
-        <image name="person_filled_large" width="48" height="48"/>
+        <image name="person_filled_medium" width="36" height="36"/>
         <image name="stars" width="150" height="30"/>
         <image name="woman_sample" width="250" height="250"/>
     </resources>
