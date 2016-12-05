@@ -40,14 +40,14 @@ extension APIRequest
         }
         
         let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            guard data != nil else
+            guard let jsonData = data else
             {
                 onError?(error)
                 return
             }
             do
             {
-                if let jsonResult: Dictionary<String, AnyObject> = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? Dictionary<String, AnyObject>
+                if let jsonResult: Dictionary<String, AnyObject> = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? Dictionary<String, AnyObject>
                 {
                     Log.info("Received response for POST request at \(url)")
                     completion?(jsonResult)
