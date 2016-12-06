@@ -12,9 +12,9 @@ class PostPageResult: APIResult
 {
     var posts: [Post] = []
     
-    required init(result: Dictionary<String, AnyObject>)
+    required init(result: [String: Any])
     {
-        let postsArray = result["posts"] as! [Dictionary<String, AnyObject>]
+        let postsArray = result["posts"] as! [[String: Any]]
         for post in postsArray
         {
             if let post = Post.insertOrUpdate(PostAPIModel(json: post))

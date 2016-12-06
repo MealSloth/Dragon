@@ -13,11 +13,11 @@ class UserModifyRequest: APIRequestChimera
     init(withUserID userID: String, firstName: String?, lastName: String?, gender: UserGender?, dateOfBirth: Date?, phoneNumber: String?)
     {
         super.init(method: "user/modify/")
-        self.json["user_id"] = userID as AnyObject?
-        self.json["first_name"] = firstName as AnyObject?
-        self.json["last_name"] = lastName as AnyObject?
-        self.json["gender"] = gender?.rawValue as AnyObject?
-        self.json["date_of_birth"] = dateOfBirth?.toString() as AnyObject?
-        self.json["phone_number"] = phoneNumber as AnyObject?
+        self.json["user_id"] = userID
+        self.json["first_name"] = firstName
+        self.json["last_name"] = lastName
+        self.json["gender"] = gender?.rawValue
+        self.json["date_of_birth"] = dateOfBirth?.toString()
+        self.json["phone_number"] = phoneNumber
     }
 }

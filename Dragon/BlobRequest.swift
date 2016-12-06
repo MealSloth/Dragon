@@ -13,12 +13,12 @@ class BlobRequest: APIRequestChimera
     init(withBlobID blobID: String)
     {
         super.init(method: "blob/")
-        self.json["blob_id"] = blobID as AnyObject?
+        self.json["blob_id"] = blobID
     }
     
     init(withAlbumID albumID: String)
     {
         super.init(method: "blob/")
-        self.json["album_id"] = albumID as AnyObject?
+        self.json["album_id"] = albumID
     }
 }

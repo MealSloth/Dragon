@@ -15,12 +15,12 @@ class UserLoginRequest: APIRequestChimera
     init(withUserLoginID userLoginID: String?)
     {
         super.init(method: "user-login/")
-        self.json["user_login_id"] = userLoginID as AnyObject?
+        self.json["user_login_id"] = userLoginID
     }
     
     init(withUserID userID: String?)
     {
         super.init(method: "user-login/")
-        self.json["user_id"] = userID as AnyObject?
+        self.json["user_id"] = userID
     }
 }

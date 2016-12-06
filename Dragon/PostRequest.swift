@@ -13,6 +13,6 @@ class PostRequest: APIRequestChimera
     init(withPostID postID: String)
     {
         super.init(method: "post/")
-        self.json["post_id"] = postID as AnyObject?
+        self.json["post_id"] = postID
     }
 }

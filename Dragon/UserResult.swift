@@ -12,9 +12,9 @@ class UserResult: APIResult
 {
     var user: User?
     
-    required init(result: Dictionary<String, AnyObject>)
+    required init(result: [String: Any])
     {
-        if let json = result["user"] as? Dictionary<String, AnyObject>
+        if let json = result["user"] as? [String: Any]
         {
             self.user = User.insertOrUpdate(UserAPIModel(json: json))
         }

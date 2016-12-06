@@ -16,12 +16,12 @@ class ConsumerAPIModel: APIModel
     var favoritePosts: [PostAPIModel]?
     var favoriteChefs: [ChefAPIModel]?
     
-//    override func initialize(json: Dictionary<String, AnyObject>, skip: [String])
+//    override func initialize(json: [String: Any], skip: [String])
 //    {
 //        let skip: [String] = ["favoritePosts", "favoriteChefs", ]
 //        
-//        let posts = json["favorite_posts"] as! [Dictionary<String, AnyObject>]
-//        let chefs = json["favorite_chefs"] as! [Dictionary<String, AnyObject>]
+//        let posts = json["favorite_posts"] as! [[String: Any]]
+//        let chefs = json["favorite_chefs"] as! [[String: Any]]
 //        
 //        for post in posts
 //        {

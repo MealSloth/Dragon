@@ -12,9 +12,9 @@ class ConsumerResult: APIResult
 {
     var consumer: Consumer?
     
-    required init(result: Dictionary<String, AnyObject>)
+    required init(result: [String: Any])
     {
-        if let json = result["consumer"] as? Dictionary<String, AnyObject>
+        if let json = result["consumer"] as? [String: Any]
         {
             self.consumer = Consumer.insertOrUpdate(ConsumerAPIModel(json: json))
         }

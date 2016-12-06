@@ -13,12 +13,12 @@ class UserRequest: APIRequestChimera
     init(withUserID userID: String)
     {
         super.init(method: "user/")
-        self.json["user_id"] = userID as AnyObject?
+        self.json["user_id"] = userID
     }
     
     init(withEmail email: String)
     {
         super.init(method: "user/")
-        self.json["email"] = email as AnyObject?
+        self.json["email"] = email
     }
 }

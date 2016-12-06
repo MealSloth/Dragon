@@ -21,7 +21,7 @@ class Cache
         return cache.object(forKey: key as AnyObject) as? T
     }
     
-    static func put(object: AnyObject?, at key: String?)
+    static func put(object: Any?, at key: String?)
     {
         cache.setObject(object as AnyObject, forKey: key as AnyObject)
     }

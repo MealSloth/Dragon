@@ -14,7 +14,7 @@ class APIModel: NSObject, PrettyPrintable
         return self.getPropertiesString(self)
     }
     
-    init(json: Dictionary<String, AnyObject>)
+    init(json: [String: Any])
     {
         super.init()
         self.initialize(json)
@@ -28,12 +28,12 @@ class APIModel: NSObject, PrettyPrintable
     //This should be overridden by a subclass if one wishes to use a converter other than FieldNameHelper
     //Optionally, each individual model can manually initialize itself if the server's naming conventions
     //are not consistent enough to use a generic converter
-    func initialize(_ json: Dictionary<String, AnyObject>, skip: [String] = [])
+    func initialize(_ json: [String: Any], skip: [String] = [])
     {
         self.initialize(json, skip: skip, using: FieldNameHelper.self)
     }
     
-    func initialize<T: FieldNameConverter>(_ json: Dictionary<String, AnyObject>, skip: [String] = [], using: T.Type)
+    func initialize<T: FieldNameConverter>(_ json: [String: Any], skip: [String] = [], using: T.Type)
     {
         for property in self.getProperties()
         {

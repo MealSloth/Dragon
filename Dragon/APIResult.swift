@@ -12,7 +12,7 @@ protocol APIResult
 {
     var description: String? { get }
     
-    init(result: Dictionary<String, AnyObject>)
+    init(result: [String: Any])
 }
 
 extension APIResult
