@@ -75,27 +75,19 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
     //MARK: Comparison operations
     static func ==(left: Model, right: Model) -> Bool
     {
+        //TODO: Enable identity return once finished testing logic
+        //if left === right //Don't bother computing as long as the identity is the same
+        //{
+        //    return true
+        //}
         for these in left.getProperties()
         {
             let properties = right.getProperties()
             for (index, those) in properties.enumerated()
             {
-                if these == those
+                if these == those //Matching property
                 {
-                    //TODO: Use Equatable protocol instead of individual type casts for expected members
-                    if let this = left.value(forKey: these) as? String, let that = right.value(forKey: those) as? String, this == that
-                    {
-                        break
-                    }
-                    else if let this = left.value(forKey: these) as? Date, let that = right.value(forKey: those) as? Date, this == that
-                    {
-                        break
-                    }
-                    else if let this = left.value(forKey: these) as? NSNumber, let that = right.value(forKey: those) as? NSNumber, this == that
-                    {
-                        break
-                    }
-                    else if let this = left.value(forKey: these) as? Model, let that = right.value(forKey: those) as? Model, this == that
+                    if compare(a: left.value(forKey: these), b: right.value(forKey: those))
                     {
                         break
                     }
@@ -106,7 +98,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
                 }
                 else
                 {
-                    if index >= properties.count - 1
+                    if index >= properties.count - 1 //No matching properties
                     {
                         return false
                     }
@@ -116,8 +108,42 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
         return true
     }
     
-    static func !=(left: Model, right: Model) -> Bool
+    //MARK: Comparison helpers
+    static func compare(a: Any?, b: Any?) -> Bool
     {
-        return !(left == right) //lol
+        if let this = a as? [Any], let that = b as? [Any] //Handle Arrays
+        {
+            for i in 0..<this.count
+            {
+                if !compare(a: this[safe: i], b: that[safe: i]) //Recursively compare array elements
+                {
+                    return false
+                }
+            }
+            return true
+        }
+        else //Handle Equatable objects
+        {
+            if let this = a as? String, let that = b as? String, this == that
+            {
+                return true
+            }
+            else if let this = a as? Date, let that = b as? Date, this == that
+            {
+                return true
+            }
+            else if let this = a as? NSNumber, let that = b as? NSNumber, this == that
+            {
+                return true
+            }
+            else if let this = a as? Model, let that = b as? Model, this == that //Recursively compare Model
+            {
+                return true
+            }
+            else
+            {
+                return false //Cannot compare; return false
+            }
+        }
     }
 }
