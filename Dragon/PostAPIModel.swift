@@ -12,7 +12,6 @@ class PostAPIModel: APIModel
 {
     var id: String!
     var chefID: String!
-    var locationID: String!
     var albumID: String!
     var name: String!
     var summary: String!

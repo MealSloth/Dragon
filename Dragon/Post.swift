@@ -12,7 +12,6 @@ class Post: Model
 {
     @NSManaged var id: String!
     @NSManaged var chefID: String!
-    @NSManaged var locationID: String!
     @NSManaged var albumID: String!
     @NSManaged var name: String!
     @NSManaged var summary: String!
@@ -27,7 +26,7 @@ class Post: Model
     }()
     
     lazy var location: Location? = {
-        return Location.fromID(self.locationID)
+        return Location.fromID(self.chef?.locationID)
     }()
     
     lazy var album: Album? = {

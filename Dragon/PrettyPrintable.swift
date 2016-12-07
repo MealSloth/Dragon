@@ -61,14 +61,49 @@ extension PrettyPrintable
         {
             if arr.count > 0
             {
+                string += "\(property): [\n"
                 for model in arr
                 {
-                    string += model.getPropertiesString(model, depth: depth)
+                    for _ in 0...depth
+                    {
+                        string += "    "
+                    }
+                    string += model.getPropertiesString(model, depth: depth + 1)
                 }
+                for _ in 0..<depth
+                {
+                    string += "    "
+                }
+                string += "],\n"
             }
             else
             {
-                string += "\(property): {}\n"
+                string += "\(property): []\n"
+            }
+        }
+        else if let arr = context.value(forKey: property) as? [Any]
+        {
+            if arr.count > 0
+            {
+                string += "\(property): [\n"
+                for element in arr
+                {
+                    for _ in 0...depth
+                    {
+                        string += "    "
+                    }
+                    string += "\(element)"
+                    string += ",\n"
+                }
+                for _ in 0..<depth
+                {
+                    string += "    "
+                }
+                string += "],\n"
+            }
+            else
+            {
+                string += "\(property): []\n"
             }
         }
         else
