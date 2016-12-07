@@ -52,7 +52,7 @@ class APIModel: NSObject, PrettyPrintable
                 else if let models = value as? [APIModel] //Recursively handle arrays of models
                 {
                     let type = type(of: models).Element.self
-                    if let modelArray = getArrayOfModels(array: json[T.getServerName(forClientName: property)] as? [[String: Any]], using: type)
+                    if let modelArray = getArrayOfModels(array: json[T.getServerName(forClientName: property)] as? [Any], using: type)
                     {
                         self.setValue(modelArray, forKey: property) //Finally, set the value
                         continue //Onto the next property
@@ -70,13 +70,18 @@ class APIModel: NSObject, PrettyPrintable
         return T(json: apiModel)
     }
     
-    func getArrayOfModels<T: APIModel>(array: [[String: Any]]?, using: T.Type?) -> [T]?
+    func getArrayOfModels<T: APIModel>(array: [Any]?, using: T.Type?) -> [T]?
     {
         guard let modelArray = array else { return nil }
         var models: [T] = []
         for i in 0..<modelArray.count
         {
-            models.append(T(json: modelArray[i])) //Recursively initialize nested Models
+            guard let dict = modelArray[safe: i] as? [String: Any] else
+            {
+                Log.warning("Failed attempting to parse a JSON array element as dictionary")
+                return nil
+            }
+            models.append(T(json: dict)) //Recursively initialize nested Models
         }
         return models
     }
