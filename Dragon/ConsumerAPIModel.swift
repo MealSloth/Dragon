@@ -13,23 +13,24 @@ class ConsumerAPIModel: APIModel
     var id: String!
     var userID: String!
     var locationID: String!
-    var favoritePosts: [PostAPIModel]?
-    var favoriteChefs: [ChefAPIModel]?
+    var favoritePosts: [PostAPIModel] = []
+    var favoriteChefs: [ChefAPIModel] = []
     
-//    override func initialize(json: [String: Any], skip: [String])
+//    override func initialize(_ json: [String: Any], skip: [String])
 //    {
-//        let skip: [String] = ["favoritePosts", "favoriteChefs", ]
+//        let skip = ["favoritePosts", "favoriteChefs", ]
 //        
-//        let posts = json["favorite_posts"] as! [[String: Any]]
-//        let chefs = json["favorite_chefs"] as! [[String: Any]]
-//        
-//        for post in posts
+//        if let posts = json["favorite_posts"] as? [[String: Any]],
+//           let chefs = json["favorite_chefs"] as? [[String: Any]]
 //        {
-//            favoritePosts.append(PostAPIModel(json: post))
-//        }
-//        for chef in chefs
-//        {
-//            favoriteChefs.append(ChefAPIModel(json: chef))
+//            for post in posts
+//            {
+//                favoritePosts.append(PostAPIModel(json: post))
+//            }
+//            for chef in chefs
+//            {
+//                favoriteChefs.append(ChefAPIModel(json: chef))
+//            }
 //        }
 //        
 //        super.initialize(json, skip: skip)
