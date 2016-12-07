@@ -20,13 +20,16 @@ class ConsumerAPIModel: APIModel
 //    {
 //        let skip = ["favoritePosts", "favoriteChefs", ]
 //        
-//        if let posts = json["favorite_posts"] as? [[String: Any]],
-//           let chefs = json["favorite_chefs"] as? [[String: Any]]
+//        if let posts = json["favorite_posts"] as? [[String: Any]]
 //        {
 //            for post in posts
 //            {
 //                favoritePosts.append(PostAPIModel(json: post))
 //            }
+//        }
+//        
+//        if let chefs = json["favorite_chefs"] as? [[String: Any]]
+//        {
 //            for chef in chefs
 //            {
 //                favoriteChefs.append(ChefAPIModel(json: chef))
