@@ -22,13 +22,14 @@ extension APIRequest
 {
     func post(onCompletion completion: ((_ result: [String: Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
     {
-        let url = "\(self.host.url())\(self.method)"
-        var request = URLRequest(url: URL(string: url)!)
+        let urlStr = "\(self.host.url())\(self.method)"
+        guard let url = URL(string: urlStr) else { return }
+        var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        Log.info("Executing POST request at \(url)")
+        Log.info("Executing POST request at \(urlStr)")
         
         do
         {
@@ -49,7 +50,7 @@ extension APIRequest
             {
                 if let jsonResult: [String: Any] = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
                 {
-                    Log.info("Received response for POST request at \(url)")
+                    Log.info("Received response for POST request at \(urlStr)")
                     completion?(jsonResult)
                 }
             }
