@@ -57,30 +57,6 @@ extension PrettyPrintable
         {
             string += "\(property):\n\(self.getPropertiesString(newProp, depth: depth))"
         }
-        else if let arr = context.value(forKey: property) as? [PrettyPrintable]
-        {
-            if arr.count > 0
-            {
-                string += "\(property): [\n"
-                for model in arr
-                {
-                    for _ in 0...depth
-                    {
-                        string += "    "
-                    }
-                    string += model.getPropertiesString(model, depth: depth + 1)
-                }
-                for _ in 0..<depth
-                {
-                    string += "    "
-                }
-                string += "],\n"
-            }
-            else
-            {
-                string += "\(property): []\n"
-            }
-        }
         else if let arr = context.value(forKey: property) as? [Any]
         {
             if arr.count > 0
@@ -92,8 +68,15 @@ extension PrettyPrintable
                     {
                         string += "    "
                     }
-                    string += "\(element)"
-                    string += ",\n"
+                    if let model = element as? PrettyPrintable
+                    {
+                        string += model.getPropertiesString(model, depth: depth + 1)
+                        string.insert(",", at: string.index(before: string.endIndex))
+                    }
+                    else
+                    {
+                        string += "\(element),\n"
+                    }
                 }
                 for _ in 0..<depth
                 {
