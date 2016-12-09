@@ -93,11 +93,11 @@ extension PrettyPrintable
         {
             if let value = self.value(forKey: property)
             {
-                string += "\(property): \(value)\n"
+                string += "\(property): \(value),\n"
             }
             else
             {
-                string += "\(property): nil\n"
+                string += "\(property): nil,\n"
             }
         }
         return string
