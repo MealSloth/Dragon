@@ -14,7 +14,12 @@ class APIModel: NSObject, ModelRecursible, PrettyPrintable
         return self.getPropertiesString(self)
     }
     
-    required init(json: [String: Any])
+    override init()
+    {
+        super.init()
+    }
+    
+    init(json: [String: Any])
     {
         super.init()
         self.initialize(json)

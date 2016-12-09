@@ -82,6 +82,6 @@ extension ModelRecursible where Self: APIModel
         if let _ = value as? ReviewAPIModel { return ReviewAPIModel(json: dict) as? T }
         if let _ = value as? UserAPIModel { return UserAPIModel(json: dict) as? T }
         if let _ = value as? UserLoginAPIModel { return UserLoginAPIModel(json: dict) as? T }
-        return T(json: dict)
+        return nil
     }
 }

@@ -13,6 +13,6 @@ class ConsumerAPIModel: APIModel
     var id: String!
     var userID: String!
     var locationID: String!
-    var favoritePosts: [PostAPIModel] = [PostAPIModel(json: [:]), ]
-    var favoriteChefs: [ChefAPIModel] = [ChefAPIModel(json: [:]), ]
+    var favoritePosts: [PostAPIModel] = [PostAPIModel(), ]
+    var favoriteChefs: [ChefAPIModel] = [ChefAPIModel(), ]
 }
