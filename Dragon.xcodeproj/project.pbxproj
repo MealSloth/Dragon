@@ -18,6 +18,8 @@
 		4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2510BA1DAA6A98001112E5 /* Deletable.swift */; };
 		4C27F0941D3D4E6100D64E13 /* APIRequestChimera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */; };
 		4C27F0971D3D567600D64E13 /* PostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0961D3D567600D64E13 /* PostTest.swift */; };
+		4C35D4101DFA36B000CF5A8F /* ModelRecursible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C35D40F1DFA36B000CF5A8F /* ModelRecursible.swift */; };
+		4C35D4121DFA38C600CF5A8F /* ModelNonRecursible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C35D4111DFA38C600CF5A8F /* ModelNonRecursible.swift */; };
 		4C42CC961D90A422008B2FCA /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C42CC951D90A422008B2FCA /* Fetchable.swift */; };
 		4C4851591D20523000223B4F /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4851581D20523000223B4F /* UserTest.swift */; };
 		4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48517A1D2080CE00223B4F /* UserLoginTest.swift */; };
@@ -141,6 +143,8 @@
 		4C2510BA1DAA6A98001112E5 /* Deletable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deletable.swift; sourceTree = "<group>"; };
 		4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = APIRequestChimera.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C27F0961D3D567600D64E13 /* PostTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
+		4C35D40F1DFA36B000CF5A8F /* ModelRecursible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelRecursible.swift; sourceTree = "<group>"; };
+		4C35D4111DFA38C600CF5A8F /* ModelNonRecursible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelNonRecursible.swift; sourceTree = "<group>"; };
 		4C42CC951D90A422008B2FCA /* Fetchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
 		4C4851581D20523000223B4F /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		4C48517A1D2080CE00223B4F /* UserLoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginTest.swift; sourceTree = "<group>"; };
@@ -554,6 +558,8 @@
 				4CF75D531DAC50E900E9EB39 /* DB */,
 				4CC780C21DD27C5A00E93EB4 /* FieldNameConverter.swift */,
 				4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */,
+				4C35D4111DFA38C600CF5A8F /* ModelNonRecursible.swift */,
+				4C35D40F1DFA36B000CF5A8F /* ModelRecursible.swift */,
 				4CB67D231D8B42A400196579 /* PrettyPrintable.swift */,
 			);
 			name = Protocols;
@@ -832,6 +838,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C06E03D1D4ACB8F005933A9 /* UIImageView+.swift in Sources */,
+				4C35D4101DFA36B000CF5A8F /* ModelRecursible.swift in Sources */,
 				4CF75D521DAC50C700E9EB39 /* Updatable.swift in Sources */,
 				4CCD0A691CD91E4F0081A28B /* LocationAPIModel.swift in Sources */,
 				4C9655581D0E109400011EAC /* PostRequest.swift in Sources */,
@@ -916,6 +923,7 @@
 				4C6982981CD41282005ABCF1 /* UserAPIModel.swift in Sources */,
 				4C6982A11CD4133F005ABCF1 /* UserGender.swift in Sources */,
 				4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */,
+				4C35D4121DFA38C600CF5A8F /* ModelNonRecursible.swift in Sources */,
 				4CE468141D3BEC53000B95DE /* PostPageRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

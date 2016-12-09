@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIModel: NSObject, PrettyPrintable
+class APIModel: NSObject, ModelRecursible, PrettyPrintable
 {
     override var description: String {
         return self.getPropertiesString(self)
@@ -30,59 +30,8 @@ class APIModel: NSObject, PrettyPrintable
     //are not consistent enough to use a generic converter
     func initialize(_ json: [String: Any], skip: [String] = [])
     {
+        //initialize(_:skip:using:) is a member of the ModelRecursible and ModelNonRecursible protocols
+        //Depending on the complexity of your APIModel objects, it could be best to use one or the other
         self.initialize(json, skip: skip, using: FieldNameHelper.self)
-    }
-    
-    func initialize<T: FieldNameConverter>(_ json: [String: Any], skip: [String] = [], using: T.Type)
-    {
-        for property in self.getProperties()
-        {
-            if !skip.contains(property)
-            {
-                let value = self.value(forKey: property)
-                if let model = value as? APIModel //Recursively handle models
-                {
-                    let type = type(of: model)
-                    if let model = getModel(model: json[T.getServerName(forClientName: property)] as? [String: Any], using: type)
-                    {
-                        self.setValue(model, forKey: property) //Finally, set the value
-                        continue //Onto the next property
-                    }
-                }
-                else if let models = value as? [APIModel] //Recursively handle arrays of models
-                {
-                    let type = type(of: models).Element.self
-                    if let modelArray = getArrayOfModels(array: json[T.getServerName(forClientName: property)] as? [Any], using: type)
-                    {
-                        self.setValue(modelArray, forKey: property) //Finally, set the value
-                        continue //Onto the next property
-                    }
-                }
-                self.setValue(json[T.getServerName(forClientName: property)], forKey: property) //Run only if no `continue`
-            }
-        }
-        Log.info("Finished initializing model with values: \(self.description)")
-    }
-    
-    func getModel<T: APIModel>(model: [String: Any]?, using: T.Type?) -> T?
-    {
-        guard let apiModel = model else { return nil }
-        return T(json: apiModel)
-    }
-    
-    func getArrayOfModels<T: APIModel>(array: [Any]?, using: T.Type?) -> [T]?
-    {
-        guard let modelArray = array else { return nil }
-        var models: [T] = []
-        for i in 0..<modelArray.count
-        {
-            guard let dict = modelArray[safe: i] as? [String: Any] else
-            {
-                Log.warning("Failed attempting to parse a JSON array element as dictionary")
-                return nil
-            }
-            models.append(T(json: dict)) //Recursively initialize nested Models
-        }
-        return models
     }
 }
