@@ -30,11 +30,25 @@ extension ModelRecursible where Self: APIModel
                         self.setValue(model, forKey: property) //Finally, set the value
                     }
                 }
-                else if let models = value as? [APIModel] //Recursively handle arrays of models
+                else if let values = value as? [Any] //Handle arrays
                 {
-                    let type = type(of: models).Element.self
-                    let modelArray = getArrayOfModels(array: json[T.getServerName(forClientName: property)] as? [Any], using: type, with: property)
-                    self.setValue(modelArray, forKey: property) //Finally, set the value
+                    if let _ = values.first as? APIModel //Recursively handle arrays of models
+                    {
+                        if let models = values as? [APIModel]
+                        {
+                            let type = type(of: models).Element.self
+                            let modelArray = getArrayOfModels(array: json[T.getServerName(forClientName: property)] as? [Any], using: type, with: property)
+                            self.setValue(modelArray, forKey: property) //Finally, set the value
+                        }
+                    }
+                    else //Handle arrays of other types
+                    {
+                        self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
+                    }
+                }
+                else if let values = value as? [Any]
+                {
+                    Log.debug("Got values: \(values)")
                 }
                 else
                 {
@@ -55,9 +69,9 @@ extension ModelRecursible where Self: APIModel
                 let model = getModel(model: dict, using: T.self, with: property) else
             {
                 Log.warning("Failed attempting to parse a JSON array element as dictionary")
-                return []
+                return models
             }
-            models.append(model) //Recursively initialize nested Models
+            models.append(model)
         }
         return models
     }
