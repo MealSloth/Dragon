@@ -24,6 +24,6 @@ extension ModelNonRecursible where Self: APIModel
                 self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
             }
         }
-        Log.info("Finished initializing model with values: \(self.description)")
+        Log.info("Finished initializing model with values: \(self)")
     }
 }

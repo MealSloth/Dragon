@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIModel: NSObject, ModelRecursible, PrettyPrintable
+class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable
 {
     override var description: String {
         return self.getPropertiesString(self)
