@@ -46,10 +46,6 @@ extension ModelRecursible where Self: APIModel
                         self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
                     }
                 }
-                else if let values = value as? [Any]
-                {
-                    Log.debug("Got values: \(values)")
-                }
                 else
                 {
                     self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
