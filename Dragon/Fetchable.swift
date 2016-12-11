@@ -40,6 +40,12 @@ extension Fetchable where Self: NSManagedObject
         }
     }
     
+    static internal func from(_ key: String, inValues values: [Any]?) -> [Self]?
+    {
+        guard let args = values else { return nil }
+        return self.fetch(NSPredicate(format: "\(key) IN %@", args))
+    }
+    
     static internal func from(_ key: String, withValues values: [Any]?) -> [Self]?
     {
         return self.fetch(NSPredicate(format: "\(key) == %@", argumentArray: values))
