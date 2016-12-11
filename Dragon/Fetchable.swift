@@ -24,9 +24,10 @@ extension Fetchable where Self: NSManagedObject
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
     
-    static internal func fetch(_ predicate: NSPredicate? = nil) -> [Self]?
+    static internal func fetch(_ predicate: NSPredicate? = nil, limit: Int = 0) -> [Self]?
     {
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
+        request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
         request.predicate = predicate
         do
         {
@@ -35,8 +36,8 @@ extension Fetchable where Self: NSManagedObject
         catch let error
         {
             Log.error("\(error)")
+            return nil
         }
-        return nil
     }
     
     static internal func from(_ key: String, withValues values: [Any]?) -> [Self]?
@@ -46,45 +47,23 @@ extension Fetchable where Self: NSManagedObject
     
     static internal func from(_ key: String, withValue value: CVarArg?) -> [Self]?
     {
-        if let arg = value
-        {
-            return self.fetch(NSPredicate(format: "\(key) == %@", arg))
-        }
-        else
-        {
-            Log.error("Received nil value parameter")
-            return nil
-        }
+        guard let arg = value else { return nil }
+        return self.fetch(NSPredicate(format: "\(key) == %@", arg))
     }
     
     static func all() -> [Self]?
     {
-        if let result = self.fetch()
-        {
-            return result
-        }
-        Log.error("No \(self.entityName) entities found")
-        return nil
+        return self.fetch()
     }
     
-    static func top(_ count: Int = 1) -> [Self]?
+    static func top(_ count: Int = 10) -> [Self]?
     {
-        if count > 0, let result = self.fetch(), result.count > 0
-        {
-            return result
-        }
-        Log.error("No \(self.entityName) entities found")
-        return nil
+        return count > 0 ? self.fetch(limit: count) : nil
     }
     
     static func first() -> Self?
     {
-        if let result = self.fetch()?[safe: 0]
-        {
-            return result
-        }
-        Log.error("No \(self.entityName) entities found")
-        return nil
+        return self.top(1)?[safe: 0]
     }
     
     static func fromID(_ id: String?) -> Self?
