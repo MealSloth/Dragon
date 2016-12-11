@@ -16,7 +16,7 @@ import CoreData
 protocol Insertable
 {
     static var context: NSManagedObjectContext? { get }
-    func populate(using model: APIModel, skip: [String])
+    func populate(using model: APIModel?, skip: [String])
 }
 
 extension Insertable where Self: NSManagedObject
@@ -47,42 +47,33 @@ extension Insertable where Self: NSManagedObject
                     else
                     {
                         Log.error("No entity found with name: \(self.entityName)")
-                        return nil
                     }
                 }
             }
             catch let error
             {
                 Log.error("Error during fetch request: \(error)")
-                return nil
             }
         }
         else
         {
             Log.error("Cannot retrieve object from managed object context")
-            return nil
         }
+        return nil
     }
     
     static func insert(_ model: APIModel) -> Self?
     {
-        if let object = Self.insert(at: model.value(forKey: "id") as? String)
+        guard let object = Self.insert(at: model.value(forKey: "id") as? String) else { return nil }
+        object.populate(using: model, skip: [])
+        do
         {
-            object.populate(using: model, skip: [])
-            do
-            {
-                try self.context?.save()
-                return object
-            }
-            catch let error
-            {
-                Log.error("Error during context save: \(error)")
-                return nil
-            }
+            try self.context?.save()
+            return object
         }
-        else
+        catch let error
         {
-            Log.error("Error during insert")
+            Log.error("Error during context save: \(error)")
             return nil
         }
     }

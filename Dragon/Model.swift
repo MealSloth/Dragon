@@ -55,8 +55,9 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
     }
     
     //MARK: Initialization helpers
-    func populate(using model: APIModel, skip: [String] = [])
+    func populate(using model: APIModel?, skip: [String] = [])
     {
+        guard let model = model else { return }
         for property in model.getProperties()
             where self.getProperties().contains(property) && !skip.contains(property)
         {
