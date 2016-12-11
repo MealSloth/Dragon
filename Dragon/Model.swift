@@ -75,11 +75,10 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
     //MARK: Comparison operations
     static func ==(left: Model, right: Model) -> Bool
     {
-        //TODO: Enable identity return once finished testing logic
-        //if left === right //Don't bother computing as long as the identity is the same
-        //{
-        //    return true
-        //}
+        if left === right //Don't bother computing as long as the identity is the same
+        {
+            return true
+        }
         for these in left.getProperties()
         {
             let properties = right.getProperties()
