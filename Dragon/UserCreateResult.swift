@@ -18,12 +18,12 @@ class UserCreateResult: APIResult
     {
         if let json = result["user"] as? [String: Any]
         {
-            self.user = User.insertOrUpdate(UserAPIModel(json: json))
+            self.user = User.insert(UserAPIModel(json: json))
         }
         if let json = result["user_login"] as? [String: Any]
         {
             let model = UserLoginAPIModel(json: json)
-            self.userLogin = UserLogin.insertOrUpdate(model)
+            self.userLogin = UserLogin.insert(model)
             self.password = model.password
         }
     }

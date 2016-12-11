@@ -18,7 +18,7 @@ class PostPageResult: APIResult
         {
             for post in postsArray
             {
-                if let post = Post.insertOrUpdate(PostAPIModel(json: post))
+                if let post = Post.insert(PostAPIModel(json: post))
                 {
                     self.posts.append(post)
                 }

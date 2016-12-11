@@ -16,7 +16,7 @@ class PostResult: APIResult
     {
         if let json = result["post"] as? [String: Any]
         {
-            self.post = Post.insertOrUpdate(PostAPIModel(json: json))
+            self.post = Post.insert(PostAPIModel(json: json))
         }
     }
 }

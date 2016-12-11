@@ -64,7 +64,7 @@ extension Insertable where Self: NSManagedObject
         }
     }
     
-    static func insertOrUpdate(_ model: APIModel) -> Self?
+    static func insert(_ model: APIModel) -> Self?
     {
         if let object = Self.insert(at: model.value(forKey: "id") as? String)
         {
@@ -82,7 +82,7 @@ extension Insertable where Self: NSManagedObject
         }
         else
         {
-            Log.error("Error during insertOrUpdate")
+            Log.error("Error during insert")
             return nil
         }
     }

@@ -19,7 +19,7 @@ class UserLoginResult: APIResult
         {
             let model = UserLoginAPIModel(json: json)
             self.password = model.password
-            self.userLogin = UserLogin.insertOrUpdate(model)
+            self.userLogin = UserLogin.insert(model)
         }
     }
 }

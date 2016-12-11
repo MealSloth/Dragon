@@ -16,7 +16,7 @@ class UserModifyResult: APIResult
     {
         if let json = result["user"] as? [String: Any]
         {
-            self.user = User.insertOrUpdate(UserAPIModel(json: json))
+            self.user = User.insert(UserAPIModel(json: json))
         }
     }
 }

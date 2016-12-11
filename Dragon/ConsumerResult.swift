@@ -16,7 +16,7 @@ class ConsumerResult: APIResult
     {
         if let json = result["consumer"] as? [String: Any]
         {
-            self.consumer = Consumer.insertOrUpdate(ConsumerAPIModel(json: json))
+            self.consumer = Consumer.insert(ConsumerAPIModel(json: json))
         }
     }
 }
