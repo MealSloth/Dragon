@@ -554,15 +554,23 @@
 			name = CoreDataTest;
 			sourceTree = "<group>";
 		};
+		4CB66B741DFF2E36004464A2 /* APIModel Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */,
+				4C35D4111DFA38C600CF5A8F /* ModelNonRecursible.swift */,
+				4C35D40F1DFA36B000CF5A8F /* ModelRecursible.swift */,
+			);
+			name = "APIModel Protocols";
+			sourceTree = "<group>";
+		};
 		4CB67D221D8B428E00196579 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4CB66B741DFF2E36004464A2 /* APIModel Protocols */,
 				4CF75D531DAC50E900E9EB39 /* Database Protocols */,
-				4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */,
 				4CC780C21DD27C5A00E93EB4 /* FieldNameConverter.swift */,
 				4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */,
-				4C35D4111DFA38C600CF5A8F /* ModelNonRecursible.swift */,
-				4C35D40F1DFA36B000CF5A8F /* ModelRecursible.swift */,
 				4CB67D231D8B42A400196579 /* PrettyPrintable.swift */,
 			);
 			name = Protocols;
