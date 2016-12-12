@@ -8,11 +8,15 @@
 
 import Foundation
 
-class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable
+class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, ChildrenIdentifiable
 {
     override var description: String {
         return self.getPropertiesString(self)
     }
+    
+    static var children: [AnyClass] = {
+        return APIModel.getChildren()
+    }()
     
     override init()
     {
