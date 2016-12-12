@@ -16,13 +16,16 @@ class Cache
         return cache
     }()
     
-    static func get<T>(_ key: String?) -> T?
+    static func get<T>(_ key: Any?) -> T?
     {
         return cache.object(forKey: key as AnyObject) as? T
     }
     
-    static func put(object: Any?, at key: String?)
+    static func put(object: AnyObject?, at key: Any?)
     {
-        cache.setObject(object as AnyObject, forKey: key as AnyObject)
+        if let obj = object
+        {
+            cache.setObject(obj, forKey: key as AnyObject)
+        }
     }
 }
