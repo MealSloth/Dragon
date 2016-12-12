@@ -17,24 +17,22 @@ extension ChildrenIdentifiable where Self: APIModel
 {
     static func children() -> [APIModel.Type]
     {
-        if let defaults = UserDefaults.standard.object(forKey: "APIModel.children") as? NSArray
-        {
-            var classes: [APIModel.Type] = []
-            for classEntry in defaults
-            {
-                if let entry = classEntry as? String, let type = NSClassFromString(entry) as? APIModel.Type
-                {
-                    classes.append(type)
-                }
-            }
-            return classes
-        }
-        else
+        guard let defaults = UserDefaults.standard.object(forKey: "APIModel.children") as? NSArray else
         {
             let classes = getChildClasses()
             UserDefaults.standard.set((classes.map { NSStringFromClass($0) }) as NSArray, forKey: "APIModel.children")
             return classes
         }
+        var classes: [APIModel.Type] = []
+        for classEntry in defaults
+        {
+            if let entry = classEntry as? String, let type = NSClassFromString(entry) as? APIModel.Type
+            {
+                classes.append(type)
+            }
+        }
+        return classes
+        
     }
     
     fileprivate static func getChildClasses() -> [APIModel.Type]

@@ -19,8 +19,8 @@ extension ModelRecursible where Self: APIModel
     {
         for property in self.getProperties() where !skip.contains(property)
         {
-            var value: Any? = json[T.getServerName(forClientName: property)]
-            var type = String(describing: type(of: Mirror(reflecting: self).children.filter{$0.label! == property}[0].value))
+            var value: Any? = json[T.getServerName(forClientName: property)] //The default value is most common
+            let type = String(describing: type(of: Mirror(reflecting: self).children.filter{$0.label! == property}[0].value))
             if let values = value as? [Any] //Handle arrays
             {
                 if let optionalType = type.components(separatedBy: "<").last?.components(separatedBy: ">").first,
@@ -41,8 +41,7 @@ extension ModelRecursible where Self: APIModel
             else if let optionalType = type.components(separatedBy: "<").last?.components(separatedBy: ">").first,
                 optionalType.contains("APIModel") //Recursively handle models
             {
-                type = optionalType
-                for child in APIModel.children where type == String(describing: child)
+                for child in APIModel.children where optionalType == String(describing: child)
                 {
                     value = child.init(jsonOptional: json[T.getServerName(forClientName: property)] as? [String: Any])
                 }
