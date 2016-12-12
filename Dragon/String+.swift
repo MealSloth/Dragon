@@ -25,9 +25,9 @@ extension String
         }
         
         let characters: NSMutableString = NSMutableString(string: set)
-        let randomString : NSMutableString = NSMutableString(capacity: capacity)
+        let randomString: NSMutableString = NSMutableString(capacity: capacity)
         
-        for _ in 0 ..< capacity
+        for _ in 0..<capacity
         {
             let length = UInt32 (characters.length)
             let rand = arc4random_uniform(length)

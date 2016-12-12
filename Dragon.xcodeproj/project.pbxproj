@@ -302,6 +302,74 @@
 			path = DragonUITests;
 			sourceTree = "<group>";
 		};
+		4C5B6AB91DFF40B400B0785B /* Caches */ = {
+			isa = PBXGroup;
+			children = (
+				4CF29B601DC1695A0076F14F /* Cache.swift */,
+				4CF29B641DC17B920076F14F /* UIImageCache.swift */,
+			);
+			name = Caches;
+			sourceTree = "<group>";
+		};
+		4C5B6ABA1DFF40DB00B0785B /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD0A701CD91FD50081A28B /* AlbumAPIModel.swift */,
+				4CCD0A6E1CD91F7B0081A28B /* BlobAPIModel.swift */,
+				4CCD0A6C1CD91F580081A28B /* ChefAPIModel.swift */,
+				4CCD0A6A1CD91EAC0081A28B /* ConsumerAPIModel.swift */,
+				4CCD0A681CD91E4F0081A28B /* LocationAPIModel.swift */,
+				4CCD0A661CD91E170081A28B /* OrderAPIModel.swift */,
+				4CCD0A641CD91DE70081A28B /* OrderSummaryAPIModel.swift */,
+				4CCD0A621CD91DAA0081A28B /* OrderTimeAPIModel.swift */,
+				4CCD0A591CD8F3280081A28B /* PostAPIModel.swift */,
+				4CCD0A601CD91BC80081A28B /* ReviewAPIModel.swift */,
+				4C6982971CD41282005ABCF1 /* UserAPIModel.swift */,
+				4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		4C5B6ABB1DFF40EC00B0785B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CAA3E591D80C16C0015FA43 /* Model.swift */,
+				4C5B6ABC1DFF40F400B0785B /* Subclasses */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4C5B6ABC1DFF40F400B0785B /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				4CC674781D80E8A5001BCA67 /* Album.swift */,
+				4CC6747A1D80E8AD001BCA67 /* Blob.swift */,
+				4CC6747C1D80E8B2001BCA67 /* Chef.swift */,
+				4CC6747E1D80E8B8001BCA67 /* Consumer.swift */,
+				4CC674801D80E8C5001BCA67 /* Location.swift */,
+				4CC674821D80E8D3001BCA67 /* Order.swift */,
+				4CC674841D80E8D9001BCA67 /* OrderSummary.swift */,
+				4CC674861D80E8DF001BCA67 /* OrderTime.swift */,
+				4CC674881D80E8E5001BCA67 /* Post.swift */,
+				4CC6748A1D80E8EF001BCA67 /* Review.swift */,
+				4CC674761D80E855001BCA67 /* User.swift */,
+				4CC674741D80E82C001BCA67 /* UserLogin.swift */,
+			);
+			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		4C5B6ABD1DFF411500B0785B /* UI Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */,
+				4CC40DB21D51819200B5D4BE /* UIImage+.swift */,
+				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
+				4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */,
+				4CFF11CF1D497E600062B33A /* UIViewController+.swift */,
+			);
+			name = "UI Subclasses";
+			sourceTree = "<group>";
+		};
 		4C69825B1CD3D7A4005ABCF1 = {
 			isa = PBXGroup;
 			children = (
@@ -405,18 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				4CCD0A571CD8EEFE0081A28B /* APIModel.swift */,
-				4CCD0A701CD91FD50081A28B /* AlbumAPIModel.swift */,
-				4CCD0A6E1CD91F7B0081A28B /* BlobAPIModel.swift */,
-				4CCD0A6C1CD91F580081A28B /* ChefAPIModel.swift */,
-				4CCD0A6A1CD91EAC0081A28B /* ConsumerAPIModel.swift */,
-				4CCD0A681CD91E4F0081A28B /* LocationAPIModel.swift */,
-				4CCD0A661CD91E170081A28B /* OrderAPIModel.swift */,
-				4CCD0A641CD91DE70081A28B /* OrderSummaryAPIModel.swift */,
-				4CCD0A621CD91DAA0081A28B /* OrderTimeAPIModel.swift */,
-				4CCD0A591CD8F3280081A28B /* PostAPIModel.swift */,
-				4CCD0A601CD91BC80081A28B /* ReviewAPIModel.swift */,
-				4C6982971CD41282005ABCF1 /* UserAPIModel.swift */,
-				4CCD0A551CD8EE080081A28B /* UserLoginAPIModel.swift */,
+				4C5B6ABA1DFF40DB00B0785B /* Subclasses */,
 			);
 			name = APIModel;
 			sourceTree = "<group>";
@@ -425,19 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				4C6982961CD4125D005ABCF1 /* APIModel */,
-				4CAA3E591D80C16C0015FA43 /* Model.swift */,
-				4CC674781D80E8A5001BCA67 /* Album.swift */,
-				4CC6747A1D80E8AD001BCA67 /* Blob.swift */,
-				4CC6747C1D80E8B2001BCA67 /* Chef.swift */,
-				4CC6747E1D80E8B8001BCA67 /* Consumer.swift */,
-				4CC674801D80E8C5001BCA67 /* Location.swift */,
-				4CC674821D80E8D3001BCA67 /* Order.swift */,
-				4CC674841D80E8D9001BCA67 /* OrderSummary.swift */,
-				4CC674861D80E8DF001BCA67 /* OrderTime.swift */,
-				4CC674881D80E8E5001BCA67 /* Post.swift */,
-				4CC6748A1D80E8EF001BCA67 /* Review.swift */,
-				4CC674761D80E855001BCA67 /* User.swift */,
-				4CC674741D80E82C001BCA67 /* UserLogin.swift */,
+				4C5B6ABB1DFF40EC00B0785B /* Model */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -532,14 +577,10 @@
 		4C7A82D51D3EC9B400638FBE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4C5B6ABD1DFF411500B0785B /* UI Subclasses */,
 				4CC40DB41D51838000B5D4BE /* Collection+.swift */,
 				4C7A82D61D3EC9C200638FBE /* Date+.swift */,
 				4C7A82D81D3EC9F400638FBE /* String+.swift */,
-				4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */,
-				4CC40DB21D51819200B5D4BE /* UIImage+.swift */,
-				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
-				4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */,
-				4CFF11CF1D497E600062B33A /* UIViewController+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -684,9 +725,8 @@
 		4CE166DE1D3959CC003589D0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4CF29B601DC1695A0076F14F /* Cache.swift */,
+				4C5B6AB91DFF40B400B0785B /* Caches */,
 				4CE166DF1D3959DC003589D0 /* Log.swift */,
-				4CF29B641DC17B920076F14F /* UIImageCache.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
