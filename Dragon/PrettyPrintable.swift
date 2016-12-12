@@ -28,10 +28,10 @@ extension PrettyPrintable
         }
     }
     
-    func getPropertiesString(_ context: PrettyPrintable, depth: Int = 0) -> String
+    func getPropertiesString(_ context: PrettyPrintable, depth: Int = 0, nameless: Bool = false) -> String
     {
         var string: String = (depth == 0) ? "\n\n" : ""
-        string += "\(Mirror(reflecting: self).subjectType): {\n"
+        string += nameless ? "{\n" : "\(Mirror(reflecting: self).subjectType): {\n"
         for property in context.getProperties()
         {
             string += context.getPropertyString(context, property: property, depth: depth + 1)
@@ -55,7 +55,7 @@ extension PrettyPrintable
         
         if let newProp = context.value(forKey: property) as? PrettyPrintable
         {
-            string += "\(property):\n\(self.getPropertiesString(newProp, depth: depth))"
+            string += "\(property): \(newProp.getPropertiesString(newProp, depth: depth, nameless: true))"
         }
         else if let arr = context.value(forKey: property) as? [Any]
         {
