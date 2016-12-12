@@ -56,6 +56,7 @@ extension PrettyPrintable
         if let newProp = context.value(forKey: property) as? PrettyPrintable
         {
             string += "\(property): \(newProp.getPropertiesString(newProp, depth: depth, nameless: true))"
+            string.insert(",", at: string.index(before: string.endIndex))
         }
         else if let arr = context.value(forKey: property) as? [Any]
         {
