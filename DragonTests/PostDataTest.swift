@@ -88,16 +88,4 @@ class PostDataTest: DragonTest
             }
         })
     }
-    
-    func testPostRandom()
-    {
-        if let post = Post.first()
-        {
-            Cache.put(object: post, at: "testpost")
-            if let storedPost: Post = Cache.get("testpost")
-            {
-                Log.debug("Got post: \(storedPost.description)")
-            }
-        }
-    }
 }
