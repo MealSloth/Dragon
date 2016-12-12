@@ -8,14 +8,14 @@
 
 import Foundation
 
-class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, ChildrenIdentifiable
+class APIModel: NSObject, ModelRecursible, PrettyPrintable, ChildrenIdentifiable
 {
     override var description: String {
         return self.getPropertiesString(self)
     }
     
-    static var children: [AnyClass] = {
-        return APIModel.getChildren()
+    static var children: [APIModel.Type] = {
+        return APIModel.children()
     }()
     
     override init()
@@ -23,13 +23,13 @@ class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, ChildrenId
         super.init()
     }
     
-    init(json: [String: Any])
+    required init(json: [String: Any])
     {
         super.init()
         self.initialize(json)
     }
     
-    init?(jsonOptional: [String: Any]?)
+    required init?(jsonOptional: [String: Any]?)
     {
         guard let json = jsonOptional else { return nil }
         super.init()

@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
         self.managedObjectContext.performAndWait({ () -> Void in
             self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         })
+        _ = APIModel.children //Preload children of APIModel class
         return true
     }
 
