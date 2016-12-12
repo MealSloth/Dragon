@@ -14,9 +14,6 @@ class PostResult: APIResult
     
     required init(result: [String: Any])
     {
-        if let json = result["post"] as? [String: Any]
-        {
-            self.post = Post.insert(PostAPIModel(json: json))
-        }
+        self.post = Post.insert(PostAPIModel(jsonOptional: result["post"] as? [String: Any]))
     }
 }

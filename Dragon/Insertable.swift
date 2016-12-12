@@ -27,44 +27,42 @@ extension Insertable where Self: NSManagedObject
     
     static internal func insert(at id: String?) -> Self?
     {
-        if let context = self.context, let id = id
+        guard let context = self.context, let id = id else
         {
-            let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
-            request.predicate = NSPredicate(format: "id == %@", id)
-            do
+            Log.error("Cannot retrieve object from managed object context")
+            return nil
+        }
+        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
+        request.predicate = NSPredicate(format: "id == %@", id)
+        do
+        {
+            let result = try context.fetch(request)
+            if let object = result[safe: 0]
             {
-                let result = try context.fetch(request)
-                if let object = result[safe: 0]
+                return object
+            }
+            else
+            {
+                if let entity = NSEntityDescription.entity(forEntityName: self.entityName, in: context)
                 {
-                    return object
+                    return self.init(entity: entity, insertInto: context)
                 }
                 else
                 {
-                    if let entity = NSEntityDescription.entity(forEntityName: self.entityName, in: context)
-                    {
-                        return self.init(entity: entity, insertInto: context)
-                    }
-                    else
-                    {
-                        Log.error("No entity found with name: \(self.entityName)")
-                    }
+                    Log.error("No entity found with name: \(self.entityName)")
                 }
             }
-            catch let error
-            {
-                Log.error("Error during fetch request: \(error)")
-            }
         }
-        else
+        catch let error
         {
-            Log.error("Cannot retrieve object from managed object context")
+            Log.error("Error during fetch request: \(error)")
         }
         return nil
     }
     
-    static func insert(_ model: APIModel) -> Self?
+    static func insert(_ model: APIModel?) -> Self?
     {
-        guard let object = Self.insert(at: model.value(forKey: "id") as? String) else { return nil }
+        guard let model = model, let object = Self.insert(at: model.value(forKey: "id") as? String) else { return nil }
         object.populate(using: model, skip: [])
         do
         {

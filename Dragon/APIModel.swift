@@ -25,6 +25,13 @@ class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable
         self.initialize(json)
     }
     
+    init?(jsonOptional: [String: Any]?)
+    {
+        guard let json = jsonOptional else { return nil }
+        super.init()
+        self.initialize(json)
+    }
+    
     override func value(forKey key: String) -> Any?
     {
         return super.value(forKey: key)

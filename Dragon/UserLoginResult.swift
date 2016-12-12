@@ -15,11 +15,8 @@ class UserLoginResult: APIResult
     
     required init(result: [String: Any])
     {
-        if let json = result["user_login"] as? [String: Any]
-        {
-            let model = UserLoginAPIModel(json: json)
-            self.password = model.password
-            self.userLogin = UserLogin.insert(model)
-        }
+        let model = UserLoginAPIModel(jsonOptional: result["user_login"] as? [String: Any])
+        self.password = model?.password
+        self.userLogin = UserLogin.insert(model)
     }
 }
