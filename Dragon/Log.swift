@@ -44,14 +44,11 @@ class Log
     
     internal class func logRemaining(_ strArr: [String]?)
     {
-        if let count = strArr?.count , count > 1
+        if let arr = strArr, arr.count > 1
         {
-            for newLine in 1..<count
+            for line in arr
             {
-                if let line = strArr?[safe: newLine]
-                {
-                    print(line)
-                }
+                print(line)
             }
         }
     }
