@@ -17,7 +17,7 @@ extension ModelRecursible where Self: APIModel
 {
     func initialize<T: FieldNameConverter>(_ json: [String: Any], skip: [String] = [], using: T.Type)
     {
-        for property in self.getProperties() where !skip.contains(property)
+        for property in self.getProperties() where !skip.contains(property) && !skip.contains(T.getServerName(forClientName: property))
         {
             var value: Any? = json[T.getServerName(forClientName: property)] //The default value is most common
             let type = String(describing: type(of: Mirror(reflecting: self).children.filter{$0.label! == property}[0].value))
