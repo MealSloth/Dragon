@@ -35,7 +35,7 @@ extension ModelRecursible where Self: APIModel
                             models.append(model)
                         }
                     }
-                    value = models
+                    value = models //Override default with our better parsed version
                 }
             }
             else if let optionalType = type.components(separatedBy: "<").last?.components(separatedBy: ">").first,
@@ -43,7 +43,9 @@ extension ModelRecursible where Self: APIModel
             {
                 for child in APIModel.children where optionalType == String(describing: child)
                 {
+                    //Override default with our better parsed version
                     value = child.init(jsonOptional: json[T.getServerName(forClientName: property)] as? [String: Any])
+                    break
                 }
             }
             self.setValue(value, forKey: property)

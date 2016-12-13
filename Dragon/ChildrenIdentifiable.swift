@@ -32,7 +32,6 @@ extension ChildrenIdentifiable where Self: APIModel
             }
         }
         return classes
-        
     }
     
     fileprivate static func getChildClasses() -> [APIModel.Type]
