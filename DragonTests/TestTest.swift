@@ -11,7 +11,7 @@ import XCTest
 
 class TestTest: DragonTest
 {
-    func testWithNothingLol()
+    func testTestLol()
     {
         let ready = expectation(description: "ready")
         let method = "TestRequest()"
