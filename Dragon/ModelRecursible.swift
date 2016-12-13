@@ -41,12 +41,9 @@ extension ModelRecursible where Self: APIModel
             else if let optionalType = type.components(separatedBy: "<").last?.components(separatedBy: ">").first,
                 optionalType.contains("APIModel") //Recursively handle models
             {
-                for child in APIModel.children where optionalType == String(describing: child)
-                {
-                    //Override default with our better parsed version
-                    value = child.init(jsonOptional: json[T.getServerName(forClientName: property)] as? [String: Any])
-                    break
-                }
+                let modelType: APIModel.Type = APIModel.children.filter{optionalType == String(describing: $0)}[0]
+                //Override default with our better parsed version
+                value = modelType.init(jsonOptional: json[T.getServerName(forClientName: property)] as? [String: Any])
             }
             self.setValue(value, forKey: property)
         }
