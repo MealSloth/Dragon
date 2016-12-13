@@ -19,4 +19,14 @@ class Order: Model
     @NSManaged var orderType: NSNumber!
     @NSManaged var orderTime: String!
     @NSManaged var amount: NSNumber!
+    
+    var status: OrderStatus? {
+        get { return OrderStatus(rawValue: self.orderStatus as Int) }
+        set { if let value = newValue?.rawValue { self.orderStatus = value as NSNumber } }
+    }
+    
+    var type: OrderType? {
+        get { return OrderType(rawValue: self.orderType as Int) }
+        set { if let value = newValue?.rawValue { self.orderStatus = value as NSNumber } }
+    }
 }

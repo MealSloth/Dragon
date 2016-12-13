@@ -16,4 +16,14 @@ class OrderSummary: Model
     @NSManaged var orderStatus: NSNumber!
     @NSManaged var orderType: NSNumber!
     @NSManaged var latestTime: Date!
+    
+    var status: OrderStatus? {
+        get { return OrderStatus(rawValue: self.orderStatus as Int) }
+        set { if let value = newValue?.rawValue { self.orderStatus = value as NSNumber } }
+    }
+    
+    var type: OrderType? {
+        get { return OrderType(rawValue: self.orderType as Int) }
+        set { if let value = newValue?.rawValue { self.orderStatus = value as NSNumber } }
+    }
 }

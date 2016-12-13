@@ -18,6 +18,11 @@ class User: Model
     @NSManaged var dateOfBirth: Date?
     @NSManaged var gender: NSNumber?
     
+    var userGender: UserGender? {
+        get { if let raw = gender as? Int { return UserGender(rawValue: raw) } else { return nil } }
+        set { if let raw = newValue?.rawValue { self.gender = raw as NSNumber } }
+    }
+    
     static func fromEmail(email: String?) -> User?
     {
         return self.from("email", withValue: email)?[safe: 0]

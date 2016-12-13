@@ -21,6 +21,11 @@ class Post: Model
     @NSManaged var postTime: Date!
     @NSManaged var expireTime: Date!
     
+    var status: PostStatus? {
+        get { return PostStatus(rawValue: self.postStatus as Int) }
+        set { if let value = newValue?.rawValue { self.postStatus = value as NSNumber } }
+    }
+    
     lazy var chef: Chef? = {
         return Chef.fromID(self.chefID)
     }()

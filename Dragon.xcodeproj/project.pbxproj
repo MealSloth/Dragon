@@ -333,8 +333,8 @@
 		4C5B6ABB1DFF40EC00B0785B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4CAA3E591D80C16C0015FA43 /* Model.swift */,
 				4C5B6ABC1DFF40F400B0785B /* Subclasses */,
+				4CAA3E591D80C16C0015FA43 /* Model.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -368,6 +368,20 @@
 				4CFF11CF1D497E600062B33A /* UIViewController+.swift */,
 			);
 			name = "UI Subclasses";
+			sourceTree = "<group>";
+		};
+		4C5B6ABE1DFF41BC00B0785B /* Model Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4CCD0A831CD93B4F0081A28B /* LocationPurpose.swift */,
+				4CCD0A811CD93AEC0081A28B /* LocationType.swift */,
+				4CCD0A7F1CD93A2C0081A28B /* OrderStatus.swift */,
+				4CCD0A7D1CD939AF0081A28B /* OrderType.swift */,
+				4CCD0A771CD9347A0081A28B /* PostStatus.swift */,
+				4C6982A01CD4133F005ABCF1 /* UserGender.swift */,
+				4CCD0A721CD920090081A28B /* UserLoginAccessLevel.swift */,
+			);
+			name = "Model Enums";
 			sourceTree = "<group>";
 		};
 		4C69825B1CD3D7A4005ABCF1 = {
@@ -472,8 +486,8 @@
 		4C6982961CD4125D005ABCF1 /* APIModel */ = {
 			isa = PBXGroup;
 			children = (
-				4CCD0A571CD8EEFE0081A28B /* APIModel.swift */,
 				4C5B6ABA1DFF40DB00B0785B /* Subclasses */,
+				4CCD0A571CD8EEFE0081A28B /* APIModel.swift */,
 			);
 			name = APIModel;
 			sourceTree = "<group>";
@@ -490,15 +504,9 @@
 		4C69829D1CD41309005ABCF1 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4C5B6ABE1DFF41BC00B0785B /* Model Enums */,
 				4C9655611D0E436600011EAC /* AbstractEnum.swift */,
 				4C6982901CD3DC07005ABCF1 /* APIHost.swift */,
-				4CCD0A831CD93B4F0081A28B /* LocationPurpose.swift */,
-				4CCD0A811CD93AEC0081A28B /* LocationType.swift */,
-				4CCD0A7F1CD93A2C0081A28B /* OrderStatus.swift */,
-				4CCD0A7D1CD939AF0081A28B /* OrderType.swift */,
-				4CCD0A771CD9347A0081A28B /* PostStatus.swift */,
-				4C6982A01CD4133F005ABCF1 /* UserGender.swift */,
-				4CCD0A721CD920090081A28B /* UserLoginAccessLevel.swift */,
 				4CDA111B1D4807EF002C62FD /* RandomStringAllow.swift */,
 			);
 			name = Enums;

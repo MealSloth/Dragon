@@ -20,4 +20,14 @@ class Location: Model
     @NSManaged var state: String?
     @NSManaged var country: String?
     @NSManaged var zip: String?
+    
+    var locationPurpose: LocationPurpose? {
+        get { return LocationPurpose(rawValue: self.purpose as Int) }
+        set { if let value = newValue?.rawValue { self.purpose = value as NSNumber } }
+    }
+    
+    var locationType: LocationType? {
+        get { return LocationType(rawValue: self.type as Int) }
+        set { if let value = newValue?.rawValue { self.type = value as NSNumber } }
+    }
 }
