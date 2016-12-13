@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserLoginAPIModel : APIModel
+class UserLoginAPIModel: APIModel
 {
     var id: String!
     var userID: String!
