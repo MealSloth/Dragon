@@ -17,7 +17,7 @@ class UserModifyRequest: APIRequestChimera
         self.json["first_name"] = firstName
         self.json["last_name"] = lastName
         self.json["gender"] = gender?.rawValue
-        self.json["date_of_birth"] = dateOfBirth?.toString()
+        self.json["date_of_birth"] = dateOfBirth?.asString()
         self.json["phone_number"] = phoneNumber
     }
 }

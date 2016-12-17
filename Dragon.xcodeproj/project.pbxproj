@@ -46,7 +46,7 @@
 		4C7A82CB1D3EC2B700638FBE /* PostPageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82CA1D3EC2B700638FBE /* PostPageResult.swift */; };
 		4C7A82D41D3EC41D00638FBE /* PostPageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D31D3EC41D00638FBE /* PostPageTest.swift */; };
 		4C7A82D71D3EC9C200638FBE /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D61D3EC9C200638FBE /* Date+.swift */; };
-		4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D81D3EC9F400638FBE /* String+.swift */; };
+		4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D81D3EC9F400638FBE /* String+.swift */; };
 		4C880F491DFE419400A4DFB0 /* ChildrenIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */; };
 		4C94FAFC1DA033F400CFFBFC /* PostDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94FAFB1DA033F400CFFBFC /* PostDataTest.swift */; };
 		4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655531D0E0F0200011EAC /* UserLoginRequest.swift */; };
@@ -183,7 +183,7 @@
 		4C7A82CA1D3EC2B700638FBE /* PostPageResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostPageResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C7A82D31D3EC41D00638FBE /* PostPageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPageTest.swift; sourceTree = "<group>"; };
 		4C7A82D61D3EC9C200638FBE /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		4C7A82D81D3EC9F400638FBE /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String\U0010+.swift"; sourceTree = "<group>"; };
+		4C7A82D81D3EC9F400638FBE /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenIdentifiable.swift; sourceTree = "<group>"; };
 		4C94FAFB1DA033F400CFFBFC /* PostDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDataTest.swift; sourceTree = "<group>"; };
 		4C9655531D0E0F0200011EAC /* UserLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserLoginRequest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -624,7 +624,7 @@
 				4C5B6ABD1DFF411500B0785B /* UI Subclasses */,
 				4CC40DB41D51838000B5D4BE /* Collection+.swift */,
 				4C7A82D61D3EC9C200638FBE /* Date+.swift */,
-				4C7A82D81D3EC9F400638FBE /* String+.swift */,
+				4C7A82D81D3EC9F400638FBE /* String+.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1012,7 +1012,7 @@
 				4CF29B611DC1695A0076F14F /* Cache.swift in Sources */,
 				4CC674871D80E8DF001BCA67 /* OrderTime.swift in Sources */,
 				4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */,
-				4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */,
+				4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */,
 				4C7A82C11D3EAFD800638FBE /* ConsumerRequest.swift in Sources */,
 				4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */,
 				4CB67D241D8B42A500196579 /* PrettyPrintable.swift in Sources */,
