@@ -12,6 +12,6 @@ extension Collection
 {
     subscript(safe index: Index) -> Iterator.Element?
     {
-        return index >= startIndex && index < endIndex ? self[index] : nil
+        return index >= self.startIndex && index < self.endIndex ? self[index] : nil
     }
 }

@@ -14,7 +14,7 @@ class TypeHelper
     class func type(from property: String?, ofObject object: APIModel) -> String?
     {
         let children = Mirror(reflecting: object).children
-        let expectedChildren = children.filter{$0.label?.components(separatedBy: ".").first == property}
+        let expectedChildren = children.filter{$0.label == property}
         if let child = expectedChildren[safe: 0]?.value
         {
             let childType = String(describing: type(of: child))
