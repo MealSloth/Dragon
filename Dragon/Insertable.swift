@@ -39,16 +39,9 @@ extension Insertable where Self: NSManagedObject
         {
             return object
         }
-        else
+        else if let entity = NSEntityDescription.entity(forEntityName: tableName, in: context)
         {
-            if let entity = NSEntityDescription.entity(forEntityName: tableName, in: context)
-            {
-                return self.init(entity: entity, insertInto: context)
-            }
-            else
-            {
-                Log.error("No entity found with name: \(tableName)")
-            }
+            return self.init(entity: entity, insertInto: context)
         }
         return nil
     }

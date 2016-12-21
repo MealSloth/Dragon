@@ -29,15 +29,11 @@ extension Fetchable where Self: NSManagedObject
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
         request.predicate = predicate
-        do
+        if let result = try? self.context?.fetch(request)
         {
-            return try self.context?.fetch(request)
+            return result
         }
-        catch let error
-        {
-            Log.error("\(error)")
-            return nil
-        }
+        return nil
     }
     
     static internal func from(_ key: String, inValues values: [CVarArg]?) -> [Self]?

@@ -89,15 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
     {
         if managedObjectContext.hasChanges
         {
-            do
-            {
-                try managedObjectContext.save()
-            }
-            catch let error
-            {
-                //TODO: Handle error appropriately.
-                Log.error("Error when saving managedObjectContext: \(error)")
-            }
+            try? managedObjectContext.save()
         }
     }
 }

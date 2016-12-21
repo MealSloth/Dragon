@@ -28,38 +28,29 @@ extension APIRequest
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: self.json, options: JSONSerialization.WritingOptions.prettyPrinted)
         Log.info("Executing POST request at \(urlStr)")
-        
-        do
-        {
-            request.httpBody = try JSONSerialization.data(withJSONObject: self.json, options: JSONSerialization.WritingOptions.prettyPrinted)
-        }
-        catch let error
-        {
-            Log.error("Error during JSON Serialization: \(error)")
-        }
-        
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            guard let jsonData = data else
-            {
-                onError?(error)
-                return
-            }
-            do
-            {
-                if let jsonResult: [String:Any] = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:Any]
+        let task = URLSession.shared.dataTask(with: request,
+            completionHandler: { (data, response, error) -> Void in
+                guard let jsonData = data else
                 {
-                    Log.info("Received response for POST request at \(urlStr)")
-                    completion?(jsonResult)
+                    onError?(error)
+                    return
+                }
+                do
+                {
+                    if let jsonResult: [String:Any] = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:Any]
+                    {
+                        Log.info("Received response for POST request at \(urlStr)")
+                        completion?(jsonResult)
+                    }
+                }
+                catch let error
+                {
+                    onError?(error)
                 }
             }
-            catch let error
-            {
-                onError?(error)
-            }
-        }) 
-        
+        )
         task.resume()
     }
 }

@@ -26,34 +26,15 @@ extension Deletable where Self: NSManagedObject
     
     static internal func delete(_ predicate: NSPredicate? = nil)
     {
-        if let context = self.context
+        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
+        request.predicate = predicate
+        if let context = self.context, let results = try? context.fetch(request)
         {
-            let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
-            request.predicate = predicate
-            do
+            for result in results
             {
-                let results = try context.fetch(request)
-                for result in results
-                {
-                    context.delete(result)
-                }
-                do
-                {
-                    try self.context?.save()
-                }
-                catch let error
-                {
-                    Log.error("Error while attempting to save managed object context during delete: \(error)")
-                }
+                context.delete(result)
             }
-            catch let error
-            {
-                Log.error("Error during fetch request: \(error)")
-            }
-        }
-        else
-        {
-            Log.error("Could not get managed object context")
+            try? self.context?.save()
         }
     }
     
@@ -67,10 +48,6 @@ extension Deletable where Self: NSManagedObject
         if let val = value
         {
             self.delete(NSPredicate(format: "\(key) == %@", val))
-        }
-        else
-        {
-            Log.error("Received nil value parameter")
         }
     }
     
