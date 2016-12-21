@@ -10,17 +10,17 @@ import Foundation
 
 protocol APIRequest
 {
-    var json: [String: Any] { get set }
+    var json: [String:Any] { get set }
     var method: String { get set }
     var host: APIHost { get set }
     
-    var resultHandler: ((_ result: [String: Any]) -> Void)? { get set }
+    var resultHandler: ((_ result: [String:Any]) -> Void)? { get set }
     var errorHandler: ((_ error: Error?) -> Void)? { get set }
 }
 
 extension APIRequest
 {
-    func post(onCompletion completion: ((_ result: [String: Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
+    func post(onCompletion completion: ((_ result: [String:Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
     {
         let urlStr = "\(self.host.url())\(self.method)"
         guard let url = URL(string: urlStr) else { return }
@@ -48,7 +48,7 @@ extension APIRequest
             }
             do
             {
-                if let jsonResult: [String: Any] = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
+                if let jsonResult: [String:Any] = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:Any]
                 {
                     Log.info("Received response for POST request at \(urlStr)")
                     completion?(jsonResult)

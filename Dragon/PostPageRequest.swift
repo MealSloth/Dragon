@@ -14,6 +14,6 @@ class PostPageRequest: APIRequestChimera
     {
         super.init(method: "post/page/")
         self.json["page_size"] = size
-        self.json["post_time_stamp"] = time?.asString()
+        self.json["post_time_stamp"] = time?.toString()
     }
 }

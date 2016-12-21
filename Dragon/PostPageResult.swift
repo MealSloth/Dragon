@@ -12,9 +12,9 @@ class PostPageResult: APIResult
 {
     var posts: [Post] = []
     
-    required init(result: [String: Any])
+    required init(result: [String:Any])
     {
-        if let postsArray = result["posts"] as? [[String: Any]]
+        if let postsArray = result["posts"] as? [[String:Any]]
         {
             for post in postsArray
             {

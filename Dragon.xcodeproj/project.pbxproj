@@ -14,6 +14,10 @@
 		4C1504271DD3DFFC00A952EF /* InstanceRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */; };
 		4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */; };
 		4C1DF22A1D52BCCB00C533CB /* ConsumerProfileTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */; };
+		4C1FDC631E09B557004C0D96 /* PersistentModelRecursible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FDC621E09B557004C0D96 /* PersistentModelRecursible.swift */; };
+		4C1FDC651E09C7C0004C0D96 /* ConsumerDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FDC641E09C7C0004C0D96 /* ConsumerDataTest.swift */; };
+		4C1FDC671E09CB07004C0D96 /* ChefDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FDC661E09CB07004C0D96 /* ChefDataTest.swift */; };
+		4C1FDC6B1E09DA8D004C0D96 /* TypeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FDC6A1E09DA8D004C0D96 /* TypeHelper.swift */; };
 		4C2510B91DAA5BD3001112E5 /* Insertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2510B81DAA5BD2001112E5 /* Insertable.swift */; };
 		4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2510BA1DAA6A98001112E5 /* Deletable.swift */; };
 		4C27F0941D3D4E6100D64E13 /* APIRequestChimera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */; };
@@ -144,6 +148,10 @@
 		4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceRetrievable.swift; sourceTree = "<group>"; };
 		4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTableViewController.swift; sourceTree = "<group>"; };
 		4C1DF2291D52BCCB00C533CB /* ConsumerProfileTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTitleCell.swift; sourceTree = "<group>"; };
+		4C1FDC621E09B557004C0D96 /* PersistentModelRecursible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentModelRecursible.swift; sourceTree = "<group>"; };
+		4C1FDC641E09C7C0004C0D96 /* ConsumerDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerDataTest.swift; sourceTree = "<group>"; };
+		4C1FDC661E09CB07004C0D96 /* ChefDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChefDataTest.swift; sourceTree = "<group>"; };
+		4C1FDC6A1E09DA8D004C0D96 /* TypeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeHelper.swift; sourceTree = "<group>"; };
 		4C2510B81DAA5BD2001112E5 /* Insertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Insertable.swift; sourceTree = "<group>"; };
 		4C2510BA1DAA6A98001112E5 /* Deletable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deletable.swift; sourceTree = "<group>"; };
 		4C27F0931D3D4E6100D64E13 /* APIRequestChimera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = APIRequestChimera.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -632,6 +640,8 @@
 		4C94FAF91DA0339100CFFBFC /* CoreDataTest */ = {
 			isa = PBXGroup;
 			children = (
+				4C1FDC661E09CB07004C0D96 /* ChefDataTest.swift */,
+				4C1FDC641E09C7C0004C0D96 /* ConsumerDataTest.swift */,
 				4C94FAFB1DA033F400CFFBFC /* PostDataTest.swift */,
 				4CB7799A1DA183C300966D40 /* UserDataTest.swift */,
 				4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */,
@@ -639,21 +649,22 @@
 			name = CoreDataTest;
 			sourceTree = "<group>";
 		};
-		4CB66B741DFF2E36004464A2 /* APIModel Protocols */ = {
+		4CB66B741DFF2E36004464A2 /* Model Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */,
 				4C35D4111DFA38C600CF5A8F /* ModelNonRecursible.swift */,
 				4C35D40F1DFA36B000CF5A8F /* ModelRecursible.swift */,
+				4C1FDC621E09B557004C0D96 /* PersistentModelRecursible.swift */,
 			);
-			name = "APIModel Protocols";
+			name = "Model Protocols";
 			sourceTree = "<group>";
 		};
 		4CB67D221D8B428E00196579 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				4CB66B741DFF2E36004464A2 /* APIModel Protocols */,
 				4CF75D531DAC50E900E9EB39 /* Database Protocols */,
+				4CB66B741DFF2E36004464A2 /* Model Protocols */,
 				4CC780C21DD27C5A00E93EB4 /* FieldNameConverter.swift */,
 				4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */,
 				4CB67D231D8B42A400196579 /* PrettyPrintable.swift */,
@@ -718,6 +729,7 @@
 			children = (
 				4CCD0A5E1CD8F7120081A28B /* FieldNameHelper.swift */,
 				4CD48F431D5251C30009D6A2 /* ScreenHelper.swift */,
+				4C1FDC6A1E09DA8D004C0D96 /* TypeHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -949,6 +961,7 @@
 				4CCD0A7E1CD939AF0081A28B /* OrderType.swift in Sources */,
 				4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */,
 				4CCD0A651CD91DE70081A28B /* OrderSummaryAPIModel.swift in Sources */,
+				4C1FDC631E09B557004C0D96 /* PersistentModelRecursible.swift in Sources */,
 				4C9655561D0E102F00011EAC /* UserLoginResult.swift in Sources */,
 				4CC674851D80E8D9001BCA67 /* OrderSummary.swift in Sources */,
 				4C385EC21DFF9FCC0034C190 /* TestResult.swift in Sources */,
@@ -1024,6 +1037,7 @@
 				4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */,
 				4C35D4121DFA38C600CF5A8F /* ModelNonRecursible.swift in Sources */,
 				4CE468141D3BEC53000B95DE /* PostPageRequest.swift in Sources */,
+				4C1FDC6B1E09DA8D004C0D96 /* TypeHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,7 +1056,9 @@
 				4C27F0971D3D567600D64E13 /* PostTest.swift in Sources */,
 				4CF12FDE1D80F82800E284CF /* Dragon.xcdatamodeld in Sources */,
 				4CDA11141D4805A3002C62FD /* UserCreateTest.swift in Sources */,
+				4C1FDC651E09C7C0004C0D96 /* ConsumerDataTest.swift in Sources */,
 				4CDA11081D47F37B002C62FD /* UserModifyTest.swift in Sources */,
+				4C1FDC671E09CB07004C0D96 /* ChefDataTest.swift in Sources */,
 				4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */,
 				4C147A6B1DADA759002CA992 /* UserLoginDataTest.swift in Sources */,
 			);

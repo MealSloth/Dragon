@@ -13,16 +13,16 @@ class BlobResult: APIResult
     var blob: Blob?
     var blobs: [Blob]?
     
-    required init(result: [String: Any])
+    required init(result: [String:Any])
     {
-        if let blob = result["blob"] as? [String: Any]
+        if let blob = result["blob"] as? [String:Any]
         {
             self.blob = Blob.insert(BlobAPIModel(json: blob))
         }
         else
         {
             self.blobs = []
-            if let blobs = result["blobs"] as? [[String: Any]]
+            if let blobs = result["blobs"] as? [[String:Any]]
             {
                 for blob in blobs
                 {

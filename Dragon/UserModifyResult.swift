@@ -12,8 +12,8 @@ class UserModifyResult: APIResult
 {
     var user: User?
     
-    required init(result: [String: Any])
+    required init(result: [String:Any])
     {
-        self.user = User.insert(UserAPIModel(jsonOptional: result["user"] as? [String: Any]))
+        self.user = User.insert(UserAPIModel(jsonOptional: result["user"] as? [String:Any]))
     }
 }

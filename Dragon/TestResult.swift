@@ -12,8 +12,8 @@ class TestResult: APIResult
 {
     var test: TestAPIModel?
     
-    required init(result: [String: Any])
+    required init(result: [String:Any])
     {
-        self.test = TestAPIModel(jsonOptional: result["test"] as? [String: Any])
+        self.test = TestAPIModel(jsonOptional: result["test"] as? [String:Any])
     }
 }

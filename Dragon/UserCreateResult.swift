@@ -14,10 +14,10 @@ class UserCreateResult: APIResult
     var userLogin: UserLogin?
     var password: String?
     
-    required init(result: [String: Any])
+    required init(result: [String:Any])
     {
-        self.user = User.insert(UserAPIModel(jsonOptional: result["user"] as? [String: Any]))
-        let model = UserLoginAPIModel(jsonOptional: result["user_login"] as? [String: Any])
+        self.user = User.insert(UserAPIModel(jsonOptional: result["user"] as? [String:Any]))
+        let model = UserLoginAPIModel(jsonOptional: result["user_login"] as? [String:Any])
         self.userLogin = UserLogin.insert(model)
         self.password = model?.password
     }

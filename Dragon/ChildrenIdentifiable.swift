@@ -13,20 +13,21 @@ protocol ChildrenIdentifiable
     
 }
 
-extension ChildrenIdentifiable where Self: APIModel
+extension ChildrenIdentifiable where Self: AnyObject
 {
-    static func children() -> [APIModel.Type]
+    static func getChildren() -> [Self.Type]
     {
-        guard let defaults = UserDefaults.standard.object(forKey: "APIModel.children") as? NSArray else
+        guard let defaults = UserDefaults.standard.object(forKey: "\(getClassName()).children") as? NSArray else
         {
             let classes = getChildClasses()
-            UserDefaults.standard.set((classes.map { NSStringFromClass($0) }) as NSArray, forKey: "APIModel.children")
+            //Initial lookup is moderately slow; store for faster lookup later
+            UserDefaults.standard.set((classes.map { NSStringFromClass($0) }) as NSArray, forKey: "\(getClassName()).children")
             return classes
         }
-        var classes: [APIModel.Type] = []
+        var classes: [Self.Type] = []
         for classEntry in defaults
         {
-            if let entry = classEntry as? String, let type = NSClassFromString(entry) as? APIModel.Type
+            if let entry = classEntry as? String, let type = NSClassFromString(entry) as? Self.Type
             {
                 classes.append(type)
             }
@@ -34,25 +35,63 @@ extension ChildrenIdentifiable where Self: APIModel
         return classes
     }
     
-    fileprivate static func getChildClasses() -> [APIModel.Type]
+    fileprivate static func getClassName() -> String
     {
-        let expectedCount = objc_getClassList(nil, 0)
-        let classesPointer = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(expectedCount))
-        let autoreleasingClasses = AutoreleasingUnsafeMutablePointer<AnyClass?>(classesPointer)
-        let finalCount = Int(objc_getClassList(autoreleasingClasses, expectedCount))
-        var classes = [APIModel.Type]()
-        for i in 0..<finalCount
+        guard let name = NSStringFromClass(self).components(separatedBy: ".").last else { return "" }
+        return name
+    }
+    
+    fileprivate static func getModuleName() -> String
+    {
+        guard let name = NSStringFromClass(self).components(separatedBy: ".").first else { return "" }
+        return name
+    }
+    
+    fileprivate static func getChildClasses() -> [Self.Type]
+    {
+        let name = getClassName()
+        let module = getModuleName()
+        guard let defaults = UserDefaults.standard.object(forKey: "objc_getClassList") as? NSArray else
         {
-            if let classEntry: AnyClass = classesPointer[Int(i)],
-                String(describing: classEntry).contains("APIModel"),
-                let classType = classEntry as? APIModel.Type,
-                String(describing: classType) != "APIModel"
+            let expectedCount = objc_getClassList(nil, 0)
+            let classesPointer = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(expectedCount))
+            let autoreleasingClasses = AutoreleasingUnsafeMutablePointer<AnyClass?>(classesPointer)
+            let finalCount = Int(objc_getClassList(autoreleasingClasses, expectedCount))
+            var defaults: [NSString] = []
+            var classes: [Self.Type] = []
+            for i in 0..<finalCount
+            {
+                if let classEntry: AnyClass = classesPointer[i]
+                {
+                    defaults.append(NSStringFromClass(classEntry) as NSString)
+                    if let last = defaults.last as? String,
+                        last.contains(module),
+                        let validClass = classEntry as? Self.Type,
+                        last != NSStringFromClass(self)
+                    {
+                        classes.append(validClass)
+                    }
+                }
+            }
+            classesPointer.deallocate(capacity: Int(expectedCount))
+            //Initial lookup is slow, so store it for faster retrieval later
+            UserDefaults.standard.set(defaults as NSArray, forKey: "objc_getClassList")
+            Log.info("Found classes inheriting from \(name): \(classes)")
+            return classes
+        }
+        var classes: [Self.Type] = []
+        for i in 0..<defaults.count
+        {
+            if let classString = defaults[i] as? String,
+                classString.contains(module),
+                let classEntry = NSClassFromString(classString),
+                let classType = classEntry as? Self.Type,
+                classString != NSStringFromClass(self)
             {
                 classes.append(classType)
             }
         }
-        classesPointer.deallocate(capacity: Int(expectedCount))
-        Log.info("Found classes inheriting from APIModel: \(classes)")
+        Log.info("Found classes inheriting from \(name): \(classes)")
         return classes
     }
 }

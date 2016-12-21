@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
         self.managedObjectContext.performAndWait({ () -> Void in
             self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         })
+        _ = Model.children //Preload children of Model class
         _ = APIModel.children //Preload children of APIModel class
         return true
     }
@@ -62,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
         }
         catch
         {
-            var dict = [String: Any]()
+            var dict: [String:Any] = [:]
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
 

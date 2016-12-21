@@ -8,14 +8,14 @@
 
 import Foundation
 
-class APIModel: NSObject, ModelRecursible, PrettyPrintable, ChildrenIdentifiable
+class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, ChildrenIdentifiable
 {
     override var description: String {
         return self.getPropertiesString(self)
     }
     
     static var children: [APIModel.Type] = {
-        return APIModel.children()
+        return APIModel.getChildren()
     }()
     
     override init()
@@ -23,13 +23,13 @@ class APIModel: NSObject, ModelRecursible, PrettyPrintable, ChildrenIdentifiable
         super.init()
     }
     
-    required init(json: [String: Any])
+    required init(json: [String:Any])
     {
         super.init()
         self.initialize(json)
     }
     
-    required init?(jsonOptional: [String: Any]?)
+    required init?(jsonOptional: [String:Any]?)
     {
         guard let json = jsonOptional else { return nil }
         super.init()
@@ -44,7 +44,7 @@ class APIModel: NSObject, ModelRecursible, PrettyPrintable, ChildrenIdentifiable
     //This should be overridden by a subclass if one wishes to use a converter other than FieldNameHelper
     //Optionally, each individual model can manually initialize itself if the server's naming conventions
     //are not consistent enough to use a generic converter
-    func initialize(_ json: [String: Any], skip: [String] = [])
+    func initialize(_ json: [String:Any], skip: [String] = [])
     {
         //initialize(_:skip:using:) is a member of the ModelRecursible and ModelNonRecursible protocols
         //Depending on the complexity of your APIModel objects, it could be best to use one or the other

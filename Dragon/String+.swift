@@ -49,10 +49,9 @@ extension String
     
     func toDate() -> Date?
     {
+        guard self.characters.count > 3 else { return nil } //Make sure the string is valid for substring
         let formatter = DateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        var string = self
-        string = string.substring(to: self.characters.index(self.endIndex, offsetBy: -3))
-        return formatter.date(from: string)
+        return formatter.date(from: self.substring(to: self.index(self.endIndex, offsetBy: -3)))
     }
 }

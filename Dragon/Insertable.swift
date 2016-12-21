@@ -25,14 +25,15 @@ extension Insertable where Self: NSManagedObject
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
     
-    static internal func insert(at id: String?) -> Self?
+    static internal func insert(at id: String?, into table: String?) -> Self?
     {
         guard let context = self.context, let id = id else
         {
             Log.error("Cannot retrieve object from managed object context")
             return nil
         }
-        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
+        let tableName = table ?? self.entityName
+        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: tableName)
         request.predicate = NSPredicate(format: "id == %@", id)
         do
         {
@@ -43,13 +44,13 @@ extension Insertable where Self: NSManagedObject
             }
             else
             {
-                if let entity = NSEntityDescription.entity(forEntityName: self.entityName, in: context)
+                if let entity = NSEntityDescription.entity(forEntityName: tableName, in: context)
                 {
                     return self.init(entity: entity, insertInto: context)
                 }
                 else
                 {
-                    Log.error("No entity found with name: \(self.entityName)")
+                    Log.error("No entity found with name: \(tableName)")
                 }
             }
         }
@@ -60,9 +61,9 @@ extension Insertable where Self: NSManagedObject
         return nil
     }
     
-    static func insert(_ model: APIModel?) -> Self?
+    static func insert(_ model: APIModel?, into table: String?) -> Self?
     {
-        guard let model = model, let object = Self.insert(at: model.value(forKey: "id") as? String) else { return nil }
+        guard let model = model, let object = Self.insert(at: model.value(forKey: "id") as? String, into: table) else { return nil }
         object.populate(using: model, skip: [])
         do
         {
@@ -74,5 +75,10 @@ extension Insertable where Self: NSManagedObject
             Log.error("Error during context save: \(error)")
             return nil
         }
+    }
+    
+    static func insert(_ model: APIModel?) -> Self?
+    {
+        return self.insert(model, into: self.entityName)
     }
 }

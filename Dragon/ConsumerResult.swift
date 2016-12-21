@@ -12,8 +12,8 @@ class ConsumerResult: APIResult
 {
     var consumer: Consumer?
     
-    required init(result: [String: Any])
+    required init(result: [String:Any])
     {
-        self.consumer = Consumer.insert(ConsumerAPIModel(jsonOptional: result["consumer"] as? [String: Any]))
+        self.consumer = Consumer.insert(ConsumerAPIModel(jsonOptional: result["consumer"] as? [String:Any]))
     }
 }

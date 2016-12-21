@@ -15,7 +15,7 @@ protocol ModelNonRecursible: PrettyPrintable
 
 extension ModelNonRecursible where Self: APIModel
 {
-    func initialize<T: FieldNameConverter>(_ json: [String: Any], skip: [String] = [], using: T.Type)
+    func initialize<T: FieldNameConverter>(_ json: [String:Any], skip: [String] = [], using: T.Type)
     {
         for property in self.getProperties()
         {

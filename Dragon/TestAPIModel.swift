@@ -28,7 +28,7 @@ class TestAPIModel: APIModel
 //    var fieldTestUserModelList: String { return "test_user_model_list" }
 //    var fieldTestConsumerModelList: String { return "test_consumer_model_list" }
 //    
-//    required init?(jsonOptional: [String: Any]?)
+//    required init?(jsonOptional: [String:Any]?)
 //    {
 //        guard let json = jsonOptional else { return nil }
 //        
@@ -59,12 +59,12 @@ class TestAPIModel: APIModel
 //        }
 //        self.testStringList = list2
 //        
-//        if let postJson = json[fieldTestPostModel] as? [String: Any]
+//        if let postJson = json[fieldTestPostModel] as? [String:Any]
 //        {
 //            self.testPostModel = PostAPIModel(json: postJson)
 //        }
 //        
-//        if let consumerJson = json[fieldTestConsumerModel] as? [String: Any]
+//        if let consumerJson = json[fieldTestConsumerModel] as? [String:Any]
 //        {
 //            self.testConsumerModel = ConsumerAPIModel(json: consumerJson)
 //        }
@@ -74,7 +74,7 @@ class TestAPIModel: APIModel
 //            var userModelList: [UserAPIModel] = []
 //            for user in userList
 //            {
-//                if let userModel = user as? [String: Any]
+//                if let userModel = user as? [String:Any]
 //                {
 //                    userModelList.append(UserAPIModel(json: userModel))
 //                }
@@ -87,7 +87,7 @@ class TestAPIModel: APIModel
 //            var consumerModelList: [ConsumerAPIModel] = []
 //            for consumer in consumerList
 //            {
-//                if let consumerModel = consumer as? [String: Any]
+//                if let consumerModel = consumer as? [String:Any]
 //                {
 //                    consumerModelList.append(ConsumerAPIModel(json: consumerModel))
 //                }
@@ -108,7 +108,7 @@ class TestAPIModel: APIModel
 //        
 //    }
 //    
-//    required init(json: [String: Any])
+//    required init(json: [String:Any])
 //    {
 //        super.init()
 //        
@@ -137,12 +137,12 @@ class TestAPIModel: APIModel
 //        }
 //        self.testStringList = list2
 //        
-//        if let postJson = json[fieldTestPostModel] as? [String: Any]
+//        if let postJson = json[fieldTestPostModel] as? [String:Any]
 //        {
 //            self.testPostModel = PostAPIModel(json: postJson)
 //        }
 //        
-//        if let consumerJson = json[fieldTestConsumerModel] as? [String: Any]
+//        if let consumerJson = json[fieldTestConsumerModel] as? [String:Any]
 //        {
 //            self.testConsumerModel = ConsumerAPIModel(json: consumerJson)
 //        }
@@ -152,7 +152,7 @@ class TestAPIModel: APIModel
 //            var userModelList: [UserAPIModel] = []
 //            for user in userList
 //            {
-//                if let userModel = user as? [String: Any]
+//                if let userModel = user as? [String:Any]
 //                {
 //                    userModelList.append(UserAPIModel(json: userModel))
 //                }
@@ -165,7 +165,7 @@ class TestAPIModel: APIModel
 //            var consumerModelList: [ConsumerAPIModel] = []
 //            for consumer in consumerList
 //            {
-//                if let consumerModel = consumer as? [String: Any]
+//                if let consumerModel = consumer as? [String:Any]
 //                {
 //                    consumerModelList.append(ConsumerAPIModel(json: consumerModel))
 //                }

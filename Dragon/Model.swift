@@ -10,10 +10,18 @@ import Foundation
 import CoreData
 import UIKit
 
-class Model: NSManagedObject, Manageable, PrettyPrintable
+class Model: NSManagedObject, Manageable, PrettyPrintable, ChildrenIdentifiable
 {
     override var description: String {
         return self.getPropertiesString(self)
+    }
+    
+    static var children: [Model.Type] = {
+        return Model.getChildren()
+    }()
+    
+    static var coordinator: NSPersistentStoreCoordinator? {
+        return AppDelegate.getInstance()?.persistentStoreCoordinator
     }
     
     static var context: NSManagedObjectContext? {
@@ -62,14 +70,26 @@ class Model: NSManagedObject, Manageable, PrettyPrintable
             where self.getProperties().contains(property) && !skip.contains(property)
         {
             let value = model.value(forKey: property)
-            if let dateString = value as? String, let date = dateString.toDate()
+            if TypeHelper.type(from: property, ofObject: self) == .dateAttributeType
             {
-                self.setValue(date, forKey: property)
+                if let dateString = value as? String, let date = dateString.toDate()
+                {
+                    self.setValue(date, forKey: property)
+                }
             }
             else
             {
                 self.setValue(value, forKey: property)
             }
+        }
+    }
+    
+    //MARK: Global Model functions
+    static internal func deleteAllChildren()
+    {
+        for child in Model.children
+        {
+            child.deleteAll()
         }
     }
     
