@@ -37,7 +37,7 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    static internal func from(_ key: String? = nil, inValues values: [Any]? = nil, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
+    static fileprivate func from(key: String? = nil, inValues values: [Any]? = nil, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
     {
         guard let key = key, let values = values else
         {
@@ -50,10 +50,21 @@ extension Fetchable where Self: NSManagedObject
         return self.fetch(NSPredicate(format: "\(key) IN %@", values), sortBy: [NSSortDescriptor(key: sort, ascending: ascending), ], limit: limit)
     }
     
+    static internal func from(_ key: String?, inValues values: [Any]?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
+    {
+        guard let key = key, let values = values, values.first != nil else { return nil } //Do not allow querying by nil in this function
+        return self.from(key: key, inValues: values, sortBy: sortKey, ascending: ascending, limit: limit)
+    }
+    
     static internal func from(_ key: String?, withValue value: Any?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
     {
-        guard let key = key, let value = value else { return self.from(nil, inValues: nil, sortBy: sortKey, ascending: ascending, limit: limit) }
-        return self.from(key, inValues: [value, ], sortBy: sortKey, ascending: ascending, limit: limit)
+        guard let key = key, let value = value else { return nil } //Do not allow querying by nil in this function
+        return self.from(key: key, inValues: [value, ], sortBy: sortKey, ascending: ascending, limit: limit)
+    }
+    
+    static internal func sortBy(key sortKey: String?, ascending: Bool = true, limit: Int = 0) -> [Self]?
+    {
+        return self.from(sortBy: sortKey, ascending: ascending, limit: limit)
     }
     
     static func all() -> [Self]?
@@ -63,8 +74,8 @@ extension Fetchable where Self: NSManagedObject
     
     static func top(_ count: Int? = 10) -> [Self]?
     {
-        guard let limit = count else { return nil }
-        return limit > 0 ? self.fetch(limit: limit) : nil
+        guard let limit = count, limit > 0 else { return nil }
+        return self.fetch(limit: limit)
     }
     
     static func first() -> Self?

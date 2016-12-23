@@ -19,7 +19,7 @@ class UserDataTest: DragonTest
         let ready = expectation(description: "ready")
         let method = "UserRequest(withUserID:)"
         
-        UserRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
+        UserRequest(withUserID: self.id).request(
             onCompletion: { (result: UserResult) -> Void in
                 completion?(result, ready)
                 ready.fulfill()
@@ -43,7 +43,7 @@ class UserDataTest: DragonTest
     func testFromID()
     {
         userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
-            let user = User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f")
+            let user = User.fromID(self.id)
             XCTAssertNotNil(user)
         })
     }
@@ -59,7 +59,7 @@ class UserDataTest: DragonTest
     func testDeleteAllUsers()
     {
         userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
-            let user = User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f")
+            let user = User.fromID(self.id)
             XCTAssertNotNil(user)
             User.deleteAll()
             XCTAssertNil(User.first())
@@ -69,8 +69,8 @@ class UserDataTest: DragonTest
     func testDeleteID()
     {
         userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
-            User.delete(withID: "8bbfec5e-c29b-40d6-9918-45911e97134f")
-            XCTAssertNil(User.fromID("8bbfec5e-c29b-40d6-9918-45911e97134f"))
+            User.delete(withID: self.id)
+            XCTAssertNil(User.fromID(self.id))
         })
     }
 }
