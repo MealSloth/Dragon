@@ -13,8 +13,7 @@ class HomeTableViewController: UITableViewController
 {
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var posts: [Post] = []
-    
+    var posts: [Post]? = []
     var ratio: CGFloat = 9.0/16.0
     
     // MARK: Delegates
@@ -27,13 +26,12 @@ class HomeTableViewController: UITableViewController
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         
-        if let posts = Post.all()
+        if let posts = Post.sortBy(key: "postTime", ascending: false)
         {
             self.posts = posts
             self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
         }
-        
-        if Post.first() == nil
+        else
         {
             self.refresh()
         }
@@ -51,58 +49,51 @@ class HomeTableViewController: UITableViewController
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if (segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController"),
-            let vc = segue.destination as? PostDetailTableViewController
+        if segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController",
+            let vc = segue.destination as? PostDetailTableViewController,
+            let post = sender as? Post
         {
-            if let post = sender as? Post
-            {
-                vc.post = post
-            }
+            vc.post = post
         }
     }
     
     // MARK: TableView Delegates
     override func numberOfSections(in tableView: UITableView) -> Int
     {
-        return (self.posts.count == 0) ? 0 : 1
+        return self.posts?.count == 0 ? 0 : 1
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        let result = (self.posts.count == 0) ? 0.0 : ScreenHelper.screenWidth * self.ratio + 50.0
-        return result
+        return self.posts?.count == 0 ? 0.0 : ScreenHelper.screenWidth * self.ratio + 50.0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.posts.count
+        return self.posts?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell
-        {
-            if let post = self.posts[safe: indexPath.row]
-            {
-                cell.populate(withPost: post)
-                return cell
-            }
-            else
-            {
-                Log.error("Missing post for PostTableViewCell at row \(indexPath.row) in section \(indexPath.section)")
-                return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
-            }
-        }
-        else
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell else
         {
             Log.warning("Failed cast to PostTableViewCell")
             return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
         }
+        
+        guard let post = self.posts?[safe: indexPath.row] else
+        {
+            Log.error("Missing post for PostTableViewCell at row \(indexPath.row) in section \(indexPath.section)")
+            return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
+        }
+        
+        cell.populate(withPost: post)
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if let post = self.posts[safe: indexPath.row]
+        if let post = self.posts?[safe: indexPath.row]
         {
             self.segue(withPost: post)
         }
@@ -113,46 +104,19 @@ class HomeTableViewController: UITableViewController
     {
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
-                self.handlePostPageResult(result)
-                self.endRefresh()
+                AppDelegate.mainQueue.async(execute: { () -> Void in
+                    self.posts = Post.sortBy(key: "postTime", ascending: false)
+                    self.tableView.reloadData()
+                    self.refreshControl?.endRefreshing()
+                })
             },
             onError: { (error) -> Void in
                 Log.error("Error occurred during PostPageRequest(): \(error)")
-                self.endRefresh()
+                AppDelegate.mainQueue.async(execute: { () -> Void in
+                    self.refreshControl?.endRefreshing()
+                })
             }
         )
-    }
-    
-    func endRefresh()
-    {
-        if let refreshing = self.refreshControl?.isRefreshing, refreshing == true
-        {
-            self.refreshControl?.endRefreshing()
-        }
-    }
-    
-    fileprivate func handlePostPageResult(_ result: PostPageResult?)
-    {
-        if let posts = result?.posts
-        {
-            for remotePost in posts
-            {
-                for (index, localPost) in self.posts.enumerated()
-                {
-                    if remotePost == localPost
-                    {
-                        break
-                    }
-                    if index >= self.posts.count - 1
-                    {
-                        //If the remote post didn't match any of the local posts, it must be new, so add it to the list
-                        //TODO: Add in chronological order
-                        self.posts.append(remotePost)
-                    }
-                }
-            }
-            self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
-        }
     }
     
     fileprivate func segue(withPost post: Post)

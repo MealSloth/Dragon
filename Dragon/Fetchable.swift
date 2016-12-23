@@ -30,7 +30,7 @@ extension Fetchable where Self: NSManagedObject
         request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
         request.predicate = predicate
         request.sortDescriptors = sorts
-        if let result = try? self.context?.fetch(request)
+        if let result = try? self.context?.fetch(request), result?.first != nil
         {
             return result
         }

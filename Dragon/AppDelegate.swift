@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
 {
     var window: UIWindow?
     
+    static var mainQueue: DispatchQueue = {
+        return DispatchQueue.main
+    }()
+    
     static var backgroundQueue: DispatchQueue = {
         return DispatchQueue(label: "com.mealsloth.backgroundqueue", qos: .background, target: nil)
     }()
