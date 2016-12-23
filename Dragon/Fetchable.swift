@@ -24,11 +24,12 @@ extension Fetchable where Self: NSManagedObject
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
     
-    static internal func fetch(_ predicate: NSPredicate? = nil, limit: Int = 0) -> [Self]?
+    static internal func fetch(_ predicate: NSPredicate? = nil, sortBy sorts: [NSSortDescriptor]? = nil, limit: Int = 0) -> [Self]?
     {
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
         request.predicate = predicate
+        request.sortDescriptors = sorts
         if let result = try? self.context?.fetch(request)
         {
             return result
@@ -36,21 +37,23 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    static internal func from(_ key: String, inValues values: [CVarArg]?) -> [Self]?
+    static internal func from(_ key: String? = nil, inValues values: [Any]? = nil, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
     {
-        guard let args = values else { return nil }
-        return self.fetch(NSPredicate(format: "\(key) IN %@", args))
+        guard let key = key, let values = values else
+        {
+            return self.fetch(nil, sortBy: sortKey == nil ? nil : [NSSortDescriptor(key: sortKey, ascending: ascending), ], limit: limit)
+        }
+        guard let sort = sortKey else
+        {
+            return self.fetch(NSPredicate(format: "\(key) IN %@", values), sortBy: nil, limit: limit)
+        }
+        return self.fetch(NSPredicate(format: "\(key) IN %@", values), sortBy: [NSSortDescriptor(key: sort, ascending: ascending), ], limit: limit)
     }
     
-    static internal func from(_ key: String, withValues values: [Any]?) -> [Self]?
+    static internal func from(_ key: String?, withValue value: Any?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
     {
-        return self.fetch(NSPredicate(format: "\(key) == %@", argumentArray: values))
-    }
-    
-    static internal func from(_ key: String, withValue value: CVarArg?) -> [Self]?
-    {
-        guard let arg = value else { return nil }
-        return self.fetch(NSPredicate(format: "\(key) == %@", arg))
+        guard let key = key, let value = value else { return self.from(nil, inValues: nil, sortBy: sortKey, ascending: ascending, limit: limit) }
+        return self.from(key, inValues: [value, ], sortBy: sortKey, ascending: ascending, limit: limit)
     }
     
     static func all() -> [Self]?
@@ -71,6 +74,6 @@ extension Fetchable where Self: NSManagedObject
     
     static func fromID(_ id: String?) -> Self?
     {
-        return self.from("id", withValue: id)?[safe: 0]
+        return self.from("id", withValue: id)?.first
     }
 }

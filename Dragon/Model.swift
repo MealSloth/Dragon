@@ -62,6 +62,21 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, ChildrenIdentifiable
         return super.value(forKey: key)
     }
     
+    override func setValue(_ value: Any?, forKey key: String)
+    {
+        if TypeHelper.type(from: key, ofObject: self) == .dateAttributeType
+        {
+            if let dateString = value as? String, let date = dateString.toDate()
+            {
+                super.setValue(date, forKey: key)
+            }
+        }
+        else
+        {
+            super.setValue(value, forKey: key)
+        }
+    }
+    
     //MARK: Initialization helpers
     func populate(using model: APIModel?, skip: [String] = [])
     {
@@ -69,18 +84,8 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, ChildrenIdentifiable
         for property in model.getProperties()
             where self.getProperties().contains(property) && !skip.contains(property)
         {
-            let value = model.value(forKey: property)
-            if TypeHelper.type(from: property, ofObject: self) == .dateAttributeType
-            {
-                if let dateString = value as? String, let date = dateString.toDate()
-                {
-                    self.setValue(date, forKey: property)
-                }
-            }
-            else
-            {
-                self.setValue(value, forKey: property)
-            }
+            self.setValue(model.value(forKey: property), forKey: property)
+            
         }
     }
     

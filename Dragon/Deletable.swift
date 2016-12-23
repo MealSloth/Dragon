@@ -38,17 +38,16 @@ extension Deletable where Self: NSManagedObject
         }
     }
     
-    static internal func deleteFrom(_ key: String, withValues values: [Any]?)
+    static internal func deleteFrom(_ key: String, inValues values: [Any]?)
     {
-        return self.delete(NSPredicate(format: "\(key) == %@", argumentArray: values))
+        guard let args = values else { return }
+        self.delete(NSPredicate(format: "\(key) IN %@", args))
     }
     
-    static internal func deleteFrom(_ key: String, withValue value: CVarArg?)
+    static internal func deleteFrom(_ key: String, withValue value: Any?)
     {
-        if let val = value
-        {
-            self.delete(NSPredicate(format: "\(key) == %@", val))
-        }
+        guard let arg = value else { return }
+        self.deleteFrom(key, inValues: [arg, ])
     }
     
     static func deleteAll()

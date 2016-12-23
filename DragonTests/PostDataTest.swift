@@ -33,8 +33,8 @@ class PostDataTest: DragonTest
     func testPostStore()
     {
         self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
-            XCTAssertNotNil(result.posts[safe: 0])
-            XCTAssertNotNil(result.posts[safe: 0]?.id)
+            XCTAssertNotNil(result.posts.first)
+            XCTAssertNotNil(result.posts.first?.id)
         })
     }
     
@@ -42,7 +42,7 @@ class PostDataTest: DragonTest
     {
         self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
             let posts = Post.all()
-            XCTAssertNotNil(posts?[safe: 0])
+            XCTAssertNotNil(posts?.first)
         })
     }
     
@@ -56,13 +56,13 @@ class PostDataTest: DragonTest
              **/
             if let post = Post.first()
             {
-                let capacity = post.capacity as Int
-                post.capacity = capacity + 1 as NSNumber
+                let capacity = post.capacity.intValue
+                post.capacity = NSNumber(value: capacity + 1)
                 post.save()
-                XCTAssert(post.capacity == (capacity + 1 as NSNumber))
+                XCTAssert(post.capacity == NSNumber(value: capacity + 1))
                 if let samePost = Post.first()
                 {
-                    XCTAssert(samePost.capacity == (capacity + 1 as NSNumber))
+                    XCTAssert(samePost.capacity == NSNumber(value: capacity + 1))
                 }
             }
         })
@@ -79,7 +79,7 @@ class PostDataTest: DragonTest
     func testPostCompare()
     {
         self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
-            if let first = Post.first(), let second = Post.top(2)?[safe: 1]
+            if let first = Post.first(), let second = Post.top(2)?.last
             {
                 XCTAssertTrue(first == first)
                 XCTAssertFalse(first == second)

@@ -52,7 +52,7 @@ class UserDataTest: DragonTest
     {
         userRequest(completion: { (result: UserResult, ready: XCTestExpectation) -> Void in
             let users = User.all()
-            XCTAssertNotNil(users?[safe: 0])
+            XCTAssertNotNil(users?.first)
         })
     }
     
