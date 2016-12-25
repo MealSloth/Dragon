@@ -9,25 +9,13 @@
 import Foundation
 import CoreData
 
-protocol PrettyPrintable
+protocol PrettyPrintable: PropertiesAccessible
 {
     func value(forKey key: String) -> Any?
 }
 
 extension PrettyPrintable
 {
-    func getProperties() -> [String]
-    {
-        if let context = self as? NSManagedObject
-        {
-            return context.entity.attributesByName.map { $0.key }
-        }
-        else
-        {
-            return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
-        }
-    }
-    
     func getPropertiesString(_ context: PrettyPrintable, depth: Int = 0, nameless: Bool = false) -> String
     {
         var string: String = (depth == 0) ? "\n\n" : ""

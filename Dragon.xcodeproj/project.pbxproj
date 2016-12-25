@@ -31,7 +31,10 @@
 		4C42CC961D90A422008B2FCA /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C42CC951D90A422008B2FCA /* Fetchable.swift */; };
 		4C4851591D20523000223B4F /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4851581D20523000223B4F /* UserTest.swift */; };
 		4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C48517A1D2080CE00223B4F /* UserLoginTest.swift */; };
+		4C4E20791E0E0757000D462F /* PropertiesAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E20781E0E0757000D462F /* PropertiesAccessible.swift */; };
+		4C4E207B1E0E075E000D462F /* PropertiesEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E207A1E0E075E000D462F /* PropertiesEquatable.swift */; };
 		4C586D681D8A2E0D008A1A7B /* DragonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */; };
+		4C60C4F91E0FB0D9008C8FFE /* EqualityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C60C4F81E0FB0D9008C8FFE /* EqualityTest.swift */; };
 		4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */; };
 		4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */; };
 		4C6982701CD3D7A4005ABCF1 /* Dragon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C69826E1CD3D7A4005ABCF1 /* Dragon.xcdatamodeld */; };
@@ -165,9 +168,12 @@
 		4C42CC951D90A422008B2FCA /* Fetchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
 		4C4851581D20523000223B4F /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		4C48517A1D2080CE00223B4F /* UserLoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginTest.swift; sourceTree = "<group>"; };
+		4C4E20781E0E0757000D462F /* PropertiesAccessible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesAccessible.swift; sourceTree = "<group>"; };
+		4C4E207A1E0E075E000D462F /* PropertiesEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertiesEquatable.swift; sourceTree = "<group>"; };
 		4C586D651D8A2E0D008A1A7B /* DragonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonUITests.swift; sourceTree = "<group>"; };
 		4C586D691D8A2E0D008A1A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C60C4F81E0FB0D9008C8FFE /* EqualityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualityTest.swift; sourceTree = "<group>"; };
 		4C6982641CD3D7A4005ABCF1 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -334,6 +340,16 @@
 			name = APITest;
 			sourceTree = "<group>";
 		};
+		4C4E20751E0E072D000D462F /* Reflection Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4CB67D231D8B42A400196579 /* PrettyPrintable.swift */,
+				4C4E20781E0E0757000D462F /* PropertiesAccessible.swift */,
+				4C4E207A1E0E075E000D462F /* PropertiesEquatable.swift */,
+			);
+			name = "Reflection Protocols";
+			sourceTree = "<group>";
+		};
 		4C586D661D8A2E0D008A1A7B /* DragonUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +442,14 @@
 			name = "Model Enums";
 			sourceTree = "<group>";
 		};
+		4C60C4FA1E0FB0DF008C8FFE /* EqualityTest */ = {
+			isa = PBXGroup;
+			children = (
+				4C60C4F81E0FB0D9008C8FFE /* EqualityTest.swift */,
+			);
+			name = EqualityTest;
+			sourceTree = "<group>";
+		};
 		4C69825B1CD3D7A4005ABCF1 = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +496,7 @@
 			children = (
 				4C4851561D2051FA00223B4F /* APITest */,
 				4C94FAF91DA0339100CFFBFC /* CoreDataTest */,
+				4C60C4FA1E0FB0DF008C8FFE /* EqualityTest */,
 				4C69827F1CD3D7A4005ABCF1 /* DragonTest.swift */,
 				4C6982811CD3D7A4005ABCF1 /* Info.plist */,
 			);
@@ -665,9 +690,9 @@
 			children = (
 				4CF75D531DAC50E900E9EB39 /* Database Protocols */,
 				4CB66B741DFF2E36004464A2 /* Model Protocols */,
+				4C4E20751E0E072D000D462F /* Reflection Protocols */,
 				4CC780C21DD27C5A00E93EB4 /* FieldNameConverter.swift */,
 				4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */,
-				4CB67D231D8B42A400196579 /* PrettyPrintable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -992,6 +1017,7 @@
 				4CC60D951DB2C103002A5EE0 /* UIResponder+.swift in Sources */,
 				4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */,
 				4CD48F4B1D527D650009D6A2 /* PostDetailSummaryCell.swift in Sources */,
+				4C4E20791E0E0757000D462F /* PropertiesAccessible.swift in Sources */,
 				4CF75D551DAC515C00E9EB39 /* Manageable.swift in Sources */,
 				4CCD0A561CD8EE080081A28B /* UserLoginAPIModel.swift in Sources */,
 				4CDA111C1D4807EF002C62FD /* RandomStringAllow.swift in Sources */,
@@ -1028,6 +1054,7 @@
 				4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */,
 				4C7A82C11D3EAFD800638FBE /* ConsumerRequest.swift in Sources */,
 				4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */,
+				4C4E207B1E0E075E000D462F /* PropertiesEquatable.swift in Sources */,
 				4CB67D241D8B42A500196579 /* PrettyPrintable.swift in Sources */,
 				4CC674831D80E8D3001BCA67 /* Order.swift in Sources */,
 				4C880F491DFE419400A4DFB0 /* ChildrenIdentifiable.swift in Sources */,
@@ -1061,6 +1088,7 @@
 				4C1FDC671E09CB07004C0D96 /* ChefDataTest.swift in Sources */,
 				4C48517B1D2080CE00223B4F /* UserLoginTest.swift in Sources */,
 				4C147A6B1DADA759002CA992 /* UserLoginDataTest.swift in Sources */,
+				4C60C4F91E0FB0D9008C8FFE /* EqualityTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

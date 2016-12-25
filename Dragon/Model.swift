@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class Model: NSManagedObject, Manageable, PrettyPrintable, ChildrenIdentifiable
+class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, ChildrenIdentifiable
 {
     override var description: String {
         return self.getPropertiesString(self)
@@ -98,77 +98,14 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, ChildrenIdentifiable
         }
     }
     
-    //MARK: Comparison operations
-    static func ==(left: Model, right: Model) -> Bool
+    //MARK: Comparison operators
+    static func ==(lhs: Model, rhs: Model) -> Bool
     {
-        if left === right //Don't bother computing as long as the identity is the same
-        {
-            return true
-        }
-        for these in left.getProperties()
-        {
-            let properties = right.getProperties()
-            for (index, those) in properties.enumerated()
-            {
-                if these == those //Matching property
-                {
-                    if compare(a: left.value(forKey: these), b: right.value(forKey: those))
-                    {
-                        break
-                    }
-                    else
-                    {
-                        return false
-                    }
-                }
-                else
-                {
-                    if index >= properties.count - 1 //No matching properties
-                    {
-                        return false
-                    }
-                }
-            }
-        }
-        return true
+        return equal(lhs, rhs)
     }
     
-    //MARK: Comparison helpers
-    static func compare(a: Any?, b: Any?) -> Bool
+    static func !=(lhs: Model, rhs: Model) -> Bool
     {
-        if let this = a as? [Any], let that = b as? [Any] //Handle Arrays
-        {
-            for i in 0..<this.count
-            {
-                if !compare(a: this[safe: i], b: that[safe: i]) //Recursively compare array elements
-                {
-                    return false
-                }
-            }
-            return true
-        }
-        else //Handle Equatable objects
-        {
-            if let this = a as? String, let that = b as? String, this == that
-            {
-                return true
-            }
-            else if let this = a as? Date, let that = b as? Date, this == that
-            {
-                return true
-            }
-            else if let this = a as? NSNumber, let that = b as? NSNumber, this == that
-            {
-                return true
-            }
-            else if let this = a as? Model, let that = b as? Model, this == that //Recursively compare Model
-            {
-                return true
-            }
-            else
-            {
-                return false //Cannot compare; return false
-            }
-        }
+        return !equal(lhs, rhs)
     }
 }

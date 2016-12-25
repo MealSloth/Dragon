@@ -64,6 +64,5 @@ extension PersistentModelRecursible where Self: APIModel
             }
             self.setValue(value, forKey: property)
         }
-        Log.info("Finished initializing APIModel with values: \(self)")
     }
 }

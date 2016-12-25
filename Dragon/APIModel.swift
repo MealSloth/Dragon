@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, ChildrenIdentifiable
+class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, PropertiesEquatable, ChildrenIdentifiable
 {
     override var description: String {
         return self.getPropertiesString(self)
@@ -49,5 +49,17 @@ class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, ChildrenId
         //initialize(_:skip:using:) is a member of the ModelRecursible and ModelNonRecursible protocols
         //Depending on the complexity of your APIModel objects, it could be best to use one or the other
         self.initialize(json, skip: skip, using: FieldNameHelper.self)
+        Log.info("Finished initializing APIModel with values: \(self)")
+    }
+    
+    //MARK: Comparison operators
+    static func ==(lhs: APIModel, rhs: APIModel) -> Bool
+    {
+        return equal(lhs, rhs)
+    }
+    
+    static func !=(lhs: APIModel, rhs: APIModel) -> Bool
+    {
+        return !equal(lhs, rhs)
     }
 }
