@@ -25,37 +25,32 @@ extension PropertiesEquatable
             {
                 guard this == that else
                 {
-                    guard index < rightProperties.count - 1 else { return false } //No matching properties
-                    continue //Otherwise check the next property
+                    guard index < rightProperties.count - 1 else { return false }
+                    continue
                 }
                 
                 guard left.value(forKey: this) != nil || right.value(forKey: that) != nil else
                 {
-                    break //The properties are "equal" in that they are both nil
+                    break
                 }
                 
                 if let this = left.value(forKey: this) as? PropertiesEquatable, let that = right.value(forKey: that) as? PropertiesEquatable
                 {
-                    //Recursively compare other PropertiesEquatable objects
                     guard equal(this, that) else { return false }
                     break
                 }
                 else if let this = left.value(forKey: this) as? [PropertiesEquatable], let that = right.value(forKey: that) as? [PropertiesEquatable]
                 {
-                    //Recursively compare arrays of other PropertiesEquatable objects
                     guard equal(this, that) else { return false }
                     break
                 }
                 else if let this = left.value(forKey: this) as? NSObject, let that = right.value(forKey: that) as? NSObject
                 {
-                    //Compare any Collection type or individual value type which is convertible to NSObject
                     guard this == that else { return false }
                     break
                 }
                 else
                 {
-                    //Cannot compare; unequal to the best of our knowledge.
-                    //This condition may also be met if our object has members of unsupported type (e.g. not coercible to NSObject)
                     return false
                 }
             }
@@ -65,47 +60,11 @@ extension PropertiesEquatable
     
     static func equal(_ these: [PropertiesEquatable], _ those: [PropertiesEquatable]) -> Bool
     {
-        for (x, this) in these.enumerated()
+        guard these.count == those.count else { return false }
+        for i in 0..<these.count
         {
-            for (y, that) in those.enumerated()
-            {
-                guard x == y else
-                {
-                    guard y != those.endIndex else { return false } //No matching properties
-                    continue //Otherwise check the next property
-                }
-                
-                //Recursively compare PropertiesEquatable objects
-                guard equal(this, that) else { return false }
-                break
-            }
+            guard equal(these[i], those[i]) else { return false }
         }
         return true
     }
 }
-
-//extension PropertiesEquatable where Self: Model
-//{
-//    static func ==(lhs: Self, rhs: Self) -> Bool
-//    {
-//        return equal(lhs, rhs)
-//    }
-//    
-//    static func !=(lhs: Self, rhs: Self) -> Bool
-//    {
-//        return equal(lhs, rhs)
-//    }
-//}
-//
-//extension PropertiesEquatable where Self: APIModel
-//{
-//    static func ==(lhs: Self, rhs: Self) -> Bool
-//    {
-//        return equal(lhs, rhs)
-//    }
-//    
-//    static func !=(lhs: Self, rhs: Self) -> Bool
-//    {
-//        return equal(lhs, rhs)
-//    }
-//}
