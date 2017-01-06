@@ -39,12 +39,8 @@ extension String
     
     func capitalizeFirst() -> String
     {
-        var s = self
-        if s.characters.count > 0
-        {
-            s.replaceSubrange(self.startIndex...self.startIndex, with: String(self[self.startIndex]).capitalized)
-        }
-        return s
+        guard let first = self.characters.first else { return self }
+        return String(describing: first).uppercased() + String(self.characters.dropFirst())
     }
     
     func toDate() -> Date?

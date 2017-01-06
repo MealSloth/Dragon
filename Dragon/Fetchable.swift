@@ -24,11 +24,11 @@ extension Fetchable where Self: NSManagedObject
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
     
-    static internal func fetch(_ predicate: NSPredicate? = nil, sortBy sorts: [NSSortDescriptor]? = nil, limit: Int = 0) -> [Self]?
+    static internal func fetch(_ predicates: [NSPredicate]? = nil, sortBy sorts: [NSSortDescriptor]? = nil, limit: Int = 0) -> [Self]?
     {
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
-        request.predicate = predicate
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates ?? [])
         request.sortDescriptors = sorts
         if let result = try? self.context?.fetch(request), result?.first != nil
         {
@@ -37,34 +37,30 @@ extension Fetchable where Self: NSManagedObject
         return nil
     }
     
-    static fileprivate func from(key: String? = nil, inValues values: [Any]? = nil, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
+    static internal func from(_ predicateMap: [String:Any]? = [:], sortMap: [String:Bool]? = [:], limit: Int = 0) -> [Self]?
     {
-        guard let key = key, let values = values else
-        {
-            return self.fetch(nil, sortBy: sortKey == nil ? nil : [NSSortDescriptor(key: sortKey, ascending: ascending), ], limit: limit)
-        }
-        guard let sort = sortKey else
-        {
-            return self.fetch(NSPredicate(format: "\(key) IN %@", values), sortBy: nil, limit: limit)
-        }
-        return self.fetch(NSPredicate(format: "\(key) IN %@", values), sortBy: [NSSortDescriptor(key: sort, ascending: ascending), ], limit: limit)
+        let predicates: [NSPredicate] = predicateMap?.map { NSPredicate(format: "\($0.key) IN %@", $0.value as? [Any] ?? [$0.value, ]) } ?? []
+        let sorts: [NSSortDescriptor] = sortMap?.map { NSSortDescriptor(key: $0.key, ascending: $0.value) } ?? []
+        return self.fetch(predicates, sortBy: sorts, limit: limit)
     }
     
     static internal func from(_ key: String?, inValues values: [Any]?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
     {
         guard let key = key, let values = values, values.first != nil else { return nil } //Do not allow querying by nil in this function
-        return self.from(key: key, inValues: values, sortBy: sortKey, ascending: ascending, limit: limit)
+        guard let sort = sortKey else { return self.from([key: values, ], sortMap: nil, limit: limit) }
+        return self.from([key: values, ], sortMap: [sort: ascending, ], limit: limit)
     }
     
     static internal func from(_ key: String?, withValue value: Any?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]?
     {
-        guard let key = key, let value = value else { return nil } //Do not allow querying by nil in this function
-        return self.from(key: key, inValues: [value, ], sortBy: sortKey, ascending: ascending, limit: limit)
+        guard let value = value else { return nil } //Do not allow querying by nil in this function
+        return self.from(key, inValues: [value, ], sortBy: sortKey, ascending: ascending, limit: limit)
     }
     
     static internal func sortBy(key sortKey: String?, ascending: Bool = true, limit: Int = 0) -> [Self]?
     {
-        return self.from(sortBy: sortKey, ascending: ascending, limit: limit)
+        guard let sort = sortKey else { return nil } //Do not allow sorting by nil in this function
+        return self.from(sortMap: [sort: ascending, ], limit: limit)
     }
     
     static func all() -> [Self]?

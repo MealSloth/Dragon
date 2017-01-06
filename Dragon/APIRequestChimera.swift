@@ -21,7 +21,7 @@ class APIRequestChimera: APIRequest
     {
         self.host = .chimera
         //Remove prepending slashes if applicable
-        self.method = (method.substring(to: method.characters.index(method.startIndex, offsetBy: 1)) == "/") ? method.substring(from: method.characters.index(method.startIndex, offsetBy: 1)) : method
+        self.method = method.characters.first == "/" ? String(method.characters.dropFirst()) : method
     }
     
     func request<T: APIResult>(onCompletion completion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil)

@@ -37,14 +37,12 @@ extension ChildrenIdentifiable where Self: AnyObject
     
     fileprivate static func getClassName() -> String
     {
-        guard let name = NSStringFromClass(self).components(separatedBy: ".").last else { return "" }
-        return name
+        return NSStringFromClass(self).components(separatedBy: ".").last ?? ""
     }
     
     fileprivate static func getModuleName() -> String
     {
-        guard let name = NSStringFromClass(self).components(separatedBy: ".").first else { return "" }
-        return name
+        return NSStringFromClass(self).components(separatedBy: ".").first ?? ""
     }
     
     fileprivate static func getChildClasses() -> [Self.Type]
@@ -53,6 +51,7 @@ extension ChildrenIdentifiable where Self: AnyObject
         let module = getModuleName()
         guard let defaults = UserDefaults.standard.object(forKey: "objc_getClassList") as? NSArray else
         {
+            //We should only enter this block once
             let expectedCount = objc_getClassList(nil, 0)
             let classesPointer = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(expectedCount))
             let autoreleasingClasses = AutoreleasingUnsafeMutablePointer<AnyClass?>(classesPointer)
@@ -79,6 +78,7 @@ extension ChildrenIdentifiable where Self: AnyObject
             Log.info("Found classes inheriting from \(name): \(classes)")
             return classes
         }
+        
         var classes: [Self.Type] = []
         for i in 0..<defaults.count
         {

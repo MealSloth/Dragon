@@ -50,13 +50,13 @@ extension Deletable where Self: NSManagedObject
         self.deleteFrom(key, inValues: [arg, ])
     }
     
-    static func deleteAll()
-    {
-        self.delete()
-    }
-    
     static func delete(withID id: String?)
     {
         self.deleteFrom("id", withValue: id)
+    }
+    
+    static func deleteAll()
+    {
+        self.delete()
     }
 }

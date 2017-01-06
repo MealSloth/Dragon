@@ -13,9 +13,11 @@ extension UIImage
 {
     class func from(url: String) -> UIImage?
     {
-        if let url = URL(string: url), let data = try? Data(contentsOf: url)
+        if let url = URL(string: url),
+            let data = try? Data(contentsOf: url),
+            let image = UIImage(data: data)
         {
-            return UIImage(data: data)
+            return image
         }
         return nil
     }
@@ -26,32 +28,32 @@ extension UIImage
             if let url = URL(string: url), let data = try? Data(contentsOf: url)
             {
                 completion?(UIImage(data: data))
-                return
             }
-            completion?(nil)
+            else
+            {
+                completion?(nil)
+            }
         })
     }
     
     class func from(blob: Blob?) -> UIImage?
     {
-        if let blob = blob
-        {
-            let cacheID = "blob_\(blob.id)"
-            if let cached = UIImageCache.get(cacheID)
-            {
-                return cached
-            }
-            else
-            {
-                let img = UIImage.from(url: blob.url)
-                UIImageCache.put(image: img, at: cacheID)
-                return img
-            }
-        }
-        else
+        guard let blob = blob else
         {
             Log.error("UIImage.from(blob:) received nil Blob")
             return nil
+        }
+        
+        let cacheID = "blob_\(blob.id)"
+        if let cached = UIImageCache.get(cacheID)
+        {
+            return cached
+        }
+        else
+        {
+            let img = UIImage.from(url: blob.url)
+            UIImageCache.put(image: img, at: cacheID)
+            return img
         }
     }
 }

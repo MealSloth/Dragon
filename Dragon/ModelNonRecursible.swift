@@ -17,12 +17,9 @@ extension ModelNonRecursible where Self: APIModel
 {
     func initialize<T: FieldNameConverter>(_ json: [String:Any], skip: [String] = [], using: T.Type)
     {
-        for property in self.getProperties()
+        for property in self.getProperties() where !skip.contains(property) && !skip.contains(T.getServerName(forClientName: property))
         {
-            if !skip.contains(property)
-            {
-                self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
-            }
+            self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
         }
         Log.info("Finished initializing model with values: \(self)")
     }

@@ -14,7 +14,20 @@ class UserLoginDataTest: DragonTest
 {
     func testUserLoginFetch()
     {
-        let userLogin = UserLogin.first()
-        XCTAssertNotNil(userLogin)
+        let ready = expectation(description: "ready")
+        let method = "UserLoginRequest(withUserLoginID:)"
+        
+        UserLoginRequest(withUserLoginID: "63dd798f-50d6-40b2-8827-9788a6591dec").request(
+            onCompletion: { (result: UserLoginResult) -> Void in
+                let userLogin = UserLogin.fromID("63dd798f-50d6-40b2-8827-9788a6591dec")
+                XCTAssertNotNil(userLogin)
+                ready.fulfill()
+            },
+            onError: { (error) -> Void in
+                XCTFail("Error during UserLoginRequest(withUserLoginID:): \(error)")
+            }
+        )
+        
+        waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

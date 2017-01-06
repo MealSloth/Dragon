@@ -13,25 +13,23 @@ extension UIResponder
 {
     func runOnMainThread(_ runnable: (() -> Void)?)
     {
-        if let block = runnable
-        {
-            OperationQueue.main.addOperation(block)
-        }
-        else
+        guard let block = runnable else
         {
             Log.warning("UIResponder.runOnMainThread(runnable:) received nil runnable")
+            return
         }
+        
+        OperationQueue.main.addOperation(block)
     }
     
     func runOnBackgroundThread(_ runnable: (() -> Void)?)
     {
-        if let block = runnable
-        {
-            AppDelegate.backgroundQueue.async(execute: block)
-        }
-        else
+        guard let block = runnable else
         {
             Log.warning("UIResponder.runOnBackgroundThread(runnable:) received nil runnable")
+            return
         }
+        
+        AppDelegate.backgroundQueue.async(execute: block)
     }
 }
