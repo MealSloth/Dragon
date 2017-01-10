@@ -13,37 +13,20 @@ extension UIImage
 {
     class func from(url: String) -> UIImage?
     {
-        if let url = URL(string: url),
-            let data = try? Data(contentsOf: url),
-            let image = UIImage(data: data)
-        {
-            return image
-        }
-        return nil
+        guard let url = URL(string: url), let data = try? Data(contentsOf: url) else { return nil }
+        return UIImage(data: data)
     }
     
     class func from(url: String, completion: ((UIImage?) -> Void)?)
     {
         AppDelegate.backgroundQueue.async(execute: { () -> Void in
-            if let url = URL(string: url), let data = try? Data(contentsOf: url)
-            {
-                completion?(UIImage(data: data))
-            }
-            else
-            {
-                completion?(nil)
-            }
+            completion?(UIImage.from(url: url))
         })
     }
     
     class func from(blob: Blob?) -> UIImage?
     {
-        guard let blob = blob else
-        {
-            Log.error("UIImage.from(blob:) received nil Blob")
-            return nil
-        }
-        
+        guard let blob = blob else { return nil }
         let cacheID = "blob_\(blob.id)"
         if let cached = UIImageCache.get(cacheID)
         {
@@ -55,5 +38,12 @@ extension UIImage
             UIImageCache.put(image: img, at: cacheID)
             return img
         }
+    }
+    
+    class func from(blob: Blob?, completion: ((UIImage?) -> Void)?)
+    {
+        AppDelegate.backgroundQueue.async(execute: { () -> Void in
+            completion?(UIImage.from(blob: blob))
+        })
     }
 }

@@ -11,9 +11,7 @@ import UIKit
 
 class ConsumerProfileTableViewController: UITableViewController
 {
-    let cells = ["Title", "Order", "Favorite", "Profile", "BecomeAChef", "Feedback"]
-    var consumer: ConsumerAPIModel!
-    var user: UserAPIModel!
+    let cells = ["Title", "Order", "Favorite", "Profile", "BecomeAChef", "Feedback", ]
     
     // MARK: Delegates
     override func viewDidLoad()
