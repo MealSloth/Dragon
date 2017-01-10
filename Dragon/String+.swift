@@ -10,7 +10,24 @@ import Foundation
 
 extension String
 {
-    static func random(allow format: [RandomStringAllow] = [.Numeric, .AlphaLower, .AlphaUpper, ], length capacity: Int = 64) -> String
+    func capitalizeFirst() -> String
+    {
+        guard let first = self.characters.first else { return self }
+        return String(describing: first).uppercased() + String(self.characters.dropFirst())
+    }
+    
+    func toDate() -> Date?
+    {
+        guard self.characters.count > 3 else { return nil } //Make sure the string is valid for substring
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        return formatter.date(from: self.substring(to: self.index(self.endIndex, offsetBy: -3)))
+    }
+}
+
+extension String
+{
+    static func random(allow format: [RandomStringAllow] = [.numeric, .alphaLower, .alphaUpper, ], length capacity: Int = 64) -> String
     {
         guard format.count > 0 else
         {
@@ -35,19 +52,5 @@ extension String
         }
         
         return randomString as String
-    }
-    
-    func capitalizeFirst() -> String
-    {
-        guard let first = self.characters.first else { return self }
-        return String(describing: first).uppercased() + String(self.characters.dropFirst())
-    }
-    
-    func toDate() -> Date?
-    {
-        guard self.characters.count > 3 else { return nil } //Make sure the string is valid for substring
-        let formatter = DateFormatter.init()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        return formatter.date(from: self.substring(to: self.index(self.endIndex, offsetBy: -3)))
     }
 }

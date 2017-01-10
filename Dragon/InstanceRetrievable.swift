@@ -18,10 +18,6 @@ extension InstanceRetrievable where Self: AppDelegate
 {
     static func getInstance() -> Self?
     {
-        if let delegate = UIApplication.shared.delegate as? Self
-        {
-            return delegate
-        }
-        return nil
+        return UIApplication.shared.delegate as? Self
     }
 }

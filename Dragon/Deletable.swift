@@ -20,6 +20,14 @@ protocol Deletable
 
 extension Deletable where Self: NSManagedObject
 {
+    func delete()
+    {
+        Self.deleteFrom("id", withValue: self.value(forKey: "id") as? String)
+    }
+}
+
+extension Deletable where Self: NSManagedObject
+{
     static var entityName: String {
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
@@ -28,14 +36,9 @@ extension Deletable where Self: NSManagedObject
     {
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
         request.predicate = predicate
-        if let context = self.context, let results = try? context.fetch(request)
-        {
-            for result in results
-            {
-                context.delete(result)
-            }
-            try? self.context?.save()
-        }
+        let result = try? self.context?.fetch(request)
+        result??.forEach { self.context?.delete($0) }
+        try? self.context?.save()
     }
     
     static internal func deleteFrom(_ key: String, inValues values: [Any]?)

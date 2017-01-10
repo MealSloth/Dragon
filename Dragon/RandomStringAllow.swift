@@ -10,9 +10,9 @@ import Foundation
 
 enum RandomStringAllow: String
 {
-    case Numeric = "1234567890"
-    case AlphaLower = "abcdefghijklmnopqrstuvwxyz"
-    case AlphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    case SymbolicUrl = "$-_.+!*'(),"
-    case SymbolicStandard = "~`@#%^&=[];/{}|:<>?'"
+    case numeric = "1234567890"
+    case alphaLower = "abcdefghijklmnopqrstuvwxyz"
+    case alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    case symbolicUrl = "$-_.+!*'(),"
+    case symbolicStandard = "~`@#%^&=[];/{}|:<>?'"
 }

@@ -17,8 +17,8 @@ class UserCreateTest: DragonTest
 //        let ready = expectation(description: "ready")
 //        let method = "UserCreateRequest(withEmail:andPassword:)"
 //        
-//        let email = "\(String.random(allow: [.Numeric, .AlphaLower, .AlphaUpper, ], length: 20))@mail.com"
-//        let pass = String.random(allow: [.Numeric, .AlphaLower, .AlphaUpper, .SymbolicUrl, ], length: 32)
+//        let email = "\(String.random(allow: [.numeric, .alphaLower, .alphaUpper, ], length: 20))@mail.com"
+//        let pass = String.random(allow: [.numeric, .alphaLower, .alphaUpper, .symbolicUrl, ], length: 32)
 //        
 //        UserCreateRequest(withEmail: email, andPassword: pass).request(
 //            onCompletion: { (result: UserCreateResult) -> Void in

@@ -12,5 +12,5 @@ enum OrderType: Int, AbstractEnum
 {
     case pickup = 0
     case delivery = 1
-    case dine_IN = 2
+    case dineIn = 2
 }

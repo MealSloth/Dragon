@@ -13,7 +13,7 @@ class HomeTableViewController: UITableViewController
 {
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var posts: [Post]? = []
+    var posts: [Post] = []
     var ratio: CGFloat = 9.0/16.0
     
     // MARK: Delegates
@@ -60,17 +60,17 @@ class HomeTableViewController: UITableViewController
     // MARK: TableView Delegates
     override func numberOfSections(in tableView: UITableView) -> Int
     {
-        return self.posts?.count == 0 ? 0 : 1
+        return self.posts.count == 0 ? 0 : 1
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return self.posts?.count == 0 ? 0.0 : ScreenHelper.screenWidth * self.ratio + 50.0
+        return self.posts.count == 0 ? 0.0 : ScreenHelper.screenWidth * self.ratio + 50.0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.posts?.count ?? 0
+        return self.posts.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -81,7 +81,7 @@ class HomeTableViewController: UITableViewController
             return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
         }
         
-        guard let post = self.posts?[safe: indexPath.row] else
+        guard let post = self.posts[safe: indexPath.row] else
         {
             Log.error("Missing post for PostTableViewCell at row \(indexPath.row) in section \(indexPath.section)")
             return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
@@ -93,7 +93,7 @@ class HomeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if let post = self.posts?[safe: indexPath.row]
+        if let post = self.posts[safe: indexPath.row]
         {
             self.segue(withPost: post)
         }
@@ -104,15 +104,15 @@ class HomeTableViewController: UITableViewController
     {
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
-                AppDelegate.mainQueue.async(execute: { () -> Void in
-                    self.posts = Post.sortBy(key: "postTime", ascending: false)
+                self.runOnMainThread({ () -> Void in
+                    self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
                     self.tableView.reloadData()
                     self.refreshControl?.endRefreshing()
                 })
             },
             onError: { (error) -> Void in
                 Log.error("Error occurred during PostPageRequest(): \(error)")
-                AppDelegate.mainQueue.async(execute: { () -> Void in
+                self.runOnMainThread({ () -> Void in
                     self.refreshControl?.endRefreshing()
                 })
             }

@@ -12,17 +12,3 @@ protocol AbstractEnum
 {
     
 }
-
-extension AbstractEnum
-{
-    func toString() -> String
-    {
-        var newString = ""
-        let stringArr = String(describing: self).components(separatedBy: "_")
-        for segment in stringArr
-        {
-            newString += (segment == stringArr.last) ? segment.lowercased().capitalizeFirst() : segment.lowercased().capitalizeFirst() + " "
-        }
-        return newString
-    }
-}
