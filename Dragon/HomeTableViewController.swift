@@ -26,15 +26,8 @@ class HomeTableViewController: UITableViewController
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         
-        if let posts = Post.sortBy(key: "postTime", ascending: false)
-        {
-            self.posts = posts
-            self.tableView.performSelector(onMainThread: #selector(self.tableView.reloadData), with: nil, waitUntilDone: false)
-        }
-        else
-        {
-            self.refresh()
-        }
+        self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
+        self.refresh()
     }
     
     override func didReceiveMemoryWarning()
@@ -75,28 +68,17 @@ class HomeTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell else
-        {
-            Log.warning("Failed cast to PostTableViewCell")
-            return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
-        }
-        
-        guard let post = self.posts[safe: indexPath.row] else
-        {
-            Log.error("Missing post for PostTableViewCell at row \(indexPath.row) in section \(indexPath.section)")
-            return self.tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
-        }
-        
-        cell.populate(withPost: post)
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
+        guard let postCell = cell as? PostTableViewCell else { return cell }
+        guard let post = self.posts[safe: indexPath.row] else { return postCell }
+        postCell.populate(withPost: post)
+        return postCell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        if let post = self.posts[safe: indexPath.row]
-        {
-            self.segue(withPost: post)
-        }
+        guard let post = self.posts[safe: indexPath.row] else { return }
+        self.segue(withPost: post)
     }
     
     // MARK: Misc
@@ -104,9 +86,16 @@ class HomeTableViewController: UITableViewController
     {
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
+                //Query and compare on background thread
+                let newPosts = Post.sortBy(key: "postTime", ascending: false) ?? []
+                let changes = self.posts != newPosts
+                //Then perform UI tasks on main thread
                 self.runOnMainThread({ () -> Void in
-                    self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
-                    self.tableView.reloadData()
+                    if changes //If there are any changes
+                    {
+                        self.posts = newPosts //Update
+                        self.tableView.reloadData() //and reload
+                    }
                     self.refreshControl?.endRefreshing()
                 })
             },

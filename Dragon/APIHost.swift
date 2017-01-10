@@ -15,7 +15,7 @@ enum APIHost: AbstractEnum
     
     func url() -> String
     {
-        switch (self)
+        switch self
         {
             case .chimera: return "http://api.mealsloth.com/"
             case .hydra: return "http://blob.mealsloth.com/"

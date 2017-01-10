@@ -34,11 +34,11 @@ class PostDetailTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        if indexPath.row == 2
+        switch indexPath.row
         {
-            return 80.0
+            case 2: return 80.0
+            default: return super.tableView(tableView, heightForRowAt: indexPath)
         }
-        return super.tableView(tableView, heightForRowAt: indexPath)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -48,40 +48,33 @@ class PostDetailTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if indexPath.row == 0
+        switch indexPath.row
         {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
-            if let titleCell = cell as? PostDetailTitleCell
-            {
-                titleCell.populate(withPost: self.post)
-                return titleCell
-            }
-            return cell
-        }
-        else if indexPath.row == 1
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailSummaryCell", for: indexPath)
-            if let summaryCell = cell as? PostDetailSummaryCell
-            {
-                summaryCell.labelName.text = self.post?.name
-                return summaryCell
-            }
-            return cell
-        }
-        else if indexPath.row == 2
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)
-            return cell
-        }
-        else if indexPath.row == 3
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailDescriptionCell", for: indexPath)
-            return cell
-        }
-        else
-        {
-            Log.error("indexPath.row exceeds expected bounds")
-            return super.tableView(tableView, cellForRowAt: indexPath)
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
+                if let titleCell = cell as? PostDetailTitleCell
+                {
+                    titleCell.populate(withPost: self.post)
+                    return titleCell
+                }
+                return cell
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailSummaryCell", for: indexPath)
+                if let summaryCell = cell as? PostDetailSummaryCell
+                {
+                    summaryCell.labelName.text = self.post?.name
+                    return summaryCell
+                }
+                return cell
+            case 2:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)
+                return cell
+            case 3:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailDescriptionCell", for: indexPath)
+                return cell
+            default:
+                Log.error("indexPath.row exceeds expected bounds")
+                return super.tableView(tableView, cellForRowAt: indexPath)
         }
     }
 }
