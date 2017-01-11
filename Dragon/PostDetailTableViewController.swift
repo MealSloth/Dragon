@@ -50,16 +50,11 @@ class PostDetailTableViewController: UITableViewController
     {
         switch indexPath.row
         {
-            case 0:
-                return PostDetailTitleCell.getInstance(from: tableView, at: indexPath, for: post)
-            case 1:
-                return PostDetailSummaryCell.getInstance(from: tableView, at: indexPath, for: post)
-            case 2:
-                return tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)
-            case 3:
-                return tableView.dequeueReusableCell(withIdentifier: "PostDetailDescriptionCell", for: indexPath)
-            default:
-                return super.tableView(tableView, cellForRowAt: indexPath)
+            case 0: return PostDetailTitleCell.getInstance(from: tableView, at: indexPath, for: post)
+            case 1: return PostDetailSummaryCell.getInstance(from: tableView, at: indexPath, for: post)
+            case 2: return tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)
+            case 3: return tableView.dequeueReusableCell(withIdentifier: "PostDetailDescriptionCell", for: indexPath)
+            default: return super.tableView(tableView, cellForRowAt: indexPath)
         }
     }
 }
