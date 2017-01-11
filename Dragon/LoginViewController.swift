@@ -18,27 +18,26 @@ class LoginViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.registerObservers()
-    }
-
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        if segue.identifier == "Segue_LoginViewController->TabBarController"
+        switch segue.identifier ?? ""
         {
-            (segue.destination as? UITabBarController)?.selectedIndex = 0
+            case "Segue_LoginViewController->TabBarController":
+                (segue.destination as? UITabBarController)?.selectedIndex = 0
+                break
+            default:
+                break
         }
     }
     
     // MARK: Observers
     func keyboardDidShow(_ notification: Notification)
     {
-        guard let keyboardFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
-        let keyboardSize = keyboardFrame.cgRectValue
+        guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
         if self.scrollView.contentOffset.y == 0
         {
             UIView.animate(withDuration: 0.25, animations: { () -> Void in
@@ -53,7 +52,6 @@ class LoginViewController: UIViewController
     func keyboardWillHide(_ notification: Notification)
     {
         guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        
         UIView.animate(withDuration: 0.25, animations: { () -> Void in
             let insets = UIEdgeInsetsMake(self.scrollView.contentInset.top, 0, keyboardSize.height, 0)
             self.scrollView.contentInset = insets
@@ -70,38 +68,17 @@ class LoginViewController: UIViewController
     // MARK: Buttons
     @IBAction func login()
     {
-        guard let email = self.fieldEmail.text,
-            let password = self.fieldPassword.text,
-            let count = self.fieldPassword.text?.characters.count,
-            count >= 8 else
-        {
-            Log.debug("Email is nil, password is nil, or password is not >= 8 characters in length")
-            return
-        }
-        
+        guard let email = self.fieldEmail.text, let password = self.fieldPassword.text else { return }
+        guard let count = self.fieldPassword.text?.characters.count, count >= 8 else { return }
         UserRequest(withEmail: email).request(
             onCompletion: { (userResult: UserResult) -> Void in
                 UserLoginRequest(withUserID: userResult.user?.id).request(
                     onCompletion: { (userLoginResult: UserLoginResult) -> Void in
-                        guard userLoginResult.password == password else
-                        {
-                            Log.debug("Password is incorrect")
-                            return
-                        }
-                        guard userResult.user?.email == email || userLoginResult.userLogin?.username == email else
-                        {
-                            Log.debug("Email is incorrect")
-                            return
-                        }
+                        guard userLoginResult.password == password else { return }
+                        guard userResult.user?.email == email || userLoginResult.userLogin?.username == email else { return }
                         self.segue()
-                    },
-                    onError: { (error) -> Void in
-                        Log.error("\(error)")
                     }
                 )
-            },
-            onError: { (error) -> Void in
-                Log.error("\(error)")
             }
         )
     }
@@ -117,11 +94,5 @@ class LoginViewController: UIViewController
         self.runOnMainThread({ () -> Void in
             self.performSegue(withIdentifier: "Segue_LoginViewController->TabBarController", sender: self)
         })
-    }
-    
-    fileprivate func registerObservers()
-    {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
 }
