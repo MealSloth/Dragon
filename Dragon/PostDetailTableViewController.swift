@@ -51,29 +51,14 @@ class PostDetailTableViewController: UITableViewController
         switch indexPath.row
         {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
-                if let titleCell = cell as? PostDetailTitleCell
-                {
-                    titleCell.populate(withPost: self.post)
-                    return titleCell
-                }
-                return cell
+                return PostDetailTitleCell.getInstance(from: tableView, at: indexPath, for: post)
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailSummaryCell", for: indexPath)
-                if let summaryCell = cell as? PostDetailSummaryCell
-                {
-                    summaryCell.labelName.text = self.post?.name
-                    return summaryCell
-                }
-                return cell
+                return PostDetailSummaryCell.getInstance(from: tableView, at: indexPath, for: post)
             case 2:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)
-                return cell
+                return tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)
             case 3:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailDescriptionCell", for: indexPath)
-                return cell
+                return tableView.dequeueReusableCell(withIdentifier: "PostDetailDescriptionCell", for: indexPath)
             default:
-                Log.error("indexPath.row exceeds expected bounds")
                 return super.tableView(tableView, cellForRowAt: indexPath)
         }
     }

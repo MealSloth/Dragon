@@ -17,35 +17,36 @@ class PostDetailTitleCell: UITableViewCell
     
     var blob: Blob?
     
+    class func getInstance(from tableView: UITableView, at indexPath: IndexPath, for post: Post?) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
+        guard let titleCell = cell as? PostDetailTitleCell else { return cell }
+        titleCell.populate(withPost: post)
+        return titleCell
+    }
+    
     func populate(withPost post: Post?)
     {
-        if let post = post
+        guard let post = post else { return }
+        self.activityIndicator.enable()
+        if let first = Blob.fromAlbumID(post.albumID)?.first
         {
-            self.activityIndicator.enable()
-            if let results = Blob.fromAlbumID(post.albumID),
-                let first = results[safe: 0]
-            {
-                self.blob = first
-                let _ = self.blob?.image //Preload lazily loaded image
-                self.populateImage()
-            }
-            else
-            {
-                BlobRequest(withAlbumID: post.albumID).request(
-                    onCompletion: { (result: BlobResult) -> Void in
-                        self.blob = result.blobs?[safe: 0]
-                        let _ = self.blob?.image //Preload lazily loaded image
-                        self.populateImage()
-                    },
-                    onError: { (error) -> Void in
-                        Log.error("Error during BlobRequest: \(error)")
-                    }
-                )
-            }
+            self.blob = first
+            let _ = self.blob?.image //Preload lazily loaded image
+            self.populateImage()
         }
         else
         {
-            Log.error("Attempted to populate PostDetailTitleCell with nil Post")
+            BlobRequest(withAlbumID: post.albumID).request(
+                onCompletion: { (result: BlobResult) -> Void in
+                    self.blob = result.blobs?.first
+                    let _ = self.blob?.image //Preload lazily loaded image
+                    self.populateImage()
+                },
+                onError: { (error) -> Void in
+                    Log.error("Error during BlobRequest: \(error)")
+                }
+            )
         }
     }
     

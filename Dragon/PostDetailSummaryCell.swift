@@ -16,4 +16,12 @@ class PostDetailSummaryCell: UITableViewCell
     @IBOutlet weak var labelReviews: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelDistance: UILabel!
+    
+    class func getInstance(from tableView: UITableView, at indexPath: IndexPath, for post: Post?) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailSummaryCell", for: indexPath)
+        guard let summaryCell = cell as? PostDetailSummaryCell else { return cell }
+        summaryCell.labelName.text = post?.name
+        return summaryCell
+    }
 }
