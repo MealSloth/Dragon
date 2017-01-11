@@ -42,9 +42,6 @@ class PostDetailTitleCell: UITableViewCell
                     self.blob = result.blobs?.first
                     let _ = self.blob?.image //Preload lazily loaded image
                     self.populateImage()
-                },
-                onError: { (error) -> Void in
-                    Log.error("Error during BlobRequest: \(error)")
                 }
             )
         }

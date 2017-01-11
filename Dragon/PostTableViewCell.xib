@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,56 +16,43 @@
             <rect key="frame" x="0.0" y="0.0" width="735" height="480"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMF-Gw-XLB" id="EHx-NG-krp">
-                <frame key="frameInset" width="735" height="479"/>
+                <rect key="frame" x="0.0" y="0.0" width="735" height="480"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-zi-4Eb" userLabel="Post">
+                        <rect key="frame" x="0.0" y="0.0" width="735" height="480"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-e4-iCY" userLabel="Information View">
+                                <rect key="frame" x="0.0" y="413.5" width="735" height="66.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-fK-PNJ">
+                                        <rect key="frame" x="90" y="0.0" width="645" height="66.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33b-O2-nXr" userLabel="Label Post Name">
+                                                <rect key="frame" x="2" y="2" width="89" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRJ-T4-Ubh" userLabel="Label Price">
+                                                <rect key="frame" x="598" y="3" width="37" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOu-0T-WCf" userLabel="Label Time">
+                                                <rect key="frame" x="599" y="25" width="36" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="CB5-gI-RbS" userLabel="Image Stars">
+                                                <rect key="frame" x="0.0" y="24" width="100" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CB5-gI-RbS" secondAttribute="height" multiplier="5:1" id="BLL-1J-XUq"/>
                                                     <constraint firstAttribute="width" constant="100" id="Iry-XH-Ild"/>
                                                     <constraint firstAttribute="height" constant="20" id="uga-BH-hKm"/>
                                                 </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                                        <integer key="value" value="0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,16 +77,13 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meal_sample" translatesAutoresizingMaskIntoConstraints="NO" id="34U-CX-QFz">
+                                <rect key="frame" x="0.0" y="0.0" width="735" height="413.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="34U-CX-QFz" secondAttribute="height" multiplier="16:9" id="re7-oD-LBv"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman_sample" translatesAutoresizingMaskIntoConstraints="NO" id="087-My-3qN">
+                                <rect key="frame" x="20" y="383.5" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="YQ5-Vk-Vl4"/>
                                     <constraint firstAttribute="height" constant="60" id="sAr-Lg-0Cw"/>
@@ -105,13 +92,9 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="30"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-71-UGy"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -120,19 +103,27 @@
                             <constraint firstItem="34U-CX-QFz" firstAttribute="top" secondItem="6zo-zi-4Eb" secondAttribute="top" id="BB2-jB-trq"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="34U-CX-QFz" secondAttribute="bottom" id="KdU-Re-4li"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" id="RC8-rF-NEZ"/>
-                            <constraint firstItem="DAe-71-UGy" firstAttribute="centerX" secondItem="6zo-zi-4Eb" secondAttribute="centerX" id="SYt-f4-L4g"/>
                             <constraint firstAttribute="trailing" secondItem="G4f-e4-iCY" secondAttribute="trailing" id="Zau-D4-fer"/>
                             <constraint firstAttribute="bottom" secondItem="G4f-e4-iCY" secondAttribute="bottom" id="rCp-NX-WID"/>
                             <constraint firstItem="34U-CX-QFz" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" id="vyb-7U-doT"/>
-                            <constraint firstItem="DAe-71-UGy" firstAttribute="centerY" secondItem="6zo-zi-4Eb" secondAttribute="centerY" id="x1a-0X-EY1"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="087-My-3qN" secondAttribute="bottom" constant="-30" id="yAM-o4-ncb"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
+                                <integer key="value" value="0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-71-UGy">
+                        <rect key="frame" x="357" y="229" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="DAe-71-UGy" firstAttribute="centerY" secondItem="EHx-NG-krp" secondAttribute="centerY" id="0Is-Ds-Qo5"/>
                     <constraint firstAttribute="bottom" secondItem="6zo-zi-4Eb" secondAttribute="bottom" id="DKc-xI-ypw"/>
                     <constraint firstItem="6zo-zi-4Eb" firstAttribute="top" secondItem="EHx-NG-krp" secondAttribute="top" id="Dz7-LE-sN2"/>
                     <constraint firstItem="6zo-zi-4Eb" firstAttribute="leading" secondItem="EHx-NG-krp" secondAttribute="leading" id="Kc9-Se-13R"/>
+                    <constraint firstItem="DAe-71-UGy" firstAttribute="centerX" secondItem="EHx-NG-krp" secondAttribute="centerX" id="ghY-2F-QQ2"/>
                     <constraint firstAttribute="trailing" secondItem="6zo-zi-4Eb" secondAttribute="trailing" id="h97-Ga-eGT"/>
                 </constraints>
             </tableViewCellContentView>
@@ -144,6 +135,7 @@
                 <outlet property="labelPostName" destination="33b-O2-nXr" id="Gcm-Uv-xN9"/>
                 <outlet property="labelPrice" destination="tRJ-T4-Ubh" id="8eh-Fg-T4m"/>
                 <outlet property="labelTime" destination="iOu-0T-WCf" id="7K2-QV-pgL"/>
+                <outlet property="postContainer" destination="6zo-zi-4Eb" id="Bks-2S-psw"/>
             </connections>
             <point key="canvasLocation" x="618.5" y="269"/>
         </tableViewCell>

@@ -11,6 +11,7 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell
 {
+    @IBOutlet weak var postContainer: UIView!
     @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var imageChef: UIImageView!
     @IBOutlet weak var imageStars: UIImageView!
@@ -36,7 +37,7 @@ class PostTableViewCell: UITableViewCell
     fileprivate func populateImage()
     {
         self.runOnBackgroundThread({ () -> Void in
-            if let blob = Blob.fromAlbumID(self.post?.albumID)?[safe: 0]
+            if let blob = Blob.fromAlbumID(self.post?.albumID)?.first
             {
                 self.blob = blob
                 let _ = self.blob?.image //Load lazy image in background thread
@@ -44,23 +45,14 @@ class PostTableViewCell: UITableViewCell
             }
             else
             {
-                if let post = self.post
-                {
-                    BlobRequest(withAlbumID: post.albumID).request(
-                        onCompletion: { (result: BlobResult) -> Void in
-                            self.blob = result.blobs?[safe: 0]
-                            let _ = self.blob?.image //Load lazy image in background thread
-                            self.display(animated: true)
-                        },
-                        onError: { (error) -> Void in
-                            Log.error("Error during BlobRequest(withAlbumID:): \(error)")
-                        }
-                    )
-                }
-                else
-                {
-                    Log.error("PostTableViewCell was populated with a nil Post")
-                }
+                guard let post = self.post else { return }
+                BlobRequest(withAlbumID: post.albumID).request(
+                    onCompletion: { (result: BlobResult) -> Void in
+                        self.blob = result.blobs?.first
+                        let _ = self.blob?.image //Load lazy image in background thread
+                        self.display(animated: true)
+                    }
+                )
             }
         })
     }
@@ -68,12 +60,7 @@ class PostTableViewCell: UITableViewCell
     fileprivate func display(animated: Bool = true)
     {
         let changes = { () -> Void in
-            self.labelPostName.alpha = 1.0
-            self.labelPrice.alpha = 1.0
-            self.labelTime.alpha = 1.0
-            self.imageChef.alpha = 1.0
-            self.imagePost.alpha = 1.0
-            self.imageStars.alpha = 1.0
+            self.postContainer.alpha = 1.0
             self.imagePost.image = self.blob?.image
             self.activityIndicator.disable()
         }
