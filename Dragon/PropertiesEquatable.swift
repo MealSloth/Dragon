@@ -61,10 +61,7 @@ extension PropertiesEquatable
     static func equal(_ these: [PropertiesEquatable], _ those: [PropertiesEquatable]) -> Bool
     {
         guard these.count == those.count else { return false }
-        for i in 0..<these.count
-        {
-            guard equal(these[i], those[i]) else { return false }
-        }
+        for i in 0..<these.count where !equal(these[i], those[i]) { return false }
         return true
     }
 }

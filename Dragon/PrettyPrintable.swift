@@ -20,14 +20,8 @@ extension PrettyPrintable
     {
         var string: String = (depth == 0) ? "\n\n" : ""
         string += nameless ? "{\n" : "\(Mirror(reflecting: self).subjectType): {\n"
-        for property in context.getProperties()
-        {
-            string += context.getPropertyString(context, property: property, depth: depth + 1)
-        }
-        for _ in 0..<depth
-        {
-            string += "    "
-        }
+        context.getProperties().forEach { string += context.getPropertyString(context, property: $0, depth: depth + 1) }
+        stride(from: 0, to: depth, by: 1).forEach { _ in string += "    " }
         string += "}\n"
         return string
     }
@@ -36,10 +30,7 @@ extension PrettyPrintable
     {
         let depth: Int = d
         var string: String = s
-        for _ in 0..<depth
-        {
-            string += "    "
-        }
+        stride(from: 0, to: depth, by: 1).forEach { _ in string += "    " }
         
         if let newProp = context.value(forKey: property) as? PrettyPrintable
         {
@@ -53,10 +44,7 @@ extension PrettyPrintable
                 string += "\(property): [\n"
                 for element in arr
                 {
-                    for _ in 0...depth
-                    {
-                        string += "    "
-                    }
+                    stride(from: 0, through: depth, by: 1).forEach { _ in string += "    " }
                     if let model = element as? PrettyPrintable
                     {
                         string += model.getPropertiesString(model, depth: depth + 1)
@@ -67,10 +55,7 @@ extension PrettyPrintable
                         string += "\(element),\n"
                     }
                 }
-                for _ in 0..<depth
-                {
-                    string += "    "
-                }
+                stride(from: 0, to: depth, by: 1).forEach { _ in string += "    " }
                 string += "],\n"
             }
             else
@@ -78,16 +63,13 @@ extension PrettyPrintable
                 string += "\(property): []\n"
             }
         }
+        else if let value = self.value(forKey: property)
+        {
+            string += "\(property): \(value),\n"
+        }
         else
         {
-            if let value = self.value(forKey: property)
-            {
-                string += "\(property): \(value),\n"
-            }
-            else
-            {
-                string += "\(property): nil,\n"
-            }
+            string += "\(property): nil,\n"
         }
         return string
     }
