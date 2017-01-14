@@ -35,7 +35,7 @@ extension Insertable where Self: NSManagedObject
         let tableName = table ?? self.entityName
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: tableName)
         request.predicate = NSPredicate(format: "id == %@", id)
-        if let result = try? context.fetch(request), let object = result[safe: 0]
+        if let result = try? context.fetch(request), let object = result.first
         {
             return object
         }

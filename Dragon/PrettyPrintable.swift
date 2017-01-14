@@ -18,7 +18,7 @@ extension PrettyPrintable
 {
     func getPropertiesString(_ context: PrettyPrintable, depth: Int = 0, nameless: Bool = false) -> String
     {
-        var string: String = (depth == 0) ? "\n\n" : ""
+        var string: String = depth == 0 ? "\n\n" : ""
         string += nameless ? "{\n" : "\(Mirror(reflecting: self).subjectType): {\n"
         context.getProperties().forEach { string += context.getPropertyString(context, property: $0, depth: depth + 1) }
         stride(from: 0, to: depth, by: 1).forEach { _ in string += "    " }

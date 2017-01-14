@@ -25,6 +25,6 @@ class User: Model
     
     static func fromEmail(email: String?) -> User?
     {
-        return self.from("email", withValue: email)?[safe: 0]
+        return self.from("email", withValue: email)?.first
     }
 }

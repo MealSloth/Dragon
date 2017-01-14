@@ -76,7 +76,7 @@ extension Fetchable where Self: NSManagedObject
     
     static func first() -> Self?
     {
-        return self.top(1)?[safe: 0]
+        return self.top(1)?.first
     }
     
     static func fromID(_ id: String?) -> Self?

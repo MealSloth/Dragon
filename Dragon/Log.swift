@@ -32,7 +32,7 @@ class Log
     
     internal class func logFirst(_ type: LogType, file: String, function: String, line: Int, strArr: [String]?)
     {
-        if let first = strArr?[safe: 0]
+        if let first = strArr?.first
         {
             print("Log.\(type.rawValue)\(position(file: file, function: function, line: line)): \(first)")
         }

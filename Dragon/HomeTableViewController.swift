@@ -30,11 +30,6 @@ class HomeTableViewController: UITableViewController
         self.refresh()
     }
     
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation)
     {
         self.tableView.reloadData()

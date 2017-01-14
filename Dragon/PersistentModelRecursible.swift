@@ -18,7 +18,7 @@ extension PersistentModelRecursible where Self: APIModel
     func getModelType(fromAPIModelType apiModelType: APIModel.Type) -> Model.Type?
     {
         let modelClassString = NSStringFromClass(apiModelType).replacingOccurrences(of: "APIModel", with: "")
-        return Model.children.filter{NSStringFromClass($0) == modelClassString}[safe: 0]
+        return Model.children.filter{NSStringFromClass($0) == modelClassString}.first
     }
     
     func initialize<T: FieldNameConverter>(_ json: [String:Any], skip: [String] = [], using: T.Type)

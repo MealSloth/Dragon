@@ -15,7 +15,7 @@ class TypeHelper
     {
         let children = Mirror(reflecting: object).children
         let expectedChildren = children.filter{$0.label == property}
-        if let child = expectedChildren[safe: 0]?.value
+        if let child = expectedChildren.first?.value
         {
             let childType = String(describing: type(of: child))
             return childType.components(separatedBy: "<").last?.components(separatedBy: ">").first
@@ -25,6 +25,6 @@ class TypeHelper
     
     class func type(from property: String?, ofObject object: Model) -> NSAttributeType?
     {
-        return object.entity.attributesByName.filter{$0.key == property}.map{$0.value}[safe: 0]?.attributeType
+        return object.entity.attributesByName.filter{$0.key == property}.map{$0.value}.first?.attributeType
     }
 }
