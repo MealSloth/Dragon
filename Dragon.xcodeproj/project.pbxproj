@@ -34,6 +34,16 @@
 		4C4E20791E0E0757000D462F /* PropertiesAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E20781E0E0757000D462F /* PropertiesAccessible.swift */; };
 		4C4E207B1E0E075E000D462F /* PropertiesEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4E207A1E0E075E000D462F /* PropertiesEquatable.swift */; };
 		4C586D681D8A2E0D008A1A7B /* DragonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */; };
+		4C5DB67F1E2601A1002E7CD3 /* EditProfileBasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB67E1E2601A1002E7CD3 /* EditProfileBasicCell.swift */; };
+		4C5DB6811E2601AA002E7CD3 /* EditProfileBirthdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB6801E2601AA002E7CD3 /* EditProfileBirthdayCell.swift */; };
+		4C5DB6831E2601BF002E7CD3 /* EditProfileBasicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5DB6821E2601BF002E7CD3 /* EditProfileBasicCell.xib */; };
+		4C5DB6851E2601C9002E7CD3 /* EditProfileBirthdayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5DB6841E2601C9002E7CD3 /* EditProfileBirthdayCell.xib */; };
+		4C5DB6871E2601D9002E7CD3 /* EditProfileGenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5DB6861E2601D9002E7CD3 /* EditProfileGenderCell.xib */; };
+		4C5DB6891E2601E5002E7CD3 /* EditProfileGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB6881E2601E5002E7CD3 /* EditProfileGenderCell.swift */; };
+		4C5DB68B1E26026A002E7CD3 /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB68A1E26026A002E7CD3 /* EditProfileTableViewController.swift */; };
+		4C5DB68E1E2604F1002E7CD3 /* EditProfilePhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C5DB68D1E2604F1002E7CD3 /* EditProfilePhotoCell.xib */; };
+		4C5DB6901E2604FD002E7CD3 /* EditProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB68F1E2604FD002E7CD3 /* EditProfilePhotoCell.swift */; };
+		4C5DB6941E260CBC002E7CD3 /* EditProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5DB6931E260CBC002E7CD3 /* EditProfileCell.swift */; };
 		4C60C4F91E0FB0D9008C8FFE /* EqualityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C60C4F81E0FB0D9008C8FFE /* EqualityTest.swift */; };
 		4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */; };
 		4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */; };
@@ -173,6 +183,16 @@
 		4C586D651D8A2E0D008A1A7B /* DragonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C586D671D8A2E0D008A1A7B /* DragonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonUITests.swift; sourceTree = "<group>"; };
 		4C586D691D8A2E0D008A1A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C5DB67E1E2601A1002E7CD3 /* EditProfileBasicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileBasicCell.swift; sourceTree = "<group>"; };
+		4C5DB6801E2601AA002E7CD3 /* EditProfileBirthdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileBirthdayCell.swift; sourceTree = "<group>"; };
+		4C5DB6821E2601BF002E7CD3 /* EditProfileBasicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileBasicCell.xib; sourceTree = "<group>"; };
+		4C5DB6841E2601C9002E7CD3 /* EditProfileBirthdayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileBirthdayCell.xib; sourceTree = "<group>"; };
+		4C5DB6861E2601D9002E7CD3 /* EditProfileGenderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileGenderCell.xib; sourceTree = "<group>"; };
+		4C5DB6881E2601E5002E7CD3 /* EditProfileGenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileGenderCell.swift; sourceTree = "<group>"; };
+		4C5DB68A1E26026A002E7CD3 /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
+		4C5DB68D1E2604F1002E7CD3 /* EditProfilePhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfilePhotoCell.xib; sourceTree = "<group>"; };
+		4C5DB68F1E2604FD002E7CD3 /* EditProfilePhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfilePhotoCell.swift; sourceTree = "<group>"; };
+		4C5DB6931E260CBC002E7CD3 /* EditProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileCell.swift; sourceTree = "<group>"; };
 		4C60C4F81E0FB0D9008C8FFE /* EqualityTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualityTest.swift; sourceTree = "<group>"; };
 		4C6982641CD3D7A4005ABCF1 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -442,6 +462,72 @@
 			name = "Model Enums";
 			sourceTree = "<group>";
 		};
+		4C5DB6781E25FFEF002E7CD3 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				4CD48F471D526DE00009D6A2 /* PostDetailCells */,
+				4CC947481D4AE66900426AA6 /* PostTableViewCell */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		4C5DB6791E25FFFD002E7CD3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */,
+				4C5DB67A1E260020002E7CD3 /* EditProfileCells */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		4C5DB67A1E260020002E7CD3 /* EditProfileCells */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB67B1E260096002E7CD3 /* EditProfileBasicCell */,
+				4C5DB67C1E2600A9002E7CD3 /* EditProfileBirthdayCell */,
+				4C5DB67D1E2600D1002E7CD3 /* EditProfileGenderCell */,
+				4C5DB68C1E2604D6002E7CD3 /* EditProfilePhotoCell */,
+				4C5DB6931E260CBC002E7CD3 /* EditProfileCell.swift */,
+			);
+			name = EditProfileCells;
+			sourceTree = "<group>";
+		};
+		4C5DB67B1E260096002E7CD3 /* EditProfileBasicCell */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB67E1E2601A1002E7CD3 /* EditProfileBasicCell.swift */,
+				4C5DB6821E2601BF002E7CD3 /* EditProfileBasicCell.xib */,
+			);
+			name = EditProfileBasicCell;
+			sourceTree = "<group>";
+		};
+		4C5DB67C1E2600A9002E7CD3 /* EditProfileBirthdayCell */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB6801E2601AA002E7CD3 /* EditProfileBirthdayCell.swift */,
+				4C5DB6841E2601C9002E7CD3 /* EditProfileBirthdayCell.xib */,
+			);
+			name = EditProfileBirthdayCell;
+			sourceTree = "<group>";
+		};
+		4C5DB67D1E2600D1002E7CD3 /* EditProfileGenderCell */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB6881E2601E5002E7CD3 /* EditProfileGenderCell.swift */,
+				4C5DB6861E2601D9002E7CD3 /* EditProfileGenderCell.xib */,
+			);
+			name = EditProfileGenderCell;
+			sourceTree = "<group>";
+		};
+		4C5DB68C1E2604D6002E7CD3 /* EditProfilePhotoCell */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB68F1E2604FD002E7CD3 /* EditProfilePhotoCell.swift */,
+				4C5DB68D1E2604F1002E7CD3 /* EditProfilePhotoCell.xib */,
+			);
+			name = EditProfilePhotoCell;
+			sourceTree = "<group>";
+		};
 		4C60C4FA1E0FB0DF008C8FFE /* EqualityTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +605,7 @@
 			isa = PBXGroup;
 			children = (
 				4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */,
+				4C5DB68A1E26026A002E7CD3 /* EditProfileTableViewController.swift */,
 				4CFF11D41D498CDD0062B33A /* HomeTableViewController.swift */,
 				4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */,
 				4CD48F451D5267900009D6A2 /* PostDetailTableViewController.swift */,
@@ -733,9 +820,8 @@
 		4CC947431D4AE01D00426AA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */,
-				4CD48F471D526DE00009D6A2 /* PostDetailCells */,
-				4CC947481D4AE66900426AA6 /* PostTableViewCell */,
+				4C5DB6781E25FFEF002E7CD3 /* Post */,
+				4C5DB6791E25FFFD002E7CD3 /* Profile */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -942,7 +1028,11 @@
 			files = (
 				4C06E03E1D4ACEB5005933A9 /* Main.storyboard in Resources */,
 				4C6982751CD3D7A4005ABCF1 /* LaunchScreen.storyboard in Resources */,
+				4C5DB68E1E2604F1002E7CD3 /* EditProfilePhotoCell.xib in Resources */,
+				4C5DB6831E2601BF002E7CD3 /* EditProfileBasicCell.xib in Resources */,
 				4C0354D01D5658AD00E7459D /* PostTableViewCell.xib in Resources */,
+				4C5DB6871E2601D9002E7CD3 /* EditProfileGenderCell.xib in Resources */,
+				4C5DB6851E2601C9002E7CD3 /* EditProfileBirthdayCell.xib in Resources */,
 				4C6982721CD3D7A4005ABCF1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,6 +1092,7 @@
 				4CDA11101D47FA15002C62FD /* UserModifyResult.swift in Sources */,
 				4CF29B651DC17B920076F14F /* UIImageCache.swift in Sources */,
 				4C7A82D71D3EC9C200638FBE /* Date+.swift in Sources */,
+				4C5DB68B1E26026A002E7CD3 /* EditProfileTableViewController.swift in Sources */,
 				4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */,
 				4C1504271DD3DFFC00A952EF /* InstanceRetrievable.swift in Sources */,
 				4CCD0A5F1CD8F7120081A28B /* FieldNameHelper.swift in Sources */,
@@ -1018,8 +1109,10 @@
 				4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */,
 				4CD48F4B1D527D650009D6A2 /* PostDetailSummaryCell.swift in Sources */,
 				4C4E20791E0E0757000D462F /* PropertiesAccessible.swift in Sources */,
+				4C5DB67F1E2601A1002E7CD3 /* EditProfileBasicCell.swift in Sources */,
 				4CF75D551DAC515C00E9EB39 /* Manageable.swift in Sources */,
 				4CCD0A561CD8EE080081A28B /* UserLoginAPIModel.swift in Sources */,
+				4C5DB6901E2604FD002E7CD3 /* EditProfilePhotoCell.swift in Sources */,
 				4CDA111C1D4807EF002C62FD /* RandomStringAllow.swift in Sources */,
 				4C27F0941D3D4E6100D64E13 /* APIRequestChimera.swift in Sources */,
 				4CCD0A821CD93AEC0081A28B /* LocationType.swift in Sources */,
@@ -1041,6 +1134,7 @@
 				4CC947451D4AE03F00426AA6 /* PostTableViewCell.swift in Sources */,
 				4C385EC41DFFA01A0034C190 /* TestAPIModel.swift in Sources */,
 				4CCD0A6B1CD91EAC0081A28B /* ConsumerAPIModel.swift in Sources */,
+				4C5DB6941E260CBC002E7CD3 /* EditProfileCell.swift in Sources */,
 				4CCD0A5A1CD8F3280081A28B /* PostAPIModel.swift in Sources */,
 				4CCD0A781CD9347A0081A28B /* PostStatus.swift in Sources */,
 				4CCD0A711CD91FD50081A28B /* AlbumAPIModel.swift in Sources */,
@@ -1048,6 +1142,7 @@
 				4CC40DB51D51838000B5D4BE /* Collection+.swift in Sources */,
 				4CC674811D80E8C5001BCA67 /* Location.swift in Sources */,
 				4CD48F461D5267900009D6A2 /* PostDetailTableViewController.swift in Sources */,
+				4C5DB6891E2601E5002E7CD3 /* EditProfileGenderCell.swift in Sources */,
 				4CF29B611DC1695A0076F14F /* Cache.swift in Sources */,
 				4CC674871D80E8DF001BCA67 /* OrderTime.swift in Sources */,
 				4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */,
@@ -1056,6 +1151,7 @@
 				4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */,
 				4C4E207B1E0E075E000D462F /* PropertiesEquatable.swift in Sources */,
 				4CB67D241D8B42A500196579 /* PrettyPrintable.swift in Sources */,
+				4C5DB6811E2601AA002E7CD3 /* EditProfileBirthdayCell.swift in Sources */,
 				4CC674831D80E8D3001BCA67 /* Order.swift in Sources */,
 				4C880F491DFE419400A4DFB0 /* ChildrenIdentifiable.swift in Sources */,
 				4CC6747D1D80E8B2001BCA67 /* Chef.swift in Sources */,
