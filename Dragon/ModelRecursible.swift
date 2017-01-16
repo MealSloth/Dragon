@@ -25,7 +25,7 @@ extension ModelRecursible where Self: APIModel
                 if let type = TypeHelper.type(from: property, ofObject: self),
                     type.contains("APIModel") //Recursively handle arrays of models
                 {
-                    let modelType: APIModel.Type = APIModel.children.filter { type == String(describing: $0) }[0]
+                    let modelType: APIModel.Type = APIModel.children.filter({ type == String(describing: $0) })[0]
                     var models: [APIModel] = []
                     for i in 0..<values.count
                     {
@@ -40,7 +40,7 @@ extension ModelRecursible where Self: APIModel
             else if let type = TypeHelper.type(from: property, ofObject: self),
                 type.contains("APIModel") //Recursively handle models
             {
-                let modelType: APIModel.Type = APIModel.children.filter { type == String(describing: $0) }[0]
+                let modelType: APIModel.Type = APIModel.children.filter({ type == String(describing: $0) })[0]
                 //Override default with our better parsed version
                 value = modelType.init(jsonOptional: json[T.getServerName(forClientName: property)] as? [String:Any])
             }

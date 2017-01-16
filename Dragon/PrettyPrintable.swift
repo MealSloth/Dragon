@@ -20,8 +20,8 @@ extension PrettyPrintable
     {
         var string: String = depth == 0 ? "\n\n" : ""
         string += nameless ? "{\n" : "\(Mirror(reflecting: self).subjectType): {\n"
-        context.getProperties().forEach { string += context.getPropertyString(context, property: $0, depth: depth + 1) }
-        stride(from: 0, to: depth, by: 1).forEach { _ in string += "    " }
+        context.getProperties().forEach({ string += context.getPropertyString(context, property: $0, depth: depth + 1) })
+        stride(from: 0, to: depth, by: 1).forEach({ _ in string += "    " })
         string += "}\n"
         return string
     }
@@ -30,7 +30,7 @@ extension PrettyPrintable
     {
         let depth: Int = d
         var string: String = s
-        stride(from: 0, to: depth, by: 1).forEach { _ in string += "    " }
+        stride(from: 0, to: depth, by: 1).forEach({ _ in string += "    " })
         
         if let newProp = context.value(forKey: property) as? PrettyPrintable
         {
@@ -44,7 +44,7 @@ extension PrettyPrintable
                 string += "\(property): [\n"
                 for element in arr
                 {
-                    stride(from: 0, through: depth, by: 1).forEach { _ in string += "    " }
+                    stride(from: 0, through: depth, by: 1).forEach({ _ in string += "    " })
                     if let model = element as? PrettyPrintable
                     {
                         string += model.getPropertiesString(model, depth: depth + 1)
@@ -55,7 +55,7 @@ extension PrettyPrintable
                         string += "\(element),\n"
                     }
                 }
-                stride(from: 0, to: depth, by: 1).forEach { _ in string += "    " }
+                stride(from: 0, to: depth, by: 1).forEach({ _ in string += "    " })
                 string += "],\n"
             }
             else

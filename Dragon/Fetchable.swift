@@ -39,8 +39,8 @@ extension Fetchable where Self: NSManagedObject
     
     static internal func from(_ predicateMap: [String:Any]? = [:], sortMap: [String:Bool]? = [:], limit: Int = 0) -> [Self]?
     {
-        let predicates: [NSPredicate] = predicateMap?.map { NSPredicate(format: "\($0.key) IN %@", $0.value as? [Any] ?? [$0.value, ]) } ?? []
-        let sorts: [NSSortDescriptor] = sortMap?.map { NSSortDescriptor(key: $0.key, ascending: $0.value) } ?? []
+        let predicates: [NSPredicate] = predicateMap?.map({ NSPredicate(format: "\($0.key) IN %@", $0.value as? [Any] ?? [$0.value, ]) }) ?? []
+        let sorts: [NSSortDescriptor] = sortMap?.map({ NSSortDescriptor(key: $0.key, ascending: $0.value) }) ?? []
         return self.fetch(predicates, sortBy: sorts, limit: limit)
     }
     

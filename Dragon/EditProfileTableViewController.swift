@@ -20,7 +20,7 @@ class EditProfileTableViewController: UITableViewController
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
-        self.cells.forEach { self.tableView.register(UINib(nibName: "EditProfile\($0)Cell", bundle: nil), forCellReuseIdentifier: "EditProfile\($0)Cell") }
+        self.cells.forEach({ self.tableView.register(UINib(nibName: "EditProfile\($0)Cell", bundle: nil), forCellReuseIdentifier: "EditProfile\($0)Cell") })
     }
     
     // MARK: TableView Delegates

@@ -21,7 +21,7 @@ extension ChildrenIdentifiable where Self: AnyObject
         {
             let classes = getChildClasses()
             //Initial lookup is moderately slow; store for faster lookup later
-            UserDefaults.standard.set((classes.map { NSStringFromClass($0) }) as NSArray, forKey: "\(getClassName()).children")
+            UserDefaults.standard.set((classes.map({ NSStringFromClass($0) })) as NSArray, forKey: "\(getClassName()).children")
             return classes
         }
         var classes: [Self.Type] = []

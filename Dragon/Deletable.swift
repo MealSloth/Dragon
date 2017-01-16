@@ -37,7 +37,7 @@ extension Deletable where Self: NSManagedObject
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
         request.predicate = predicate
         let result = try? self.context?.fetch(request)
-        result??.forEach { self.context?.delete($0) }
+        result??.forEach({ self.context?.delete($0) })
         try? self.context?.save()
     }
     

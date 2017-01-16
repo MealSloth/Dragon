@@ -24,17 +24,7 @@ class BlobResult: APIResult
             self.blobs = []
             if let blobs = result["blobs"] as? [[String:Any]]
             {
-                for blob in blobs
-                {
-                    if let managedBlob = Blob.insert(BlobAPIModel(json: blob))
-                    {
-                        self.blobs?.append(managedBlob)
-                    }
-                }
-            }
-            else
-            {
-                Log.error("Could not parse BlobResult")
+                blobs.forEach({ if let blob = Blob.insert(BlobAPIModel(json: $0)) { self.blobs?.append(blob) } })
             }
         }
     }

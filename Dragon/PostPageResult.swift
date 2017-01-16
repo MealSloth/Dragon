@@ -16,13 +16,7 @@ class PostPageResult: APIResult
     {
         if let postsArray = result["posts"] as? [[String:Any]]
         {
-            for post in postsArray
-            {
-                if let post = Post.insert(PostAPIModel(json: post))
-                {
-                    self.posts.append(post)
-                }
-            }
+            postsArray.forEach({ if let post = Post.insert(PostAPIModel(json: $0)) { self.posts.append(post) } })
         }
     }
 }

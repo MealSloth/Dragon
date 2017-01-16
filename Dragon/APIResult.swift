@@ -18,8 +18,6 @@ protocol APIResult
 extension APIResult
 {
     var description: String? {
-        get {
-            return String(describing: type(of: self))
-        }
+        get { return String(describing: type(of: self)) }
     }
 }

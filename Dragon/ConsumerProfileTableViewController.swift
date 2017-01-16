@@ -57,7 +57,7 @@ class ConsumerProfileTableViewController: UITableViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if case 0..<self.cells.count = indexPath.row
+        if 0..<self.cells.count ~= indexPath.row
         {
             let identifier = "ConsumerProfile\(self.cells[indexPath.row])Cell"
             return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
