@@ -24,7 +24,7 @@ extension PropertiesAccessible
         }
         else
         {
-            return Mirror(reflecting: self).children.filter{ $0.label != nil }.map{ $0.label! }
+            return Mirror(reflecting: self).children.filter { $0.label != nil }.map { $0.label! }
         }
     }
 }

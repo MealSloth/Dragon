@@ -18,7 +18,7 @@ extension PersistentModelRecursible where Self: APIModel
     func getModelType(fromAPIModelType apiModelType: APIModel.Type) -> Model.Type?
     {
         let modelClassString = NSStringFromClass(apiModelType).replacingOccurrences(of: "APIModel", with: "")
-        return Model.children.filter{NSStringFromClass($0) == modelClassString}.first
+        return Model.children.filter { NSStringFromClass($0) == modelClassString }.first
     }
     
     func initialize<T: FieldNameConverter>(_ json: [String:Any], skip: [String] = [], using: T.Type)
@@ -31,7 +31,7 @@ extension PersistentModelRecursible where Self: APIModel
                 if let type = TypeHelper.type(from: property, ofObject: self),
                     type.contains("APIModel") //Recursively handle arrays of models
                 {
-                    let apiModelType: APIModel.Type = APIModel.children.filter{type == String(describing: $0)}[0]
+                    let apiModelType: APIModel.Type = APIModel.children.filter { type == String(describing: $0) }[0]
                     let modelType = self.getModelType(fromAPIModelType: apiModelType)
                     var apiModels: [APIModel] = []
                     for i in 0..<values.count
@@ -52,7 +52,7 @@ extension PersistentModelRecursible where Self: APIModel
             else if let type = TypeHelper.type(from: property, ofObject: self),
                 type.contains("APIModel") //Recursively handle models
             {
-                let apiModelType: APIModel.Type = APIModel.children.filter{type == String(describing: $0)}[0]
+                let apiModelType: APIModel.Type = APIModel.children.filter { type == String(describing: $0) }[0]
                 let apiModel = apiModelType.init(jsonOptional: json[T.getServerName(forClientName: property)] as? [String:Any])
                 value = apiModel //Override default with our better parsed version
                 
