@@ -16,8 +16,6 @@ struct PostRequest: APIRequest
     
     init(withPostID postID: String?)
     {
-        self.initialize(withJSON: [
-            "post_id": postID ?? "",
-        ])
+        self.json["post_id"] = postID
     }
 }

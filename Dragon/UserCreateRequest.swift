@@ -16,9 +16,7 @@ struct UserCreateRequest: APIRequest
     
     init(withEmail email: String, andPassword password: String)
     {
-        self.initialize(withJSON: [
-            "email": email,
-            "password": password,
-        ])
+        self.json["email"] = email
+        self.json["password"] = password
     }
 }

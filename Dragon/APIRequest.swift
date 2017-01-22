@@ -10,23 +10,17 @@ import Foundation
 
 protocol APIRequest
 {
-    var json: [String:Any] { get set }
     var method: String { get set }
+    var json: [String:Any] { get set }
     var host: APIHost { get set }
 }
 
 extension APIRequest
 {
-    mutating func initialize(forMethod method: String? = nil, withJSON json: [String:Any])
-    {
-        self.method = cleanedMethod(method)
-        self.json = json
-    }
-    
-    func cleanedMethod(_ method: String?) -> String
-    {
-        guard let method = method else { return self.cleanedMethod(self.method) }
-        return method.characters.first == "/" ? String(method.characters.dropFirst()) : method
+    var cleanedMethod: String {
+        get {
+            return method.characters.first == "/" ? String(method.characters.dropFirst()) : method
+        }
     }
     
     func request<T: APIResult>(onCompletion completion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil)
@@ -40,7 +34,7 @@ extension APIRequest
     
     func post(onCompletion completion: ((_ result: [String:Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
     {
-        let urlStr = "\(self.host.url())\(self.method)"
+        let urlStr = "\(self.host.url())\(self.cleanedMethod)"
         guard let url = URL(string: urlStr) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -57,7 +51,7 @@ extension APIRequest
                 }
                 do
                 {
-                    if let jsonResult: [String:Any] = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:Any]
+                    if let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String:Any]
                     {
                         Log.info("Received response for POST request at \(urlStr)")
                         completion?(jsonResult)

@@ -16,13 +16,11 @@ struct UserModifyRequest: APIRequest
     
     init(withUserID userID: String?, firstName: String?, lastName: String?, gender: UserGender?, dateOfBirth: Date?, phoneNumber: String?)
     {
-        self.initialize(withJSON: [
-            "user_id": userID ?? "",
-            "first_name": firstName ?? "",
-            "last_name": lastName ?? "",
-            "gender": gender?.rawValue ?? -1,
-            "date_of_birth": dateOfBirth?.toString() ?? "",
-            "phone_number": phoneNumber ?? "",
-        ])
+        self.json["user_id"] = userID
+        self.json["first_name"] = firstName
+        self.json["last_name"] = lastName
+        self.json["gender"] = gender
+        self.json["date_of_birth"] = dateOfBirth
+        self.json["phone_number"] = phoneNumber
     }
 }

@@ -10,21 +10,17 @@ import Foundation
 
 struct UserLoginRequest: APIRequest
 {
-    var method: String = "user/login/"
+    var method: String = "user-login/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera
     
     init(withUserLoginID userLoginID: String?)
     {
-        self.initialize(withJSON: [
-            "user_login_id": userLoginID ?? "",
-        ])
+        self.json["user_login_id"] = userLoginID
     }
     
     init(withUserID userID: String?)
     {
-        self.initialize(withJSON: [
-            "user_id": userID ?? "",
-        ])
+        self.json["user_id"] = userID
     }
 }

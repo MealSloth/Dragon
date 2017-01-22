@@ -16,8 +16,6 @@ struct ConsumerRequest: APIRequest
     
     init(withConsumerID consumerID: String?)
     {
-        self.initialize(withJSON: [
-            "consumer_id": consumerID ?? "",
-        ])
+        self.json["consumer_id"] = consumerID
     }
 }

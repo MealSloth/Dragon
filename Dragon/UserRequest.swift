@@ -16,15 +16,11 @@ struct UserRequest: APIRequest
     
     init(withUserID userID: String?)
     {
-        self.initialize(withJSON: [
-            "user_id": userID ?? "",
-        ])
+        self.json["user_id"] = userID
     }
     
     init(withEmail email: String?)
     {
-        self.initialize(withJSON: [
-            "email": email ?? "",
-        ])
+        self.json["email"] = email
     }
 }
