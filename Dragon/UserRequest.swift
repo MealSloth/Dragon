@@ -8,17 +8,23 @@
 
 import Foundation
 
-class UserRequest: APIRequestChimera
+struct UserRequest: APIRequest
 {
-    init(withUserID userID: String)
+    var method: String = "user/"
+    var json: [String:Any] = [:]
+    var host: APIHost = .chimera
+    
+    init(withUserID userID: String?)
     {
-        super.init(method: "user/")
-        self.json["user_id"] = userID
+        self.initialize(withJSON: [
+            "user_id": userID ?? "",
+        ])
     }
     
-    init(withEmail email: String)
+    init(withEmail email: String?)
     {
-        super.init(method: "user/")
-        self.json["email"] = email
+        self.initialize(withJSON: [
+            "email": email ?? "",
+        ])
     }
 }

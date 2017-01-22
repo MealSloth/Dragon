@@ -8,11 +8,11 @@
 
 import Foundation
 
-class PostResult: APIResult
+struct PostResult: APIResult
 {
     var post: Post?
     
-    required init(result: [String:Any])
+    init(result: [String:Any])
     {
         self.post = Post.insert(PostAPIModel(jsonOptional: result["post"] as? [String:Any]))
     }

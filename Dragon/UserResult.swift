@@ -8,11 +8,11 @@
 
 import Foundation
 
-class UserResult: APIResult
+struct UserResult: APIResult
 {
     var user: User?
     
-    required init(result: [String:Any])
+    init(result: [String:Any])
     {
         self.user = User.insert(UserAPIModel(jsonOptional: result["user"] as? [String:Any]))
     }

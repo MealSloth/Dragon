@@ -13,13 +13,31 @@ protocol APIRequest
     var json: [String:Any] { get set }
     var method: String { get set }
     var host: APIHost { get set }
-    
-    var resultHandler: ((_ result: [String:Any]) -> Void)? { get set }
-    var errorHandler: ((_ error: Error?) -> Void)? { get set }
 }
 
 extension APIRequest
 {
+    mutating func initialize(forMethod method: String? = nil, withJSON json: [String:Any])
+    {
+        self.method = cleanedMethod(method)
+        self.json = json
+    }
+    
+    func cleanedMethod(_ method: String?) -> String
+    {
+        guard let method = method else { return self.cleanedMethod(self.method) }
+        return method.characters.first == "/" ? String(method.characters.dropFirst()) : method
+    }
+    
+    func request<T: APIResult>(onCompletion completion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil)
+    {
+        let resultHandler = { (result) -> Void in
+            completion?(T(result: result))
+        }
+        let errorHandler = onError
+        self.post(onCompletion: resultHandler, onError: errorHandler)
+    }
+    
     func post(onCompletion completion: ((_ result: [String:Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
     {
         let urlStr = "\(self.host.url())\(self.method)"
@@ -28,7 +46,7 @@ extension APIRequest
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpBody = try? JSONSerialization.data(withJSONObject: self.json, options: JSONSerialization.WritingOptions.prettyPrinted)
+        request.httpBody = try? JSONSerialization.data(withJSONObject: self.json, options: .prettyPrinted)
         Log.info("Executing POST request at \(urlStr)")
         let task = URLSession.shared.dataTask(with: request,
             completionHandler: { (data, response, error) -> Void in

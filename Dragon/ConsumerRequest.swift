@@ -8,11 +8,16 @@
 
 import Foundation
 
-class ConsumerRequest: APIRequestChimera
+struct ConsumerRequest: APIRequest
 {
-    init(withConsumerID consumerID: String)
+    var method: String = "consumer/"
+    var json: [String:Any] = [:]
+    var host: APIHost = .chimera
+    
+    init(withConsumerID consumerID: String?)
     {
-        super.init(method: "consumer/")
-        self.json["consumer_id"] = consumerID
+        self.initialize(withJSON: [
+            "consumer_id": consumerID ?? "",
+        ])
     }
 }

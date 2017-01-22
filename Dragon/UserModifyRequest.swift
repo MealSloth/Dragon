@@ -8,16 +8,21 @@
 
 import Foundation
 
-class UserModifyRequest: APIRequestChimera
+struct UserModifyRequest: APIRequest
 {
-    init(withUserID userID: String, firstName: String?, lastName: String?, gender: UserGender?, dateOfBirth: Date?, phoneNumber: String?)
+    var method: String = "user/modify/"
+    var json: [String:Any] = [:]
+    var host: APIHost = .chimera
+    
+    init(withUserID userID: String?, firstName: String?, lastName: String?, gender: UserGender?, dateOfBirth: Date?, phoneNumber: String?)
     {
-        super.init(method: "user/modify/")
-        self.json["user_id"] = userID
-        self.json["first_name"] = firstName
-        self.json["last_name"] = lastName
-        self.json["gender"] = gender?.rawValue
-        self.json["date_of_birth"] = dateOfBirth?.toString()
-        self.json["phone_number"] = phoneNumber
+        self.initialize(withJSON: [
+            "user_id": userID ?? "",
+            "first_name": firstName ?? "",
+            "last_name": lastName ?? "",
+            "gender": gender?.rawValue ?? -1,
+            "date_of_birth": dateOfBirth?.toString() ?? "",
+            "phone_number": phoneNumber ?? "",
+        ])
     }
 }

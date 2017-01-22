@@ -8,12 +8,17 @@
 
 import Foundation
 
-class UserCreateRequest: APIRequestChimera
+struct UserCreateRequest: APIRequest
 {
+    var method: String = "user/create/"
+    var json: [String:Any] = [:]
+    var host: APIHost = .chimera
+    
     init(withEmail email: String, andPassword password: String)
     {
-        super.init(method: "user/create/")
-        self.json["email"] = email
-        self.json["password"] = password
+        self.initialize(withJSON: [
+            "email": email,
+            "password": password,
+        ])
     }
 }

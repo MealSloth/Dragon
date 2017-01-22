@@ -8,11 +8,11 @@
 
 import Foundation
 
-class PostPageResult: APIResult
+struct PostPageResult: APIResult
 {
     var posts: [Post] = []
     
-    required init(result: [String:Any])
+    init(result: [String:Any])
     {
         if let postsArray = result["posts"] as? [[String:Any]]
         {

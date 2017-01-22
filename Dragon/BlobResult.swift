@@ -8,12 +8,12 @@
 
 import Foundation
 
-class BlobResult: APIResult
+struct BlobResult: APIResult
 {
     var blob: Blob?
     var blobs: [Blob]?
     
-    required init(result: [String:Any])
+    init(result: [String:Any])
     {
         if let blob = result["blob"] as? [String:Any]
         {

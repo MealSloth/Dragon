@@ -8,11 +8,11 @@
 
 import Foundation
 
-class TestResult: APIResult
+struct TestResult: APIResult
 {
     var test: TestAPIModel?
     
-    required init(result: [String:Any])
+    init(result: [String:Any])
     {
         self.test = TestAPIModel(jsonOptional: result["test"] as? [String:Any])
     }

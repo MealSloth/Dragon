@@ -8,11 +8,16 @@
 
 import Foundation
 
-class TestRequest: APIRequestChimera
+struct TestRequest: APIRequest
 {
+    var host: APIHost = .chimera
+    var json: [String:Any] = [:]
+    var method: String = "test/"
+    
     init()
     {
-        super.init(method: "test/")
-        self.json["ayy"] = "lmao"
+        self.initialize(withJSON: [
+            "ayy": "lmao",
+        ])
     }
 }

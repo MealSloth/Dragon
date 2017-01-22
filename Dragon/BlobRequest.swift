@@ -8,17 +8,23 @@
 
 import Foundation
 
-class BlobRequest: APIRequestChimera
+struct BlobRequest: APIRequest
 {
-    init(withBlobID blobID: String)
+    var method: String = "blob/"
+    var json: [String:Any] = [:]
+    var host: APIHost = .chimera
+    
+    init(withBlobID blobID: String?)
     {
-        super.init(method: "blob/")
-        self.json["blob_id"] = blobID
+        self.initialize(withJSON: [
+            "blob_id": blobID ?? "",
+        ])
     }
     
-    init(withAlbumID albumID: String)
+    init(withAlbumID albumID: String?)
     {
-        super.init(method: "blob/")
-        self.json["album_id"] = albumID
+        self.initialize(withJSON: [
+            "album_id": albumID ?? "",
+        ])
     }
 }

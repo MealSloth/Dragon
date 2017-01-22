@@ -8,13 +8,13 @@
 
 import Foundation
 
-class UserCreateResult: APIResult
+struct UserCreateResult: APIResult
 {
     var user: User?
     var userLogin: UserLogin?
     var password: String?
     
-    required init(result: [String:Any])
+    init(result: [String:Any])
     {
         self.user = User.insert(UserAPIModel(jsonOptional: result["user"] as? [String:Any]))
         let model = UserLoginAPIModel(jsonOptional: result["user_login"] as? [String:Any])

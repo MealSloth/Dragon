@@ -8,11 +8,16 @@
 
 import Foundation
 
-class PostRequest: APIRequestChimera
+struct PostRequest: APIRequest
 {
-    init(withPostID postID: String)
+    var method: String = "post/"
+    var json: [String:Any] = [:]
+    var host: APIHost = .chimera
+    
+    init(withPostID postID: String?)
     {
-        super.init(method: "post/")
-        self.json["post_id"] = postID
+        self.initialize(withJSON: [
+            "post_id": postID ?? "",
+        ])
     }
 }

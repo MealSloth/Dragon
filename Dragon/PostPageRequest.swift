@@ -8,12 +8,17 @@
 
 import Foundation
 
-class PostPageRequest: APIRequestChimera
+struct PostPageRequest: APIRequest
 {
+    var method: String = "post/page/"
+    var json: [String:Any] = [:]
+    var host: APIHost = .chimera
+    
     init(withPageSize size: Int? = 10, usingPostTimestamp time: Date? = nil)
     {
-        super.init(method: "post/page/")
-        self.json["page_size"] = size
-        self.json["post_time_stamp"] = time?.toString()
+        self.initialize(withJSON: [
+            "page_size": size ?? 10,
+            "post_time_stamp": time?.toString() ?? "",
+        ])
     }
 }

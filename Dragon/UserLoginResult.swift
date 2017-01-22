@@ -8,12 +8,12 @@
 
 import Foundation
 
-class UserLoginResult: APIResult
+struct UserLoginResult: APIResult
 {
     var userLogin: UserLogin?
     var password: String?
     
-    required init(result: [String:Any])
+    init(result: [String:Any])
     {
         let model = UserLoginAPIModel(jsonOptional: result["user_login"] as? [String:Any])
         self.password = model?.password
