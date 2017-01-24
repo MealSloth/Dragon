@@ -62,7 +62,7 @@ extension PersistentModelRecursible where Self: APIModel
                     _ = modelType.insert(apiModel, into: NSStringFromClass(modelType).components(separatedBy: ".").last)
                 }
             }
-            self.setValue(value, forKey: property)
+            self.set(value, for: property)
         }
     }
 }

@@ -36,9 +36,25 @@ class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, Properties
         self.initialize(json)
     }
     
+    //MARK: KVC Overrides
     override func value(forKey key: String) -> Any?
     {
+        return self.value(for: key)
+    }
+    
+    override func setValue(_ value: Any?, forKey key: String)
+    {
+        self.set(value, for: key)
+    }
+    
+    func value(for key: String) -> Any?
+    {
         return super.value(forKey: key)
+    }
+    
+    func set(_ value: Any?, for key: String)
+    {
+        super.setValue(value, forKey: key)
     }
     
     //This should be overridden by a subclass if one wishes to use a converter other than FieldNameHelper

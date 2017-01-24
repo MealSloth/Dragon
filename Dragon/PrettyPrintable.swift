@@ -11,7 +11,7 @@ import CoreData
 
 protocol PrettyPrintable: PropertiesAccessible
 {
-    func value(forKey key: String) -> Any?
+    func value(for key: String) -> Any?
 }
 
 extension PrettyPrintable
@@ -32,12 +32,12 @@ extension PrettyPrintable
         var string: String = s
         stride(from: 0, to: depth, by: 1).forEach({ _ in string += "    " })
         
-        if let newProp = context.value(forKey: property) as? PrettyPrintable
+        if let newProp = context.value(for: property) as? PrettyPrintable
         {
             string += "\(property): \(newProp.getPropertiesString(newProp, depth: depth, nameless: true))"
             string.insert(",", at: string.index(before: string.endIndex))
         }
-        else if let arr = context.value(forKey: property) as? [Any]
+        else if let arr = context.value(for: property) as? [Any]
         {
             if arr.count > 0
             {
@@ -63,7 +63,7 @@ extension PrettyPrintable
                 string += "\(property): []\n"
             }
         }
-        else if let value = self.value(forKey: property)
+        else if let value = self.value(for: property)
         {
             string += "\(property): \(value),\n"
         }

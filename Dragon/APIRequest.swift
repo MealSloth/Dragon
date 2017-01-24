@@ -19,7 +19,7 @@ extension APIRequest
 {
     var cleanedMethod: String {
         get {
-            return method.characters.first == "/" ? String(method.characters.dropFirst()) : method
+            return self.method.characters.first == "/" ? String(self.method.characters.dropFirst()) : self.method
         }
     }
     

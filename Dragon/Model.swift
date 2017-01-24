@@ -56,13 +56,24 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
         }
     }
     
-    //MARK: Overrides
+    //MARK: KVC Overrides
     override func value(forKey key: String) -> Any?
+    {
+        return self.value(for: key)
+    }
+    
+    override func setValue(_ value: Any?, forKey key: String)
+    {
+        self.set(value, for: key)
+    }
+    
+    //MARK: KVC Interfaces with less redundancy
+    func value(for key: String) -> Any?
     {
         return super.value(forKey: key)
     }
     
-    override func setValue(_ value: Any?, forKey key: String)
+    func set(_ value: Any?, for key: String)
     {
         if TypeHelper.type(from: key, ofObject: self) == .dateAttributeType
         {
@@ -84,8 +95,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
         for property in model.getProperties()
             where self.getProperties().contains(property) && !skip.contains(property)
         {
-            self.setValue(model.value(forKey: property), forKey: property)
-            
+            self.set(model.value(for: property), for: property)
         }
     }
     

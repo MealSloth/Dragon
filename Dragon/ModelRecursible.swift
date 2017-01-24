@@ -44,7 +44,7 @@ extension ModelRecursible where Self: APIModel
                 //Override default with our better parsed version
                 value = modelType.init(jsonOptional: json[T.getServerName(forClientName: property)] as? [String:Any])
             }
-            self.setValue(value, forKey: property)
+            self.set(value, for: property)
         }
         Log.info("Finished initializing APIModel with values: \(self)")
     }

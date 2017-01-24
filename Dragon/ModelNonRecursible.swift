@@ -19,7 +19,7 @@ extension ModelNonRecursible where Self: APIModel
     {
         for property in self.getProperties() where !skip.contains(property) && !skip.contains(T.getServerName(forClientName: property))
         {
-            self.setValue(json[T.getServerName(forClientName: property)], forKey: property)
+            self.set(json[T.getServerName(forClientName: property)], for: property)
         }
         Log.info("Finished initializing model with values: \(self)")
     }
