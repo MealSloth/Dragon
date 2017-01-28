@@ -12,4 +12,9 @@ class EditProfileBirthdayCell: UITableViewCell, EditProfileCell
 {
     static let type: EditProfileCellType = .birthday
     var user: User?
+    
+    func initialize()
+    {
+        
+    }
 }

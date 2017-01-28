@@ -46,7 +46,7 @@ class EditProfileTableViewController: UITableViewController
     {
         switch indexPath.row
         {
-            case 0: return 120.0
+            case 0: return 200.0
             case 1: return 100.0
             case 2: return 80.0
             case 3: return 80.0

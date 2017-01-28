@@ -19,6 +19,11 @@ struct BlobRequest: APIRequest
         self.json["blob_id"] = blobID
     }
     
+    init(withUserID userID: String?)
+    {
+        self.json["user_id"] = userID
+    }
+    
     init(withAlbumID albumID: String?)
     {
         self.json["album_id"] = albumID

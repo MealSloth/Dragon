@@ -12,6 +12,8 @@ protocol EditProfileCell
 {
     static var type: EditProfileCellType { get }
     var user: User? { get set }
+    
+    func initialize()
 }
 
 extension EditProfileCell where Self: UITableViewCell
@@ -22,6 +24,7 @@ extension EditProfileCell where Self: UITableViewCell
         guard let profileCell = cell as? Self else { return cell }
         var editProfileCell = profileCell
         editProfileCell.user = user
+        editProfileCell.initialize()
         return editProfileCell
     }
 }

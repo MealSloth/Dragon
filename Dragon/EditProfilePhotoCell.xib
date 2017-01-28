@@ -6,19 +6,37 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditProfilePhotoCell" id="nsG-7F-lax" userLabel="EditProfilePhotoCell" customClass="EditProfilePhotoCell" customModule="Dragon" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EditProfilePhotoCell" rowHeight="200" id="nsG-7F-lax" userLabel="EditProfilePhotoCell" customClass="EditProfilePhotoCell" customModule="Dragon" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nsG-7F-lax" id="9nb-Wb-0ch">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dGP-i1-mCz">
+                        <rect key="frame" x="104" y="16" width="167.5" height="167.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="dGP-i1-mCz" secondAttribute="height" multiplier="1:1" id="2Li-VK-f6e"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="dGP-i1-mCz" secondAttribute="bottom" constant="8" id="4Sx-Of-2Q1"/>
+                    <constraint firstItem="dGP-i1-mCz" firstAttribute="centerX" secondItem="9nb-Wb-0ch" secondAttribute="centerX" id="Mch-ty-kDy"/>
+                    <constraint firstItem="dGP-i1-mCz" firstAttribute="top" secondItem="9nb-Wb-0ch" secondAttribute="topMargin" constant="8" id="eg2-u5-TVE"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-35" y="63"/>
+            <connections>
+                <outlet property="profilePhoto" destination="dGP-i1-mCz" id="ycL-Mu-cPF"/>
+            </connections>
+            <point key="canvasLocation" x="-35.5" y="-15"/>
         </tableViewCell>
     </objects>
 </document>

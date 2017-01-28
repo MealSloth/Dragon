@@ -11,5 +11,22 @@ import UIKit
 class EditProfilePhotoCell: UITableViewCell, EditProfileCell
 {
     static let type: EditProfileCellType = .photo
+    @IBOutlet weak var profilePhoto: UIImageView!
     var user: User?
+    
+    func initialize()
+    {
+        BlobRequest(withUserID: self.user?.id ?? "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
+            onCompletion: { (result: BlobResult) -> Void in
+                _ = result.blob?.image
+                self.runOnMainThread({ () -> Void in
+                    self.profilePhoto.alpha = 0.0
+                    UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                        self.profilePhoto.image = result.blob?.image
+                        self.profilePhoto.alpha = 1.0
+                    })
+                })
+            }
+        )
+    }
 }

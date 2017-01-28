@@ -12,4 +12,9 @@ class EditProfileBasicCell: UITableViewCell, EditProfileCell
 {
     static let type: EditProfileCellType = .basic
     var user: User?
+    
+    func initialize()
+    {
+        
+    }
 }

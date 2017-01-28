@@ -12,4 +12,9 @@ class EditProfileGenderCell: UITableViewCell, EditProfileCell
 {
     static let type: EditProfileCellType = .gender
     var user: User?
+    
+    func initialize()
+    {
+        
+    }
 }
