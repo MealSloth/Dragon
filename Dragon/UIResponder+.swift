@@ -13,11 +13,11 @@ extension UIResponder
 {
     func runOnMainThread(_ runnable: (() -> Void)?)
     {
-        OperationQueue.main.addOperation(runnable ?? {})
+        MainQueue.sync(runnable)
     }
     
     func runOnBackgroundThread(_ runnable: (() -> Void)?)
     {
-        AppDelegate.backgroundQueue.async(execute: runnable ?? {})
+        BackgroundQueue.async(runnable)
     }
 }

@@ -19,7 +19,7 @@ extension UIImage
     
     class func from(url: String, completion: ((UIImage?) -> Void)?)
     {
-        AppDelegate.backgroundQueue.async(execute: { () -> Void in
+        BackgroundQueue.async({ () -> Void in
             completion?(UIImage.from(url: url))
         })
     }
@@ -28,21 +28,14 @@ extension UIImage
     {
         guard let blob = blob else { return nil }
         let cacheID = "blob_\(blob.id)"
-        if let cached = UIImageCache.get(cacheID)
-        {
-            return cached
-        }
-        else
-        {
-            let img = UIImage.from(url: blob.url)
-            UIImageCache.put(image: img, at: cacheID)
-            return img
-        }
+        let img = UIImageCache.get(cacheID) ?? UIImage.from(url: blob.url)
+        UIImageCache.put(image: img, at: cacheID)
+        return img
     }
     
     class func from(blob: Blob?, completion: ((UIImage?) -> Void)?)
     {
-        AppDelegate.backgroundQueue.async(execute: { () -> Void in
+        BackgroundQueue.async({ () -> Void in
             completion?(UIImage.from(blob: blob))
         })
     }

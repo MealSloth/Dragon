@@ -34,11 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
         return managedObjectContext
     }()
     
-    //MARK: Static members
-    static var backgroundQueue: DispatchQueue = {
-        return DispatchQueue(label: "com.mealsloth.backgroundqueue", qos: .background, target: nil)
-    }()
-
     //MARK: Delegates
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
