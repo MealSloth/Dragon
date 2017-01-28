@@ -16,7 +16,7 @@ class EditProfilePhotoCell: UITableViewCell, EditProfileCell
     
     func initialize()
     {
-        BlobRequest(withUserID: self.user?.id ?? "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
+        BlobRequest(withUserID: self.user?.id).request(
             onCompletion: { (result: BlobResult) -> Void in
                 _ = result.blob?.image
                 self.runOnMainThread({ () -> Void in
