@@ -8,10 +8,8 @@
 
 import UIKit
 
-class EditProfileGenderCell: EditProfileCell
+class EditProfileGenderCell: UITableViewCell, EditProfileCell
 {
-    class func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell
-    {
-        return super.getInstance(from: tableView, at: indexPath, ofType: .gender, for: user)
-    }
+    static let type: EditProfileCellType = .gender
+    var user: User?
 }

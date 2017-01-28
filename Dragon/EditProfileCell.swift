@@ -8,22 +8,19 @@
 
 import UIKit
 
-class EditProfileCell: UITableViewCell
+protocol EditProfileCell
 {
-    var user: User?
-    
-    enum EditProfileCellType: String
+    static var type: EditProfileCellType { get }
+    var user: User? { get set }
+}
+
+extension EditProfileCell where Self: UITableViewCell
+{
+    static func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell
     {
-        case photo = "Photo"
-        case basic = "Basic"
-        case birthday = "Birthday"
-        case gender = "Gender"
-    }
-    
-    class func getInstance(from tableView: UITableView, at indexPath: IndexPath, ofType type: EditProfileCellType, for user: User?) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EditProfile\(type.rawValue)Cell", for: indexPath)
-        guard let editProfileCell = cell as? EditProfileCell else { return cell }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EditProfile\(Self.type.rawValue)Cell", for: indexPath)
+        guard let profileCell = cell as? Self else { return cell }
+        var editProfileCell = profileCell
         editProfileCell.user = user
         return editProfileCell
     }

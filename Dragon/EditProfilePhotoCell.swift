@@ -8,10 +8,8 @@
 
 import UIKit
 
-class EditProfilePhotoCell: EditProfileCell
+class EditProfilePhotoCell: UITableViewCell, EditProfileCell
 {
-    class func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell
-    {
-        return super.getInstance(from: tableView, at: indexPath, ofType: .photo, for: user)
-    }
+    static let type: EditProfileCellType = .photo
+    var user: User?
 }

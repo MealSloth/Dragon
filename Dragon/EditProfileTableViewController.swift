@@ -10,7 +10,12 @@ import UIKit
 
 class EditProfileTableViewController: UITableViewController
 {
-    let cells = ["Photo", "Basic", "Birthday", "Gender", ]
+    let cells: [EditProfileCell.Type] = [
+        EditProfilePhotoCell.self,
+        EditProfileBasicCell.self,
+        EditProfileBirthdayCell.self,
+        EditProfileGenderCell.self,
+    ]
     
     var user: User?
     
@@ -20,7 +25,10 @@ class EditProfileTableViewController: UITableViewController
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
-        self.cells.forEach({ self.tableView.register(UINib(nibName: "EditProfile\($0)Cell", bundle: nil), forCellReuseIdentifier: "EditProfile\($0)Cell") })
+        for cell in self.cells
+        {
+            self.tableView.register(UINib(nibName: cell.type.name, bundle: nil), forCellReuseIdentifier: cell.type.name)
+        }
     }
     
     // MARK: TableView Delegates
@@ -39,7 +47,7 @@ class EditProfileTableViewController: UITableViewController
         switch indexPath.row
         {
             case 0: return 120.0
-            case 1: return 120.0
+            case 1: return 100.0
             case 2: return 80.0
             case 3: return 80.0
             default: return super.tableView(tableView, heightForRowAt: indexPath)

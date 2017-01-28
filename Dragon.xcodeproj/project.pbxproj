@@ -63,6 +63,7 @@
 		4C7A82D41D3EC41D00638FBE /* PostPageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D31D3EC41D00638FBE /* PostPageTest.swift */; };
 		4C7A82D71D3EC9C200638FBE /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D61D3EC9C200638FBE /* Date+.swift */; };
 		4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7A82D81D3EC9F400638FBE /* String+.swift */; };
+		4C7BEC3D1E3C9348009F4B36 /* EditProfileCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7BEC3C1E3C9348009F4B36 /* EditProfileCellType.swift */; };
 		4C880F491DFE419400A4DFB0 /* ChildrenIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */; };
 		4C94FAFC1DA033F400CFFBFC /* PostDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94FAFB1DA033F400CFFBFC /* PostDataTest.swift */; };
 		4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655531D0E0F0200011EAC /* UserLoginRequest.swift */; };
@@ -216,6 +217,7 @@
 		4C7A82D31D3EC41D00638FBE /* PostPageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPageTest.swift; sourceTree = "<group>"; };
 		4C7A82D61D3EC9C200638FBE /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		4C7A82D81D3EC9F400638FBE /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		4C7BEC3C1E3C9348009F4B36 /* EditProfileCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileCellType.swift; sourceTree = "<group>"; };
 		4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildrenIdentifiable.swift; sourceTree = "<group>"; };
 		4C94FAFB1DA033F400CFFBFC /* PostDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDataTest.swift; sourceTree = "<group>"; };
 		4C9655531D0E0F0200011EAC /* UserLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserLoginRequest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -486,6 +488,7 @@
 				4C5DB67D1E2600D1002E7CD3 /* EditProfileGenderCell */,
 				4C5DB68C1E2604D6002E7CD3 /* EditProfilePhotoCell */,
 				4C5DB6931E260CBC002E7CD3 /* EditProfileCell.swift */,
+				4C7BEC3C1E3C9348009F4B36 /* EditProfileCellType.swift */,
 			);
 			name = EditProfileCells;
 			sourceTree = "<group>";
@@ -746,6 +749,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		4C7BEC3E1E3C985B009F4B36 /* Static Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4CC780C21DD27C5A00E93EB4 /* FieldNameConverter.swift */,
+				4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */,
+			);
+			name = "Static Protocols";
+			sourceTree = "<group>";
+		};
 		4C94FAF91DA0339100CFFBFC /* CoreDataTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -775,8 +787,7 @@
 				4CF75D531DAC50E900E9EB39 /* Database Protocols */,
 				4CB66B741DFF2E36004464A2 /* Model Protocols */,
 				4C4E20751E0E072D000D462F /* Reflection Protocols */,
-				4CC780C21DD27C5A00E93EB4 /* FieldNameConverter.swift */,
-				4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */,
+				4C7BEC3E1E3C985B009F4B36 /* Static Protocols */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1067,6 +1078,7 @@
 				4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */,
 				4C385EBF1DFF9F8E0034C190 /* TestRequest.swift in Sources */,
 				4C69828F1CD3D865005ABCF1 /* APIResult.swift in Sources */,
+				4C7BEC3D1E3C9348009F4B36 /* EditProfileCellType.swift in Sources */,
 				4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */,
 				4CDA110A1D47F3A5002C62FD /* UserModifyRequest.swift in Sources */,
 				4CC674891D80E8E5001BCA67 /* Post.swift in Sources */,

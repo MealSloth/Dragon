@@ -8,10 +8,8 @@
 
 import UIKit
 
-class EditProfileBirthdayCell: EditProfileCell
+class EditProfileBirthdayCell: UITableViewCell, EditProfileCell
 {
-    class func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell
-    {
-        return super.getInstance(from: tableView, at: indexPath, ofType: .birthday, for: user)
-    }
+    static let type: EditProfileCellType = .birthday
+    var user: User?
 }
