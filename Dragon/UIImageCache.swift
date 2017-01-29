@@ -9,28 +9,7 @@
 import Foundation
 import UIKit
 
-class UIImageCache
+struct UIImageCache: Cacheable
 {
-    static var cache: NSCache<NSString, UIImage> = {
-        let uiImageCache = NSCache<NSString, UIImage>()
-        uiImageCache.name = "UIImageCache"
-        return uiImageCache
-    }()
-    
-    static func get(_ key: String?) -> UIImage?
-    {
-        if let string = key
-        {
-            return cache.object(forKey: NSString(string: string))
-        }
-        return nil
-    }
-    
-    static func put(image: UIImage?, at key: String?)
-    {
-        if let string = key, let object = image
-        {
-            cache.setObject(object, forKey: NSString(string: string))
-        }
-    }
+    static var shared: NSCache<NSString, UIImage> = UIImageCache.cache
 }

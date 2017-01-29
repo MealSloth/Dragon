@@ -27,9 +27,9 @@ extension UIImage
     class func from(blob: Blob?) -> UIImage?
     {
         guard let blob = blob else { return nil }
-        let cacheID = "blob_\(blob.id)"
+        let cacheID = "blob_\(blob.id ?? "")"
         let img = UIImageCache.get(cacheID) ?? UIImage.from(url: blob.url)
-        UIImageCache.put(image: img, at: cacheID)
+        UIImageCache.put(img, at: cacheID)
         return img
     }
     

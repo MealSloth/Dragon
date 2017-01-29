@@ -48,6 +48,7 @@
 		4C622FF01E3D4C9000CE2150 /* BackgroundQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C622FEF1E3D4C9000CE2150 /* BackgroundQueue.swift */; };
 		4C622FF21E3D590300CE2150 /* Queueable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C622FF11E3D590300CE2150 /* Queueable.swift */; };
 		4C622FF41E3D5A0D00CE2150 /* Cacheable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C622FF31E3D5A0D00CE2150 /* Cacheable.swift */; };
+		4C622FF71E3D650600CE2150 /* UIImageCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C622FF61E3D650600CE2150 /* UIImageCacheTest.swift */; };
 		4C6982681CD3D7A4005ABCF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */; };
 		4C69826A1CD3D7A4005ABCF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */; };
 		4C6982701CD3D7A4005ABCF1 /* Dragon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C69826E1CD3D7A4005ABCF1 /* Dragon.xcdatamodeld */; };
@@ -200,6 +201,7 @@
 		4C622FEF1E3D4C9000CE2150 /* BackgroundQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundQueue.swift; sourceTree = "<group>"; };
 		4C622FF11E3D590300CE2150 /* Queueable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queueable.swift; sourceTree = "<group>"; };
 		4C622FF31E3D5A0D00CE2150 /* Cacheable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cacheable.swift; sourceTree = "<group>"; };
+		4C622FF61E3D650600CE2150 /* UIImageCacheTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageCacheTest.swift; sourceTree = "<group>"; };
 		4C6982641CD3D7A4005ABCF1 /* Dragon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dragon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6982671CD3D7A4005ABCF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -551,6 +553,14 @@
 			name = Queues;
 			sourceTree = "<group>";
 		};
+		4C622FF51E3D64F900CE2150 /* CacheTest */ = {
+			isa = PBXGroup;
+			children = (
+				4C622FF61E3D650600CE2150 /* UIImageCacheTest.swift */,
+			);
+			name = CacheTest;
+			sourceTree = "<group>";
+		};
 		4C69825B1CD3D7A4005ABCF1 = {
 			isa = PBXGroup;
 			children = (
@@ -596,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				4C4851561D2051FA00223B4F /* APITest */,
+				4C622FF51E3D64F900CE2150 /* CacheTest */,
 				4C94FAF91DA0339100CFFBFC /* CoreDataTest */,
 				4C60C4FA1E0FB0DF008C8FFE /* EqualityTest */,
 				4C69827F1CD3D7A4005ABCF1 /* DragonTest.swift */,
@@ -1206,6 +1217,7 @@
 				4CB7799B1DA183C300966D40 /* UserDataTest.swift in Sources */,
 				4C27F0971D3D567600D64E13 /* PostTest.swift in Sources */,
 				4CF12FDE1D80F82800E284CF /* Dragon.xcdatamodeld in Sources */,
+				4C622FF71E3D650600CE2150 /* UIImageCacheTest.swift in Sources */,
 				4CDA11141D4805A3002C62FD /* UserCreateTest.swift in Sources */,
 				4C1FDC651E09C7C0004C0D96 /* ConsumerDataTest.swift in Sources */,
 				4CDA11081D47F37B002C62FD /* UserModifyTest.swift in Sources */,
