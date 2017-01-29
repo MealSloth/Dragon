@@ -40,6 +40,19 @@ extension Cacheable
     }
 }
 
+extension Cacheable where K: NSNumber
+{
+    static func get(_ key: Int?) -> V?
+    {
+        return Self.get(K(value: key ?? -1))
+    }
+    
+    static func put(_ object: V?, at key: Int?)
+    {
+        Self.put(object, at: K(value: key ?? -1))
+    }
+}
+
 extension Cacheable where K: NSString
 {
     static func get(_ key: String?) -> V?
