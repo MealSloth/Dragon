@@ -8,9 +8,9 @@
 
 import Foundation
 
-class FieldNameHelper: FieldNameConverter
+struct FieldNameHelper: FieldNameConverter
 {
-    class func getClientName(forServerName serverName: String) -> String
+    static func getClientName(forServerName serverName: String) -> String
     {
         var clientName = ""
         guard serverName != "id" else { return serverName }
@@ -26,7 +26,7 @@ class FieldNameHelper: FieldNameConverter
         return clientName
     }
     
-    class func getServerName(forClientName clientName: String) -> String
+    static func getServerName(forClientName clientName: String) -> String
     {
         var serverName = ""
         guard clientName != "id" else { return clientName }
@@ -42,7 +42,7 @@ class FieldNameHelper: FieldNameConverter
         return serverName
     }
     
-    fileprivate class func getClientName(forSubstring substring: String) -> String
+    fileprivate static func getClientName(forSubstring substring: String) -> String
     {
         var clientName = ""
         var wasUnderscore = false
@@ -59,7 +59,7 @@ class FieldNameHelper: FieldNameConverter
         return clientName
     }
     
-    fileprivate class func getServerName(forSubstring substring: String) -> String
+    fileprivate static func getServerName(forSubstring substring: String) -> String
     {
         var serverName = ""
         let characters = substring.characters.map({ String($0) })

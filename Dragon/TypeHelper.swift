@@ -9,9 +9,9 @@
 import Foundation
 import CoreData
 
-class TypeHelper
+struct TypeHelper
 {
-    class func type(from property: String?, ofObject object: APIModel) -> String?
+    static func type(from property: String?, ofObject object: APIModel) -> String?
     {
         let children = Mirror(reflecting: object).children
         let expectedChildren = children.filter({ $0.label == property })
@@ -23,7 +23,7 @@ class TypeHelper
         return nil
     }
     
-    class func type(from property: String?, ofObject object: Model) -> NSAttributeType?
+    static func type(from property: String?, ofObject object: Model) -> NSAttributeType?
     {
         return object.entity.attributesByName.filter({ $0.key == property }).map({ $0.value }).first?.attributeType
     }
