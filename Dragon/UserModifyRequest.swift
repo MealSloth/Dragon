@@ -19,8 +19,8 @@ struct UserModifyRequest: APIRequest
         self.json["user_id"] = userID
         self.json["first_name"] = firstName
         self.json["last_name"] = lastName
-        self.json["gender"] = gender
-        self.json["date_of_birth"] = dateOfBirth
+        self.json["gender"] = gender?.rawValue
+        self.json["date_of_birth"] = dateOfBirth?.toString()
         self.json["phone_number"] = phoneNumber
     }
 }
