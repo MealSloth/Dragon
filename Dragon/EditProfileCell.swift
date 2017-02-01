@@ -20,7 +20,7 @@ extension EditProfileCell where Self: UITableViewCell
 {
     static func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EditProfile\(Self.type.rawValue)Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EditProfile\(self.type.rawValue)Cell", for: indexPath)
         guard let profileCell = cell as? Self else { return cell }
         var editProfileCell = profileCell
         editProfileCell.user = user

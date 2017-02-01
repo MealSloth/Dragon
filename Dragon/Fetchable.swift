@@ -24,9 +24,9 @@ extension Fetchable where Self: NSManagedObject
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
     }
     
-    static internal func fetch(_ predicates: [NSPredicate]? = nil, sortBy sorts: [NSSortDescriptor]? = nil, limit: Int = 0) -> [Self]?
+    static func fetch(_ predicates: [NSPredicate]? = nil, sortBy sorts: [NSSortDescriptor]? = nil, limit: Int = 0) -> [Self]?
     {
-        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
+        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
         request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates ?? [])
         request.sortDescriptors = sorts

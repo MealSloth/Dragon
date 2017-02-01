@@ -19,24 +19,24 @@ extension Cacheable
 {
     static var cache: NSCache<K, V> {
         let nsc: NSCache<K, V> = NSCache<K, V>()
-        nsc.name = Self.name
+        nsc.name = self.name
         return nsc
     }
     
     static var name: String {
-        return String(describing: Self.self)
+        return String(describing: self)
     }
     
     static func get(_ key: K?) -> V?
     {
         guard let key = key else { return nil }
-        return Self.shared.object(forKey: key)
+        return self.shared.object(forKey: key)
     }
     
     static func put(_ object: V?, at key: K?)
     {
         guard let key = key, let obj = object else { return }
-        Self.shared.setObject(obj, forKey: key as K)
+        self.shared.setObject(obj, forKey: key as K)
     }
 }
 
@@ -44,12 +44,12 @@ extension Cacheable where K: NSNumber
 {
     static func get(_ key: Int?) -> V?
     {
-        return Self.get(K(value: key ?? -1))
+        return self.get(K(value: key ?? -1))
     }
     
     static func put(_ object: V?, at key: Int?)
     {
-        Self.put(object, at: K(value: key ?? -1))
+        self.put(object, at: K(value: key ?? -1))
     }
 }
 
@@ -57,11 +57,11 @@ extension Cacheable where K: NSString
 {
     static func get(_ key: String?) -> V?
     {
-        return Self.get(K(string: key ?? ""))
+        return self.get(K(string: key ?? ""))
     }
     
     static func put(_ object: V?, at key: String?)
     {
-        Self.put(object, at: K(string: key ?? ""))
+        self.put(object, at: K(string: key ?? ""))
     }
 }

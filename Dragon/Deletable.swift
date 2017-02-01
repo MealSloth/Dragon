@@ -22,7 +22,7 @@ extension Deletable where Self: NSManagedObject
 {
     func delete()
     {
-        Self.deleteFrom("id", withValue: self.value(forKey: "id") as? String)
+        Self.context?.delete(self)
     }
 }
 
@@ -41,13 +41,13 @@ extension Deletable where Self: NSManagedObject
         try? self.context?.save()
     }
     
-    static internal func deleteFrom(_ key: String, inValues values: [Any]?)
+    static func deleteFrom(_ key: String, inValues values: [Any]?)
     {
         guard let args = values else { return }
         self.delete(NSPredicate(format: "\(key) IN %@", args))
     }
     
-    static internal func deleteFrom(_ key: String, withValue value: Any?)
+    static func deleteFrom(_ key: String, withValue value: Any?)
     {
         guard let arg = value else { return }
         self.deleteFrom(key, inValues: [arg, ])
