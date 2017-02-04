@@ -9,10 +9,8 @@
 @testable import Dragon
 import XCTest
 
-class EqualityTest: DragonTest
-{
-    func testTestCompare()
-    {
+class EqualityTest: DragonTest {
+    func testTestCompare() {
         let a = TestAPIModel(json: [
             "test_int": 2,
             "test_string": "test",
@@ -88,16 +86,14 @@ class EqualityTest: DragonTest
         assertEqual(a, b)
     }
     
-    func assertEqual(_ a: APIModel, _ b: APIModel)
-    {
+    func assertEqual(_ a: APIModel, _ b: APIModel) {
         XCTAssertTrue(a == b)
         XCTAssertTrue(b == a)
         XCTAssertFalse(a != b)
         XCTAssertFalse(b != a)
     }
     
-    func assertUnequal(_ a: APIModel, _ b: APIModel)
-    {
+    func assertUnequal(_ a: APIModel, _ b: APIModel) {
         XCTAssertFalse(a == b)
         XCTAssertFalse(b == a)
         XCTAssertTrue(a != b)

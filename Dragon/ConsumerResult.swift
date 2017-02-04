@@ -6,14 +6,10 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct ConsumerResult: APIResult
-{
+struct ConsumerResult: APIResult {
     var consumer: Consumer?
     
-    init(result: [String:Any])
-    {
+    init(result: [String:Any]) {
         self.consumer = Consumer.insert(ConsumerAPIModel(jsonOptional: result["consumer"] as? [String:Any]))
     }
 }

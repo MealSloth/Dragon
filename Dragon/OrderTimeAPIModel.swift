@@ -8,8 +8,7 @@
 
 import Foundation
 
-class OrderTimeAPIModel: APIModel
-{
+class OrderTimeAPIModel: APIModel {
     var id: String!
     var orderID: String!
     var orderStatus: NSNumber!

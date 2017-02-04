@@ -9,10 +9,8 @@
 @testable import Dragon
 import XCTest
 
-class UIImageCacheTest: DragonTest
-{
-    func testPutGet()
-    {
+class UIImageCacheTest: DragonTest {
+    func testPutGet() {
         let ready = expectation(description: "ready")
         
         BlobRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(

@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Album: Model
-{
+class Album: Model {
     @NSManaged var id: String!
     @NSManaged var time: Date!
 }

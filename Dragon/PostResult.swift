@@ -6,14 +6,10 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct PostResult: APIResult
-{
+struct PostResult: APIResult {
     var post: Post?
     
-    init(result: [String:Any])
-    {
+    init(result: [String:Any]) {
         self.post = Post.insert(PostAPIModel(jsonOptional: result["post"] as? [String:Any]))
     }
 }

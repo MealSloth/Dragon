@@ -8,10 +8,8 @@
 
 import Foundation
 
-extension Date
-{
-    func toString() -> String
-    {
+extension Date {
+    func toString() -> String {
         let formatter = DateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         var string = formatter.string(from: self)

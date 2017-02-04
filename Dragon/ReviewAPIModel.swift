@@ -8,8 +8,7 @@
 
 import Foundation
 
-class ReviewAPIModel: APIModel
-{
+class ReviewAPIModel: APIModel {
     var id: String!
     var postID: String!
     var consumerID: String!

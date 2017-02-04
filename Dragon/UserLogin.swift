@@ -8,8 +8,7 @@
 
 import Foundation
 
-class UserLogin: Model
-{
+class UserLogin: Model {
     @NSManaged var id: String!
     @NSManaged var userID: String!
     @NSManaged var username: String!

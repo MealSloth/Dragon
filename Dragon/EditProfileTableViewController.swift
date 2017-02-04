@@ -8,8 +8,7 @@
 
 import UIKit
 
-class EditProfileTableViewController: UITableViewController
-{
+class EditProfileTableViewController: UITableViewController {
     let cells: [EditProfileCell.Type] = [
         EditProfilePhotoCell.self,
         EditProfileBasicCell.self,
@@ -20,32 +19,26 @@ class EditProfileTableViewController: UITableViewController
     var user: User?
     
     // MARK: Delegates
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
-        for cell in self.cells
-        {
+        for cell in self.cells {
             self.tableView.register(UINib(nibName: cell.type.name, bundle: nil), forCellReuseIdentifier: cell.type.name)
         }
     }
     
     // MARK: TableView Delegates
-    override func numberOfSections(in tableView: UITableView) -> Int
-    {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        switch indexPath.row
-        {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
             case 0: return 200.0
             case 1: return 100.0
             case 2: return 80.0
@@ -54,15 +47,12 @@ class EditProfileTableViewController: UITableViewController
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: Handle row clicks
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        switch indexPath.row
-        {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
             case 0: return EditProfilePhotoCell.getInstance(from: tableView, at: indexPath, for: self.user)
             case 1: return EditProfileBasicCell.getInstance(from: tableView, at: indexPath, for: self.user)
             case 2: return EditProfileBirthdayCell.getInstance(from: tableView, at: indexPath, for: self.user)

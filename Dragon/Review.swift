@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Review: Model
-{
+class Review: Model {
     @NSManaged var id: String!
     @NSManaged var postID: String!
     @NSManaged var consumerID: String!

@@ -6,18 +6,14 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-protocol InstanceRetrievable
-{
+protocol InstanceRetrievable {
     
 }
 
-extension InstanceRetrievable where Self: AppDelegate
-{
-    static func getInstance() -> Self?
-    {
+extension InstanceRetrievable where Self: AppDelegate {
+    static func getInstance() -> Self? {
         return UIApplication.shared.delegate as? Self
     }
 }

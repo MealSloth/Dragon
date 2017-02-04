@@ -9,16 +9,14 @@
 import Foundation
 import UIKit
 
-class HomeTableViewController: UITableViewController
-{
+class HomeTableViewController: UITableViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var posts: [Post] = []
     var ratio: CGFloat = 9.0/16.0
     
     // MARK: Delegates
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
@@ -30,39 +28,32 @@ class HomeTableViewController: UITableViewController
         self.refresh()
     }
     
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation)
-    {
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         self.tableView.reloadData()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController",
             let vc = segue.destination as? PostDetailTableViewController,
-            let post = sender as? Post
-        {
+            let post = sender as? Post {
             vc.post = post
         }
     }
     
     // MARK: TableView Delegates
-    override func numberOfSections(in tableView: UITableView) -> Int
-    {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return self.posts.count == 0 ? 0 : 1
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.posts.count == 0 ? 0.0 : ScreenHelper.screenWidth * self.ratio + 50.0
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.posts.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
         guard let postCell = cell as? PostTableViewCell else { return cell }
         guard let post = self.posts[safe: indexPath.row] else { return postCell }
@@ -70,15 +61,13 @@ class HomeTableViewController: UITableViewController
         return postCell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let post = self.posts[safe: indexPath.row] else { return }
         self.segue(withPost: post)
     }
     
     // MARK: Misc
-    func refresh()
-    {
+    func refresh() {
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
                 //Query and compare on background thread
@@ -86,8 +75,7 @@ class HomeTableViewController: UITableViewController
                 let changes = self.posts != newPosts
                 //Then perform UI tasks on main thread
                 self.runOnMainThread({ () -> Void in
-                    if changes //If there are any changes
-                    {
+                    if changes {
                         self.posts = newPosts //Update
                         self.tableView.reloadData() //and reload
                     }
@@ -103,8 +91,7 @@ class HomeTableViewController: UITableViewController
         )
     }
     
-    fileprivate func segue(withPost post: Post)
-    {
+    fileprivate func segue(withPost post: Post) {
         self.performSegue(withIdentifier: "Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
     }
 }

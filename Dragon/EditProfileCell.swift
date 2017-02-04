@@ -8,18 +8,15 @@
 
 import UIKit
 
-protocol EditProfileCell
-{
+protocol EditProfileCell {
     static var type: EditProfileCellType { get }
     var user: User? { get set }
     
     func initialize()
 }
 
-extension EditProfileCell where Self: UITableViewCell
-{
-    static func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell
-    {
+extension EditProfileCell where Self: UITableViewCell {
+    static func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EditProfile\(self.type.rawValue)Cell", for: indexPath)
         guard let profileCell = cell as? Self else { return cell }
         var editProfileCell = profileCell

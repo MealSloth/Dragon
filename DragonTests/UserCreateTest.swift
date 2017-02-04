@@ -10,10 +10,8 @@
 import Foundation
 import XCTest
 
-class UserCreateTest: DragonTest
-{
-//    func testWithEmailAndPassword()
-//    {
+class UserCreateTest: DragonTest {
+//    func testWithEmailAndPassword() {
 //        let ready = expectation(description: "ready")
 //        let method = "UserCreateRequest(withEmail:andPassword:)"
 //        

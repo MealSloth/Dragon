@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-enum OrderType: Int, AbstractEnum
-{
+enum OrderType: Int, AbstractEnum {
     case pickup = 0
     case delivery = 1
     case dineIn = 2

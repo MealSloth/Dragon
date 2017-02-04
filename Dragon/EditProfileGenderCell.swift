@@ -8,13 +8,9 @@
 
 import UIKit
 
-class EditProfileGenderCell: UITableViewCell, EditProfileCell
-{
+class EditProfileGenderCell: UITableViewCell, EditProfileCell {
     static let type: EditProfileCellType = .gender
     var user: User?
     
-    func initialize()
-    {
-        
-    }
+    func initialize() {}
 }

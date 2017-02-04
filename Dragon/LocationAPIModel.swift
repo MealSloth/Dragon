@@ -8,8 +8,7 @@
 
 import Foundation
 
-class LocationAPIModel: APIModel
-{
+class LocationAPIModel: APIModel {
     var id: String!
     var userID: String!
     var purpose: NSNumber!

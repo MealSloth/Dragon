@@ -6,9 +6,6 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-protocol AbstractEnum
-{
+protocol AbstractEnum {
     
 }

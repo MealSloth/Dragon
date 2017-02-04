@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class ConsumerProfileTitleCell: UITableViewCell
-{
+class ConsumerProfileTitleCell: UITableViewCell {
     @IBOutlet weak var imageConsumer: UIImageView!
     @IBOutlet weak var labelName: UILabel!
 }

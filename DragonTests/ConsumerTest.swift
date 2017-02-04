@@ -9,10 +9,8 @@
 @testable import Dragon
 import XCTest
 
-class ConsumerTest: DragonTest
-{
-    func testWithConsumerID()
-    {
+class ConsumerTest: DragonTest {
+    func testWithConsumerID() {
         let ready = expectation(description: "ready")
         let method = "ConsumerRequest(withConsumerId:)"
         

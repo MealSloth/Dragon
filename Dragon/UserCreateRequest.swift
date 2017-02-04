@@ -6,16 +6,12 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct UserCreateRequest: APIRequest
-{
+struct UserCreateRequest: APIRequest {
     var method: String = "user/create/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera
     
-    init(withEmail email: String, andPassword password: String)
-    {
+    init(withEmail email: String, andPassword password: String) {
         self.json["email"] = email
         self.json["password"] = password
     }

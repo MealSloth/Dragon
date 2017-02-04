@@ -6,14 +6,10 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct UserResult: APIResult
-{
+struct UserResult: APIResult {
     var user: User?
     
-    init(result: [String:Any])
-    {
+    init(result: [String:Any]) {
         self.user = User.insert(UserAPIModel(jsonOptional: result["user"] as? [String:Any]))
     }
 }

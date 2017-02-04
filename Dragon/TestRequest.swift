@@ -6,16 +6,12 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct TestRequest: APIRequest
-{
+struct TestRequest: APIRequest {
     var method: String = "test/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera
     
-    init()
-    {
+    init() {
         self.json["ayy"] = "lmao"
     }
 }

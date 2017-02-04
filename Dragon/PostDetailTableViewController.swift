@@ -9,47 +9,38 @@
 import Foundation
 import UIKit
 
-class PostDetailTableViewController: UITableViewController
-{
+class PostDetailTableViewController: UITableViewController {
     var post: Post?
     
     // MARK: Delegates
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 150
     }
     
     // MARK: TableView Delegates
-    override func numberOfSections(in tableView: UITableView) -> Int
-    {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        switch indexPath.row
-        {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
             case 2: return 80.0
             default: return super.tableView(tableView, heightForRowAt: indexPath)
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO: Handle row clicks
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        switch indexPath.row
-        {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
             case 0: return PostDetailTitleCell.getInstance(from: tableView, at: indexPath, for: post)
             case 1: return PostDetailSummaryCell.getInstance(from: tableView, at: indexPath, for: post)
             case 2: return tableView.dequeueReusableCell(withIdentifier: "PostDetailTimeCell", for: indexPath)

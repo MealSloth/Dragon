@@ -6,19 +6,15 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension UIActivityIndicatorView
-{
-    func disable()
-    {
+extension UIActivityIndicatorView {
+    func disable() {
         self.isHidden = true
         self.stopAnimating()
     }
     
-    func enable()
-    {
+    func enable() {
         self.isHidden = false
         self.startAnimating()
     }

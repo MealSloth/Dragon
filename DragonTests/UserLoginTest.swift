@@ -9,10 +9,8 @@
 @testable import Dragon
 import XCTest
 
-class UserLoginTest: DragonTest
-{
-    func testWithUserLoginID()
-    {
+class UserLoginTest: DragonTest {
+    func testWithUserLoginID() {
         let ready = expectation(description: "ready")
         let method = "UserLoginRequest(withUserLoginID:)"
         
@@ -30,8 +28,7 @@ class UserLoginTest: DragonTest
         waitForExpectations(timeout: 10, duringMethod: method)
     }
     
-    func testWithUserID()
-    {
+    func testWithUserID() {
         let ready = expectation(description: "ready")
         let method = "UserLoginRequest(withUserID:)"
         

@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-enum LocationPurpose: Int, AbstractEnum
-{
+enum LocationPurpose: Int, AbstractEnum {
     case billing = 0
     case post = 1
     case display = 2

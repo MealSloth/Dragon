@@ -6,50 +6,36 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct FieldNameHelper: FieldNameConverter
-{
-    static func getClientName(forServerName serverName: String) -> String
-    {
+struct FieldNameHelper: FieldNameConverter {
+    static func getClientName(forServerName serverName: String) -> String {
         var clientName = ""
         guard serverName != "id" else { return serverName }
-        if serverName.contains("_id")
-        {
+        if serverName.contains("_id") {
             clientName += self.getClientName(forSubstring: serverName.substring(to: serverName.index(serverName.endIndex, offsetBy: -3)))
             clientName += "ID"
-        }
-        else
-        {
+        } else {
             clientName = self.getClientName(forSubstring: serverName)
         }
         return clientName
     }
     
-    static func getServerName(forClientName clientName: String) -> String
-    {
+    static func getServerName(forClientName clientName: String) -> String {
         var serverName = ""
         guard clientName != "id" else { return clientName }
-        if clientName.contains("ID")
-        {
+        if clientName.contains("ID") {
             serverName += self.getServerName(forSubstring: clientName.substring(to: clientName.index(clientName.endIndex, offsetBy: -2)))
             serverName += "_id"
-        }
-        else
-        {
+        } else {
             serverName = self.getServerName(forSubstring: clientName)
         }
         return serverName
     }
     
-    fileprivate static func getClientName(forSubstring substring: String) -> String
-    {
+    fileprivate static func getClientName(forSubstring substring: String) -> String {
         var clientName = ""
         var wasUnderscore = false
-        for cs in substring.characters.map({ String($0) })
-        {
-            guard cs != "_" else
-            {
+        for cs in substring.characters.map({ String($0) }) {
+            guard cs != "_" else {
                 wasUnderscore = true
                 continue
             }
@@ -59,8 +45,7 @@ struct FieldNameHelper: FieldNameConverter
         return clientName
     }
     
-    fileprivate static func getServerName(forSubstring substring: String) -> String
-    {
+    fileprivate static func getServerName(forSubstring substring: String) -> String {
         var serverName = ""
         let characters = substring.characters.map({ String($0) })
         characters.forEach({ serverName += $0.uppercased() == $0 ? "_\($0.lowercased())" : $0 })

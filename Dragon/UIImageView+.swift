@@ -6,13 +6,10 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension UIImageView
-{
-    func makeCircular()
-    {
+extension UIImageView {
+    func makeCircular() {
         self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true
     }

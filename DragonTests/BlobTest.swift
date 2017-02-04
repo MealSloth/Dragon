@@ -9,10 +9,8 @@
 @testable import Dragon
 import XCTest
 
-class BlobTest: DragonTest
-{
-    func testWithBlobID()
-    {
+class BlobTest: DragonTest {
+    func testWithBlobID() {
         let ready = expectation(description: "ready")
         let method = "BlobRequest(withBlobID:)"
         
@@ -30,8 +28,7 @@ class BlobTest: DragonTest
         self.waitForExpectations(timeout: 10, duringMethod: method)
     }
     
-    func testWithAlbumID()
-    {
+    func testWithAlbumID() {
         let ready = expectation(description: "ready")
         let method = "BlobRequest(withAlbumID:)"
         

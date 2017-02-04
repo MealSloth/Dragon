@@ -6,13 +6,10 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension UIViewController
-{
-    func presentViewControllerOnMainThread(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?)
-    {
+extension UIViewController {
+    func presentViewControllerOnMainThread(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
         self.runOnMainThread({ () -> Void in
             self.present(viewControllerToPresent, animated: animated, completion: completion)
         })

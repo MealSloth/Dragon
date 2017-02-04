@@ -6,14 +6,10 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct TestResult: APIResult
-{
+struct TestResult: APIResult {
     var test: TestAPIModel?
     
-    init(result: [String:Any])
-    {
+    init(result: [String:Any]) {
         self.test = TestAPIModel(jsonOptional: result["test"] as? [String:Any])
     }
 }

@@ -8,12 +8,10 @@
 
 import Foundation
 
-struct MainQueue: Queueable
-{
+struct MainQueue: Queueable {
     static let shared = OperationQueue.main
     
-    static func sync(_ block: (() -> Void)?)
-    {
+    static func sync(_ block: (() -> Void)?) {
         self.shared.addOperation(block ?? {})
     }
 }

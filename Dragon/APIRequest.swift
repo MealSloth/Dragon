@@ -8,23 +8,20 @@
 
 import Foundation
 
-protocol APIRequest
-{
+protocol APIRequest {
     var method: String { get set }
     var json: [String:Any] { get set }
     var host: APIHost { get set }
 }
 
-extension APIRequest
-{
+extension APIRequest {
     var cleanedMethod: String {
         get {
             return self.method.characters.first == "/" ? String(self.method.characters.dropFirst()) : self.method
         }
     }
     
-    func request<T: APIResult>(onCompletion completion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil)
-    {
+    func request<T: APIResult>(onCompletion completion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil) {
         let resultHandler = { (result) -> Void in
             completion?(T(result: result))
         }
@@ -32,8 +29,7 @@ extension APIRequest
         self.post(onCompletion: resultHandler, onError: errorHandler)
     }
     
-    func post(onCompletion completion: ((_ result: [String:Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil)
-    {
+    func post(onCompletion completion: ((_ result: [String:Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil) {
         let urlStr = "\(self.host.url())\(self.cleanedMethod)"
         guard let url = URL(string: urlStr) else { return }
         var request = URLRequest(url: url)
@@ -44,21 +40,17 @@ extension APIRequest
         Log.info("Executing POST request at \(urlStr)")
         let task = URLSession.shared.dataTask(with: request,
             completionHandler: { (data, response, error) -> Void in
-                guard let jsonData = data else
-                {
+                guard let jsonData = data else {
                     onError?(error)
                     return
                 }
-                do
-                {
-                    if let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String:Any]
-                    {
+                do {
+                    if let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String:Any] {
                         Log.info("Received response for POST request at \(urlStr)")
                         completion?(jsonResult)
                     }
                 }
-                catch let error
-                {
+                catch let error {
                     onError?(error)
                 }
             }

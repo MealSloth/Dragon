@@ -6,11 +6,9 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class Blob: Model
-{
+class Blob: Model {
     @NSManaged var id: String!
     @NSManaged var albumID: String!
     @NSManaged var gcsID: String!
@@ -22,8 +20,7 @@ class Blob: Model
         return UIImage.from(blob: self)
     }()
     
-    static func fromAlbumID(_ id: String?) -> [Blob]?
-    {
+    static func fromAlbumID(_ id: String?) -> [Blob]? {
         return self.from("albumID", withValue: id)
     }
 }

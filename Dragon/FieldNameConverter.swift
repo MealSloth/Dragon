@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-protocol FieldNameConverter
-{
+protocol FieldNameConverter {
     static func getClientName(forServerName serverName: String) -> String
     static func getServerName(forClientName clientName: String) -> String
 }

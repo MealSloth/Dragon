@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-class AlbumAPIModel: APIModel
-{
+class AlbumAPIModel: APIModel {
     var id: String!
     var time: String!
 }

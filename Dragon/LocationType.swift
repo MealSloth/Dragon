@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-enum LocationType: Int, AbstractEnum
-{
+enum LocationType: Int, AbstractEnum {
     case residential = 0
     case commercial = 1
 }

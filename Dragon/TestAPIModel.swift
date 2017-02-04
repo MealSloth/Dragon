@@ -8,8 +8,7 @@
 
 import Foundation
 
-class TestAPIModel: APIModel
-{
+class TestAPIModel: APIModel {
     var testInt: NSNumber?
     var testString: String?
     var testIntList: [NSNumber]?

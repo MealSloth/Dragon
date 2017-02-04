@@ -8,8 +8,7 @@
 
 import Foundation
 
-class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, PropertiesEquatable, ChildrenIdentifiable
-{
+class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, PropertiesEquatable, ChildrenIdentifiable {
     override var description: String {
         return self.getPropertiesString(self)
     }
@@ -18,50 +17,42 @@ class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, Properties
         return APIModel.getChildren()
     }()
     
-    override init()
-    {
+    override init() {
         super.init()
     }
     
-    required init(json: [String:Any])
-    {
+    required init(json: [String:Any]) {
         super.init()
         self.initialize(json)
     }
     
-    required init?(jsonOptional: [String:Any]?)
-    {
+    required init?(jsonOptional: [String:Any]?) {
         guard let json = jsonOptional else { return nil }
         super.init()
         self.initialize(json)
     }
     
     //MARK: KVC Overrides
-    override func value(forKey key: String) -> Any?
-    {
+    override func value(forKey key: String) -> Any? {
         return self.value(for: key)
     }
     
-    override func setValue(_ value: Any?, forKey key: String)
-    {
+    override func setValue(_ value: Any?, forKey key: String) {
         self.set(value, for: key)
     }
     
-    func value(for key: String) -> Any?
-    {
+    func value(for key: String) -> Any? {
         return super.value(forKey: key)
     }
     
-    func set(_ value: Any?, for key: String)
-    {
+    func set(_ value: Any?, for key: String) {
         super.setValue(value, forKey: key)
     }
     
     //This should be overridden by a subclass if one wishes to use a converter other than FieldNameHelper
     //Optionally, each individual model can manually initialize itself if the server's naming conventions
     //are not consistent enough to use a generic converter
-    func initialize(_ json: [String:Any], skip: [String] = [])
-    {
+    func initialize(_ json: [String:Any], skip: [String] = []) {
         //initialize(_:skip:using:) is a member of the ModelRecursible and ModelNonRecursible protocols
         //Depending on the complexity of your APIModel objects, it could be best to use one or the other
         self.initialize(json, skip: skip, using: FieldNameHelper.self)
@@ -69,13 +60,11 @@ class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, Properties
     }
     
     //MARK: Comparison operators
-    static func ==(lhs: APIModel, rhs: APIModel) -> Bool
-    {
+    static func ==(lhs: APIModel, rhs: APIModel) -> Bool {
         return equal(lhs, rhs)
     }
     
-    static func !=(lhs: APIModel, rhs: APIModel) -> Bool
-    {
+    static func !=(lhs: APIModel, rhs: APIModel) -> Bool {
         return !equal(lhs, rhs)
     }
 }

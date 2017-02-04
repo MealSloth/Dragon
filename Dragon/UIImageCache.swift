@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-struct UIImageCache: Cacheable
-{
+struct UIImageCache: Cacheable {
     static var shared: NSCache<NSString, UIImage> = UIImageCache.cache
 }

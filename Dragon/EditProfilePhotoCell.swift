@@ -8,14 +8,12 @@
 
 import UIKit
 
-class EditProfilePhotoCell: UITableViewCell, EditProfileCell
-{
+class EditProfilePhotoCell: UITableViewCell, EditProfileCell {
     static let type: EditProfileCellType = .photo
     @IBOutlet weak var profilePhoto: UIImageView!
     var user: User?
     
-    func initialize()
-    {
+    func initialize() {
         BlobRequest(withUserID: self.user?.id).request(
             onCompletion: { (result: BlobResult) -> Void in
                 _ = result.blob?.image

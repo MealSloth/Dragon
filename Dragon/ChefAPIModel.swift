@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-class ChefAPIModel: APIModel
-{
+class ChefAPIModel: APIModel {
     var id: String!
     var userID: String!
     var locationID: String!

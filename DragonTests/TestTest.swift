@@ -9,10 +9,8 @@
 @testable import Dragon
 import XCTest
 
-class TestTest: DragonTest
-{
-    func testTestLol()
-    {
+class TestTest: DragonTest {
+    func testTestLol() {
         let ready = expectation(description: "ready")
         let method = "TestRequest()"
         

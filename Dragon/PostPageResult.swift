@@ -6,16 +6,11 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct PostPageResult: APIResult
-{
+struct PostPageResult: APIResult {
     var posts: [Post] = []
     
-    init(result: [String:Any])
-    {
-        if let postsArray = result["posts"] as? [[String:Any]]
-        {
+    init(result: [String:Any]) {
+        if let postsArray = result["posts"] as? [[String:Any]] {
             postsArray.forEach({ if let post = Post.insert(PostAPIModel(json: $0)) { self.posts.append(post) } })
         }
     }

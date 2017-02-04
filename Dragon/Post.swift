@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Post: Model
-{
+class Post: Model {
     @NSManaged var id: String!
     @NSManaged var chefID: String!
     @NSManaged var albumID: String!

@@ -8,8 +8,7 @@
 
 import Foundation
 
-class OrderTime: Model
-{
+class OrderTime: Model {
     @NSManaged var id: String!
     @NSManaged var orderID: String!
     @NSManaged var orderStatus: NSNumber!

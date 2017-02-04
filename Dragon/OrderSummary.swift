@@ -8,8 +8,7 @@
 
 import Foundation
 
-class OrderSummary: Model
-{
+class OrderSummary: Model {
     @NSManaged var id: String!
     @NSManaged var orderID: String!
     @NSManaged var postID: String!

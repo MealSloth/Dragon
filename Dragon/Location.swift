@@ -8,8 +8,7 @@
 
 import Foundation
 
-class Location: Model
-{
+class Location: Model {
     @NSManaged var id: String!
     @NSManaged var userID: String!
     @NSManaged var purpose: NSNumber!

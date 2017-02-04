@@ -6,26 +6,21 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension UIImage
-{
-    class func from(url: String) -> UIImage?
-    {
+extension UIImage {
+    static func from(url: String) -> UIImage? {
         guard let url = URL(string: url), let data = try? Data(contentsOf: url) else { return nil }
         return UIImage(data: data)
     }
     
-    class func from(url: String, completion: ((UIImage?) -> Void)?)
-    {
+    static func from(url: String, completion: ((UIImage?) -> Void)?) {
         BackgroundQueue.async({ () -> Void in
             completion?(UIImage.from(url: url))
         })
     }
     
-    class func from(blob: Blob?) -> UIImage?
-    {
+    static func from(blob: Blob?) -> UIImage? {
         guard let blob = blob else { return nil }
         let cacheID = "blob_\(blob.id ?? "")"
         let img = UIImageCache.get(cacheID) ?? UIImage.from(url: blob.url)
@@ -33,8 +28,7 @@ extension UIImage
         return img
     }
     
-    class func from(blob: Blob?, completion: ((UIImage?) -> Void)?)
-    {
+    static func from(blob: Blob?, completion: ((UIImage?) -> Void)?) {
         BackgroundQueue.async({ () -> Void in
             completion?(UIImage.from(blob: blob))
         })

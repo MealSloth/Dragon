@@ -8,8 +8,7 @@
 
 import Foundation
 
-class UserAPIModel: APIModel
-{
+class UserAPIModel: APIModel {
     var id: String!
     var email: String!
     var firstName: String?

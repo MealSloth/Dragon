@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-enum UserLoginAccessLevel: Int, AbstractEnum
-{
+enum UserLoginAccessLevel: Int, AbstractEnum {
     case superAdmin = 0
     case chefAdmin = 1
     case consumerAdmin = 2

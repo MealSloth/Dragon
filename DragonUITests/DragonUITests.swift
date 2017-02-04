@@ -8,17 +8,14 @@
 
 import XCTest
 
-class DragonUITests: XCTestCase
-{
-    override func setUp()
-    {
+class DragonUITests: XCTestCase {
+    override func setUp() {
         super.setUp()
         continueAfterFailure = false
         XCUIApplication().launch()
     }
     
-    override func tearDown()
-    {
+    override func tearDown() {
         super.tearDown()
     }
 }

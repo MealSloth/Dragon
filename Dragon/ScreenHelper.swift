@@ -6,11 +6,9 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-public struct ScreenHelper
-{
+public struct ScreenHelper {
     public static var screenOrientation = UIApplication.shared.statusBarOrientation
     public static var isPortrait = UIInterfaceOrientationIsPortrait(ScreenHelper.screenOrientation)
     public static var screenWidth = ScreenHelper.isPortrait ? UIScreen.main.bounds.size.width : UIScreen.main.bounds.size.height

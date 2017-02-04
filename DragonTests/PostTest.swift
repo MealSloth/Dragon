@@ -9,10 +9,8 @@
 @testable import Dragon
 import XCTest
 
-class PostTest: DragonTest
-{
-    func testWithPostID()
-    {
+class PostTest: DragonTest {
+    func testWithPostID() {
         let ready = expectation(description: "ready")
         let method = "PostRequest(withPostID:)"
         

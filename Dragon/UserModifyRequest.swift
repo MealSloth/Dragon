@@ -8,14 +8,12 @@
 
 import Foundation
 
-struct UserModifyRequest: APIRequest
-{
+struct UserModifyRequest: APIRequest {
     var method: String = "user/modify/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera
     
-    init(withUserID userID: String?, firstName: String?, lastName: String?, gender: UserGender?, dateOfBirth: Date?, phoneNumber: String?)
-    {
+    init(withUserID userID: String?, firstName: String?, lastName: String?, gender: UserGender?, dateOfBirth: Date?, phoneNumber: String?) {
         self.json["user_id"] = userID
         self.json["first_name"] = firstName
         self.json["last_name"] = lastName

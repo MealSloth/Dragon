@@ -6,8 +6,7 @@
 //  Copyright © 2017 MealSloth. All rights reserved.
 //
 
-enum EditProfileCellType: String
-{
+enum EditProfileCellType: String {
     case photo = "Photo"
     case basic = "Basic"
     case birthday = "Birthday"

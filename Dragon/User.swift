@@ -8,8 +8,7 @@
 
 import Foundation
 
-class User: Model
-{
+class User: Model {
     @NSManaged var id: String!
     @NSManaged var email: String!
     @NSManaged var firstName: String?
@@ -23,8 +22,7 @@ class User: Model
         set { if let raw = newValue?.rawValue { self.gender = raw as NSNumber } }
     }
     
-    static func fromEmail(email: String?) -> User?
-    {
+    static func fromEmail(email: String?) -> User? {
         return self.from("email", withValue: email)?.first
     }
 }

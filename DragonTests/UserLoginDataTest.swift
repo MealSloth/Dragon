@@ -10,10 +10,8 @@
 import Foundation
 import XCTest
 
-class UserLoginDataTest: DragonTest
-{
-    func testUserLoginFetch()
-    {
+class UserLoginDataTest: DragonTest {
+    func testUserLoginFetch() {
         let ready = expectation(description: "ready")
         let method = "UserLoginRequest(withUserLoginID:)"
         

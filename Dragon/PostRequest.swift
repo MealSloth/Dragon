@@ -6,16 +6,12 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-struct PostRequest: APIRequest
-{
+struct PostRequest: APIRequest {
     var method: String = "post/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera
     
-    init(withPostID postID: String?)
-    {
+    init(withPostID postID: String?) {
         self.json["post_id"] = postID
     }
 }

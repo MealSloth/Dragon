@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class PostTableViewCell: UITableViewCell
-{
+class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postContainer: UIView!
     @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var imageChef: UIImageView!
@@ -23,8 +22,7 @@ class PostTableViewCell: UITableViewCell
     var post: Post?
     var blob: Blob?
     
-    func populate(withPost post: Post)
-    {
+    func populate(withPost post: Post) {
         self.activityIndicator.enable()
         self.imagePost.image = nil
         self.post = post
@@ -34,17 +32,13 @@ class PostTableViewCell: UITableViewCell
         self.populateImage()
     }
     
-    fileprivate func populateImage()
-    {
+    fileprivate func populateImage() {
         self.runOnBackgroundThread({ () -> Void in
-            if let blob = Blob.fromAlbumID(self.post?.albumID)?.first
-            {
+            if let blob = Blob.fromAlbumID(self.post?.albumID)?.first {
                 self.blob = blob
                 let _ = self.blob?.image //Load lazy image in background thread
                 self.display(animated: true)
-            }
-            else
-            {
+            } else {
                 guard let post = self.post else { return }
                 BlobRequest(withAlbumID: post.albumID).request(
                     onCompletion: { (result: BlobResult) -> Void in
@@ -57,8 +51,7 @@ class PostTableViewCell: UITableViewCell
         })
     }
     
-    fileprivate func display(animated: Bool = true)
-    {
+    fileprivate func display(animated: Bool = true) {
         let changes = { () -> Void in
             self.postContainer.alpha = 1.0
             self.imagePost.image = self.blob?.image

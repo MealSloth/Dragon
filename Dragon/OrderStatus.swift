@@ -6,10 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-enum OrderStatus: Int, AbstractEnum
-{
+enum OrderStatus: Int, AbstractEnum {
     case pending = 0
     case received = 1
     case progress = 2

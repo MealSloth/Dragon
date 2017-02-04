@@ -10,8 +10,7 @@ import CoreData
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
-{
+class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
     //MARK: Members
     var window: UIWindow?
     var applicationDocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
@@ -35,8 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
     }()
     
     //MARK: Delegates
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
-    {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //When writing to CoreData, existing entries should be merged with priority given to the external model
         self.managedObjectContext.performAndWait({ () -> Void in
             self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -54,14 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable
 
     func applicationDidBecomeActive(_ application: UIApplication) {}
 
-    func applicationWillTerminate(_ application: UIApplication)
-    {
+    func applicationWillTerminate(_ application: UIApplication) {
         AppDelegate.saveContext()
     }
     
     //MARK: Static functions
-    class func saveContext()
-    {
+    static func saveContext() {
         try? self.getInstance()?.managedObjectContext.save()
     }
 }

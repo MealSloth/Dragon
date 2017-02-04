@@ -6,24 +6,17 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
-protocol PropertiesAccessible
-{
+protocol PropertiesAccessible {
     
 }
 
-extension PropertiesAccessible
-{
-    func getProperties() -> [String]
-    {
-        if let context = self as? NSManagedObject
-        {
+extension PropertiesAccessible {
+    func getProperties() -> [String] {
+        if let context = self as? NSManagedObject {
             return context.entity.attributesByName.map({ $0.key })
-        }
-        else
-        {
+        } else {
             return Mirror(reflecting: self).children.filter({ $0.label != nil }).map({ $0.label! })
         }
     }

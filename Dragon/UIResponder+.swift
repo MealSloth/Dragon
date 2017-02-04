@@ -6,18 +6,14 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension UIResponder
-{
-    func runOnMainThread(_ runnable: (() -> Void)?)
-    {
+extension UIResponder {
+    func runOnMainThread(_ runnable: (() -> Void)?) {
         MainQueue.sync(runnable)
     }
     
-    func runOnBackgroundThread(_ runnable: (() -> Void)?)
-    {
+    func runOnBackgroundThread(_ runnable: (() -> Void)?) {
         BackgroundQueue.async(runnable)
     }
 }

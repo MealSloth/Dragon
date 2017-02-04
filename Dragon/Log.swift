@@ -6,12 +6,8 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-class Log
-{
-    enum LogType: String
-    {
+struct Log {
+    enum LogType: String {
         case debug = "Debug"
         case error = "Error"
         case info = "Info"
@@ -20,76 +16,59 @@ class Log
         case warning = "Warning"
     }
     
-    internal class func position(file: String, function: String, line: Int) -> String
-    {
+    internal static func position(file: String, function: String, line: Int) -> String {
         let path = file.components(separatedBy: "/")
-        if let file = path[safe: path.count - 1]?.replacingOccurrences(of: ".swift", with: "")
-        {
+        if let file = path[safe: path.count - 1]?.replacingOccurrences(of: ".swift", with: "") {
             return "<\(file):\(line)>"
         }
         return ""
     }
     
-    internal class func logFirst(_ type: LogType, file: String, function: String, line: Int, strArr: [String]?)
-    {
-        if let first = strArr?.first
-        {
+    internal static func logFirst(_ type: LogType, file: String, function: String, line: Int, strArr: [String]?) {
+        if let first = strArr?.first {
             print("Log.\(type.rawValue)\(position(file: file, function: function, line: line)): \(first)")
-        }
-        else
-        {
+        } else {
             print("Log.\(type.rawValue)\(position(file: file, function: function, line: line)): Could not parse string")
         }
     }
     
-    internal class func logRemaining(_ strArr: [String]?)
-    {
-        if let count = strArr?.count , count > 1
-        {
-            for newLine in 1..<count
-            {
-                if let line = strArr?[safe: newLine]
-                {
+    internal static func logRemaining(_ strArr: [String]?) {
+        if let count = strArr?.count , count > 1 {
+            for newLine in 1..<count {
+                if let line = strArr?[safe: newLine] {
                     print(line)
                 }
             }
         }
     }
     
-    internal class func log(type: LogType, string: String?, file: String, function: String, line: Int)
-    {
+    internal static func log(type: LogType, string: String?, file: String, function: String, line: Int) {
         let strArr = string?.components(separatedBy: "\n")
         self.logFirst(type, file: file, function: function, line: line, strArr: strArr)
         self.logRemaining(strArr)
     }
     
-    class func debug(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
-    {
+    static func debug(_ string: String?, file: String = #file, function: String = #function, line: Int = #line) {
         self.log(type: .debug, string: string, file: file, function: function, line: line)
     }
     
-    class func error(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
-    {
+    static func error(_ string: String?, file: String = #file, function: String = #function, line: Int = #line) {
         self.log(type: .error, string: string, file: file, function: function, line: line)
     }
     
-    class func info(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
-    {
+    static func info(_ string: String?, file: String = #file, function: String = #function, line: Int = #line) {
         self.log(type: .info, string: string, file: file, function: function, line: line)
     }
     
-    class func normal(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
-    {
+    static func normal(_ string: String?, file: String = #file, function: String = #function, line: Int = #line) {
         self.log(type: .normal, string: string, file: file, function: function, line: line)
     }
     
-    class func verbose(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
-    {
+    static func verbose(_ string: String?, file: String = #file, function: String = #function, line: Int = #line) {
         self.log(type: .verbose, string: string, file: file, function: function, line: line)
     }
     
-    class func warning(_ string: String?, file: String = #file, function: String = #function, line: Int = #line)
-    {
+    static func warning(_ string: String?, file: String = #file, function: String = #function, line: Int = #line) {
         self.log(type: .warning, string: string, file: file, function: function, line: line)
     }
 }

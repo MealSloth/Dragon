@@ -6,17 +6,13 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-protocol APIResult
-{
+protocol APIResult {
     var description: String? { get }
     
     init(result: [String:Any])
 }
 
-extension APIResult
-{
+extension APIResult {
     var description: String? {
         get { return String(describing: type(of: self)) }
     }

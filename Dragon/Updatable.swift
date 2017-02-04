@@ -6,21 +6,17 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 //
 //  Supports basic CoreData update functions for objects which subclass NSManagedObject
 //
-protocol Updatable
-{
+protocol Updatable {
     static var context: NSManagedObjectContext? { get }
 }
 
-extension Updatable where Self: NSManagedObject
-{
-    func save()
-    {
+extension Updatable where Self: NSManagedObject {
+    func save() {
         try? Self.context?.save()
     }
 }

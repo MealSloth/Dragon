@@ -6,9 +6,6 @@
 //  Copyright © 2017 MealSloth. All rights reserved.
 //
 
-import Foundation
-
-protocol Queueable
-{
+protocol Queueable {
     static func sync(_ block: (() -> Void)?)
 }

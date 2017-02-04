@@ -8,15 +8,11 @@
 
 @testable import Dragon
 
-class ConsumerDataTest: DragonTest
-{
-    func testTest()
-    {
-        if let consumers = Consumer.all(), let count = Consumer.all()?.count
-        {
+class ConsumerDataTest: DragonTest {
+    func testTest() {
+        if let consumers = Consumer.all(), let count = Consumer.all()?.count {
             Log.debug("# consumers: \(count)")
-            for consumer in consumers
-            {
+            for consumer in consumers {
                 Log.debug("\(consumer)")
             }
         }

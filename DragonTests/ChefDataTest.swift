@@ -8,15 +8,11 @@
 
 @testable import Dragon
 
-class ChefDataTest: DragonTest
-{
-    func testTest()
-    {
-        if let chefs = Chef.all(), let count = Chef.all()?.count
-        {
+class ChefDataTest: DragonTest {
+    func testTest() {
+        if let chefs = Chef.all(), let count = Chef.all()?.count {
             Log.debug("# chefs: \(count)")
-            for chef in chefs
-            {
+            for chef in chefs {
                 Log.debug("\(chef)")
             }
         }
