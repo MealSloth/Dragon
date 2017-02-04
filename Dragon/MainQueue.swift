@@ -9,9 +9,14 @@
 import Foundation
 
 struct MainQueue: Queueable {
-    static let shared = OperationQueue.main
+    static let sharedOperation = OperationQueue.main
+    static let sharedDispatch = DispatchQueue.main
     
     static func sync(_ block: (() -> Void)?) {
-        self.shared.addOperation(block ?? {})
+        self.sharedOperation.addOperation(block ?? {})
+    }
+    
+    static func async(_ block: (() -> Void)?) {
+        self.sharedDispatch.async(execute: block ?? {})
     }
 }

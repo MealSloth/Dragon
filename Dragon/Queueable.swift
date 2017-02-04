@@ -8,4 +8,5 @@
 
 protocol Queueable {
     static func sync(_ block: (() -> Void)?)
+    static func async(_ block: (() -> Void)?)
 }

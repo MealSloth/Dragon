@@ -76,6 +76,8 @@
 		4C9655581D0E109400011EAC /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655571D0E109400011EAC /* PostRequest.swift */; };
 		4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655591D0E11BE00011EAC /* PostResult.swift */; };
 		4C9655621D0E436600011EAC /* AbstractEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655611D0E436600011EAC /* AbstractEnum.swift */; };
+		4CA3C0561E467A1E00BDCF69 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3C0551E467A1E00BDCF69 /* Loggable.swift */; };
+		4CA3C0581E46831800BDCF69 /* ClassValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3C0571E46831800BDCF69 /* ClassValidatable.swift */; };
 		4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E591D80C16C0015FA43 /* Model.swift */; };
 		4CB67D241D8B42A500196579 /* PrettyPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB67D231D8B42A400196579 /* PrettyPrintable.swift */; };
 		4CB7799B1DA183C300966D40 /* UserDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB7799A1DA183C300966D40 /* UserDataTest.swift */; };
@@ -234,6 +236,8 @@
 		4C9655571D0E109400011EAC /* PostRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostRequest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C9655591D0E11BE00011EAC /* PostResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C9655611D0E436600011EAC /* AbstractEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractEnum.swift; sourceTree = "<group>"; };
+		4CA3C0551E467A1E00BDCF69 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
+		4CA3C0571E46831800BDCF69 /* ClassValidatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassValidatable.swift; sourceTree = "<group>"; };
 		4CAA3E591D80C16C0015FA43 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4CB67D231D8B42A400196579 /* PrettyPrintable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrettyPrintable.swift; sourceTree = "<group>"; };
 		4CB7799A1DA183C300966D40 /* UserDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataTest.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 		4C5B6AB91DFF40B400B0785B /* Caches */ = {
 			isa = PBXGroup;
 			children = (
+				4C622FF31E3D5A0D00CE2150 /* Cacheable.swift */,
 				4CF29B641DC17B920076F14F /* UIImageCache.swift */,
 			);
 			name = Caches;
@@ -549,6 +554,7 @@
 			children = (
 				4C622FEF1E3D4C9000CE2150 /* BackgroundQueue.swift */,
 				4C622FED1E3D4C8800CE2150 /* MainQueue.swift */,
+				4C622FF11E3D590300CE2150 /* Queueable.swift */,
 			);
 			name = Queues;
 			sourceTree = "<group>";
@@ -777,10 +783,8 @@
 		4C7BEC3E1E3C985B009F4B36 /* Static Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				4C622FF31E3D5A0D00CE2150 /* Cacheable.swift */,
 				4CC780C21DD27C5A00E93EB4 /* FieldNameConverter.swift */,
 				4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */,
-				4C622FF11E3D590300CE2150 /* Queueable.swift */,
 			);
 			name = "Static Protocols";
 			sourceTree = "<group>";
@@ -797,10 +801,20 @@
 			name = CoreDataTest;
 			sourceTree = "<group>";
 		};
+		4CA3C0541E46798400BDCF69 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				4CE166DF1D3959DC003589D0 /* Log.swift */,
+				4CA3C0551E467A1E00BDCF69 /* Loggable.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
 		4CB66B741DFF2E36004464A2 /* Model Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				4C880F481DFE419400A4DFB0 /* ChildrenIdentifiable.swift */,
+				4CA3C0571E46831800BDCF69 /* ClassValidatable.swift */,
 				4C35D4111DFA38C600CF5A8F /* ModelNonRecursible.swift */,
 				4C35D40F1DFA36B000CF5A8F /* ModelRecursible.swift */,
 				4C1FDC621E09B557004C0D96 /* PersistentModelRecursible.swift */,
@@ -928,8 +942,8 @@
 			isa = PBXGroup;
 			children = (
 				4C5B6AB91DFF40B400B0785B /* Caches */,
+				4CA3C0541E46798400BDCF69 /* Logging */,
 				4C622FEC1E3D4C6F00CE2150 /* Queues */,
-				4CE166DF1D3959DC003589D0 /* Log.swift */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1195,7 +1209,9 @@
 				4CC6747D1D80E8B2001BCA67 /* Chef.swift in Sources */,
 				4C6982981CD41282005ABCF1 /* UserAPIModel.swift in Sources */,
 				4C6982A11CD4133F005ABCF1 /* UserGender.swift in Sources */,
+				4CA3C0561E467A1E00BDCF69 /* Loggable.swift in Sources */,
 				4C9655541D0E0F0200011EAC /* UserLoginRequest.swift in Sources */,
+				4CA3C0581E46831800BDCF69 /* ClassValidatable.swift in Sources */,
 				4C622FF01E3D4C9000CE2150 /* BackgroundQueue.swift in Sources */,
 				4C35D4121DFA38C600CF5A8F /* ModelNonRecursible.swift in Sources */,
 				4CE468141D3BEC53000B95DE /* PostPageRequest.swift in Sources */,
