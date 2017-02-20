@@ -58,6 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
     
     //MARK: Static functions
     static func saveContext() {
-        try? self.getInstance()?.managedObjectContext.save()
+        try? self.instance?.managedObjectContext.save()
     }
 }

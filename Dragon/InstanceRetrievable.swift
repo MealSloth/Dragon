@@ -13,7 +13,7 @@ protocol InstanceRetrievable {
 }
 
 extension InstanceRetrievable where Self: AppDelegate {
-    static func getInstance() -> Self? {
+    static var instance: Self? {
         return UIApplication.shared.delegate as? Self
     }
 }

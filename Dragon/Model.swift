@@ -19,11 +19,11 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
     }()
     
     static var coordinator: NSPersistentStoreCoordinator? {
-        return AppDelegate.getInstance()?.persistentStoreCoordinator
+        return AppDelegate.instance?.persistentStoreCoordinator
     }
     
     static var context: NSManagedObjectContext? {
-        return AppDelegate.getInstance()?.managedObjectContext
+        return AppDelegate.instance?.managedObjectContext
     }
     
     //MARK: Initializers
