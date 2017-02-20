@@ -6,7 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-enum UserLoginAccessLevel: Int, AbstractEnum {
+enum UserLoginAccessLevel: Int, Enumerable {
     case superAdmin = 0
     case chefAdmin = 1
     case consumerAdmin = 2

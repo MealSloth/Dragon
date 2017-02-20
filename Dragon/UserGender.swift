@@ -6,7 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-enum UserGender: Int, AbstractEnum {
+enum UserGender: Int, Enumerable {
     case male = 0
     case female = 1
     case other = 2

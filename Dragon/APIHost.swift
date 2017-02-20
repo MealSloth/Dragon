@@ -6,7 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-enum APIHost: AbstractEnum {
+enum APIHost: Enumerable {
     case chimera
     case hydra
     
