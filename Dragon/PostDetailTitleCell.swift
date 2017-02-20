@@ -16,7 +16,7 @@ class PostDetailTitleCell: UITableViewCell {
     
     var blob: Blob?
     
-    static func getInstance(from tableView: UITableView, at indexPath: IndexPath, for post: Post?) -> UITableViewCell {
+    static func instance(from tableView: UITableView, at indexPath: IndexPath, for post: Post?) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
         guard let titleCell = cell as? PostDetailTitleCell else { return cell }
         titleCell.populate(withPost: post)

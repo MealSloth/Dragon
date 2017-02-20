@@ -53,10 +53,10 @@ class EditProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-            case 0: return EditProfilePhotoCell.getInstance(from: tableView, at: indexPath, for: self.user)
-            case 1: return EditProfileBasicCell.getInstance(from: tableView, at: indexPath, for: self.user)
-            case 2: return EditProfileBirthdayCell.getInstance(from: tableView, at: indexPath, for: self.user)
-            case 3: return EditProfileGenderCell.getInstance(from: tableView, at: indexPath, for: self.user)
+            case 0: return EditProfilePhotoCell.instance(from: tableView, at: indexPath, for: self.user)
+            case 1: return EditProfileBasicCell.instance(from: tableView, at: indexPath, for: self.user)
+            case 2: return EditProfileBirthdayCell.instance(from: tableView, at: indexPath, for: self.user)
+            case 3: return EditProfileGenderCell.instance(from: tableView, at: indexPath, for: self.user)
             default: return super.tableView(tableView, cellForRowAt: indexPath)
         }
     }
