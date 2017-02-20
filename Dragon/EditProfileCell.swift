@@ -17,7 +17,7 @@ protocol EditProfileCell {
 
 extension EditProfileCell where Self: UITableViewCell {
     static func getInstance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EditProfile\(self.type.rawValue)Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.type.name, for: indexPath)
         guard let profileCell = cell as? Self else { return cell }
         var editProfileCell = profileCell
         editProfileCell.user = user

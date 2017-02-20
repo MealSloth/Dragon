@@ -10,8 +10,14 @@ import UIKit
 
 extension UIViewController {
     func presentViewControllerOnMainThread(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        self.runOnMainThread({ () -> Void in
+        MainQueue.sync({ () -> Void in
             self.present(viewControllerToPresent, animated: animated, completion: completion)
+        })
+    }
+    
+    func segue(withIdentifier identifier: String, sender: Any?) {
+        MainQueue.sync({ () -> Void in
+            self.performSegue(withIdentifier: identifier, sender: sender)
         })
     }
 }

@@ -21,15 +21,15 @@ extension APIRequest {
         }
     }
     
-    func request<T: APIResult>(onCompletion completion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil) {
+    func request<T: APIResult>(onCompletion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil, finally: (() -> Void)? = nil) {
         let resultHandler = { (result) -> Void in
-            completion?(T(result: result))
+            onCompletion?(T(result: result))
         }
         let errorHandler = onError
-        self.post(onCompletion: resultHandler, onError: errorHandler)
+        self.post(onCompletion: resultHandler, onError: errorHandler, finally: finally)
     }
     
-    func post(onCompletion completion: ((_ result: [String:Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil) {
+    func post(onCompletion: ((_ result: [String:Any]) -> Void)? = nil, onError: ((Error?) -> Void)? = nil, finally: (() -> Void)? = nil) {
         let urlStr = "\(self.host.url())\(self.cleanedMethod)"
         guard let url = URL(string: urlStr) else { return }
         var request = URLRequest(url: url)
@@ -40,6 +40,7 @@ extension APIRequest {
         Log.info("Executing POST request at \(urlStr)")
         let task = URLSession.shared.dataTask(with: request,
             completionHandler: { (data, response, error) -> Void in
+                defer { finally?() }
                 guard let jsonData = data else {
                     onError?(error)
                     return
@@ -47,7 +48,7 @@ extension APIRequest {
                 do {
                     if let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? [String:Any] {
                         Log.info("Received response for POST request at \(urlStr)")
-                        completion?(jsonResult)
+                        onCompletion?(jsonResult)
                     }
                 }
                 catch let error {

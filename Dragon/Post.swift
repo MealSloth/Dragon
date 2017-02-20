@@ -25,12 +25,12 @@ class Post: Model {
         set { if let value = newValue?.rawValue { self.postStatus = value as NSNumber } }
     }
     
+    var location: Location? {
+        return Location.fromID(self.chef?.locationID)
+    }
+    
     lazy var chef: Chef? = {
         return Chef.fromID(self.chefID)
-    }()
-    
-    lazy var location: Location? = {
-        return Location.fromID(self.chef?.locationID)
     }()
     
     lazy var album: Album? = {

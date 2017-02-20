@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeTableViewController: UITableViewController {
-    @IBOutlet weak var scrollView: UIScrollView!
-    
+class HomeTableViewController: UITableViewController, RefreshControllable {
     var posts: [Post] = []
     var ratio: CGFloat = 9.0/16.0
     
@@ -21,10 +19,9 @@ class HomeTableViewController: UITableViewController {
         
         self.tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
         
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
-        
         self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
+        
+        self.addRefreshControl()
         self.refresh()
     }
     
@@ -33,10 +30,13 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Segue_HomeTableViewController->PostDetailTableViewController",
-            let vc = segue.destination as? PostDetailTableViewController,
-            let post = sender as? Post {
-            vc.post = post
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
+            case "Segue_HomeTableViewController->PostDetailTableViewController":
+                (segue.destination as? PostDetailTableViewController)?.post = sender as? Post
+                break
+            default:
+                break
         }
     }
     
@@ -70,28 +70,19 @@ class HomeTableViewController: UITableViewController {
     func refresh() {
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
-                //Query and compare on background thread
-                let newPosts = Post.sortBy(key: "postTime", ascending: false) ?? []
-                let changes = self.posts != newPosts
-                //Then perform UI tasks on main thread
-                self.runOnMainThread({ () -> Void in
-                    if changes {
-                        self.posts = newPosts //Update
-                        self.tableView.reloadData() //and reload
-                    }
-                    self.refreshControl?.endRefreshing()
-                })
+                self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
+                self.reloadData()
             },
             onError: { (error) -> Void in
                 Log.error("Error occurred during PostPageRequest(): \(error)")
-                self.runOnMainThread({ () -> Void in
-                    self.refreshControl?.endRefreshing()
-                })
+            },
+            finally: { () -> Void in
+                self.endRefreshing()
             }
         )
     }
     
     fileprivate func segue(withPost post: Post) {
-        self.performSegue(withIdentifier: "Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
+        self.segue(withIdentifier: "Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
     }
 }

@@ -9,13 +9,13 @@
 import Foundation
 
 struct BackgroundQueue: Queueable {
-    static let shared = DispatchQueue(label: "com.mealsloth.backgroundqueue", qos: .background, target: nil)
+    static let sharedDispatch = DispatchQueue(label: "com.mealsloth.backgroundqueue", qos: .background, target: nil)
     
     static func sync(_ block: (() -> Void)?) {
-        self.shared.sync(execute: block ?? {})
+        self.sharedDispatch.sync(execute: block ?? {})
     }
     
     static func async(_ block: (() -> Void)?) {
-        self.shared.async(execute: block ?? {})
+        self.sharedDispatch.async(execute: block ?? {})
     }
 }

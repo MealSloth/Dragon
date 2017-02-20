@@ -75,7 +75,7 @@
 		4C9655561D0E102F00011EAC /* UserLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655551D0E102F00011EAC /* UserLoginResult.swift */; };
 		4C9655581D0E109400011EAC /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655571D0E109400011EAC /* PostRequest.swift */; };
 		4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655591D0E11BE00011EAC /* PostResult.swift */; };
-		4C9655621D0E436600011EAC /* AbstractEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655611D0E436600011EAC /* AbstractEnum.swift */; };
+		4C9655621D0E436600011EAC /* Enumerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655611D0E436600011EAC /* Enumerable.swift */; };
 		4CA3C0561E467A1E00BDCF69 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3C0551E467A1E00BDCF69 /* Loggable.swift */; };
 		4CA3C0581E46831800BDCF69 /* ClassValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3C0571E46831800BDCF69 /* ClassValidatable.swift */; };
 		4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E591D80C16C0015FA43 /* Model.swift */; };
@@ -86,7 +86,6 @@
 		4CC40DAF1D5172D700B5D4BE /* BlobTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DAE1D5172D700B5D4BE /* BlobTest.swift */; };
 		4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB21D51819200B5D4BE /* UIImage+.swift */; };
 		4CC40DB51D51838000B5D4BE /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC40DB41D51838000B5D4BE /* Collection+.swift */; };
-		4CC60D951DB2C103002A5EE0 /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */; };
 		4CC60D981DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */; };
 		4CC674751D80E82C001BCA67 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674741D80E82C001BCA67 /* UserLogin.swift */; };
 		4CC674771D80E855001BCA67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC674761D80E855001BCA67 /* User.swift */; };
@@ -132,6 +131,8 @@
 		4CDA11161D4805C1002C62FD /* UserCreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA11151D4805C1002C62FD /* UserCreateRequest.swift */; };
 		4CDA11181D4806A2002C62FD /* UserCreateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA11171D4806A2002C62FD /* UserCreateResult.swift */; };
 		4CDA111C1D4807EF002C62FD /* RandomStringAllow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA111B1D4807EF002C62FD /* RandomStringAllow.swift */; };
+		4CE15B291E5B89F800CF6085 /* UITableViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE15B281E5B89F800CF6085 /* UITableViewController+.swift */; };
+		4CE15B2C1E5B8CDB00CF6085 /* RefreshControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE15B2B1E5B8CDB00CF6085 /* RefreshControllable.swift */; };
 		4CE166E21D398DFC003589D0 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE166DF1D3959DC003589D0 /* Log.swift */; };
 		4CE468141D3BEC53000B95DE /* PostPageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE468131D3BEC53000B95DE /* PostPageRequest.swift */; };
 		4CE632421CDAA2F60085F54C /* UserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE632411CDAA2F60085F54C /* UserResult.swift */; };
@@ -235,7 +236,7 @@
 		4C9655551D0E102F00011EAC /* UserLoginResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserLoginResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C9655571D0E109400011EAC /* PostRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostRequest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C9655591D0E11BE00011EAC /* PostResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		4C9655611D0E436600011EAC /* AbstractEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractEnum.swift; sourceTree = "<group>"; };
+		4C9655611D0E436600011EAC /* Enumerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerable.swift; sourceTree = "<group>"; };
 		4CA3C0551E467A1E00BDCF69 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
 		4CA3C0571E46831800BDCF69 /* ClassValidatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassValidatable.swift; sourceTree = "<group>"; };
 		4CAA3E591D80C16C0015FA43 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -246,7 +247,6 @@
 		4CC40DAE1D5172D700B5D4BE /* BlobTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlobTest.swift; sourceTree = "<group>"; };
 		4CC40DB21D51819200B5D4BE /* UIImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4CC40DB41D51838000B5D4BE /* Collection+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
-		4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
 		4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+.swift"; sourceTree = "<group>"; };
 		4CC674741D80E82C001BCA67 /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		4CC674761D80E855001BCA67 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -292,6 +292,8 @@
 		4CDA11151D4805C1002C62FD /* UserCreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserCreateRequest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CDA11171D4806A2002C62FD /* UserCreateResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserCreateResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CDA111B1D4807EF002C62FD /* RandomStringAllow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomStringAllow.swift; sourceTree = "<group>"; };
+		4CE15B281E5B89F800CF6085 /* UITableViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewController+.swift"; sourceTree = "<group>"; };
+		4CE15B2B1E5B8CDB00CF6085 /* RefreshControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshControllable.swift; sourceTree = "<group>"; };
 		4CE166DF1D3959DC003589D0 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		4CE468131D3BEC53000B95DE /* PostPageRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostPageRequest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4CE632411CDAA2F60085F54C /* UserResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -454,7 +456,7 @@
 				4CC60D971DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift */,
 				4CC40DB21D51819200B5D4BE /* UIImage+.swift */,
 				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
-				4CC60D941DB2C103002A5EE0 /* UIResponder+.swift */,
+				4CE15B281E5B89F800CF6085 /* UITableViewController+.swift */,
 				4CFF11CF1D497E600062B33A /* UIViewController+.swift */,
 			);
 			name = "UI Subclasses";
@@ -692,8 +694,8 @@
 			isa = PBXGroup;
 			children = (
 				4C5B6ABE1DFF41BC00B0785B /* Model Enums */,
-				4C9655611D0E436600011EAC /* AbstractEnum.swift */,
 				4C6982901CD3DC07005ABCF1 /* APIHost.swift */,
+				4C9655611D0E436600011EAC /* Enumerable.swift */,
 				4CDA111B1D4807EF002C62FD /* RandomStringAllow.swift */,
 			);
 			name = Enums;
@@ -829,6 +831,7 @@
 				4CB66B741DFF2E36004464A2 /* Model Protocols */,
 				4C4E20751E0E072D000D462F /* Reflection Protocols */,
 				4C7BEC3E1E3C985B009F4B36 /* Static Protocols */,
+				4CE15B2A1E5B8CC200CF6085 /* UI Protocols */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -936,6 +939,14 @@
 				4C9655551D0E102F00011EAC /* UserLoginResult.swift */,
 			);
 			name = UserLogin;
+			sourceTree = "<group>";
+		};
+		4CE15B2A1E5B8CC200CF6085 /* UI Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4CE15B2B1E5B8CDB00CF6085 /* RefreshControllable.swift */,
+			);
+			name = "UI Protocols";
 			sourceTree = "<group>";
 		};
 		4CE166DE1D3959CC003589D0 /* Modules */ = {
@@ -1121,6 +1132,7 @@
 				4C385EBF1DFF9F8E0034C190 /* TestRequest.swift in Sources */,
 				4C69828F1CD3D865005ABCF1 /* APIResult.swift in Sources */,
 				4C7BEC3D1E3C9348009F4B36 /* EditProfileCellType.swift in Sources */,
+				4CE15B2C1E5B8CDB00CF6085 /* RefreshControllable.swift in Sources */,
 				4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */,
 				4CDA110A1D47F3A5002C62FD /* UserModifyRequest.swift in Sources */,
 				4CC674891D80E8E5001BCA67 /* Post.swift in Sources */,
@@ -1147,7 +1159,7 @@
 				4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */,
 				4C1504271DD3DFFC00A952EF /* InstanceRetrievable.swift in Sources */,
 				4CCD0A5F1CD8F7120081A28B /* FieldNameHelper.swift in Sources */,
-				4C9655621D0E436600011EAC /* AbstractEnum.swift in Sources */,
+				4C9655621D0E436600011EAC /* Enumerable.swift in Sources */,
 				4C6982701CD3D7A4005ABCF1 /* Dragon.xcdatamodeld in Sources */,
 				4CCD0A801CD93A2C0081A28B /* OrderStatus.swift in Sources */,
 				4CCD0A671CD91E170081A28B /* OrderAPIModel.swift in Sources */,
@@ -1156,7 +1168,6 @@
 				4CCD0A631CD91DAA0081A28B /* OrderTimeAPIModel.swift in Sources */,
 				4CC674771D80E855001BCA67 /* User.swift in Sources */,
 				4CFF11D51D498CDD0062B33A /* HomeTableViewController.swift in Sources */,
-				4CC60D951DB2C103002A5EE0 /* UIResponder+.swift in Sources */,
 				4CC40DB31D51819200B5D4BE /* UIImage+.swift in Sources */,
 				4CD48F4B1D527D650009D6A2 /* PostDetailSummaryCell.swift in Sources */,
 				4C4E20791E0E0757000D462F /* PropertiesAccessible.swift in Sources */,
@@ -1192,6 +1203,7 @@
 				4CD48F441D5251C30009D6A2 /* ScreenHelper.swift in Sources */,
 				4CC40DB51D51838000B5D4BE /* Collection+.swift in Sources */,
 				4CC674811D80E8C5001BCA67 /* Location.swift in Sources */,
+				4CE15B291E5B89F800CF6085 /* UITableViewController+.swift in Sources */,
 				4CD48F461D5267900009D6A2 /* PostDetailTableViewController.swift in Sources */,
 				4C5DB6891E2601E5002E7CD3 /* EditProfileGenderCell.swift in Sources */,
 				4C622FF21E3D590300CE2150 /* Queueable.swift in Sources */,

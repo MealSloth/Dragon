@@ -21,7 +21,8 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier ?? "" {
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
             case "Segue_LoginViewController->TabBarController":
                 (segue.destination as? UITabBarController)?.selectedIndex = 0
                 break
@@ -74,14 +75,8 @@ class LoginViewController: UIViewController {
         )
     }
     
-    @IBAction func continueBrowsing() {
-        self.segue()
-    }
-    
     // MARK: Misc
     fileprivate func segue() {
-        self.runOnMainThread({ () -> Void in
-            self.performSegue(withIdentifier: "Segue_LoginViewController->TabBarController", sender: self)
-        })
+        self.segue(withIdentifier: "Segue_LoginViewController->TabBarController", sender: self)
     }
 }

@@ -33,7 +33,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     fileprivate func populateImage() {
-        self.runOnBackgroundThread({ () -> Void in
+        BackgroundQueue.async({ () -> Void in
             if let blob = Blob.fromAlbumID(self.post?.albumID)?.first {
                 self.blob = blob
                 let _ = self.blob?.image //Load lazy image in background thread
@@ -58,7 +58,7 @@ class PostTableViewCell: UITableViewCell {
             self.activityIndicator.disable()
         }
         
-        self.runOnMainThread({ () -> Void in
+        MainQueue.sync({ () -> Void in
             animated ? UIView.animate(withDuration: 0.3, animations: changes) : changes()
         })
     }

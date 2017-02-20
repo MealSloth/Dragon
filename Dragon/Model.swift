@@ -62,7 +62,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
     
     func set(_ value: Any?, for key: String) {
         if TypeHelper.type(from: key, ofObject: self) == .dateAttributeType {
-            if let dateString = value as? String, let date = dateString.toDate() {
+            if let dateString = value as? String, let date = dateString.date {
                 super.setValue(date, forKey: key)
             }
         } else {

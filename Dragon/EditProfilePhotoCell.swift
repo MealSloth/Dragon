@@ -17,7 +17,7 @@ class EditProfilePhotoCell: UITableViewCell, EditProfileCell {
         BlobRequest(withUserID: self.user?.id).request(
             onCompletion: { (result: BlobResult) -> Void in
                 _ = result.blob?.image
-                self.runOnMainThread({ () -> Void in
+                MainQueue.sync({ () -> Void in
                     self.profilePhoto.alpha = 0.0
                     UIView.animate(withDuration: 0.3, animations: { () -> Void in
                         self.profilePhoto.image = result.blob?.image

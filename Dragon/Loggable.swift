@@ -24,11 +24,10 @@ extension Loggable {
     }
     
     internal static func logRemaining(_ strArr: [String]?) {
-        if let count = strArr?.count , count > 1 {
-            for newLine in 1..<count {
-                if let line = strArr?[safe: newLine] {
-                    print(line)
-                }
+        guard let count = strArr?.count , count > 1 else { return }
+        for newLine in 1..<count {
+            if let line = strArr?[safe: newLine] {
+                print(line)
             }
         }
     }

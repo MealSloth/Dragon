@@ -9,12 +9,12 @@
 import Foundation
 
 extension String {
-    func capitalizeFirst() -> String {
+    var firstCapitalized: String {
         guard let first = self.characters.first else { return self }
         return String(describing: first).uppercased() + String(self.characters.dropFirst())
     }
     
-    func toDate() -> Date? {
+    var date: Date? {
         guard self.characters.count > 3 else { return nil } //Make sure the string is valid for substring
         let formatter = DateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"

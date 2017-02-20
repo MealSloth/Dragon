@@ -42,7 +42,7 @@ class PostDetailTitleCell: UITableViewCell {
     }
     
     fileprivate func populateImage() {
-        self.runOnMainThread({ () -> Void in
+        MainQueue.sync({ () -> Void in
             self.activityIndicator.disable()
             UIView.animate(withDuration: 0.4, animations: { () -> Void in
                 self.imagePost.image = self.blob?.image

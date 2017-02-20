@@ -59,6 +59,6 @@ class ConsumerProfileTableViewController: UITableViewController {
     
     // MARK: Misc
     fileprivate func segue(to destination: ConsumerProfileTableViewControllerSegue, withUser user: User?) {
-        self.performSegue(withIdentifier: destination.rawValue, sender: user)
+        self.segue(withIdentifier: destination.rawValue, sender: user)
     }
 }

@@ -15,6 +15,6 @@ struct PostPageRequest: APIRequest {
     
     init(withPageSize size: Int? = 10, usingPostTimestamp time: Date? = nil) {
         self.json["page_size"] = size
-        self.json["post_time_stamp"] = time?.toString()
+        self.json["post_time_stamp"] = time?.string
     }
 }
