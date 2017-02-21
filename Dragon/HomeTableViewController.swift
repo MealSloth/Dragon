@@ -16,11 +16,8 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
     // MARK: Delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostTableViewCell")
-        
-        self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
-        
+        self.registerNib(withName: "PostTableViewCell")
+        self.posts = Post.sorted ?? []
         self.addRefreshControl()
         self.refresh()
     }
@@ -55,10 +52,8 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath)
-        guard let postCell = cell as? PostTableViewCell else { return cell }
-        guard let post = self.posts[safe: indexPath.row] else { return postCell }
-        postCell.populate(withPost: post)
-        return postCell
+        (cell as? PostTableViewCell)?.populate(with: self.posts[safe: indexPath.row])
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

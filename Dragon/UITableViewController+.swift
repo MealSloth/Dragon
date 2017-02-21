@@ -9,6 +9,12 @@
 import UIKit
 
 extension UITableViewController {
+    func registerNib(withName name: String) {
+        self.tableView.register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: name)
+    }
+}
+
+extension UITableViewController {
     fileprivate func reload(at rows: [IndexPath], animated: Bool = true) {
         MainQueue.sync({ () -> Void in
             self.tableView.reloadRows(at: rows, with: animated ? .automatic : .none)

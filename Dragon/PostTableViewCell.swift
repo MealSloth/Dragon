@@ -22,7 +22,7 @@ class PostTableViewCell: UITableViewCell {
     var post: Post?
     var blob: Blob?
     
-    func populate(withPost post: Post) {
+    func populate(with post: Post?) {
         self.activityIndicator.enable()
         self.imagePost.image = nil
         self.post = post

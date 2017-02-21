@@ -20,6 +20,16 @@ class Post: Model {
     @NSManaged var postTime: Date!
     @NSManaged var expireTime: Date!
     
+    lazy var chef: Chef? = {
+        return Chef.fromID(self.chefID)
+    }()
+    
+    lazy var album: Album? = {
+        return Album.fromID(self.albumID)
+    }()
+}
+
+extension Post {
     var status: PostStatus? {
         get { return PostStatus(rawValue: self.postStatus as Int) }
         set { if let value = newValue?.rawValue { self.postStatus = value as NSNumber } }
@@ -28,12 +38,10 @@ class Post: Model {
     var location: Location? {
         return Location.fromID(self.chef?.locationID)
     }
-    
-    lazy var chef: Chef? = {
-        return Chef.fromID(self.chefID)
-    }()
-    
-    lazy var album: Album? = {
-        return Album.fromID(self.albumID)
-    }()
+}
+
+extension Post {
+    static var sorted: [Post]? {
+        return Post.sortBy(key: "postTime", ascending: false)
+    }
 }

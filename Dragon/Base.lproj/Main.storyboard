@@ -39,7 +39,7 @@
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRO-8Z-2Rf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8M-Fz-828">
                                                                 <rect key="frame" x="121" y="87" width="132" height="150"/>
@@ -75,10 +75,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PI-x6-NLG">
-                                                        <rect key="frame" x="0.0" y="324" width="375" height="323"/>
+                                                        <rect key="frame" x="0.0" y="323.5" width="375" height="323.5"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h72-vQ-qCg">
-                                                                <rect key="frame" x="50" y="0.0" width="275" height="323"/>
+                                                                <rect key="frame" x="50" y="0.0" width="275" height="323.5"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yp5-N2-oi3">
                                                                         <rect key="frame" x="0.0" y="48" width="275" height="40"/>
@@ -128,7 +128,7 @@
                                                                         </state>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYb-EO-gcr">
-                                                                        <rect key="frame" x="63" y="100" width="151" height="15"/>
+                                                                        <rect key="frame" x="62" y="100" width="151" height="15"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -145,13 +145,13 @@
                                                                         </state>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZv-pk-Tmg">
-                                                                        <rect key="frame" x="132" y="286" width="11" height="17"/>
+                                                                        <rect key="frame" x="132" y="286.5" width="11" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKQ-2u-xUF">
-                                                                        <rect key="frame" x="77" y="263" width="122" height="28"/>
+                                                                        <rect key="frame" x="77" y="263.5" width="122" height="28"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="13"/>
                                                                         <state key="normal" title="Explore MealSloth">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
