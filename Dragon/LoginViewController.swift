@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, KeyboardScrollable {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var fieldEmail: UITextField!
     @IBOutlet weak var fieldPassword: UITextField!
@@ -16,8 +16,7 @@ class LoginViewController: UIViewController {
     // MARK: Delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        self.observeKeyboard()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,28 +30,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // MARK: Observers
-    func keyboardDidShow(_ notification: Notification) {
-        guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        if self.scrollView.contentOffset.y == 0 {
-            UIView.animate(withDuration: 0.25, animations: { () -> Void in
-                let insets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-                self.scrollView.contentInset = insets
-                self.scrollView.scrollIndicatorInsets = insets
-                self.scrollView.contentOffset = CGPoint(x: self.scrollView.contentOffset.x, y: self.scrollView.contentOffset.y + keyboardSize.height)
-            })
-        }
-    }
-    
-    func keyboardWillHide(_ notification: Notification) {
-        guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        UIView.animate(withDuration: 0.25, animations: { () -> Void in
-            let insets = UIEdgeInsetsMake(self.scrollView.contentInset.top, 0, keyboardSize.height, 0)
-            self.scrollView.contentInset = insets
-            self.scrollView.scrollIndicatorInsets = insets
-        })
-    }
-    
+    // MARK: UITextField Delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         _ = self.fieldEmail == textField ? self.fieldPassword.becomeFirstResponder() : textField.resignFirstResponder()
         return false

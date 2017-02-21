@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C0354D01D5658AD00E7459D /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */; };
+		4C066AA11E5BB5F200B85D6F /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066AA01E5BB5F200B85D6F /* KeyboardObservable.swift */; };
+		4C066AA41E5BB6EA00B85D6F /* KeyboardScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066AA31E5BB6EA00B85D6F /* KeyboardScrollable.swift */; };
 		4C06E03D1D4ACB8F005933A9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */; };
 		4C06E03E1D4ACEB5005933A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69826B1CD3D7A4005ABCF1 /* Main.storyboard */; };
 		4C147A6B1DADA759002CA992 /* UserLoginDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */; };
@@ -163,6 +165,8 @@
 
 /* Begin PBXFileReference section */
 		4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		4C066AA01E5BB5F200B85D6F /* KeyboardObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
+		4C066AA31E5BB6EA00B85D6F /* KeyboardScrollable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardScrollable.swift; sourceTree = "<group>"; };
 		4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginDataTest.swift; sourceTree = "<group>"; };
 		4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceRetrievable.swift; sourceTree = "<group>"; };
@@ -329,6 +333,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C066AA21E5BB6BD00B85D6F /* Keyboard Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4C066AA01E5BB5F200B85D6F /* KeyboardObservable.swift */,
+				4C066AA31E5BB6EA00B85D6F /* KeyboardScrollable.swift */,
+			);
+			name = "Keyboard Protocols";
+			sourceTree = "<group>";
+		};
 		4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +957,7 @@
 		4CE15B2A1E5B8CC200CF6085 /* UI Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				4C066AA21E5BB6BD00B85D6F /* Keyboard Protocols */,
 				4CE15B2B1E5B8CDB00CF6085 /* RefreshControllable.swift */,
 			);
 			name = "UI Protocols";
@@ -1209,6 +1223,7 @@
 				4C622FF21E3D590300CE2150 /* Queueable.swift in Sources */,
 				4CC674871D80E8DF001BCA67 /* OrderTime.swift in Sources */,
 				4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */,
+				4C066AA41E5BB6EA00B85D6F /* KeyboardScrollable.swift in Sources */,
 				4C7A82D91D3EC9F400638FBE /* String+.swift in Sources */,
 				4C622FF41E3D5A0D00CE2150 /* Cacheable.swift in Sources */,
 				4C7A82C11D3EAFD800638FBE /* ConsumerRequest.swift in Sources */,
@@ -1217,6 +1232,7 @@
 				4CB67D241D8B42A500196579 /* PrettyPrintable.swift in Sources */,
 				4C5DB6811E2601AA002E7CD3 /* EditProfileBirthdayCell.swift in Sources */,
 				4CC674831D80E8D3001BCA67 /* Order.swift in Sources */,
+				4C066AA11E5BB5F200B85D6F /* KeyboardObservable.swift in Sources */,
 				4C880F491DFE419400A4DFB0 /* ChildrenIdentifiable.swift in Sources */,
 				4CC6747D1D80E8B2001BCA67 /* Chef.swift in Sources */,
 				4C6982981CD41282005ABCF1 /* UserAPIModel.swift in Sources */,
