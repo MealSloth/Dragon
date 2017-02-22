@@ -15,10 +15,18 @@ struct Message: Messageable {
         case long = 12.0
     }
     
+    enum CannedMessage: String {
+        case errorTryAgainLater = "There was an error. Please try again later."
+    }
+    
     var text: String?
     
     init(_ text: String?) {
         self.text = text
+    }
+    
+    init(_ message: CannedMessage?) {
+        self.text = message?.rawValue
     }
     
     func display(duration: MessageDuration? = nil) {
