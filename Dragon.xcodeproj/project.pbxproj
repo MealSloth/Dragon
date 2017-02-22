@@ -400,6 +400,75 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		4C4187031E5E40E2004F2410 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4C4187081E5E4123004F2410 /* EditProfile */,
+				4C4187071E5E4119004F2410 /* ConsumerProfile */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		4C4187041E5E40EE004F2410 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		4C4187051E5E40FB004F2410 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				4C41870A1E5E4168004F2410 /* Home */,
+				4C4187091E5E415F004F2410 /* PostDetail */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		4C4187061E5E4102004F2410 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4C4187071E5E4119004F2410 /* ConsumerProfile */ = {
+			isa = PBXGroup;
+			children = (
+				4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */,
+				4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */,
+			);
+			name = ConsumerProfile;
+			sourceTree = "<group>";
+		};
+		4C4187081E5E4123004F2410 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				4C5DB67A1E260020002E7CD3 /* EditProfileCells */,
+				4C5DB68A1E26026A002E7CD3 /* EditProfileTableViewController.swift */,
+			);
+			name = EditProfile;
+			sourceTree = "<group>";
+		};
+		4C4187091E5E415F004F2410 /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4CD48F471D526DE00009D6A2 /* PostDetailCells */,
+				4CD48F451D5267900009D6A2 /* PostDetailTableViewController.swift */,
+			);
+			name = PostDetail;
+			sourceTree = "<group>";
+		};
+		4C41870A1E5E4168004F2410 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4CC947481D4AE66900426AA6 /* PostTableViewCell */,
+				4CFF11D41D498CDD0062B33A /* HomeTableViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		4C4851561D2051FA00223B4F /* APITest */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,8 +587,6 @@
 		4C5DB6781E25FFEF002E7CD3 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				4CD48F471D526DE00009D6A2 /* PostDetailCells */,
-				4CC947481D4AE66900426AA6 /* PostTableViewCell */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -527,8 +594,6 @@
 		4C5DB6791E25FFFD002E7CD3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */,
-				4C5DB67A1E260020002E7CD3 /* EditProfileCells */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -671,18 +736,6 @@
 				4C69828E1CD3D865005ABCF1 /* APIResult.swift */,
 			);
 			name = API;
-			sourceTree = "<group>";
-		};
-		4C69828B1CD3D802005ABCF1 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */,
-				4C5DB68A1E26026A002E7CD3 /* EditProfileTableViewController.swift */,
-				4CFF11D41D498CDD0062B33A /* HomeTableViewController.swift */,
-				4C6982691CD3D7A4005ABCF1 /* LoginViewController.swift */,
-				4CD48F451D5267900009D6A2 /* PostDetailTableViewController.swift */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		4C6982921CD40CD1005ABCF1 /* Requests */ = {
@@ -902,7 +955,10 @@
 		4CC947421D4AE00600426AA6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4C69828B1CD3D802005ABCF1 /* Controllers */,
+				4C4187061E5E4102004F2410 /* Login */,
+				4C4187051E5E40FB004F2410 /* Post */,
+				4C4187041E5E40EE004F2410 /* Home */,
+				4C4187031E5E40E2004F2410 /* Profile */,
 				4CC947431D4AE01D00426AA6 /* Views */,
 			);
 			name = UI;

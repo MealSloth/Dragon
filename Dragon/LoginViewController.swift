@@ -16,7 +16,16 @@ class LoginViewController: UIViewController, KeyboardScrollable {
     // MARK: Delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.observeKeyboard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.startObservingKeyboard()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.stopObservingKeyboard()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
