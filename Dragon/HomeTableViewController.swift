@@ -23,7 +23,7 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
     }
     
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        self.tableView.reloadData()
+        self.reload(animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,7 +66,7 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
         PostPageRequest().request(
             onCompletion: { (result: PostPageResult) -> Void in
                 self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
-                self.reloadData()
+                self.reload(animated: false)
             },
             onError: { (error) -> Void in
                 Log.error("Error occurred during PostPageRequest(): \(error)")

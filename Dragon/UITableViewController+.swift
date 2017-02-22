@@ -27,6 +27,12 @@ extension UITableViewController {
         })
     }
     
+    fileprivate func reloadData() {
+        MainQueue.sync({ () -> Void in
+            self.tableView.reloadData()
+        })
+    }
+    
     func reloadRows(between lower: Int, and upper: Int, in section: Int = 0, animated: Bool = true) {
         let range = stride(from: lower, to: upper, by: 1)
         let rows = range.map({ IndexPath(row: $0, section: section) })
@@ -37,11 +43,8 @@ extension UITableViewController {
         self.reload(in: IndexSet(lower...upper), animated: animated)
     }
     
-    func reload(_ animated: Bool = true) {
-        self.reloadSections(between: 0, and: self.numberOfSections(in: self.tableView) - 1, animated: animated)
-    }
-    
-    func reloadData() {
-        self.tableView.reloadData()
+    func reload(animated: Bool = true) {
+        let upper = self.numberOfSections(in: self.tableView) - 1
+        animated ? self.reloadSections(between: 0, and: upper) : self.reloadData()
     }
 }
