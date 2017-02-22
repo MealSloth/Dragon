@@ -403,8 +403,8 @@
 		4C4187031E5E40E2004F2410 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				4C4187081E5E4123004F2410 /* EditProfile */,
 				4C4187071E5E4119004F2410 /* ConsumerProfile */,
+				4C4187081E5E4123004F2410 /* EditProfile */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -955,9 +955,9 @@
 		4CC947421D4AE00600426AA6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				4C4187041E5E40EE004F2410 /* Home */,
 				4C4187061E5E4102004F2410 /* Login */,
 				4C4187051E5E40FB004F2410 /* Post */,
-				4C4187041E5E40EE004F2410 /* Home */,
 				4C4187031E5E40E2004F2410 /* Profile */,
 				4CC947431D4AE01D00426AA6 /* Views */,
 			);

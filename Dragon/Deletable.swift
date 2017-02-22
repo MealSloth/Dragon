@@ -23,12 +23,16 @@ extension Deletable where Self: NSManagedObject {
 }
 
 extension Deletable where Self: NSManagedObject {
-    static var entityName: String {
-        return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
+    static var entityName: String? {
+        return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".").first
     }
     
     static internal func delete(_ predicate: NSPredicate? = nil) {
-        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
+        guard let entityName = self.entityName else {
+            Log.error("Cannot acquire entity name")
+            return
+        }
+        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: entityName)
         request.predicate = predicate
         let result = try? self.context?.fetch(request)
         result??.forEach({ self.context?.delete($0) })

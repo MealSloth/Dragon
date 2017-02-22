@@ -18,8 +18,8 @@ protocol Insertable {
 }
 
 extension Insertable where Self: NSManagedObject {
-    static var entityName: String {
-        return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
+    static var entityName: String? {
+        return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".").first
     }
     
     static internal func insert(at id: String?, into table: String?) -> Self? {
@@ -27,7 +27,10 @@ extension Insertable where Self: NSManagedObject {
             Log.error("Cannot retrieve object from managed object context")
             return nil
         }
-        let tableName = table ?? self.entityName
+        guard let tableName = table ?? self.entityName else {
+            Log.error("Cannot acquire entity name")
+            return nil
+        }
         let request: NSFetchRequest<Self> = NSFetchRequest(entityName: tableName)
         request.predicate = NSPredicate(format: "id == %@", id)
         if let result = try? context.fetch(request), let object = result.first {

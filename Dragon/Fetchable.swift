@@ -17,12 +17,16 @@ protocol Fetchable: NSFetchRequestResult {
 }
 
 extension Fetchable where Self: NSManagedObject {
-    static var entityName: String {
-        return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".")[0]
+    static var entityName: String? {
+        return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".").first
     }
     
     static func fetch(_ predicates: [NSPredicate]? = nil, sortBy sorts: [NSSortDescriptor]? = nil, limit: Int = 0) -> [Self]? {
-        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: self.entityName)
+        guard let entityName = self.entityName else {
+            Log.error("Cannot acquire entity name")
+            return nil
+        }
+        let request: NSFetchRequest<Self> = NSFetchRequest(entityName: entityName)
         request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates ?? [])
         request.sortDescriptors = sorts
