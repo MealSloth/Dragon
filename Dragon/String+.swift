@@ -23,6 +23,10 @@ extension String {
 }
 
 extension String {
+    static func *(lhs: String, rhs: Int) -> String {
+        return String(repeating: lhs, count: rhs)
+    }
+    
     static func random(allow format: [RandomStringAllow] = [.numeric, .alphaLower, .alphaUpper, ], length capacity: Int = 64) -> String {
         guard format.count > 0 else {
             preconditionFailure("Random function requires at least one value in array parameter. If no specific value is required, leave the parameter as nil.")
