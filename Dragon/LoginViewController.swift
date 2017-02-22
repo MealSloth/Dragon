@@ -39,18 +39,18 @@ class LoginViewController: UIViewController, KeyboardScrollable {
     // MARK: Buttons
     @IBAction func login() {
         guard let email = self.fieldEmail.text, let password = self.fieldPassword.text, password.characters.count >= 8 else {
-            self.messageIncorrectCredentials()
+            Message(.errorIncorrectUsernameOrPassword).display()
             return
         }
         UserLoginRequest(withUsername: email).request(
             onCompletion: { (userLoginResult: UserLoginResult) -> Void in
                 guard userLoginResult.valid(username: email, password: password) else {
-                    self.messageIncorrectCredentials()
+                    Message(.errorIncorrectUsernameOrPassword).display()
                     return
                 }
                 self.segue()
             },
-            onError: { (error) -> Void in
+            onError: { (_) -> Void in
                 Message(.errorTryAgainLater).display()
             }
         )
@@ -59,9 +59,5 @@ class LoginViewController: UIViewController, KeyboardScrollable {
     // MARK: Misc
     fileprivate func segue() {
         self.segue(withIdentifier: "Segue_LoginViewController->TabBarController", sender: self)
-    }
-    
-    fileprivate func messageIncorrectCredentials() {
-        Message("Incorrect username or password").display()
     }
 }

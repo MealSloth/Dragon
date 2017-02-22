@@ -17,6 +17,7 @@ struct Message: Messageable {
     
     enum CannedMessage: String {
         case errorTryAgainLater = "There was an error. Please try again later."
+        case errorIncorrectUsernameOrPassword = "Incorrect username or password"
     }
     
     var text: String?
