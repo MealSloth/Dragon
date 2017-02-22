@@ -13,9 +13,15 @@ class UserLogin: Model {
     @NSManaged var userID: String!
     @NSManaged var username: String!
     @NSManaged var accessLevel: NSNumber!
-    
+}
+
+extension UserLogin {
     var access: UserLoginAccessLevel? {
         get { return UserLoginAccessLevel(rawValue: self.accessLevel as Int) }
         set { if let value = newValue?.rawValue { self.accessLevel = value as NSNumber } }
+    }
+    
+    var user: User? {
+        return User.fromID(self.userID)
     }
 }

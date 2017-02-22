@@ -18,4 +18,8 @@ struct UserLoginRequest: APIRequest {
     init(withUserID userID: String?) {
         self.json["user_id"] = userID
     }
+    
+    init(withUsername username: String?) {
+        self.json["username"] = username
+    }
 }
