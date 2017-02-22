@@ -35,6 +35,7 @@ fileprivate extension ViewMessageable {
         guard let container = self.container else {
             let container = UIView()
             container.alpha = 0.0
+            
             container.addSubview(self.messageableBackground)
             container.translatesAutoresizingMaskIntoConstraints = false
             self.container = container
@@ -64,9 +65,10 @@ fileprivate extension ViewMessageable {
     fileprivate static var messageableLabel: UILabel {
         guard let label = self.label else {
             let label = UILabel()
-            label.textColor = .white
+            label.font = label.font.withSize(13.0)
             label.backgroundColor = .clear
             label.numberOfLines = 0
+            label.textColor = .white
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             self.label = label
@@ -77,6 +79,7 @@ fileprivate extension ViewMessageable {
     
     fileprivate static func constrainViews(in top: UIView?) {
         guard let top = top else { return }
+        constrain(.width, of: self.container, to: .width, of: top, by: 0.0, multiplier: 0.8)
         constrain(.bottom, of: self.container, to: .bottom, of: top, by: -30.0)
         constrain(.centerX, of: self.container, to: .centerX, of: top, by: 0.0)
         constrain(.sides(of: self.background, to: self.container, by: 0.0))

@@ -16,6 +16,6 @@ struct Message: Messageable {
     }
     
     func display() {
-        self.display(text: self.text)
+        Message.display(text: self.text)
     }
 }

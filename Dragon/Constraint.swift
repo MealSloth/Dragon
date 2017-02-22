@@ -8,7 +8,7 @@
 
 import UIKit
 
-func constrain(_ attributing: NSLayoutAttribute?, of constraining: UIView?, to attributed: NSLayoutAttribute?, of constrained: UIView?, by constant: CGFloat?) {
+func constrain(_ attributing: NSLayoutAttribute?, of constraining: UIView?, to attributed: NSLayoutAttribute?, of constrained: UIView?, by constant: CGFloat?, multiplier: CGFloat? = nil) {
     guard let constraining = constraining else { return }
     let constraint = NSLayoutConstraint(
         item: constraining,
@@ -16,7 +16,7 @@ func constrain(_ attributing: NSLayoutAttribute?, of constraining: UIView?, to a
         relatedBy: .equal,
         toItem: constrained,
         attribute: attributed ?? .top,
-        multiplier: 1.0,
+        multiplier: multiplier ?? 1.0,
         constant: constant ?? 0.0
     )
     let hierarchy = constrained ?? constraining

@@ -11,11 +11,11 @@ import UIKit
 protocol Messageable {}
 
 extension Messageable {
-    var view: MessageableView {
+    static var view: MessageableView {
         return MessageableView.shared
     }
     
-    func display(text: String?) {
+    static func display(text: String?) {
         guard let message = text else { return }
         MainQueue.sync({ () -> Void in
             _ = self.view // Preload UI
