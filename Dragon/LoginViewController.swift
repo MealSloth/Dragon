@@ -17,7 +17,6 @@ class LoginViewController: UIViewController, KeyboardScrollable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.observeKeyboard()
-        Message("This is a test of something which should probably be multiline; it likely isn't going to work yet but I'm willing to try.").display()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

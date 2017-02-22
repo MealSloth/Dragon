@@ -15,7 +15,7 @@ extension Messageable {
         return MessageableView.shared
     }
     
-    static func display(text: String?) {
+    static func display(text: String?, duration: TimeInterval? = nil) {
         guard let message = text else { return }
         MainQueue.sync({ () -> Void in
             _ = self.view // Preload UI
@@ -25,7 +25,7 @@ extension Messageable {
                     self.view.container.alpha = 1.0
                 },
                 completion: { (_) -> Void in
-                    UIView.animate(withDuration: 0.3, delay: 5.0, options: .curveEaseOut,
+                    UIView.animate(withDuration: 0.3, delay: duration ?? 5.0, options: .curveEaseOut,
                         animations: { () -> Void in
                             self.view.container.alpha = 0.0
                         }
