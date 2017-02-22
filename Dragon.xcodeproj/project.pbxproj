@@ -10,8 +10,12 @@
 		4C0354D01D5658AD00E7459D /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */; };
 		4C066AA11E5BB5F200B85D6F /* KeyboardObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066AA01E5BB5F200B85D6F /* KeyboardObservable.swift */; };
 		4C066AA41E5BB6EA00B85D6F /* KeyboardScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066AA31E5BB6EA00B85D6F /* KeyboardScrollable.swift */; };
+		4C066AA71E5BBD2B00B85D6F /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066AA61E5BBD2B00B85D6F /* Constraint.swift */; };
+		4C066AAA1E5BBF9A00B85D6F /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066AA91E5BBF9A00B85D6F /* Message.swift */; };
+		4C066AAC1E5BC3FE00B85D6F /* Messageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C066AAB1E5BC3FD00B85D6F /* Messageable.swift */; };
 		4C06E03D1D4ACB8F005933A9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */; };
 		4C06E03E1D4ACEB5005933A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69826B1CD3D7A4005ABCF1 /* Main.storyboard */; };
+		4C0EE7AB1E5E0EE500BCE74B /* MessageableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0EE7AA1E5E0EE500BCE74B /* MessageableView.swift */; };
 		4C147A6B1DADA759002CA992 /* UserLoginDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */; };
 		4C1504271DD3DFFC00A952EF /* InstanceRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */; };
 		4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */; };
@@ -167,7 +171,11 @@
 		4C0354CF1D5658AD00E7459D /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		4C066AA01E5BB5F200B85D6F /* KeyboardObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardObservable.swift; sourceTree = "<group>"; };
 		4C066AA31E5BB6EA00B85D6F /* KeyboardScrollable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardScrollable.swift; sourceTree = "<group>"; };
+		4C066AA61E5BBD2B00B85D6F /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		4C066AA91E5BBF9A00B85D6F /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4C066AAB1E5BC3FD00B85D6F /* Messageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messageable.swift; sourceTree = "<group>"; };
 		4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		4C0EE7AA1E5E0EE500BCE74B /* MessageableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageableView.swift; sourceTree = "<group>"; };
 		4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginDataTest.swift; sourceTree = "<group>"; };
 		4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceRetrievable.swift; sourceTree = "<group>"; };
 		4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +350,24 @@
 			name = "Keyboard Protocols";
 			sourceTree = "<group>";
 		};
+		4C066AA51E5BBD1E00B85D6F /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				4C066AA61E5BBD2B00B85D6F /* Constraint.swift */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
+		4C066AA81E5BBF6B00B85D6F /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				4C066AA91E5BBF9A00B85D6F /* Message.swift */,
+				4C066AAB1E5BC3FD00B85D6F /* Messageable.swift */,
+				4C0EE7AA1E5E0EE500BCE74B /* MessageableView.swift */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		4C1DF2281D52BC7400C533CB /* ConsumerProfileCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,13 +432,13 @@
 			path = DragonUITests;
 			sourceTree = "<group>";
 		};
-		4C5B6AB91DFF40B400B0785B /* Caches */ = {
+		4C5B6AB91DFF40B400B0785B /* Cache */ = {
 			isa = PBXGroup;
 			children = (
 				4C622FF31E3D5A0D00CE2150 /* Cacheable.swift */,
 				4CF29B641DC17B920076F14F /* UIImageCache.swift */,
 			);
-			name = Caches;
+			name = Cache;
 			sourceTree = "<group>";
 		};
 		4C5B6ABA1DFF40DB00B0785B /* Subclasses */ = {
@@ -564,14 +590,14 @@
 			name = EqualityTest;
 			sourceTree = "<group>";
 		};
-		4C622FEC1E3D4C6F00CE2150 /* Queues */ = {
+		4C622FEC1E3D4C6F00CE2150 /* Queue */ = {
 			isa = PBXGroup;
 			children = (
 				4C622FEF1E3D4C9000CE2150 /* BackgroundQueue.swift */,
 				4C622FED1E3D4C8800CE2150 /* MainQueue.swift */,
 				4C622FF11E3D590300CE2150 /* Queueable.swift */,
 			);
-			name = Queues;
+			name = Queue;
 			sourceTree = "<group>";
 		};
 		4C622FF51E3D64F900CE2150 /* CacheTest */ = {
@@ -816,13 +842,13 @@
 			name = CoreDataTest;
 			sourceTree = "<group>";
 		};
-		4CA3C0541E46798400BDCF69 /* Logging */ = {
+		4CA3C0541E46798400BDCF69 /* Log */ = {
 			isa = PBXGroup;
 			children = (
 				4CE166DF1D3959DC003589D0 /* Log.swift */,
 				4CA3C0551E467A1E00BDCF69 /* Loggable.swift */,
 			);
-			name = Logging;
+			name = Log;
 			sourceTree = "<group>";
 		};
 		4CB66B741DFF2E36004464A2 /* Model Protocols */ = {
@@ -966,9 +992,11 @@
 		4CE166DE1D3959CC003589D0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4C5B6AB91DFF40B400B0785B /* Caches */,
-				4CA3C0541E46798400BDCF69 /* Logging */,
-				4C622FEC1E3D4C6F00CE2150 /* Queues */,
+				4C5B6AB91DFF40B400B0785B /* Cache */,
+				4C066AA51E5BBD1E00B85D6F /* Layout */,
+				4CA3C0541E46798400BDCF69 /* Log */,
+				4C066AA81E5BBF6B00B85D6F /* Message */,
+				4C622FEC1E3D4C6F00CE2150 /* Queue */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1147,6 +1175,7 @@
 				4C69828F1CD3D865005ABCF1 /* APIResult.swift in Sources */,
 				4C7BEC3D1E3C9348009F4B36 /* EditProfileCellType.swift in Sources */,
 				4CE15B2C1E5B8CDB00CF6085 /* RefreshControllable.swift in Sources */,
+				4C066AAA1E5BBF9A00B85D6F /* Message.swift in Sources */,
 				4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */,
 				4CDA110A1D47F3A5002C62FD /* UserModifyRequest.swift in Sources */,
 				4CC674891D80E8E5001BCA67 /* Post.swift in Sources */,
@@ -1160,6 +1189,7 @@
 				4CC780C31DD27C5A00E93EB4 /* FieldNameConverter.swift in Sources */,
 				4C7A82CB1D3EC2B700638FBE /* PostPageResult.swift in Sources */,
 				4CC40DAC1D51708300B5D4BE /* BlobResult.swift in Sources */,
+				4C066AAC1E5BC3FE00B85D6F /* Messageable.swift in Sources */,
 				4CCD0A611CD91BC80081A28B /* ReviewAPIModel.swift in Sources */,
 				4CCD0A731CD920090081A28B /* UserLoginAccessLevel.swift in Sources */,
 				4CFF11D01D497E600062B33A /* UIViewController+.swift in Sources */,
@@ -1197,12 +1227,14 @@
 				4C622FEE1E3D4C8800CE2150 /* MainQueue.swift in Sources */,
 				4CC60D981DB2CB87002A5EE0 /* UIActivityIndicatorView+.swift in Sources */,
 				4C2510B91DAA5BD3001112E5 /* Insertable.swift in Sources */,
+				4C066AA71E5BBD2B00B85D6F /* Constraint.swift in Sources */,
 				4CCD0A6D1CD91F580081A28B /* ChefAPIModel.swift in Sources */,
 				4C42CC961D90A422008B2FCA /* Fetchable.swift in Sources */,
 				4CC6747F1D80E8B8001BCA67 /* Consumer.swift in Sources */,
 				4CC40DA91D516F8D00B5D4BE /* BlobRequest.swift in Sources */,
 				4CCD0A581CD8EEFE0081A28B /* APIModel.swift in Sources */,
 				4CC674791D80E8A5001BCA67 /* Album.swift in Sources */,
+				4C0EE7AB1E5E0EE500BCE74B /* MessageableView.swift in Sources */,
 				4CCD0A841CD93B4F0081A28B /* LocationPurpose.swift in Sources */,
 				4CC674751D80E82C001BCA67 /* UserLogin.swift in Sources */,
 				4CE632421CDAA2F60085F54C /* UserResult.swift in Sources */,
