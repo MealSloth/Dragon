@@ -16,9 +16,7 @@ protocol APIRequest {
 
 extension APIRequest {
     var cleanedMethod: String {
-        get {
-            return self.method.characters.first == "/" ? String(self.method.characters.dropFirst()) : self.method
-        }
+        return self.method.characters.first == "/" ? String(self.method.characters.dropFirst()) : self.method
     }
     
     func request<T: APIResult>(onCompletion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil, finally: (() -> Void)? = nil) {

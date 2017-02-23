@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory?.appendingPathComponent("SingleViewCoreData.sqlite")
+        let url = self.applicationDocumentsDirectory?.appendingPathComponent("dragon_v1.sqlite")
         let store = try? coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         return coordinator
     }()
