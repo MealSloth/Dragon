@@ -8,12 +8,12 @@
 
 import UIKit
 
-func constrain(_ attributing: NSLayoutAttribute?, of constraining: UIView?, to attributed: NSLayoutAttribute?, of constrained: UIView?, by constant: CGFloat?, multiplier: CGFloat? = nil) {
+func constrain(_ attributing: NSLayoutAttribute?, of constraining: UIView?, _ relation: NSLayoutRelation?, to attributed: NSLayoutAttribute?, of constrained: UIView?, by constant: CGFloat?, multiplier: CGFloat? = nil) {
     guard let constraining = constraining else { return }
     let constraint = NSLayoutConstraint(
         item: constraining,
         attribute: attributing ?? .top,
-        relatedBy: .equal,
+        relatedBy: relation ?? .equal,
         toItem: constrained,
         attribute: attributed ?? .top,
         multiplier: multiplier ?? 1.0,
@@ -21,6 +21,10 @@ func constrain(_ attributing: NSLayoutAttribute?, of constraining: UIView?, to a
     )
     let hierarchy = constrained ?? constraining
     hierarchy.addConstraint(constraint)
+}
+
+func constrain(_ attributing: NSLayoutAttribute?, of constraining: UIView?, to attributed: NSLayoutAttribute?, of constrained: UIView?, by constant: CGFloat?, multiplier: CGFloat? = nil) {
+    constrain(attributing, of: constraining, nil, to: attributed, of: constrained, by: constant, multiplier: multiplier)
 }
 
 func constrain(_ attributes: [NSLayoutAttribute], of constraining: UIView?, to constrained: UIView?, by constant: CGFloat?) {
@@ -45,9 +49,19 @@ func constrain(_ operation: ConstraintOperation) {
             constrain([.top, .leading, ], of: constraining, to: constrained, by: constant)
             constrain([.bottom, .trailing, ], of: constraining, to: constrained, by: 0.0 - (constant ?? 0.0))
             break
+        case .xSides(let constraining, let constrained, let constant):
+            constrain(.leading, of: constraining, to: .leading, of: constrained, by: constant)
+            constrain(.trailing, of: constraining, to: .trailing, of: constrained, by: 0.0 - (constant ?? 0.0))
+            break
+        case .ySides(let constraining, let constrained, let constant):
+            constrain(.top, of: constraining, to: .top, of: constrained, by: constant)
+            constrain(.bottom, of: constraining, to: .bottom, of: constrained, by: 0.0 - (constant ?? 0.0))
+            break
     }
 }
 
 enum ConstraintOperation {
     case sides(of: UIView?, to: UIView?, by: CGFloat?)
+    case xSides(of: UIView?, to: UIView?, by: CGFloat?)
+    case ySides(of: UIView?, to: UIView?, by: CGFloat?)
 }
