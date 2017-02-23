@@ -32,15 +32,12 @@ extension String {
             preconditionFailure("Random function requires at least one value in array parameter. If no specific value is required, leave the parameter as nil.")
         }
         
-        let set: String = format.map({ $0.rawValue }).joined()
-        let characters: NSMutableString = NSMutableString(string: set)
-        let randomString: NSMutableString = NSMutableString(capacity: capacity)
-        
+        let set: String.CharacterView = format.map({ $0.rawValue }).joined().characters
+        var characters: [String] = []
         for _ in 0..<capacity {
-            let rand = Int(arc4random_uniform(UInt32(characters.length % Int(Int32.max))))
-            randomString.appendFormat("%C", characters.character(at: rand))
+            let rand = Int(arc4random_uniform(UInt32(capacity % Int(Int32.max))))
+            characters.append(String(set[set.index(set.startIndex, offsetBy: rand)]))
         }
-        
-        return randomString as String
+        return characters.joined()
     }
 }
