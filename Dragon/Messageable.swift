@@ -15,23 +15,34 @@ extension Messageable {
         return MessageableView.shared
     }
     
+    static var duration: Double {
+        return 5.0
+    }
+    
+    static var speed: Double {
+        return 0.5
+    }
+    
     static func display(text: String?, duration: TimeInterval? = nil) {
         guard let message = text else { return }
         MainQueue.sync({ () -> Void in
-            _ = self.view // Preload UI
             self.view.label.text = message
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut,
-                animations: { () -> Void in
-                    self.view.container.alpha = 1.0
-                },
-                completion: { (_) -> Void in
-                    UIView.animate(withDuration: 0.3, delay: duration ?? 5.0, options: .curveEaseOut,
-                        animations: { () -> Void in
-                            self.view.container.alpha = 0.0
-                        }
-                    )
-                }
-            )
+            self.show(text: text, duration: duration)
         })
+    }
+    
+    fileprivate static func show(text: String?, duration: TimeInterval?) {
+        UIView.animate(withDuration: self.speed, delay: 0.0, options: .curveEaseOut,
+            animations: { () -> Void in
+                self.view.container.visible = true
+            },
+            completion: { (_) -> Void in
+                UIView.animate(withDuration: self.speed, delay: duration ?? self.duration, options: .curveEaseOut,
+                    animations: { () -> Void in
+                        self.view.container.visible = false
+                    }
+                )
+            }
+        )
     }
 }

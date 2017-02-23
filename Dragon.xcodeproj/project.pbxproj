@@ -16,6 +16,7 @@
 		4C06E03D1D4ACB8F005933A9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */; };
 		4C06E03E1D4ACEB5005933A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C69826B1CD3D7A4005ABCF1 /* Main.storyboard */; };
 		4C0EE7AB1E5E0EE500BCE74B /* MessageableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0EE7AA1E5E0EE500BCE74B /* MessageableView.swift */; };
+		4C1115A71E5E702100C7749D /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1115A61E5E702100C7749D /* UIView+.swift */; };
 		4C147A6B1DADA759002CA992 /* UserLoginDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */; };
 		4C1504271DD3DFFC00A952EF /* InstanceRetrievable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */; };
 		4C1DF2271D52BA9300C533CB /* ConsumerProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */; };
@@ -82,6 +83,7 @@
 		4C9655581D0E109400011EAC /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655571D0E109400011EAC /* PostRequest.swift */; };
 		4C96555A1D0E11BE00011EAC /* PostResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655591D0E11BE00011EAC /* PostResult.swift */; };
 		4C9655621D0E436600011EAC /* Enumerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9655611D0E436600011EAC /* Enumerable.swift */; };
+		4CA17D141E5EC245008755DD /* ViewMessageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA17D131E5EC245008755DD /* ViewMessageable.swift */; };
 		4CA3C0561E467A1E00BDCF69 /* Loggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3C0551E467A1E00BDCF69 /* Loggable.swift */; };
 		4CA3C0581E46831800BDCF69 /* ClassValidatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA3C0571E46831800BDCF69 /* ClassValidatable.swift */; };
 		4CAA3E5A1D80C16C0015FA43 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAA3E591D80C16C0015FA43 /* Model.swift */; };
@@ -176,6 +178,7 @@
 		4C066AAB1E5BC3FD00B85D6F /* Messageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messageable.swift; sourceTree = "<group>"; };
 		4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		4C0EE7AA1E5E0EE500BCE74B /* MessageableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageableView.swift; sourceTree = "<group>"; };
+		4C1115A61E5E702100C7749D /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		4C147A6A1DADA759002CA992 /* UserLoginDataTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginDataTest.swift; sourceTree = "<group>"; };
 		4C1504261DD3DFFC00A952EF /* InstanceRetrievable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceRetrievable.swift; sourceTree = "<group>"; };
 		4C1DF2261D52BA9300C533CB /* ConsumerProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsumerProfileTableViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 		4C9655571D0E109400011EAC /* PostRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostRequest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C9655591D0E11BE00011EAC /* PostResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PostResult.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4C9655611D0E436600011EAC /* Enumerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerable.swift; sourceTree = "<group>"; };
+		4CA17D131E5EC245008755DD /* ViewMessageable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageable.swift; sourceTree = "<group>"; };
 		4CA3C0551E467A1E00BDCF69 /* Loggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggable.swift; sourceTree = "<group>"; };
 		4CA3C0571E46831800BDCF69 /* ClassValidatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassValidatable.swift; sourceTree = "<group>"; };
 		4CAA3E591D80C16C0015FA43 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 				4C066AA91E5BBF9A00B85D6F /* Message.swift */,
 				4C066AAB1E5BC3FD00B85D6F /* Messageable.swift */,
 				4C0EE7AA1E5E0EE500BCE74B /* MessageableView.swift */,
+				4CA17D131E5EC245008755DD /* ViewMessageable.swift */,
 			);
 			name = Message;
 			sourceTree = "<group>";
@@ -407,13 +412,6 @@
 				4C4187081E5E4123004F2410 /* EditProfile */,
 			);
 			name = Profile;
-			sourceTree = "<group>";
-		};
-		4C4187041E5E40EE004F2410 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Home;
 			sourceTree = "<group>";
 		};
 		4C4187051E5E40FB004F2410 /* Post */ = {
@@ -565,6 +563,7 @@
 				4CC40DB21D51819200B5D4BE /* UIImage+.swift */,
 				4C06E03C1D4ACB8F005933A9 /* UIImageView+.swift */,
 				4CE15B281E5B89F800CF6085 /* UITableViewController+.swift */,
+				4C1115A61E5E702100C7749D /* UIView+.swift */,
 				4CFF11CF1D497E600062B33A /* UIViewController+.swift */,
 			);
 			name = "UI Subclasses";
@@ -955,7 +954,6 @@
 		4CC947421D4AE00600426AA6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				4C4187041E5E40EE004F2410 /* Home */,
 				4C4187061E5E4102004F2410 /* Login */,
 				4C4187051E5E40FB004F2410 /* Post */,
 				4C4187031E5E40E2004F2410 /* Profile */,
@@ -1230,6 +1228,7 @@
 				4C385EBF1DFF9F8E0034C190 /* TestRequest.swift in Sources */,
 				4C69828F1CD3D865005ABCF1 /* APIResult.swift in Sources */,
 				4C7BEC3D1E3C9348009F4B36 /* EditProfileCellType.swift in Sources */,
+				4CA17D141E5EC245008755DD /* ViewMessageable.swift in Sources */,
 				4CE15B2C1E5B8CDB00CF6085 /* RefreshControllable.swift in Sources */,
 				4C066AAA1E5BBF9A00B85D6F /* Message.swift in Sources */,
 				4C2510BB1DAA6A98001112E5 /* Deletable.swift in Sources */,
@@ -1332,6 +1331,7 @@
 				4C35D4121DFA38C600CF5A8F /* ModelNonRecursible.swift in Sources */,
 				4CE468141D3BEC53000B95DE /* PostPageRequest.swift in Sources */,
 				4C1FDC6B1E09DA8D004C0D96 /* TypeHelper.swift in Sources */,
+				4C1115A71E5E702100C7749D /* UIView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
