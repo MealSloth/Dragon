@@ -12,8 +12,6 @@ protocol ViewMessageable {
     static var container: UIView? { get set }
     static var background: UIView? { get set }
     static var label: UILabel? { get set }
-    
-    init()
 }
 
 extension ViewMessageable {
