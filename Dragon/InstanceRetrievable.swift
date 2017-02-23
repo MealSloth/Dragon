@@ -17,3 +17,13 @@ extension InstanceRetrievable where Self: AppDelegate {
         return UIApplication.shared.delegate as? Self
     }
 }
+
+extension InstanceRetrievable where Self: UITableViewCell {
+    static var cellIdentifier: String {
+        return String(describing: type(of: self)).components(separatedBy: ".").first ?? ""
+    }
+    
+    static func instance(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        return tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+    }
+}

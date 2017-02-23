@@ -11,7 +11,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
-    //MARK: Members
     var window: UIWindow?
     var applicationDocumentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
     
@@ -33,10 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
         return managedObjectContext
     }()
     
-    //MARK: Delegates
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //When writing to CoreData, existing entries should be merged with priority given to the external model
         self.managedObjectContext.performAndWait({ () -> Void in
+            //When writing to CoreData, existing entries should be merged with priority given to the external model
             self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         })
         _ = Model.children //Preload children of Model class
@@ -45,18 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {}
-
     func applicationDidEnterBackground(_ application: UIApplication) {}
-
     func applicationWillEnterForeground(_ application: UIApplication) {}
-
     func applicationDidBecomeActive(_ application: UIApplication) {}
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
         AppDelegate.saveContext()
     }
     
-    //MARK: Static functions
     static func saveContext() {
         try? self.instance?.managedObjectContext.save()
     }

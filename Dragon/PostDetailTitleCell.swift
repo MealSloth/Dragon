@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PostDetailTitleCell: UITableViewCell {
+class PostDetailTitleCell: UITableViewCell, InstanceRetrievable {
     @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var imageChef: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -17,10 +17,10 @@ class PostDetailTitleCell: UITableViewCell {
     var blob: Blob?
     
     static func instance(from tableView: UITableView, at indexPath: IndexPath, for post: Post?) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostDetailTitleCell", for: indexPath)
-        guard let titleCell = cell as? PostDetailTitleCell else { return cell }
-        titleCell.populate(withPost: post)
-        return titleCell
+        let cell = self.instance(from: tableView, at: indexPath)
+        let titleCell = cell as? PostDetailTitleCell
+        titleCell?.populate(withPost: post)
+        return titleCell ?? cell
     }
     
     func populate(withPost post: Post?) {

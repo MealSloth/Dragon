@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol EditProfileCell {
+protocol EditProfileCell: InstanceRetrievable {
     static var type: EditProfileCellType { get }
     var user: User? { get set }
     
@@ -16,12 +16,15 @@ protocol EditProfileCell {
 }
 
 extension EditProfileCell where Self: UITableViewCell {
+    static var cellIdentifier: String {
+        return self.type.rawValue
+    }
+    
     static func instance(from tableView: UITableView, at indexPath: IndexPath, for user: User?) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.type.name, for: indexPath)
-        guard let profileCell = cell as? Self else { return cell }
-        var editProfileCell = profileCell
-        editProfileCell.user = user
-        editProfileCell.initialize()
-        return editProfileCell
+        let cell = self.instance(from: tableView, at: indexPath)
+        var profileCell = cell as? Self
+        profileCell?.user = user
+        profileCell?.initialize()
+        return profileCell ?? cell
     }
 }
