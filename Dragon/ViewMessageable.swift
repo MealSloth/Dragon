@@ -26,8 +26,8 @@ extension ViewMessageable {
         }
     }
     
-    mutating func initialize() {
-        _ = MessageableView.messageableContainer
+    func initialize() {
+        _ = Self.messageableContainer
     }
 }
 
@@ -78,10 +78,12 @@ extension ViewMessageable {
     
     fileprivate static func constrainViews(in top: UIView?) {
         guard let top = top else { return }
-        constrain(.width, of: self.messageableContainer, to: .width, of: top, by: 0.0, multiplier: 0.8)
-        constrain(.bottom, of: self.messageableContainer, to: .bottom, of: top, by: -30.0)
-        constrain(.centerX, of: self.messageableContainer, to: .centerX, of: top, by: 0.0)
-        constrain(.sides(of: self.messageableBackground, to: self.messageableContainer, by: 0.0))
-        constrain(.sides(of: self.messageableLabel, to: self.messageableBackground, by: 8.0))
+        constrain(.width, of: self.container, to: .width, of: top, by: 0.0, multiplier: 0.8)
+        constrain(.bottom, of: self.container, to: .bottom, of: top, by: -30.0)
+        constrain(.centerX, of: self.container, to: .centerX, of: top, by: 0.0)
+        constrain(.width, of: self.background, .lessThanOrEqual, to: .width, of: self.container, by: 0.0)
+        constrain(.centerX, of: self.background, to: .centerX, of: self.container, by: 0.0)
+        constrain(.ySides(of: self.background, to: self.container, by: 0.0))
+        constrain(.sides(of: self.label, to: self.background, by: 8.0))
     }
 }
