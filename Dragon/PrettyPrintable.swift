@@ -6,8 +6,6 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-import CoreData
-
 protocol PrettyPrintable: PropertiesAccessible {
     func value(for key: String) -> Any?
 }
