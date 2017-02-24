@@ -17,7 +17,7 @@ extension PropertiesAccessible {
         if let context = self as? NSManagedObject {
             return context.entity.attributesByName.map({ $0.key })
         } else {
-            return Mirror(reflecting: self).children.filter({ $0.label != nil }).map({ $0.label! })
+            return Mirror(reflecting: self).children.filter({ $0.label != nil }).flatMap({ $0.label })
         }
     }
 }
