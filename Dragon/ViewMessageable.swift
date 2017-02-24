@@ -81,7 +81,7 @@ extension ViewMessageable {
         constrain(.centerX, of: self.container, to: .centerX, of: top, by: 0.0)
         constrain(.width, of: self.background, .lessThanOrEqual, to: .width, of: self.container, by: 0.0)
         constrain(.centerX, of: self.background, to: .centerX, of: self.container, by: 0.0)
-        constrain(.ySides(of: self.background, to: self.container, by: 0.0))
+        constrain(.xSides(of: self.background, to: self.container, by: 0.0))
         constrain(.sides(of: self.label, to: self.background, by: 8.0))
     }
 }

@@ -23,4 +23,12 @@ struct MessageableView: ViewMessageable {
         self.initialize()
         self.visible = false
     }
+    
+    func hide() {
+        self.container.visible = false
+    }
+    
+    func show() {
+        self.container.visible = true
+    }
 }

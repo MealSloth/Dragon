@@ -34,12 +34,12 @@ extension Messageable {
     fileprivate static func show(text: String?, duration: TimeInterval?) {
         UIView.animate(withDuration: self.speed, delay: 0.0, options: .curveEaseOut,
             animations: { () -> Void in
-                self.view.container.visible = true
+                self.view.show()
             },
             completion: { (_) -> Void in
                 UIView.animate(withDuration: self.speed, delay: duration ?? self.duration, options: .curveEaseOut,
                     animations: { () -> Void in
-                        self.view.container.visible = false
+                        self.view.hide()
                     }
                 )
             }
