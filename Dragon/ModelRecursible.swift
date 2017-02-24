@@ -12,7 +12,7 @@ protocol ModelRecursible: PrettyPrintable {
 
 extension ModelRecursible where Self: APIModel {
     func initialize<T: FieldNameConverter>(_ json: [String:Any], skip: [String] = [], using: T.Type) {
-        for property in self.getProperties() where !skip.contains(property) && !skip.contains(T.getServerName(forClientName: property)) {
+        for property in self.properties where !skip.contains(property) && !skip.contains(T.getServerName(forClientName: property)) {
             var value: Any? = json[T.getServerName(forClientName: property)] //The default value is most common
             if let values = value as? [Any] { //Handle arrays
                 if let type = TypeHelper.type(from: property, ofObject: self),

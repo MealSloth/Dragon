@@ -13,10 +13,14 @@ protocol PrettyPrintable: PropertiesAccessible {
 }
 
 extension PrettyPrintable {
+    var description: String {
+        return self.getPropertiesString(self)
+    }
+    
     func getPropertiesString(_ context: PrettyPrintable, depth: Int = 0, nameless: Bool = false) -> String {
         var string: String = depth == 0 ? "\n\n" : ""
         string += nameless ? "{\n" : "\(Mirror(reflecting: self).subjectType): {\n"
-        context.getProperties().forEach({ string += context.getPropertyString(context, property: $0, depth: depth + 1) })
+        context.properties.forEach({ string += context.getPropertyString(context, property: $0, depth: depth + 1) })
         stride(from: 0, to: depth, by: 1).forEach({ _ in string += "    " })
         string += "}\n"
         return string

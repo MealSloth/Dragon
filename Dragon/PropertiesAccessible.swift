@@ -13,11 +13,11 @@ protocol PropertiesAccessible {
 }
 
 extension PropertiesAccessible {
-    func getProperties() -> [String] {
+    var properties: [String] {
         if let context = self as? NSManagedObject {
             return context.entity.attributesByName.map({ $0.key })
         } else {
-            return Mirror(reflecting: self).children.filter({ $0.label != nil }).flatMap({ $0.label })
+            return Mirror(reflecting: self).children.flatMap({ $0.label })
         }
     }
 }

@@ -14,8 +14,8 @@ protocol PropertiesEquatable: PropertiesAccessible {
 
 extension PropertiesEquatable {
     static func equal(_ left: PropertiesEquatable, _ right: PropertiesEquatable) -> Bool {
-        let leftProperties = left.getProperties()
-        let rightProperties = right.getProperties()
+        let leftProperties = left.properties
+        let rightProperties = right.properties
         for this in leftProperties {
             for (index, that) in rightProperties.enumerated() {
                 guard this == that else {
