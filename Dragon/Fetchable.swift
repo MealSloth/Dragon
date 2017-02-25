@@ -30,10 +30,8 @@ extension Fetchable where Self: NSManagedObject {
         request.fetchLimit = limit <= 0 ? request.fetchLimit : limit
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates ?? [])
         request.sortDescriptors = sorts
-        if let result = try? self.context?.fetch(request), result?.first != nil {
-            return result
-        }
-        return nil
+        guard let result = try? self.context?.fetch(request), result?.first != nil else { return nil }
+        return result
     }
     
     static internal func from(_ predicateMap: [String:Any]? = [:], sortMap: [String:Bool]? = [:], limit: Int = 0) -> [Self]? {
@@ -59,12 +57,12 @@ extension Fetchable where Self: NSManagedObject {
     }
     
     static func all() -> [Self]? {
-        return self.fetch()
+        return self.from()
     }
     
-    static func top(_ count: Int? = 10) -> [Self]? {
+    static func top(_ count: Int?) -> [Self]? {
         guard let limit = count, limit > 0 else { return nil }
-        return self.fetch(limit: limit)
+        return self.from(limit: limit)
     }
     
     static func first() -> Self? {
