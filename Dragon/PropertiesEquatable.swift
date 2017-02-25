@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PropertiesEquatable: PropertiesAccessible {
-    func value(forKey key: String) -> Any?
+    func value(for key: String) -> Any?
 }
 
 extension PropertiesEquatable {
@@ -23,17 +23,17 @@ extension PropertiesEquatable {
                     continue
                 }
                 
-                guard left.value(forKey: this) != nil || right.value(forKey: that) != nil else {
+                guard left.value(for: this) != nil || right.value(for: that) != nil else {
                     break
                 }
                 
-                if let this = left.value(forKey: this) as? PropertiesEquatable, let that = right.value(forKey: that) as? PropertiesEquatable {
+                if let this = left.value(for: this) as? PropertiesEquatable, let that = right.value(for: that) as? PropertiesEquatable {
                     guard equal(this, that) else { return false }
                     break
-                } else if let this = left.value(forKey: this) as? [PropertiesEquatable], let that = right.value(forKey: that) as? [PropertiesEquatable] {
+                } else if let this = left.value(for: this) as? [PropertiesEquatable], let that = right.value(for: that) as? [PropertiesEquatable] {
                     guard equal(this, that) else { return false }
                     break
-                } else if let this = left.value(forKey: this) as? NSObject, let that = right.value(forKey: that) as? NSObject {
+                } else if let this = left.value(for: this) as? NSObject, let that = right.value(for: that) as? NSObject {
                     guard this == that else { return false }
                     break
                 } else {

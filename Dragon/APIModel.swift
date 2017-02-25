@@ -10,7 +10,7 @@ import Foundation
 
 class APIModel: NSObject, PersistentModelRecursible, PrettyPrintable, PropertiesEquatable, ChildrenIdentifiable {
     override var description: String {
-        return self.getPropertiesString(self)
+        return self.getPropertiesString()
     }
     
     static var children: [APIModel.Type] = {
