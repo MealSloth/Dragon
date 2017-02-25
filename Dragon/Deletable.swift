@@ -27,7 +27,7 @@ extension Deletable where Self: NSManagedObject {
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".").first
     }
     
-    static internal func delete(_ predicate: NSPredicate? = nil) {
+    static func delete(_ predicate: NSPredicate? = nil) {
         guard let entityName = self.entityName else {
             Log.error("Cannot acquire entity name")
             return

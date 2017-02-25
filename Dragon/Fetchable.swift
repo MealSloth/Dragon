@@ -34,24 +34,24 @@ extension Fetchable where Self: NSManagedObject {
         return result
     }
     
-    static internal func from(predicateMap: [String:Any]? = [:], sortMap: [String:Bool]? = [:], limit: Int = 0) -> [Self]? {
+    static func from(predicateMap: [String:Any]? = [:], sortMap: [String:Bool]? = [:], limit: Int = 0) -> [Self]? {
         let predicates: [NSPredicate] = predicateMap?.map({ NSPredicate(format: "\($0.key) IN %@", $0.value as? [Any] ?? [$0.value, ]) }) ?? []
         let sorts: [NSSortDescriptor] = sortMap?.map({ NSSortDescriptor(key: $0.key, ascending: $0.value) }) ?? []
         return self.fetch(predicates: predicates, sorts: sorts, limit: limit)
     }
     
-    static internal func from(_ key: String?, inValues values: [Any]?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]? {
+    static func from(_ key: String?, inValues values: [Any]?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]? {
         guard let key = key, let values = values, values.first != nil else { return nil } //Do not allow querying by nil in this function
         guard let sort = sortKey else { return self.from(predicateMap: [key: values, ], sortMap: nil, limit: limit) }
         return self.from(predicateMap: [key: values, ], sortMap: [sort: ascending, ], limit: limit)
     }
     
-    static internal func from(_ key: String?, withValue value: Any?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]? {
+    static func from(_ key: String?, withValue value: Any?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]? {
         guard let value = value else { return nil } //Do not allow querying by nil in this function
         return self.from(key, inValues: [value, ], sortBy: sortKey, ascending: ascending, limit: limit)
     }
     
-    static internal func sortBy(key sortKey: String?, ascending: Bool = true, limit: Int = 0) -> [Self]? {
+    static func sortBy(key sortKey: String?, ascending: Bool = true, limit: Int = 0) -> [Self]? {
         guard let sort = sortKey else { return nil } //Do not allow sorting by nil in this function
         return self.from(sortMap: [sort: ascending, ], limit: limit)
     }

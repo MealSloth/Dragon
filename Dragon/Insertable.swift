@@ -22,7 +22,7 @@ extension Insertable where Self: NSManagedObject {
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".").first
     }
     
-    static internal func insert(at id: String?, into table: String?) -> Self? {
+    fileprivate static func insert(at id: String?, into table: String?) -> Self? {
         guard let context = self.context, let id = id else {
             Log.error("Cannot retrieve object from managed object context")
             return nil
