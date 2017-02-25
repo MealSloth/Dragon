@@ -80,7 +80,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
     }
     
     //MARK: Global Model functions
-    static internal func deleteAllChildren() {
+    static func deleteAllChildren() {
         for child in Model.children {
             child.deleteAll()
         }
