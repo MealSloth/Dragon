@@ -6,7 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-protocol ModelNonRecursible: PrettyPrintable {
+protocol ModelNonRecursible: PropertiesAccessible {
     
 }
 
@@ -15,6 +15,5 @@ extension ModelNonRecursible where Self: APIModel {
         for property in self.properties where !skip.contains(property) && !skip.contains(T.getServerName(forClientName: property)) {
             self.set(json[T.getServerName(forClientName: property)], for: property)
         }
-        Log.info("Finished initializing model with values: \(self)")
     }
 }

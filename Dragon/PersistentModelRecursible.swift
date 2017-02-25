@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PersistentModelRecursible: PrettyPrintable {
+protocol PersistentModelRecursible: PropertiesAccessible {
     
 }
 

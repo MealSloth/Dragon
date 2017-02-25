@@ -6,7 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
-protocol ModelRecursible: PrettyPrintable {
+protocol ModelRecursible: PropertiesAccessible {
     
 }
 
@@ -35,6 +35,5 @@ extension ModelRecursible where Self: APIModel {
             }
             self.set(value, for: property)
         }
-        Log.info("Finished initializing APIModel with values: \(self)")
     }
 }
