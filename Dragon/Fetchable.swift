@@ -21,7 +21,7 @@ extension Fetchable where Self: NSManagedObject {
         return String(describing: Mirror(reflecting: self).subjectType).components(separatedBy: ".").first
     }
     
-    static func fetch(_ predicates: [NSPredicate]? = nil, sortBy sorts: [NSSortDescriptor]? = nil, limit: Int = 0) -> [Self]? {
+    static func fetch(predicates: [NSPredicate]?, sorts: [NSSortDescriptor]?, limit: Int) -> [Self]? {
         guard let entityName = self.entityName else {
             Log.error("Cannot acquire entity name")
             return nil
@@ -37,7 +37,7 @@ extension Fetchable where Self: NSManagedObject {
     static internal func from(predicateMap: [String:Any]? = [:], sortMap: [String:Bool]? = [:], limit: Int = 0) -> [Self]? {
         let predicates: [NSPredicate] = predicateMap?.map({ NSPredicate(format: "\($0.key) IN %@", $0.value as? [Any] ?? [$0.value, ]) }) ?? []
         let sorts: [NSSortDescriptor] = sortMap?.map({ NSSortDescriptor(key: $0.key, ascending: $0.value) }) ?? []
-        return self.fetch(predicates, sortBy: sorts, limit: limit)
+        return self.fetch(predicates: predicates, sorts: sorts, limit: limit)
     }
     
     static internal func from(_ key: String?, inValues values: [Any]?, sortBy sortKey: String? = nil, ascending: Bool = true, limit: Int = 0) -> [Self]? {
