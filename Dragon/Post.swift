@@ -30,13 +30,27 @@ class Post: Model {
 }
 
 extension Post {
-    var status: PostStatus? {
-        get { return PostStatus(rawValue: self.postStatus as Int) }
-        set { if let value = newValue?.rawValue { self.postStatus = value as NSNumber } }
+    var status: PostStatus {
+        get { return PostStatus(rawValue: self.postStatus.intValue) ?? .inactive }
+        set { self.postStatus = NSNumber(value: newValue.rawValue) }
+    }
+    
+    var ordersCount: Int {
+        get { return self.orderCount.intValue }
+        set { self.orderCount = NSNumber(value: newValue) }
+    }
+    
+    var postCapacity: Int {
+        get { return self.capacity.intValue }
+        set { self.capacity = NSNumber(value: newValue) }
     }
     
     var location: Location? {
         return Location.fromID(self.chef?.locationID)
+    }
+    
+    var blob: Blob? {
+        return Blob.fromAlbumID(self.albumID)?.first
     }
 }
 
