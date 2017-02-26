@@ -54,7 +54,7 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let post = self.posts[safe: indexPath.row] else { return }
-        self.segue(withPost: post)
+        self.segue(with: post)
     }
     
     // MARK: Misc
@@ -73,7 +73,7 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
         )
     }
     
-    fileprivate func segue(withPost post: Post) {
+    fileprivate func segue(with post: Post) {
         self.segue(withIdentifier: "Segue_HomeTableViewController->PostDetailTableViewController", sender: post)
     }
 }
