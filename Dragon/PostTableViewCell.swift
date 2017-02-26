@@ -20,7 +20,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var post: Post?
-    var blob: Blob?
     
     func populate(with post: Post?) {
         self.activityIndicator.enable()
@@ -35,26 +34,25 @@ class PostTableViewCell: UITableViewCell {
     fileprivate func populateImage() {
         BackgroundQueue.async({ () -> Void in
             if let blob = Blob.fromAlbumID(self.post?.albumID)?.first {
-                self.blob = blob
-                let _ = self.blob?.image //Load lazy image in background thread
-                self.display(animated: true)
+                let _ = blob.image //Load lazy image in background thread
+                self.display(blob: blob, animated: true)
             } else {
                 guard let post = self.post else { return }
                 BlobRequest(withAlbumID: post.albumID).request(
                     onCompletion: { (result) -> Void in
-                        self.blob = result.blobs?.first
-                        let _ = self.blob?.image //Load lazy image in background thread
-                        self.display(animated: true)
+                        let blob = result.blobs?.first
+                        let _ = blob?.image //Load lazy image in background thread
+                        self.display(blob: blob, animated: true)
                     }
                 )
             }
         })
     }
     
-    fileprivate func display(animated: Bool = true) {
+    fileprivate func display(blob: Blob?, animated: Bool = true) {
         let changes = { () -> Void in
             self.postContainer.alpha = 1.0
-            self.imagePost.image = self.blob?.image
+            self.imagePost.image = blob?.image
             self.activityIndicator.disable()
         }
         
