@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, KeyboardScrollable {
             return
         }
         UserLoginRequest(withUsername: email).request(
-            onCompletion: { (userLoginResult: UserLoginResult) -> Void in
+            onCompletion: { (userLoginResult) -> Void in
                 guard userLoginResult.valid(username: email, password: password) else {
                     Message(.errorIncorrectUsernameOrPassword).display()
                     return

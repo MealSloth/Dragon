@@ -9,6 +9,7 @@
 import Foundation
 
 protocol APIRequest {
+    associatedtype APIResultType: APIResult
     var method: String { get set }
     var json: [String:Any] { get set }
     var host: APIHost { get set }
@@ -19,9 +20,16 @@ extension APIRequest {
         return self.method.characters.first == "/" ? String(self.method.characters.dropFirst()) : self.method
     }
     
-    func request<T: APIResult>(onCompletion: ((_ result: T) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil, finally: (() -> Void)? = nil) {
+    var defaultError: (Error?) -> Void {
+        return { (error) -> Void in
+            Log.error("Error during APIRequest: \(error)")
+            Message("\(error)").display() //TODO: Remove in production
+        }
+    }
+    
+    func request(onCompletion: ((_ result: APIResultType) -> Void)? = nil, onError: ((_ error: Error?) -> Void)? = nil, finally: (() -> Void)? = nil) {
         let resultHandler = { (result) -> Void in
-            onCompletion?(T(result: result))
+            onCompletion?(APIResultType(result: result))
         }
         let errorHandler = onError
         self.post(onCompletion: resultHandler, onError: errorHandler, finally: finally)
@@ -40,7 +48,7 @@ extension APIRequest {
             completionHandler: { (data, response, error) -> Void in
                 defer { finally?() }
                 guard let jsonData = data else {
-                    onError?(error)
+                    onError?(error) ?? self.defaultError(error)
                     return
                 }
                 do {
@@ -50,7 +58,7 @@ extension APIRequest {
                     }
                 }
                 catch let error {
-                    onError?(error)
+                    onError?(error) ?? self.defaultError(error)
                 }
             }
         )

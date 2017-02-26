@@ -7,6 +7,7 @@
 //
 
 struct BlobRequest: APIRequest {
+    typealias APIResultType = BlobResult
     var method: String = "blob/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

@@ -15,7 +15,7 @@ class PostTest: DragonTest {
         let method = "PostRequest(withPostID:)"
         
         PostRequest(withPostID: "de93088f-8fd4-4e35-8de1-d71292fdb047").request(
-            onCompletion: { (result: PostResult) -> Void in
+            onCompletion: { (result) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.post)
                 ready.fulfill()

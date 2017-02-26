@@ -16,7 +16,7 @@ class UserLoginDataTest: DragonTest {
         let method = "UserLoginRequest(withUserLoginID:)"
         
         UserLoginRequest(withUserLoginID: "63dd798f-50d6-40b2-8827-9788a6591dec").request(
-            onCompletion: { (result: UserLoginResult) -> Void in
+            onCompletion: { (result) -> Void in
                 let userLogin = UserLogin.fromID("63dd798f-50d6-40b2-8827-9788a6591dec")
                 XCTAssertNotNil(userLogin)
                 ready.fulfill()

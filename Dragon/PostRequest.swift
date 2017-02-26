@@ -7,6 +7,7 @@
 //
 
 struct PostRequest: APIRequest {
+    typealias APIResultType = PostResult
     var method: String = "post/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

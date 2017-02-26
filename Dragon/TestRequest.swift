@@ -7,6 +7,7 @@
 //
 
 struct TestRequest: APIRequest {
+    typealias APIResultType = TestResult
     var method: String = "test/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

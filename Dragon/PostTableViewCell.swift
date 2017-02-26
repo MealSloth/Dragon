@@ -41,7 +41,7 @@ class PostTableViewCell: UITableViewCell {
             } else {
                 guard let post = self.post else { return }
                 BlobRequest(withAlbumID: post.albumID).request(
-                    onCompletion: { (result: BlobResult) -> Void in
+                    onCompletion: { (result) -> Void in
                         self.blob = result.blobs?.first
                         let _ = self.blob?.image //Load lazy image in background thread
                         self.display(animated: true)

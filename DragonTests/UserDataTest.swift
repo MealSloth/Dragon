@@ -18,7 +18,7 @@ class UserDataTest: DragonTest {
         let method = "UserRequest(withUserID:)"
         
         UserRequest(withUserID: self.id).request(
-            onCompletion: { (result: UserResult) -> Void in
+            onCompletion: { (result) -> Void in
                 completion?(result, ready)
                 ready.fulfill()
             },

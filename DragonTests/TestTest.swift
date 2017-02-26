@@ -15,7 +15,7 @@ class TestTest: DragonTest {
         let method = "TestRequest()"
         
         TestRequest().request(
-            onCompletion: { (result: TestResult) -> Void in
+            onCompletion: { (result) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.test)
                 ready.fulfill()

@@ -16,7 +16,7 @@ class PostDataTest: DragonTest {
         let method = "PostPageRequest()"
         
         PostPageRequest().request(
-            onCompletion: { (result: PostPageResult) -> Void in
+            onCompletion: { (result) -> Void in
                 completion?(result, ready)
                 ready.fulfill()
             },
@@ -81,7 +81,7 @@ class PostDataTest: DragonTest {
     
     func testPostTest() {
         self.postRequest(completion: { (result: PostPageResult, ready: XCTestExpectation) -> Void in
-            if let post = Post.from(["id": "70c82ab8-1a90-4c7c-b976-f4169eb84771", ])?.first {
+            if let post = Post.from(predicateMap: ["id": "70c82ab8-1a90-4c7c-b976-f4169eb84771", ])?.first {
                 XCTAssertTrue(post.id == "70c82ab8-1a90-4c7c-b976-f4169eb84771")
             } else {
                 XCTFail()

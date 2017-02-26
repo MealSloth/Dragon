@@ -14,7 +14,7 @@ class UIImageCacheTest: DragonTest {
         let ready = expectation(description: "ready")
         
         BlobRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
-            onCompletion: { (result: BlobResult) -> Void in
+            onCompletion: { (result) -> Void in
                 let image = UIImage.from(url: result.blob?.url ?? "")
                 let key = String.random()
                 UIImageCache.put(image, at: key)

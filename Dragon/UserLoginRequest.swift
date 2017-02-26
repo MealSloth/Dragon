@@ -7,6 +7,7 @@
 //
 
 struct UserLoginRequest: APIRequest {
+    typealias APIResultType = UserLoginResult
     var method: String = "user-login/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

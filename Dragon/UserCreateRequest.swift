@@ -7,6 +7,7 @@
 //
 
 struct UserCreateRequest: APIRequest {
+    typealias APIResultType = UserCreateResult
     var method: String = "user/create/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

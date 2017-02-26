@@ -15,7 +15,7 @@ class EditProfilePhotoCell: UITableViewCell, EditProfileCell {
     
     func initialize() {
         BlobRequest(withUserID: self.user?.id).request(
-            onCompletion: { (result: BlobResult) -> Void in
+            onCompletion: { (result) -> Void in
                 _ = result.blob?.image
                 MainQueue.sync({ () -> Void in
                     self.profilePhoto.alpha = 0.0

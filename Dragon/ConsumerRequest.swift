@@ -7,6 +7,7 @@
 //
 
 struct ConsumerRequest: APIRequest {
+    typealias APIResultType = ConsumerResult
     var method: String = "consumer/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

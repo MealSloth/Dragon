@@ -32,7 +32,7 @@ class PostDetailTitleCell: UITableViewCell, InstanceRetrievable {
             self.populateImage()
         } else {
             BlobRequest(withAlbumID: post.albumID).request(
-                onCompletion: { (result: BlobResult) -> Void in
+                onCompletion: { (result) -> Void in
                     self.blob = result.blobs?.first
                     let _ = self.blob?.image //Preload lazily loaded image
                     self.populateImage()

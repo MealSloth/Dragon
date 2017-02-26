@@ -19,7 +19,7 @@ class UserCreateTest: DragonTest {
 //        let pass = String.random(allow: [.numeric, .alphaLower, .alphaUpper, .symbolicUrl, ], length: 32)
 //        
 //        UserCreateRequest(withEmail: email, andPassword: pass).request(
-//            onCompletion: { (result: UserCreateResult) -> Void in
+//            onCompletion: { (result) -> Void in
 //                XCTAssertNotNil(result)
 //                XCTAssertNotNil(result.user)
 //                XCTAssertNotNil(result.userLogin)

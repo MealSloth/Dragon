@@ -9,6 +9,7 @@
 import Foundation
 
 struct UserModifyRequest: APIRequest {
+    typealias APIResultType = UserModifyResult
     var method: String = "user/modify/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

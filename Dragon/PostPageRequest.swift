@@ -9,6 +9,7 @@
 import Foundation
 
 struct PostPageRequest: APIRequest {
+    typealias APIResultType = PostPageResult
     var method: String = "post/page/"
     var json: [String:Any] = [:]
     var host: APIHost = .chimera

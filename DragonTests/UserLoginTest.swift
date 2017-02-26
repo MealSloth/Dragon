@@ -15,7 +15,7 @@ class UserLoginTest: DragonTest {
         let method = "UserLoginRequest(withUserLoginID:)"
         
         UserLoginRequest(withUserLoginID: "63dd798f-50d6-40b2-8827-9788a6591dec").request(
-            onCompletion: { (result: UserLoginResult) -> Void in
+            onCompletion: { (result) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.userLogin)
                 ready.fulfill()
@@ -33,7 +33,7 @@ class UserLoginTest: DragonTest {
         let method = "UserLoginRequest(withUserID:)"
         
         UserLoginRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
-            onCompletion: { (result: UserLoginResult) -> Void in
+            onCompletion: { (result) -> Void in
                 XCTAssertNotNil(result)
                 XCTAssertNotNil(result.userLogin)
                 ready.fulfill()
