@@ -22,10 +22,6 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
         self.refresh()
     }
     
-    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
-        self.reload(animated: false)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         switch identifier {
@@ -64,7 +60,7 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
     // MARK: Misc
     func refresh() {
         PostPageRequest().request(
-            onCompletion: { (result: PostPageResult) -> Void in
+            onCompletion: { (result) -> Void in
                 self.posts = Post.sortBy(key: "postTime", ascending: false) ?? []
                 self.reload(animated: false)
             },
