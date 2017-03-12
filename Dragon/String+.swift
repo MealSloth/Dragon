@@ -35,7 +35,7 @@ extension String {
         let set: String.CharacterView = format.map({ $0.rawValue }).joined().characters
         var characters: [String] = []
         for _ in 0..<capacity {
-            let rand = Int(arc4random_uniform(UInt32(capacity % Int(Int32.max))))
+            let rand = Int(arc4random_uniform(UInt32(set.count % Int(Int32.max))))
             characters.append(String(set[set.index(set.startIndex, offsetBy: rand)]))
         }
         return characters.joined()
