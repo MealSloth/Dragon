@@ -12,7 +12,7 @@ import XCTest
 
 class PostDataTest: DragonTest {
     private func postRequest(completion: ((PostPageResult, XCTestExpectation) -> Void)?) {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "PostPageRequest()"
         
         PostPageRequest().request(

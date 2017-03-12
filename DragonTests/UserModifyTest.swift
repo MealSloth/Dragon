@@ -11,7 +11,7 @@ import XCTest
 
 class UserModifyTest: DragonTest {
     func testWithUserIDFirstNameLastNameGenderDateOfBirthPhoneNumber() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "UserModifyRequest(withUserID:firstName:lastName:gender:dateOfBirth:phoneNumber:)"
         let dob = Date(timeIntervalSince1970: TimeInterval())
         

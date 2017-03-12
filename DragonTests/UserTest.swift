@@ -11,7 +11,7 @@ import XCTest
 
 class UserTest: DragonTest {
     func testWithUserID() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "UserRequest(withUserID:)"
         
         UserRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
@@ -30,7 +30,7 @@ class UserTest: DragonTest {
     }
     
     func testWithEmail() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "UserRequest(withEmail:)"
         
         UserRequest(withEmail: "testgryphon@android.com").request(

@@ -14,7 +14,7 @@ class UserDataTest: DragonTest {
     let id = "8bbfec5e-c29b-40d6-9918-45911e97134f"
     
     private func userRequest(completion: ((UserResult, XCTestExpectation) -> Void)?) {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "UserRequest(withUserID:)"
         
         UserRequest(withUserID: self.id).request(

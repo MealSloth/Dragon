@@ -11,7 +11,7 @@ import XCTest
 
 class UIImageCacheTest: DragonTest {
     func testPutGet() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         
         BlobRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
             onCompletion: { (result) -> Void in

@@ -12,7 +12,7 @@ import XCTest
 
 class UserCreateTest: DragonTest {
 //    func testWithEmailAndPassword() {
-//        let ready = expectation(description: "ready")
+//        let ready = self.expectation(description: "ready")
 //        let method = "UserCreateRequest(withEmail:andPassword:)"
 //        
 //        let email = "\(String.random(allow: [.numeric, .alphaLower, .alphaUpper, ], length: 20))@mail.com"

@@ -12,7 +12,7 @@ import XCTest
 
 class UserLoginDataTest: DragonTest {
     func testUserLoginFetch() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "UserLoginRequest(withUserLoginID:)"
         
         UserLoginRequest(withUserLoginID: "63dd798f-50d6-40b2-8827-9788a6591dec").request(

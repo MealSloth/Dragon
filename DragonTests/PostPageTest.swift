@@ -11,7 +11,7 @@ import XCTest
 
 class PostPageTest: DragonTest {
     func testUsingNothing() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "PostPageRequest()"
         
         PostPageRequest().request(
@@ -33,7 +33,7 @@ class PostPageTest: DragonTest {
     }
     
     func testWithPageSize() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "PostPageRequest(withPageSize:)"
         
         PostPageRequest(withPageSize: 10).request(
@@ -55,7 +55,7 @@ class PostPageTest: DragonTest {
     }
     
     func testUsingPostTimestamp() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "PostPageRequest(usingPostTimestamp:)"
         let date = Date(timeIntervalSince1970: TimeInterval())
         
@@ -78,7 +78,7 @@ class PostPageTest: DragonTest {
     }
     
     func testUsingPostTimestampWithPageSize() {
-        let ready = expectation(description: "ready")
+        let ready = self.expectation(description: "ready")
         let method = "PostPageRequest()"
         let date = Date(timeIntervalSince1970: TimeInterval())
         
