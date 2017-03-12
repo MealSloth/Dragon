@@ -25,6 +25,6 @@ class TestTest: DragonTest {
             }
         )
         
-        waitForExpectations(timeout: 60, duringMethod: method)
+        self.waitForExpectations(timeout: 60, duringMethod: method)
     }
 }

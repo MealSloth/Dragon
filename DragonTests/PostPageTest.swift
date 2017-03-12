@@ -29,7 +29,7 @@ class PostPageTest: DragonTest {
             }
         )
         
-        waitForExpectations(timeout: 10, duringMethod: method)
+        self.waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testWithPageSize() {
@@ -51,7 +51,7 @@ class PostPageTest: DragonTest {
             }
         )
         
-        waitForExpectations(timeout: 10, duringMethod: method)
+        self.waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testUsingPostTimestamp() {
@@ -74,7 +74,7 @@ class PostPageTest: DragonTest {
             }
         )
         
-        waitForExpectations(timeout: 10, duringMethod: method)
+        self.waitForExpectations(timeout: 10, duringMethod: method)
     }
     
     func testUsingPostTimestampWithPageSize() {
@@ -97,6 +97,6 @@ class PostPageTest: DragonTest {
             }
         )
         
-        waitForExpectations(timeout: 10, duringMethod: method)
+        self.waitForExpectations(timeout: 10, duringMethod: method)
     }
 }

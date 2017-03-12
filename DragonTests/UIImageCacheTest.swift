@@ -27,7 +27,7 @@ class UIImageCacheTest: DragonTest {
             }
         )
         
-        waitForExpectations(timeout: 10, handler: { (error) -> Void in
+        self.waitForExpectations(timeout: 10, handler: { (error) -> Void in
             XCTAssertNil(error, "Failed with error \(error)")
         })
     }

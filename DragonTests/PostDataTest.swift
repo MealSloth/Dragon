@@ -25,7 +25,7 @@ class PostDataTest: DragonTest {
             }
         )
         
-        waitForExpectations(timeout: 5, duringMethod: method)
+        self.waitForExpectations(timeout: 5, duringMethod: method)
     }
     
     func testPostStore() {
