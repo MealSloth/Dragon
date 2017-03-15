@@ -32,7 +32,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     fileprivate func populateImage() {
-        if let blob = Blob.fromAlbumID(self.post?.albumID)?.first {
+        if let blob = self.post?.blob {
             self.imagePost.display(blob: blob, activityIndicator: self.activityIndicator)
         } else {
             guard let post = self.post else { return }

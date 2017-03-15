@@ -19,7 +19,6 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
         self.registerNib(withName: "PostTableViewCell")
         self.posts = Post.sorted ?? []
         self.addRefreshControl()
-        self.refresh()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
