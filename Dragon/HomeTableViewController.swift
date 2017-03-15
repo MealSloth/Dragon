@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class HomeTableViewController: UITableViewController, RefreshControllable {
-    var posts: [Post] = []
     var ratio: CGFloat = 9.0/16.0
+    var posts: [Post] = []
     
     // MARK: Delegates
     override func viewDidLoad() {

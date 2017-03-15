@@ -46,7 +46,7 @@ class PostDetailTitleCell: UITableViewCell, InstanceRetrievable {
             self.activityIndicator.disable()
             UIView.animate(withDuration: 0.4, animations: { () -> Void in
                 self.imagePost.image = self.blob?.image
-                self.imagePost.alpha = 1.0
+                self.imagePost.isHidden = false
             })
         })
     }

@@ -17,10 +17,10 @@ protocol ViewMessageable {
 extension ViewMessageable {
     var visible: Bool {
         get {
-            return Self.messageableContainer.visible
+            return !Self.messageableContainer.isHidden
         }
         set {
-            Self.messageableContainer.visible = newValue
+            Self.messageableContainer.isHidden = !newValue
         }
     }
     

@@ -18,10 +18,10 @@ class EditProfilePhotoCell: UITableViewCell, EditProfileCell {
             onCompletion: { (result) -> Void in
                 _ = result.blob?.image
                 MainQueue.sync({ () -> Void in
-                    self.profilePhoto.alpha = 0.0
+                    self.profilePhoto.isHidden = true
                     UIView.animate(withDuration: 0.3, animations: { () -> Void in
                         self.profilePhoto.image = result.blob?.image
-                        self.profilePhoto.alpha = 1.0
+                        self.profilePhoto.isHidden = false
                     })
                 })
             }

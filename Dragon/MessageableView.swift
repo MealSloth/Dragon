@@ -25,10 +25,10 @@ struct MessageableView: ViewMessageable {
     }
     
     func hide() {
-        self.container.visible = false
+        self.container.isHidden = true
     }
     
     func show() {
-        self.container.visible = true
+        self.container.isHidden = false
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var postContainer: UIView!
     @IBOutlet weak var imagePost: UIImageView!
     @IBOutlet weak var imageChef: UIImageView!
@@ -17,7 +18,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var labelPostName: UILabel!
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var labelTime: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var post: Post?
     
@@ -32,32 +32,15 @@ class PostTableViewCell: UITableViewCell {
     }
     
     fileprivate func populateImage() {
-        BackgroundQueue.async({ () -> Void in
-            if let blob = Blob.fromAlbumID(self.post?.albumID)?.first {
-                let _ = blob.image //Load lazy image in background thread
-                self.display(blob: blob, animated: true)
-            } else {
-                guard let post = self.post else { return }
-                BlobRequest(withAlbumID: post.albumID).request(
-                    onCompletion: { (result) -> Void in
-                        let blob = result.blobs?.first
-                        let _ = blob?.image //Load lazy image in background thread
-                        self.display(blob: blob, animated: true)
-                    }
-                )
-            }
-        })
-    }
-    
-    fileprivate func display(blob: Blob?, animated: Bool = true) {
-        let changes = { () -> Void in
-            self.postContainer.alpha = 1.0
-            self.imagePost.image = blob?.image
-            self.activityIndicator.disable()
+        if let blob = Blob.fromAlbumID(self.post?.albumID)?.first {
+            self.imagePost.display(blob: blob, activityIndicator: self.activityIndicator)
+        } else {
+            guard let post = self.post else { return }
+            BlobRequest(withAlbumID: post.albumID).request(
+                onCompletion: { (result) -> Void in
+                    self.imagePost.display(blob: result.blobs?.first, activityIndicator: self.activityIndicator)
+                }
+            )
         }
-        
-        MainQueue.sync({ () -> Void in
-            animated ? UIView.animate(withDuration: 0.3, animations: changes) : changes()
-        })
     }
 }

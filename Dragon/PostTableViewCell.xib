@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="735" height="480"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CMF-Gw-XLB" id="EHx-NG-krp">
-                <rect key="frame" x="0.0" y="0.0" width="735" height="480"/>
+                <rect key="frame" x="0.0" y="0.0" width="735" height="479.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zo-zi-4Eb" userLabel="Post">
@@ -108,11 +108,6 @@
                             <constraint firstItem="34U-CX-QFz" firstAttribute="leading" secondItem="6zo-zi-4Eb" secondAttribute="leading" id="vyb-7U-doT"/>
                             <constraint firstItem="G4f-e4-iCY" firstAttribute="top" secondItem="087-My-3qN" secondAttribute="bottom" constant="-30" id="yAM-o4-ncb"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="alpha">
-                                <integer key="value" value="0"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DAe-71-UGy">
                         <rect key="frame" x="357" y="229" width="20" height="20"/>
