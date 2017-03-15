@@ -15,7 +15,12 @@ class UIImageCacheTest: DragonTest {
         
         BlobRequest(withUserID: "8bbfec5e-c29b-40d6-9918-45911e97134f").request(
             onCompletion: { (result) -> Void in
-                let image = UIImage.from(url: result.blob?.url ?? "")
+                guard let blob = result.blob else {
+                    XCTFail("Failed by receiving nil Blob from BlobRequest(withUserID:)")
+                    ready.fulfill()
+                    return
+                }
+                let image = UIImage(url: URL(string: blob.url))
                 let key = String.random()
                 UIImageCache.put(image, at: key)
                 XCTAssertNotNil(UIImageCache.get(key))
