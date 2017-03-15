@@ -29,10 +29,10 @@ extension String {
     
     static func random(allow format: [RandomStringAllow] = [.numeric, .alphaLower, .alphaUpper, ], length capacity: Int = 64) -> String {
         guard format.count > 0 else {
-            preconditionFailure("Random function requires at least one value in array parameter. If no specific value is required, leave the parameter as nil.")
+            preconditionFailure("Random function requires at least one value in array parameter. If no specific value is required, leave the parameter unspecified.")
         }
         
-        let set: String.CharacterView = format.map({ $0.rawValue }).joined().characters
+        let set = format.map({ $0.rawValue }).joined().characters
         var characters: [String] = []
         for _ in 0..<capacity {
             let rand = Int(arc4random_uniform(UInt32(set.count % Int(Int32.max))))
