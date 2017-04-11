@@ -12,8 +12,12 @@ struct MainQueue: Queueable {
     static let sharedOperation = OperationQueue.main
     static let sharedDispatch = DispatchQueue.main
     
-    static func sync(_ block: (() -> Void)?) {
+    static func add(operation block: (() -> Void)?) {
         self.sharedOperation.addOperation(block ?? {})
+    }
+    
+    static func sync(_ block: (() -> Void)?) {
+        self.sharedDispatch.sync(execute: block ?? {})
     }
     
     static func async(_ block: (() -> Void)?) {

@@ -16,7 +16,7 @@ extension UIImageView {
     
     func display(image: UIImage?, animated: Bool = true, activityIndicator indicator: UIActivityIndicatorView? = nil) {
         guard let image = image else { return }
-        MainQueue.sync({ () -> Void in
+        MainQueue.async({ () -> Void in
             indicator?.enable()
             self.isHidden = true
             BackgroundQueue.async({ () -> Void in
@@ -25,7 +25,7 @@ extension UIImageView {
                     self.image = image
                     indicator?.disable()
                 }
-                MainQueue.sync({ () -> Void in
+                MainQueue.async({ () -> Void in
                     animated ? UIView.animate(withDuration: 0.3, animations: changes) : changes()
                 })
             })
@@ -34,7 +34,7 @@ extension UIImageView {
     
     func display(blob: Blob?, animated: Bool = true, activityIndicator indicator: UIActivityIndicatorView? = nil) {
         guard let blob = blob else { return }
-        MainQueue.sync({ () -> Void in
+        MainQueue.async({ () -> Void in
             indicator?.enable()
             self.isHidden = true
             BackgroundQueue.async({ () -> Void in

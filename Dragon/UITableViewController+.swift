@@ -16,19 +16,19 @@ extension UITableViewController {
 
 extension UITableViewController {
     fileprivate func reload(at rows: [IndexPath], animated: Bool = true) {
-        MainQueue.sync({ () -> Void in
+        MainQueue.async({ () -> Void in
             self.tableView.reloadRows(at: rows, with: animated ? .automatic : .none)
         })
     }
     
     fileprivate func reload(in sections: IndexSet, animated: Bool = true) {
-        MainQueue.sync({ () -> Void in
+        MainQueue.async({ () -> Void in
             self.tableView.reloadSections(sections, with: animated ? .automatic : .none)
         })
     }
     
     fileprivate func reloadData() {
-        MainQueue.sync({ () -> Void in
+        MainQueue.async({ () -> Void in
             self.tableView.reloadData()
         })
     }

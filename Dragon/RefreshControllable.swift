@@ -21,7 +21,7 @@ extension RefreshControllable {
     }
     
     func endRefreshing() {
-        MainQueue.sync({ () -> Void in
+        MainQueue.async({ () -> Void in
             self.refreshControl?.endRefreshing()
         })
     }
