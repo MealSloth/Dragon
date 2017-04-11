@@ -22,8 +22,8 @@ extension APIRequest {
     
     var defaultError: (Error?) -> Void {
         return { (error) -> Void in
-            Log.error("Error during APIRequest: \(error)")
-            Message("\(error)").display() //TODO: Remove in production
+            Log.error("Error during APIRequest: \(error?.localizedDescription ?? "")")
+            Message("\(error?.localizedDescription ?? "")").display() //TODO: Remove in production
         }
     }
     

@@ -17,8 +17,8 @@ class UserLogin: Model {
 
 extension UserLogin {
     var access: UserLoginAccessLevel? {
-        get { return UserLoginAccessLevel(rawValue: self.accessLevel as Int) }
-        set { if let value = newValue?.rawValue { self.accessLevel = value as NSNumber } }
+        get { return UserLoginAccessLevel(rawValue: self.accessLevel.intValue) }
+        set { if let value = newValue?.rawValue { self.accessLevel = NSNumber(value: value) } }
     }
     
     var user: User? {

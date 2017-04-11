@@ -21,12 +21,12 @@ class Location: Model {
     @NSManaged var zip: String?
     
     var locationPurpose: LocationPurpose? {
-        get { return LocationPurpose(rawValue: self.purpose as Int) }
-        set { if let value = newValue?.rawValue { self.purpose = value as NSNumber } }
+        get { return LocationPurpose(rawValue: self.purpose.intValue) }
+        set { if let value = newValue?.rawValue { self.purpose = NSNumber(value: value) } }
     }
     
     var locationType: LocationType? {
-        get { return LocationType(rawValue: self.type as Int) }
-        set { if let value = newValue?.rawValue { self.type = value as NSNumber } }
+        get { return LocationType(rawValue: self.type.intValue) }
+        set { if let value = newValue?.rawValue { self.type = NSNumber(value: value) } }
     }
 }

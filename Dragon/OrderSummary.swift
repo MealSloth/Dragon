@@ -17,12 +17,12 @@ class OrderSummary: Model {
     @NSManaged var latestTime: Date!
     
     var status: OrderStatus? {
-        get { return OrderStatus(rawValue: self.orderStatus as Int) }
-        set { if let value = newValue?.rawValue { self.orderStatus = value as NSNumber } }
+        get { return OrderStatus(rawValue: self.orderStatus.intValue) }
+        set { if let value = newValue?.rawValue { self.orderStatus = NSNumber(value: value) } }
     }
     
     var type: OrderType? {
-        get { return OrderType(rawValue: self.orderType as Int) }
-        set { if let value = newValue?.rawValue { self.orderStatus = value as NSNumber } }
+        get { return OrderType(rawValue: self.orderType.intValue) }
+        set { if let value = newValue?.rawValue { self.orderStatus = NSNumber(value: value) } }
     }
 }

@@ -64,7 +64,7 @@ class HomeTableViewController: UITableViewController, RefreshControllable {
                 self.reload(animated: false)
             },
             onError: { (error) -> Void in
-                Log.error("Error occurred during PostPageRequest(): \(error)")
+                Log.error("Error occurred during PostPageRequest(): \(error.debugDescription)")
             },
             finally: { () -> Void in
                 self.endRefreshing()

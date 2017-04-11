@@ -15,7 +15,7 @@ class OrderTime: Model {
     @NSManaged var time: Date!
     
     var status: OrderStatus? {
-        get { return OrderStatus(rawValue: self.orderStatus as Int) }
-        set { if let value = newValue?.rawValue { self.orderStatus = value as NSNumber } }
+        get { return OrderStatus(rawValue: self.orderStatus.intValue) }
+        set { if let value = newValue?.rawValue { self.orderStatus = NSNumber(value: value) } }
     }
 }
