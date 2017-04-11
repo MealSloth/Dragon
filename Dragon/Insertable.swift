@@ -13,7 +13,7 @@ import CoreData
 //  share their class name with the corresponding CoreData entity's name
 //
 protocol Insertable {
-    static var context: NSManagedObjectContext? { get }
+    static var context: NSManagedObjectContext? { get set }
     func populate(using model: APIModel?, skip: [String])
     func value(for key: String) -> Any?
 }

@@ -22,9 +22,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
         return AppDelegate.instance?.persistentStoreCoordinator
     }
     
-    static var context: NSManagedObjectContext? {
-        return AppDelegate.instance?.managedObjectContext
-    }
+    static var context: NSManagedObjectContext? = AppDelegate.instance?.managedObjectContext
     
     //MARK: Initializers
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
