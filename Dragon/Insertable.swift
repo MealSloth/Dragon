@@ -15,6 +15,7 @@ import CoreData
 protocol Insertable {
     static var context: NSManagedObjectContext? { get }
     func populate(using model: APIModel?, skip: [String])
+    func value(for key: String) -> Any?
 }
 
 extension Insertable where Self: NSManagedObject {
@@ -42,7 +43,7 @@ extension Insertable where Self: NSManagedObject {
     }
     
     static func insert(_ model: APIModel?, into table: String?) -> Self? {
-        guard let object = Self.insert(at: model?.value(forKey: "id") as? String, into: table) else { return nil }
+        guard let object = Self.insert(at: model?.value(for: "id") as? String, into: table) else { return nil }
         object.populate(using: model, skip: [])
         try? self.context?.save()
         return object
