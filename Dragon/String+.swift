@@ -16,7 +16,7 @@ extension String {
     
     var date: Date? {
         guard self.characters.count > 3 else { return nil } //Make sure the string is valid for substring
-        let formatter = DateFormatter.init()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         return formatter.date(from: self.substring(to: self.index(self.endIndex, offsetBy: -3)))
     }
