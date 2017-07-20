@@ -24,12 +24,7 @@ extension Loggable {
     }
     
     fileprivate static func logRemaining(_ strArr: [String]?) {
-        guard let count = strArr?.count , count > 1 else { return }
-        for newLine in 1..<count {
-            if let line = strArr?[safe: newLine] {
-                print(line)
-            }
-        }
+        strArr?.dropFirst().forEach({ print($0) })
     }
     
     static func log(type: String, string: String?, file: String, function: String, line: Int) {
