@@ -16,12 +16,8 @@ protocol ViewMessageable {
 
 extension ViewMessageable {
     var visible: Bool {
-        get {
-            return !Self.messageableContainer.isHidden
-        }
-        set {
-            Self.messageableContainer.isHidden = !newValue
-        }
+        get { return !Self.messageableContainer.isHidden }
+        set { Self.messageableContainer.isHidden = !newValue }
     }
     
     func initialize() {
