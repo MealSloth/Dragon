@@ -40,9 +40,6 @@ struct FieldNameHelper: FieldNameConverter {
     }
     
     fileprivate static func getServerName(forSubstring substring: String) -> String {
-        var serverName = ""
-        let characters = substring.characters.map({ String($0) })
-        characters.forEach({ serverName += $0.uppercased() == $0 ? "_\($0.lowercased())" : $0 })
-        return serverName
+        return substring.characters.map({ String($0) }).map({ $0.uppercased() == $0 ? "_\($0.lowercased())" : $0 }).joined()
     }
 }
