@@ -10,11 +10,7 @@ import UIKit
 
 extension UIView {
     var visible: Bool {
-        get {
-            return self.alpha > 0.0
-        }
-        set {
-            self.alpha = newValue ? 1.0 : 0.0
-        }
+        get { return self.alpha > 0.0 }
+        set { self.alpha = newValue ? 1.0 : 0.0 }
     }
 }
