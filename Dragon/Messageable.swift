@@ -25,10 +25,8 @@ extension Messageable {
     
     static func display(text: String?, duration: TimeInterval? = nil) {
         guard let message = text else { return }
-        MainQueue.async({ () -> Void in
-            self.view.label.text = message
-            self.show(text: text, duration: duration)
-        })
+        self.view.label.text = message
+        self.show(text: text, duration: duration)
     }
     
     fileprivate static func show(text: String?, duration: TimeInterval?) {
