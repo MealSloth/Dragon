@@ -12,8 +12,6 @@ extension Date {
     var string: String {
         let formatter = DateFormatter.init()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
-        var string = formatter.string(from: self)
-        string += "000"
-        return string
+        return "\(formatter.string(from: self))000"
     }
 }
