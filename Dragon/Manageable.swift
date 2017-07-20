@@ -13,5 +13,5 @@ import CoreData
 //
 
 protocol Manageable: Deletable, Fetchable, Insertable, Updatable {
-    static var context: NSManagedObjectContext? { get set }
+    static var context: NSManagedObjectContext? { get }
 }

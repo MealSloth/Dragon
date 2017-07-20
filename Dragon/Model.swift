@@ -6,6 +6,7 @@
 //  Copyright © 2016 MealSloth. All rights reserved.
 //
 
+import Foundation
 import CoreData
 import UIKit
 
@@ -22,7 +23,17 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
         return AppDelegate.instance?.persistentStoreCoordinator
     }
     
-    static var context: NSManagedObjectContext? = AppDelegate.instance?.managedObjectContext
+    static var context: NSManagedObjectContext? {
+        return Thread.current.name == BackgroundQueue.name ? self.backgroundContext : self.mainContext
+    }
+    
+    static var mainContext: NSManagedObjectContext? {
+        return AppDelegate.instance?.mainManagedObjectContext
+    }
+    
+    static var backgroundContext: NSManagedObjectContext? {
+        return AppDelegate.instance?.backgroundManagedObjectContext
+    }
     
     //MARK: Initializers
     override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
@@ -71,8 +82,7 @@ class Model: NSManagedObject, Manageable, PrettyPrintable, PropertiesEquatable, 
     //MARK: Initialization helpers
     func populate(using model: APIModel?, skip: [String] = []) {
         guard let model = model else { return }
-        for property in model.properties
-            where self.properties.contains(property) && !skip.contains(property) {
+        for property in model.properties where self.properties.contains(property) && !skip.contains(property) {
             self.set(model.value(for: property), for: property)
         }
     }

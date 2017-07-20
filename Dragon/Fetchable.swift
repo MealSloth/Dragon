@@ -13,7 +13,7 @@ import CoreData
 //  share their class name with the corresponding CoreData entity's name
 //
 protocol Fetchable: NSFetchRequestResult {
-    static var context: NSManagedObjectContext? { get set }
+    static var context: NSManagedObjectContext? { get }
 }
 
 extension Fetchable where Self: NSManagedObject {

@@ -26,16 +26,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
         return coordinator
     }()
     
-    lazy var managedObjectContext: NSManagedObjectContext = {
+    lazy var mainManagedObjectContext: NSManagedObjectContext = {
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
+        return managedObjectContext
+    }()
+    
+    lazy var backgroundManagedObjectContext: NSManagedObjectContext = {
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator
         return managedObjectContext
     }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.managedObjectContext.performAndWait({ () -> Void in
-            //When writing to CoreData, existing entries should be merged with priority given to the external model
-            self.managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        MainQueue.async({ () -> Void in //Lazily initialize the main context on the main thread
+            self.mainManagedObjectContext.performAndWait({ () -> Void in
+                //When writing to CoreData, existing entries should be merged with priority given to the external model
+                self.mainManagedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            })
+        })
+        BackgroundQueue.async({ () -> Void in //Lazily initialize the background context on the background thread
+            self.backgroundManagedObjectContext.performAndWait({ () -> Void in
+                //When writing to CoreData, existing entries should be merged with priority given to the external model
+                self.backgroundManagedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+            })
         })
         _ = Model.children //Preload children of Model class
         _ = APIModel.children //Preload children of APIModel class
@@ -52,6 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, InstanceRetrievable {
     }
     
     static func saveContext() {
-        try? self.instance?.managedObjectContext.save()
+        try? self.instance?.mainManagedObjectContext.save()
     }
 }

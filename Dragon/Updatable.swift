@@ -12,11 +12,11 @@ import CoreData
 //  Supports basic CoreData update functions for objects which subclass NSManagedObject
 //
 protocol Updatable {
-    static var context: NSManagedObjectContext? { get set }
+    static var context: NSManagedObjectContext? { get }
 }
 
 extension Updatable where Self: NSManagedObject {
     func save() {
-        try? Self.context?.save()
+        try? self.managedObjectContext?.save()
     }
 }

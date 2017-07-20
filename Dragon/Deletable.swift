@@ -13,12 +13,12 @@ import CoreData
 //  share their class name with the corresponding CoreData entity's name
 //
 protocol Deletable {
-    static var context: NSManagedObjectContext? { get set }
+    static var context: NSManagedObjectContext? { get }
 }
 
 extension Deletable where Self: NSManagedObject {
     func delete() {
-        Self.context?.delete(self)
+        self.managedObjectContext?.delete(self)
     }
 }
 
