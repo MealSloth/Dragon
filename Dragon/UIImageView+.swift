@@ -19,16 +19,12 @@ extension UIImageView {
         MainQueue.async({ () -> Void in
             indicator?.enable()
             self.isHidden = true
-            BackgroundQueue.async({ () -> Void in
-                let changes = { () -> Void in
-                    self.isHidden = false
-                    self.image = image
-                    indicator?.disable()
-                }
-                MainQueue.async({ () -> Void in
-                    animated ? UIView.animate(withDuration: 0.3, animations: changes) : changes()
-                })
-            })
+            let changes = { () -> Void in
+                self.isHidden = false
+                self.image = image
+                indicator?.disable()
+            }
+            animated ? UIView.animate(withDuration: 0.3, animations: changes) : changes()
         })
     }
     
@@ -37,9 +33,7 @@ extension UIImageView {
         MainQueue.async({ () -> Void in
             indicator?.enable()
             self.isHidden = true
-            BackgroundQueue.async({ () -> Void in
-                self.display(image: blob.image, animated: animated, activityIndicator: indicator)
-            })
+            self.display(image: blob.image, animated: animated, activityIndicator: indicator)
         })
     }
 }
