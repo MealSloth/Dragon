@@ -8,27 +8,21 @@
 
 struct FieldNameHelper: FieldNameConverter {
     static func getClientName(forServerName serverName: String) -> String {
-        var clientName = ""
         guard serverName != "id" else { return serverName }
         if serverName.contains("_id") {
-            clientName += self.getClientName(forSubstring: serverName.substring(to: serverName.index(serverName.endIndex, offsetBy: -3)))
-            clientName += "ID"
+            return "\(self.getClientName(forSubstring: serverName.substring(to: serverName.index(serverName.endIndex, offsetBy: -3))))ID"
         } else {
-            clientName = self.getClientName(forSubstring: serverName)
+            return self.getClientName(forSubstring: serverName)
         }
-        return clientName
     }
     
     static func getServerName(forClientName clientName: String) -> String {
-        var serverName = ""
         guard clientName != "id" else { return clientName }
         if clientName.contains("ID") {
-            serverName += self.getServerName(forSubstring: clientName.substring(to: clientName.index(clientName.endIndex, offsetBy: -2)))
-            serverName += "_id"
+            return "\(self.getServerName(forSubstring: clientName.substring(to: clientName.index(clientName.endIndex, offsetBy: -2))))_id"
         } else {
-            serverName = self.getServerName(forSubstring: clientName)
+            return self.getServerName(forSubstring: clientName)
         }
-        return serverName
     }
     
     fileprivate static func getClientName(forSubstring substring: String) -> String {
