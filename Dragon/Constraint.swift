@@ -48,7 +48,7 @@ func constrain(_ operation: ConstraintOperation) {
         case .sides(let constraining, let constrained, let constant):
             constrain([.top, .leading, ], of: constraining, to: constrained, by: constant)
             constrain([.bottom, .trailing, ], of: constraining, to: constrained, by: 0.0 - (constant ?? 0.0))
-        break
+            break
         case .xSides(let constraining, let constrained, let constant):
             constrain(.top, of: constraining, to: .top, of: constrained, by: constant)
             constrain(.bottom, of: constraining, to: .bottom, of: constrained, by: 0.0 - (constant ?? 0.0))
